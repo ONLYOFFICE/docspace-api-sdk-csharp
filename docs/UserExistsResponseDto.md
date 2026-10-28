@@ -6,7 +6,7 @@ The user existence check response parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Exists** | **bool** | Specifies whether the user exists or not. | 
-**Status** | **EmployeeStatus** |  | [optional] 
+**Status** | **EmployeeStatus** | The user status, if the user exists. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

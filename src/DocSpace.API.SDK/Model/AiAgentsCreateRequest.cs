@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsCreateRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsCreate_request")]
+    [DataContract(Name = "AiAgentsCreateRequest")]
     public partial class AiAgentsCreateRequest : IValidatableObject
     {
     
@@ -93,105 +93,90 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Profile id bound to the agent.
         /// </summary>
-        /// <value>Profile id bound to the agent.</value>
         [DataMember(Name = "profileId", IsRequired = true, EmitDefaultValue = true)]
         public string ProfileId { get; set; }
 
         /// <summary>
         /// Agent system prompt; stored as the room&#39;s &#x60;chatSettings.prompt&#x60;.
         /// </summary>
-        /// <value>Agent system prompt; stored as the room&#39;s &#x60;chatSettings.prompt&#x60;.</value>
         [DataMember(Name = "prompt", IsRequired = true, EmitDefaultValue = true)]
         public string Prompt { get; set; }
 
         /// <summary>
         /// Whether the agent room is private.
         /// </summary>
-        /// <value>Whether the agent room is private.</value>
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
 
         /// <summary>
         /// Initial share entries (&#x60;FileShareParams&#x60;).
         /// </summary>
-        /// <value>Initial share entries (&#x60;FileShareParams&#x60;).</value>
         [DataMember(Name = "share", EmitDefaultValue = false)]
         public List<Object> Share { get; set; }
 
         /// <summary>
         /// Whether to attach the default DocSpace MCP tool server.
         /// </summary>
-        /// <value>Whether to attach the default DocSpace MCP tool server.</value>
         [DataMember(Name = "attachDefaultTools", EmitDefaultValue = true)]
         public bool AttachDefaultTools { get; set; }
 
         /// <summary>
         /// Agent (room) title.
         /// </summary>
-        /// <value>Agent (room) title.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Room quota in bytes.
         /// </summary>
-        /// <value>Room quota in bytes.</value>
         [DataMember(Name = "quota", EmitDefaultValue = false)]
         public decimal Quota { get; set; }
 
         /// <summary>
         /// Whether room content is indexed for search.
         /// </summary>
-        /// <value>Whether room content is indexed for search.</value>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool Indexing { get; set; }
 
         /// <summary>
         /// Whether downloading room content is denied.
         /// </summary>
-        /// <value>Whether downloading room content is denied.</value>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
         /// Room data lifetime policy (&#x60;RoomDataLifetimeDto&#x60;).
         /// </summary>
-        /// <value>Room data lifetime policy (&#x60;RoomDataLifetimeDto&#x60;).</value>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public Object Lifetime { get; set; }
 
         /// <summary>
         /// Watermark settings (&#x60;WatermarkRequestDto&#x60;).
         /// </summary>
-        /// <value>Watermark settings (&#x60;WatermarkRequestDto&#x60;).</value>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public Object Watermark { get; set; }
 
         /// <summary>
         /// Room logo (&#x60;LogoRequest&#x60;).
         /// </summary>
-        /// <value>Room logo (&#x60;LogoRequest&#x60;).</value>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public Object Logo { get; set; }
 
         /// <summary>
         /// Room tags.
         /// </summary>
-        /// <value>Room tags.</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Room accent color.
         /// </summary>
-        /// <value>Room accent color.</value>
         [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
         /// Room cover image id.
         /// </summary>
-        /// <value>Room cover image id.</value>
         [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 

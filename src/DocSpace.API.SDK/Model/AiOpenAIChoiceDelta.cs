@@ -32,13 +32,13 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIChoiceDelta
+    /// The incremental part of one choice - what this chunk adds to the assistant message.
     /// </summary>
     [DataContract(Name = "AiOpenAIChoiceDelta")]
     public partial class AiOpenAIChoiceDelta : IValidatableObject
     {
         /// <summary>
-        /// Defines Role
+        /// Sent on the first chunk only, always &#x60;assistant&#x60;.
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Role
+        /// Sent on the first chunk only, always &#x60;assistant&#x60;.
         /// </summary>
         [DataMember(Name = "role", EmitDefaultValue = false)]
         public RoleEnum? Role { get; set; }
@@ -59,9 +59,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiOpenAIChoiceDelta" /> class.
         /// </summary>
-        /// <param name="role">role.</param>
-        /// <param name="content">content.</param>
-        /// <param name="toolCalls">toolCalls.</param>
+        /// <param name="role">Sent on the first chunk only, always &#x60;assistant&#x60;..</param>
+        /// <param name="content">The text this chunk appends. Null when the chunk carries no text..</param>
+        /// <param name="toolCalls">The tool calls the model requested, emitted in place of text..</param>
         public AiOpenAIChoiceDelta(RoleEnum? role = default, string content = default, List<AiOpenAIToolCallDelta> toolCalls = default)
         {
             this.Role = role;
@@ -70,13 +70,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Content
+        /// The text this chunk appends. Null when the chunk carries no text.
         /// </summary>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>
-        /// Gets or Sets ToolCalls
+        /// The tool calls the model requested, emitted in place of text.
         /// </summary>
         [DataMember(Name = "tool_calls", EmitDefaultValue = false)]
         public List<AiOpenAIToolCallDelta> ToolCalls { get; set; }

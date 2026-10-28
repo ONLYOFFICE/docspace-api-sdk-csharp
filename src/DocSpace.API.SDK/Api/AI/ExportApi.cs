@@ -31,25 +31,28 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Start markdown → docx export
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiExportTextToDocxRequest"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>AiExportTextToDocx200Response</returns>
-        AiExportTextToDocx200Response AiExportTextToDocx(AiExportTextToDocxRequest aiExportTextToDocxRequest);
-
-        /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>ApiResponse of AiExportTextToDocx200Response</returns>
-        ApiResponse<AiExportTextToDocx200Response> AiExportTextToDocxWithHttpInfo(AiExportTextToDocxRequest aiExportTextToDocxRequest);
+        /// <returns>AiExportTextToDocx202Response</returns>
+        AiExportTextToDocx202Response AiExportTextToDocx(AiExportTextToDocxRequest aiExportTextToDocxRequest);
+
+        /// <summary>
+        /// Start markdown export
+        /// </summary>
+        /// <remarks>
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiExportTextToDocxRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
+        /// <returns>ApiResponse of AiExportTextToDocx202Response</returns>
+        ApiResponse<AiExportTextToDocx202Response> AiExportTextToDocxWithHttpInfo(AiExportTextToDocxRequest aiExportTextToDocxRequest);
         #endregion Synchronous Operations
     }
 
@@ -60,30 +63,30 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>Task of AiExportTextToDocx200Response</returns>
-        Task<AiExportTextToDocx200Response> AiExportTextToDocxAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiExportTextToDocx202Response</returns>
+        Task<AiExportTextToDocx202Response> AiExportTextToDocxAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>Task of ApiResponse (AiExportTextToDocx200Response)</returns>
-        Task<ApiResponse<AiExportTextToDocx200Response>> AiExportTextToDocxWithHttpInfoAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiExportTextToDocx202Response)</returns>
+        Task<ApiResponse<AiExportTextToDocx202Response>> AiExportTextToDocxWithHttpInfoAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -300,26 +303,32 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
+        /// <remarks>
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>AiExportTextToDocx200Response</returns>
-        public AiExportTextToDocx200Response AiExportTextToDocx(AiExportTextToDocxRequest aiExportTextToDocxRequest)
+        /// <returns>AiExportTextToDocx202Response</returns>
+        public AiExportTextToDocx202Response AiExportTextToDocx(AiExportTextToDocxRequest aiExportTextToDocxRequest)
         {
             var localVarResponse = AiExportTextToDocxWithHttpInfo(aiExportTextToDocxRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
+        /// <remarks>
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>ApiResponse of AiExportTextToDocx200Response</returns>
-        public ApiResponse<AiExportTextToDocx200Response> AiExportTextToDocxWithHttpInfo(AiExportTextToDocxRequest aiExportTextToDocxRequest)
+        /// <returns>ApiResponse of AiExportTextToDocx202Response</returns>
+        public ApiResponse<AiExportTextToDocx202Response> AiExportTextToDocxWithHttpInfo(AiExportTextToDocxRequest aiExportTextToDocxRequest)
         {
             // verify the required parameter 'aiExportTextToDocxRequest' is set
             if (aiExportTextToDocxRequest == null)
@@ -340,9 +349,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiExportTextToDocxRequest != null) localVarRequestOptions.Data = aiExportTextToDocxRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiExportTextToDocx200Response>("/api/2.0/ai/text-to-docx", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiExportTextToDocx202Response>("/api/2.0/ai/text-to-docx", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -357,28 +378,34 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
+        /// <remarks>
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>Task of AiExportTextToDocx200Response</returns>
-        public async Task<AiExportTextToDocx200Response> AiExportTextToDocxAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiExportTextToDocx202Response</returns>
+        public async Task<AiExportTextToDocx202Response> AiExportTextToDocxAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiExportTextToDocxWithHttpInfoAsync(aiExportTextToDocxRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Start markdown → docx export
+        /// Start markdown export
         /// </summary>
+        /// <remarks>
+        /// Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
-        /// <returns>Task of ApiResponse (AiExportTextToDocx200Response)</returns>
-        public async Task<ApiResponse<AiExportTextToDocx200Response>> AiExportTextToDocxWithHttpInfoAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiExportTextToDocx202Response)</returns>
+        public async Task<ApiResponse<AiExportTextToDocx202Response>> AiExportTextToDocxWithHttpInfoAsync(AiExportTextToDocxRequest aiExportTextToDocxRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiExportTextToDocxRequest' is set
             if (aiExportTextToDocxRequest == null)
@@ -400,10 +427,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiExportTextToDocxRequest != null) localVarRequestOptions.Data = aiExportTextToDocxRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiExportTextToDocx200Response>("/api/2.0/ai/text-to-docx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiExportTextToDocx202Response>("/api/2.0/ai/text-to-docx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

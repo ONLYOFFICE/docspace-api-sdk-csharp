@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - All, 1 - Default, 2 - Custom]
     /// </summary>
-    /// <value>[0 - All, 1 - Default, 2 - Custom]</value>
     public enum QuotaFilter
     {
         /// <summary>

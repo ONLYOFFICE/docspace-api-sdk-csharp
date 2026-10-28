@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsUpdateRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsUpdate_request")]
+    [DataContract(Name = "AiAgentsUpdateRequest")]
     public partial class AiAgentsUpdateRequest : IValidatableObject
     {
     
@@ -76,98 +76,84 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Profile id to rebind (optional).
         /// </summary>
-        /// <value>Profile id to rebind (optional).</value>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 
         /// <summary>
         /// Chat settings (&#x60;ChatSettings&#x60;); requires a valid provider/model.
         /// </summary>
-        /// <value>Chat settings (&#x60;ChatSettings&#x60;); requires a valid provider/model.</value>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
         public Object ChatSettings { get; set; }
 
         /// <summary>
         /// Whether form results are sent to an external DB.
         /// </summary>
-        /// <value>Whether form results are sent to an external DB.</value>
         [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
         public bool SendFormToExternalDB { get; set; }
 
         /// <summary>
         /// Whether forms are saved as XLSX.
         /// </summary>
-        /// <value>Whether forms are saved as XLSX.</value>
         [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
         public bool SaveFormAsXLSX { get; set; }
 
         /// <summary>
         /// Agent (room) title.
         /// </summary>
-        /// <value>Agent (room) title.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Room quota in bytes.
         /// </summary>
-        /// <value>Room quota in bytes.</value>
         [DataMember(Name = "quota", EmitDefaultValue = false)]
         public decimal Quota { get; set; }
 
         /// <summary>
         /// Whether room content is indexed for search.
         /// </summary>
-        /// <value>Whether room content is indexed for search.</value>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool Indexing { get; set; }
 
         /// <summary>
         /// Whether downloading room content is denied.
         /// </summary>
-        /// <value>Whether downloading room content is denied.</value>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
         /// Room data lifetime policy (&#x60;RoomDataLifetimeDto&#x60;).
         /// </summary>
-        /// <value>Room data lifetime policy (&#x60;RoomDataLifetimeDto&#x60;).</value>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public Object Lifetime { get; set; }
 
         /// <summary>
         /// Watermark settings (&#x60;WatermarkRequestDto&#x60;).
         /// </summary>
-        /// <value>Watermark settings (&#x60;WatermarkRequestDto&#x60;).</value>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public Object Watermark { get; set; }
 
         /// <summary>
         /// Room logo (&#x60;LogoRequest&#x60;).
         /// </summary>
-        /// <value>Room logo (&#x60;LogoRequest&#x60;).</value>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public Object Logo { get; set; }
 
         /// <summary>
         /// Room tags.
         /// </summary>
-        /// <value>Room tags.</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Room accent color.
         /// </summary>
-        /// <value>Room accent color.</value>
         [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
         /// Room cover image id.
         /// </summary>
-        /// <value>Room cover image id.</value>
         [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 

@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.GroupSummaryArrayWrapper
+The successful API response containing the list of GroupSummaryDto objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) |  | [optional] 
+**Response** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of GroupSummaryDto objects returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

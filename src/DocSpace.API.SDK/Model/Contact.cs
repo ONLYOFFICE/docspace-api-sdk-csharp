@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The contact type.
         /// </summary>
-        /// <value>The contact type.</value>
-        /*
-        <example>GTalk</example>
-        */
+        /// <example>GTalk</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// The contact value.
         /// </summary>
-        /// <value>The contact value.</value>
-        /*
-        <example>my@gmail.com</example>
-        */
+        /// <example>my@gmail.com</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 

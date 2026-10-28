@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiImportResultImported
+    /// How many folders and prompts were created. Present on success.
     /// </summary>
     [DataContract(Name = "AiImportResult_imported")]
     public partial class AiImportResultImported : IValidatableObject

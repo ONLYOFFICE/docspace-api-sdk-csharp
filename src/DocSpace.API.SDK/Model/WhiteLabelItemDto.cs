@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The white label item parameters.
+    /// One branding logo slot of the portal: the size it is drawn at, and where its images are served from.
     /// </summary>
     [DataContract(Name = "WhiteLabelItemDto")]
     public partial class WhiteLabelItemDto : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Which branding slot this entry describes. &#x60;Notification&#x60; is part of the type but never appears here: that  logo is derived from the login-page one and used only in letters.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public WhiteLabelLogoType? Type { get; set; }
@@ -47,11 +47,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WhiteLabelItemDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="name">The white label file name..</param>
-        /// <param name="size">size.</param>
-        /// <param name="path">path.</param>
-        public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, IMagickGeometry size = default, WhiteLabelItemPathDto path = default)
+        /// <param name="type">Which branding slot this entry describes. &#x60;Notification&#x60; is part of the type but never appears here: that  logo is derived from the login-page one and used only in letters..</param>
+        /// <param name="name">The stable name of the same slot, which is what &#x60;GET api/2.0/settings/whitelabel/logos/isdefault&#x60; keys its  entries by. It is a name to match on, not a file name..</param>
+        /// <param name="size">The pixel box the slot is drawn in. Only &#x60;width&#x60; and &#x60;height&#x60; carry information here; the resize flags and  offsets alongside them are left at their defaults and say nothing about how an uploaded image is treated..</param>
+        /// <param name="path">The absolute URLs to render the slot from, one per theme..</param>
+        public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, WhiteLabelItemSizeDto size = default, WhiteLabelItemPathDto path = default)
         {
             this.Type = type;
             this.Name = name;
@@ -60,23 +60,20 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The white label file name.
+        /// The stable name of the same slot, which is what &#x60;GET api/2.0/settings/whitelabel/logos/isdefault&#x60; keys its  entries by. It is a name to match on, not a file name.
         /// </summary>
-        /// <value>The white label file name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>LightSmall</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Size
+        /// The pixel box the slot is drawn in. Only &#x60;width&#x60; and &#x60;height&#x60; carry information here; the resize flags and  offsets alongside them are left at their defaults and say nothing about how an uploaded image is treated.
         /// </summary>
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public IMagickGeometry Size { get; set; }
+        public WhiteLabelItemSizeDto Size { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// The absolute URLs to render the slot from, one per theme.
         /// </summary>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public WhiteLabelItemPathDto Path { get; set; }

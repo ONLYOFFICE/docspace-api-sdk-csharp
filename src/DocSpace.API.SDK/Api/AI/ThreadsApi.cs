@@ -33,46 +33,55 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>AiThreadMessageLike</returns>
-        AiThreadMessageLike AiThreadsAppendUserMessage(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest);
+        /// <returns>AiThreadsAppendUserMessage200Response</returns>
+        AiThreadsAppendUserMessage200Response AiThreadsAppendUserMessage(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest);
 
         /// <summary>
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>ApiResponse of AiThreadMessageLike</returns>
-        ApiResponse<AiThreadMessageLike> AiThreadsAppendUserMessageWithHttpInfo(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest);
+        /// <returns>ApiResponse of AiThreadsAppendUserMessage200Response</returns>
+        ApiResponse<AiThreadsAppendUserMessage200Response> AiThreadsAppendUserMessageWithHttpInfo(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest);
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsClearMessages(string body);
+        AiSuccessResponse AiThreadsClearMessages(string aiThreadsClearMessagesRequest);
 
         /// <summary>
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string aiThreadsClearMessagesRequest);
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -80,10 +89,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiThread AiThreadsCreate(AiThreadsCreateRequest aiThreadsCreateRequest);
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -91,178 +100,207 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of AiThread</returns>
         ApiResponse<AiThread> AiThreadsCreateWithHttpInfo(AiThreadsCreateRequest aiThreadsCreateRequest);
         /// <summary>
-        /// Delete
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsDelete(string body);
-
-        /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiThreadsDelete(string aiThreadsDeleteRequest);
+
+        /// <summary>
+        /// Delete a chat thread
+        /// </summary>
+        /// <remarks>
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string body);
-        /// <summary>
-        /// Delete message
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsDeleteMessage(string body);
-
+        ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string aiThreadsDeleteRequest);
         /// <summary>
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiThreadsDeleteMessage(string aiThreadsDeleteMessageRequest);
+
+        /// <summary>
+        /// Delete message
+        /// </summary>
+        /// <remarks>
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string aiThreadsDeleteMessageRequest);
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
+        /// <remarks>
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>AiThread</returns>
         AiThread AiThreadsGetById(string threadId);
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>ApiResponse of AiThread</returns>
         ApiResponse<AiThread> AiThreadsGetByIdWithHttpInfo(string threadId);
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
+        /// <remarks>
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>AiThreadMessageLike</returns>
         AiThreadMessageLike AiThreadsGetMessageById(string messageId);
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>ApiResponse of AiThreadMessageLike</returns>
         ApiResponse<AiThreadMessageLike> AiThreadsGetMessageByIdWithHttpInfo(string messageId);
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
+        /// <remarks>
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>List&lt;AiThread&gt;</returns>
-        List<AiThread> AiThreadsList(string entityId, string count, string cursor, string query);
+        List<AiThread> AiThreadsList(string? entityId = default, int? count = default, string? cursor = default, string? query = default);
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThread&gt;</returns>
-        ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string entityId, string count, string cursor, string query);
+        ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string? entityId = default, int? count = default, string? cursor = default, string? query = default);
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>AiOpenOrCreateResult</returns>
-        AiOpenOrCreateResult AiThreadsOpenOrCreate(AiOpenOrCreateInput aiOpenOrCreateInput);
+        AiOpenOrCreateResult AiThreadsOpenOrCreate(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest);
 
         /// <summary>
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>ApiResponse of AiOpenOrCreateResult</returns>
-        ApiResponse<AiOpenOrCreateResult> AiThreadsOpenOrCreateWithHttpInfo(AiOpenOrCreateInput aiOpenOrCreateInput);
+        ApiResponse<AiOpenOrCreateResult> AiThreadsOpenOrCreateWithHttpInfo(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest);
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>List&lt;AiThreadMessageLike&gt;</returns>
-        List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string count, string cursor);
+        List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, int? count = default, string? cursor = default, string? direction = default);
 
         /// <summary>
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThreadMessageLike&gt;</returns>
-        ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string count, string cursor);
+        ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, int? count = default, string? cursor = default, string? direction = default);
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>string</returns>
-        string AiThreadsRegenerateTitle(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest);
+        /// <returns>AiThreadsRegenerateTitle200Response</returns>
+        AiThreadsRegenerateTitle200Response AiThreadsRegenerateTitle(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest);
 
         /// <summary>
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> AiThreadsRegenerateTitleWithHttpInfo(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest);
+        /// <returns>ApiResponse of AiThreadsRegenerateTitle200Response</returns>
+        ApiResponse<AiThreadsRegenerateTitle200Response> AiThreadsRegenerateTitleWithHttpInfo(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest);
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
+        /// <remarks>
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -270,10 +308,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiSuccessResponse AiThreadsRename(AiThreadsRenameRequest aiThreadsRenameRequest);
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -281,8 +319,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         ApiResponse<AiSuccessResponse> AiThreadsRenameWithHttpInfo(AiThreadsRenameRequest aiThreadsRenameRequest);
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -290,10 +331,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiSuccessResponse AiThreadsTouch(AiThreadsTouchRequest aiThreadsTouchRequest);
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -303,6 +344,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -313,7 +357,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -333,57 +377,57 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>Task of AiThreadMessageLike</returns>
-        Task<AiThreadMessageLike> AiThreadsAppendUserMessageAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiThreadsAppendUserMessage200Response</returns>
+        Task<AiThreadsAppendUserMessage200Response> AiThreadsAppendUserMessageAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
-        Task<ApiResponse<AiThreadMessageLike>> AiThreadsAppendUserMessageWithHttpInfoAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiThreadsAppendUserMessage200Response)</returns>
+        Task<ApiResponse<AiThreadsAppendUserMessage200Response>> AiThreadsAppendUserMessageWithHttpInfoAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -393,10 +437,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiThread> AiThreadsCreateAsync(AiThreadsCreateRequest aiThreadsCreateRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -405,220 +449,222 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiThread)</returns>
         Task<ApiResponse<AiThread>> AiThreadsCreateWithHttpInfoAsync(AiThreadsCreateRequest aiThreadsCreateRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsDeleteAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of AiThread</returns>
         Task<AiThread> AiThreadsGetByIdAsync(string threadId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThread)</returns>
         Task<ApiResponse<AiThread>> AiThreadsGetByIdWithHttpInfoAsync(string threadId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of AiThreadMessageLike</returns>
         Task<AiThreadMessageLike> AiThreadsGetMessageByIdAsync(string messageId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
         Task<ApiResponse<AiThreadMessageLike>> AiThreadsGetMessageByIdWithHttpInfoAsync(string messageId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of List&lt;AiThread&gt;</returns>
-        Task<List<AiThread>> AiThreadsListAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default);
+        Task<List<AiThread>> AiThreadsListAsync(string? entityId = default, int? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThread&gt;)</returns>
-        Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string? entityId = default, int? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>Task of AiOpenOrCreateResult</returns>
-        Task<AiOpenOrCreateResult> AiThreadsOpenOrCreateAsync(AiOpenOrCreateInput aiOpenOrCreateInput, CancellationToken cancellationToken = default);
+        Task<AiOpenOrCreateResult> AiThreadsOpenOrCreateAsync(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiOpenOrCreateResult)</returns>
-        Task<ApiResponse<AiOpenOrCreateResult>> AiThreadsOpenOrCreateWithHttpInfoAsync(AiOpenOrCreateInput aiOpenOrCreateInput, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiOpenOrCreateResult>> AiThreadsOpenOrCreateWithHttpInfoAsync(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of List&lt;AiThreadMessageLike&gt;</returns>
-        Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string count, string cursor, CancellationToken cancellationToken = default);
+        Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, int? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThreadMessageLike&gt;)</returns>
-        Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string count, string cursor, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, int? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>Task of string</returns>
-        Task<string> AiThreadsRegenerateTitleAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiThreadsRegenerateTitle200Response</returns>
+        Task<AiThreadsRegenerateTitle200Response> AiThreadsRegenerateTitleAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>Task of ApiResponse (string)</returns>
-        Task<ApiResponse<string>> AiThreadsRegenerateTitleWithHttpInfoAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiThreadsRegenerateTitle200Response)</returns>
+        Task<ApiResponse<AiThreadsRegenerateTitle200Response>> AiThreadsRegenerateTitleWithHttpInfoAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -628,10 +674,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiSuccessResponse> AiThreadsRenameAsync(AiThreadsRenameRequest aiThreadsRenameRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -640,10 +686,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
         Task<ApiResponse<AiSuccessResponse>> AiThreadsRenameWithHttpInfoAsync(AiThreadsRenameRequest aiThreadsRenameRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -653,10 +699,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiSuccessResponse> AiThreadsTouchAsync(AiThreadsTouchRequest aiThreadsTouchRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -668,7 +714,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -681,7 +727,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -920,11 +966,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>AiThreadMessageLike</returns>
-        public AiThreadMessageLike AiThreadsAppendUserMessage(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
+        /// <returns>AiThreadsAppendUserMessage200Response</returns>
+        public AiThreadsAppendUserMessage200Response AiThreadsAppendUserMessage(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
         {
             var localVarResponse = AiThreadsAppendUserMessageWithHttpInfo(aiThreadsAppendUserMessageRequest);
             return localVarResponse.Data;
@@ -933,11 +982,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>ApiResponse of AiThreadMessageLike</returns>
-        public ApiResponse<AiThreadMessageLike> AiThreadsAppendUserMessageWithHttpInfo(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
+        /// <returns>ApiResponse of AiThreadsAppendUserMessage200Response</returns>
+        public ApiResponse<AiThreadsAppendUserMessage200Response> AiThreadsAppendUserMessageWithHttpInfo(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
         {
             // verify the required parameter 'aiThreadsAppendUserMessageRequest' is set
             if (aiThreadsAppendUserMessageRequest == null)
@@ -958,9 +1010,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsAppendUserMessageRequest != null) localVarRequestOptions.Data = aiThreadsAppendUserMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiThreadMessageLike>("/api/2.0/ai/threads/append-user-message", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiThreadsAppendUserMessage200Response>("/api/2.0/ai/threads/append-user-message", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -977,12 +1041,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>Task of AiThreadMessageLike</returns>
-        public async Task<AiThreadMessageLike> AiThreadsAppendUserMessageAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiThreadsAppendUserMessage200Response</returns>
+        public async Task<AiThreadsAppendUserMessage200Response> AiThreadsAppendUserMessageAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiThreadsAppendUserMessageWithHttpInfoAsync(aiThreadsAppendUserMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -991,12 +1058,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
-        /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
-        public async Task<ApiResponse<AiThreadMessageLike>> AiThreadsAppendUserMessageWithHttpInfoAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiThreadsAppendUserMessage200Response)</returns>
+        public async Task<ApiResponse<AiThreadsAppendUserMessage200Response>> AiThreadsAppendUserMessageWithHttpInfoAsync(AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiThreadsAppendUserMessageRequest' is set
             if (aiThreadsAppendUserMessageRequest == null)
@@ -1018,10 +1088,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsAppendUserMessageRequest != null) localVarRequestOptions.Data = aiThreadsAppendUserMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiThreadMessageLike>("/api/2.0/ai/threads/append-user-message", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiThreadsAppendUserMessage200Response>("/api/2.0/ai/threads/append-user-message", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1038,28 +1120,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsClearMessages(string body)
+        public AiSuccessResponse AiThreadsClearMessages(string aiThreadsClearMessagesRequest)
         {
-            var localVarResponse = AiThreadsClearMessagesWithHttpInfo(body);
+            var localVarResponse = AiThreadsClearMessagesWithHttpInfo(aiThreadsClearMessagesRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string aiThreadsClearMessagesRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsClearMessages");
+            // verify the required parameter 'aiThreadsClearMessagesRequest' is set
+            if (aiThreadsClearMessagesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsClearMessagesRequest' when calling ThreadsApi->AiThreadsClearMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1074,8 +1162,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsClearMessagesRequest != null) localVarRequestOptions.Data = aiThreadsClearMessagesRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/threads/clear-messages", localVarRequestOptions, Configuration);
@@ -1095,30 +1195,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsClearMessagesWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsClearMessagesWithHttpInfoAsync(aiThreadsClearMessagesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsClearMessages");
+            // verify the required parameter 'aiThreadsClearMessagesRequest' is set
+            if (aiThreadsClearMessagesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsClearMessagesRequest' when calling ThreadsApi->AiThreadsClearMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1134,8 +1240,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsClearMessagesRequest != null) localVarRequestOptions.Data = aiThreadsClearMessagesRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1154,8 +1272,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -1167,8 +1288,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -1194,6 +1318,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsCreateRequest != null) localVarRequestOptions.Data = aiThreadsCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiThread>("/api/2.0/ai/threads/create", localVarRequestOptions, Configuration);
@@ -1211,8 +1347,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1225,8 +1364,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a chat thread
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1254,6 +1396,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsCreateRequest != null) localVarRequestOptions.Data = aiThreadsCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1272,30 +1426,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
+        /// <remarks>
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsDelete(string body)
+        public AiSuccessResponse AiThreadsDelete(string aiThreadsDeleteRequest)
         {
-            var localVarResponse = AiThreadsDeleteWithHttpInfo(body);
+            var localVarResponse = AiThreadsDeleteWithHttpInfo(aiThreadsDeleteRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
+        /// <remarks>
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string aiThreadsDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDelete");
+            // verify the required parameter 'aiThreadsDeleteRequest' is set
+            if (aiThreadsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteRequest' when calling ThreadsApi->AiThreadsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1310,8 +1470,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteRequest != null) localVarRequestOptions.Data = aiThreadsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/threads/delete", localVarRequestOptions, Configuration);
@@ -1329,32 +1501,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
+        /// <remarks>
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsDeleteAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsDeleteWithHttpInfoAsync(aiThreadsDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a chat thread
         /// </summary>
+        /// <remarks>
+        /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDelete");
+            // verify the required parameter 'aiThreadsDeleteRequest' is set
+            if (aiThreadsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteRequest' when calling ThreadsApi->AiThreadsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1370,8 +1548,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteRequest != null) localVarRequestOptions.Data = aiThreadsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1392,28 +1582,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsDeleteMessage(string body)
+        public AiSuccessResponse AiThreadsDeleteMessage(string aiThreadsDeleteMessageRequest)
         {
-            var localVarResponse = AiThreadsDeleteMessageWithHttpInfo(body);
+            var localVarResponse = AiThreadsDeleteMessageWithHttpInfo(aiThreadsDeleteMessageRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string aiThreadsDeleteMessageRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDeleteMessage");
+            // verify the required parameter 'aiThreadsDeleteMessageRequest' is set
+            if (aiThreadsDeleteMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteMessageRequest' when calling ThreadsApi->AiThreadsDeleteMessage");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1428,8 +1624,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteMessageRequest != null) localVarRequestOptions.Data = aiThreadsDeleteMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/threads/delete-message", localVarRequestOptions, Configuration);
@@ -1449,30 +1657,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsDeleteMessageWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsDeleteMessageWithHttpInfoAsync(aiThreadsDeleteMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDeleteMessage");
+            // verify the required parameter 'aiThreadsDeleteMessageRequest' is set
+            if (aiThreadsDeleteMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteMessageRequest' when calling ThreadsApi->AiThreadsDeleteMessage");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1488,8 +1702,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteMessageRequest != null) localVarRequestOptions.Data = aiThreadsDeleteMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1508,10 +1734,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
+        /// <remarks>
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>AiThread</returns>
         public AiThread AiThreadsGetById(string threadId)
@@ -1521,10 +1750,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
+        /// <remarks>
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>ApiResponse of AiThread</returns>
         public ApiResponse<AiThread> AiThreadsGetByIdWithHttpInfo(string threadId)
@@ -1548,6 +1780,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiThread>("/api/2.0/ai/threads/get-by-id", localVarRequestOptions, Configuration);
@@ -1565,10 +1809,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
+        /// <remarks>
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of AiThread</returns>
@@ -1579,10 +1826,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a chat thread
         /// </summary>
+        /// <remarks>
+        /// Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThread)</returns>
@@ -1608,6 +1858,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1626,10 +1888,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
+        /// <remarks>
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>AiThreadMessageLike</returns>
         public AiThreadMessageLike AiThreadsGetMessageById(string messageId)
@@ -1639,10 +1904,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
+        /// <remarks>
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>ApiResponse of AiThreadMessageLike</returns>
         public ApiResponse<AiThreadMessageLike> AiThreadsGetMessageByIdWithHttpInfo(string messageId)
@@ -1666,6 +1934,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "messageId", messageId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiThreadMessageLike>("/api/2.0/ai/threads/get-message-by-id", localVarRequestOptions, Configuration);
@@ -1683,10 +1963,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
+        /// <remarks>
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of AiThreadMessageLike</returns>
@@ -1697,10 +1980,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get message by id
+        /// Get one chat message
         /// </summary>
+        /// <remarks>
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
@@ -1726,6 +2012,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "messageId", messageId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1744,49 +2042,39 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
+        /// <remarks>
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>List&lt;AiThread&gt;</returns>
-        public List<AiThread> AiThreadsList(string entityId, string count, string cursor, string query)
+        public List<AiThread> AiThreadsList(string? entityId = default, int? count = default, string? cursor = default, string? query = default)
         {
             var localVarResponse = AiThreadsListWithHttpInfo(entityId, count, cursor, query);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
+        /// <remarks>
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThread&gt;</returns>
-        public ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string entityId, string count, string cursor, string query)
+        public ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string? entityId = default, int? count = default, string? cursor = default, string? query = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'query' is set
-            if (query == null)
-                throw new ApiException(400, "Missing required parameter 'query' when calling ThreadsApi->AiThreadsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1800,15 +2088,39 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            }
             if (_fields != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiThread>>("/api/2.0/ai/threads/list", localVarRequestOptions, Configuration);
@@ -1826,51 +2138,41 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
+        /// <remarks>
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of List&lt;AiThread&gt;</returns>
-        public async Task<List<AiThread>> AiThreadsListAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default)
+        public async Task<List<AiThread>> AiThreadsListAsync(string? entityId = default, int? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiThreadsListWithHttpInfoAsync(entityId, count, cursor, query, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List
+        /// List chat threads
         /// </summary>
+        /// <remarks>
+        /// Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThread&gt;)</returns>
-        public async Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string? entityId = default, int? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'query' is set
-            if (query == null)
-                throw new ApiException(400, "Missing required parameter 'query' when calling ThreadsApi->AiThreadsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1885,11 +2187,35 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1910,28 +2236,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>AiOpenOrCreateResult</returns>
-        public AiOpenOrCreateResult AiThreadsOpenOrCreate(AiOpenOrCreateInput aiOpenOrCreateInput)
+        public AiOpenOrCreateResult AiThreadsOpenOrCreate(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest)
         {
-            var localVarResponse = AiThreadsOpenOrCreateWithHttpInfo(aiOpenOrCreateInput);
+            var localVarResponse = AiThreadsOpenOrCreateWithHttpInfo(aiThreadsOpenOrCreateRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>ApiResponse of AiOpenOrCreateResult</returns>
-        public ApiResponse<AiOpenOrCreateResult> AiThreadsOpenOrCreateWithHttpInfo(AiOpenOrCreateInput aiOpenOrCreateInput)
+        public ApiResponse<AiOpenOrCreateResult> AiThreadsOpenOrCreateWithHttpInfo(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest)
         {
-            // verify the required parameter 'aiOpenOrCreateInput' is set
-            if (aiOpenOrCreateInput == null)
-                throw new ApiException(400, "Missing required parameter 'aiOpenOrCreateInput' when calling ThreadsApi->AiThreadsOpenOrCreate");
+            // verify the required parameter 'aiThreadsOpenOrCreateRequest' is set
+            if (aiThreadsOpenOrCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsOpenOrCreateRequest' when calling ThreadsApi->AiThreadsOpenOrCreate");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1946,8 +2278,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (aiOpenOrCreateInput != null) localVarRequestOptions.Data = aiOpenOrCreateInput;
+            if (aiThreadsOpenOrCreateRequest != null) localVarRequestOptions.Data = aiThreadsOpenOrCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiOpenOrCreateResult>("/api/2.0/ai/threads/open-or-create", localVarRequestOptions, Configuration);
@@ -1967,30 +2311,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>Task of AiOpenOrCreateResult</returns>
-        public async Task<AiOpenOrCreateResult> AiThreadsOpenOrCreateAsync(AiOpenOrCreateInput aiOpenOrCreateInput, CancellationToken cancellationToken = default)
+        public async Task<AiOpenOrCreateResult> AiThreadsOpenOrCreateAsync(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsOpenOrCreateWithHttpInfoAsync(aiOpenOrCreateInput, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsOpenOrCreateWithHttpInfoAsync(aiThreadsOpenOrCreateRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiOpenOrCreateInput">Input for  {@link  ThreadsEngine.openOrCreate } : open an existing thread if `threadId` is given, otherwise create a new one with an auto-generated title derived from `firstMessage`.</param>
+        /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiOpenOrCreateResult)</returns>
-        public async Task<ApiResponse<AiOpenOrCreateResult>> AiThreadsOpenOrCreateWithHttpInfoAsync(AiOpenOrCreateInput aiOpenOrCreateInput, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiOpenOrCreateResult>> AiThreadsOpenOrCreateWithHttpInfoAsync(AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'aiOpenOrCreateInput' is set
-            if (aiOpenOrCreateInput == null)
-                throw new ApiException(400, "Missing required parameter 'aiOpenOrCreateInput' when calling ThreadsApi->AiThreadsOpenOrCreate");
+            // verify the required parameter 'aiThreadsOpenOrCreateRequest' is set
+            if (aiThreadsOpenOrCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsOpenOrCreateRequest' when calling ThreadsApi->AiThreadsOpenOrCreate");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -2006,8 +2356,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (aiOpenOrCreateInput != null) localVarRequestOptions.Data = aiOpenOrCreateInput;
+            if (aiThreadsOpenOrCreateRequest != null) localVarRequestOptions.Data = aiThreadsOpenOrCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2028,40 +2390,40 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>List&lt;AiThreadMessageLike&gt;</returns>
-        public List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string count, string cursor)
+        public List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, int? count = default, string? cursor = default, string? direction = default)
         {
-            var localVarResponse = AiThreadsReadMessagesWithHttpInfo(threadId, count, cursor);
+            var localVarResponse = AiThreadsReadMessagesWithHttpInfo(threadId, count, cursor, direction);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThreadMessageLike&gt;</returns>
-        public ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string count, string cursor)
+        public ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, int? count = default, string? cursor = default, string? direction = default)
         {
             // verify the required parameter 'threadId' is set
             if (threadId == null)
                 throw new ApiException(400, "Missing required parameter 'threadId' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsReadMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -2077,13 +2439,35 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
             if (_fields != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiThreadMessageLike>>("/api/2.0/ai/threads/read-messages", localVarRequestOptions, Configuration);
@@ -2103,42 +2487,42 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of List&lt;AiThreadMessageLike&gt;</returns>
-        public async Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string count, string cursor, CancellationToken cancellationToken = default)
+        public async Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, int? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsReadMessagesWithHttpInfoAsync(threadId, count, cursor, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsReadMessagesWithHttpInfoAsync(threadId, count, cursor, direction, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThreadMessageLike&gt;)</returns>
-        public async Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string count, string cursor, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, int? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'threadId' is set
             if (threadId == null)
                 throw new ApiException(400, "Missing required parameter 'threadId' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsReadMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -2155,9 +2539,31 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2178,11 +2584,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>string</returns>
-        public string AiThreadsRegenerateTitle(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest)
+        /// <returns>AiThreadsRegenerateTitle200Response</returns>
+        public AiThreadsRegenerateTitle200Response AiThreadsRegenerateTitle(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest)
         {
             var localVarResponse = AiThreadsRegenerateTitleWithHttpInfo(aiThreadsRegenerateTitleRequest);
             return localVarResponse.Data;
@@ -2191,11 +2600,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse<string> AiThreadsRegenerateTitleWithHttpInfo(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest)
+        /// <returns>ApiResponse of AiThreadsRegenerateTitle200Response</returns>
+        public ApiResponse<AiThreadsRegenerateTitle200Response> AiThreadsRegenerateTitleWithHttpInfo(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest)
         {
             // verify the required parameter 'aiThreadsRegenerateTitleRequest' is set
             if (aiThreadsRegenerateTitleRequest == null)
@@ -2216,9 +2628,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsRegenerateTitleRequest != null) localVarRequestOptions.Data = aiThreadsRegenerateTitleRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<string>("/api/2.0/ai/threads/regenerate-title", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiThreadsRegenerateTitle200Response>("/api/2.0/ai/threads/regenerate-title", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2235,12 +2659,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>Task of string</returns>
-        public async Task<string> AiThreadsRegenerateTitleAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiThreadsRegenerateTitle200Response</returns>
+        public async Task<AiThreadsRegenerateTitle200Response> AiThreadsRegenerateTitleAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiThreadsRegenerateTitleWithHttpInfoAsync(aiThreadsRegenerateTitleRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2249,12 +2676,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async Task<ApiResponse<string>> AiThreadsRegenerateTitleWithHttpInfoAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiThreadsRegenerateTitle200Response)</returns>
+        public async Task<ApiResponse<AiThreadsRegenerateTitle200Response>> AiThreadsRegenerateTitleWithHttpInfoAsync(AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiThreadsRegenerateTitleRequest' is set
             if (aiThreadsRegenerateTitleRequest == null)
@@ -2276,10 +2706,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsRegenerateTitleRequest != null) localVarRequestOptions.Data = aiThreadsRegenerateTitleRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<string>("/api/2.0/ai/threads/regenerate-title", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiThreadsRegenerateTitle200Response>("/api/2.0/ai/threads/regenerate-title", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2294,8 +2736,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
+        /// <remarks>
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -2307,8 +2752,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
+        /// <remarks>
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -2334,6 +2782,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsRenameRequest != null) localVarRequestOptions.Data = aiThreadsRenameRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiSuccessResponse>("/api/2.0/ai/threads/rename", localVarRequestOptions, Configuration);
@@ -2351,8 +2811,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
+        /// <remarks>
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2365,8 +2828,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Rename
+        /// Rename a chat thread
         /// </summary>
+        /// <remarks>
+        /// Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2394,6 +2860,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsRenameRequest != null) localVarRequestOptions.Data = aiThreadsRenameRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2412,8 +2890,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -2425,8 +2906,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -2452,6 +2936,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsTouchRequest != null) localVarRequestOptions.Data = aiThreadsTouchRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/threads/touch", localVarRequestOptions, Configuration);
@@ -2469,8 +2965,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2483,8 +2982,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Touch
+        /// Bump a thread's activity
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2512,6 +3014,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsTouchRequest != null) localVarRequestOptions.Data = aiThreadsTouchRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2532,6 +3046,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -2545,6 +3062,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -2570,6 +3090,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsUpdateMessageRequest != null) localVarRequestOptions.Data = aiThreadsUpdateMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiSuccessResponse>("/api/2.0/ai/threads/update-message", localVarRequestOptions, Configuration);
@@ -2589,6 +3121,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2603,6 +3138,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2630,6 +3168,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiThreadsUpdateMessageRequest != null) localVarRequestOptions.Data = aiThreadsUpdateMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

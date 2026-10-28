@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPreferencesSetDeepModeRequest
     /// </summary>
-    [DataContract(Name = "aiPreferencesSetDeepMode_request")]
+    [DataContract(Name = "AiPreferencesSetDeepModeRequest")]
     public partial class AiPreferencesSetDeepModeRequest : IValidatableObject
     {
     
@@ -57,7 +57,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// New deep-mode value.
         /// </summary>
-        /// <value>New deep-mode value.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public bool Value { get; set; }
 

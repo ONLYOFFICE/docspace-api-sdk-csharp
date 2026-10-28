@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]
     /// </summary>
-    /// <value>[2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]</value>
     public enum ProductType
     {
         /// <summary>

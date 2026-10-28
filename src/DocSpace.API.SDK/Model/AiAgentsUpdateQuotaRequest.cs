@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsUpdateQuotaRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsUpdateQuota_request")]
+    [DataContract(Name = "AiAgentsUpdateQuotaRequest")]
     public partial class AiAgentsUpdateQuotaRequest : IValidatableObject
     {
     
@@ -62,14 +62,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Agent (room) ids to update.
         /// </summary>
-        /// <value>Agent (room) ids to update.</value>
         [DataMember(Name = "roomIds", IsRequired = true, EmitDefaultValue = true)]
         public List<AiAgentsUpdateQuotaRequestRoomIdsInner> RoomIds { get; set; }
 
         /// <summary>
         /// New quota in bytes; a negative value disables the custom quota.
         /// </summary>
-        /// <value>New quota in bytes; a negative value disables the custom quota.</value>
         [DataMember(Name = "quota", IsRequired = true, EmitDefaultValue = true)]
         public decimal Quota { get; set; }
 

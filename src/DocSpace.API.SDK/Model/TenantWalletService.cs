@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [-18 - AISearch, -16 - DocsCloudDevPack, -15 - DocsCloud, -14 - Admin, -13 - AITools, -12 - Backup, -11 - Storage]
     /// </summary>
-    /// <value>[-18 - AISearch, -16 - DocsCloudDevPack, -15 - DocsCloud, -14 - Admin, -13 - AITools, -12 - Backup, -11 - Storage]</value>
     public enum TenantWalletService
     {
         /// <summary>

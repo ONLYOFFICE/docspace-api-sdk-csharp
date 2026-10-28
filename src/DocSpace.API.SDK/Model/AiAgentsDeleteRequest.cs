@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsDeleteRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsDelete_request")]
+    [DataContract(Name = "AiAgentsDeleteRequest")]
     public partial class AiAgentsDeleteRequest : IValidatableObject
     {
     
@@ -50,7 +50,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Delete the room after the editing session finishes.
         /// </summary>
-        /// <value>Delete the room after the editing session finishes.</value>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 

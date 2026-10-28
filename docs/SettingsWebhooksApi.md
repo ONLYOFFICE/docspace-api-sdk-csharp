@@ -5,20 +5,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateWebhook**](#createwebhook) | **POST** /api/2.0/settings/webhook | Create a webhook |
-| [**EnableWebhook**](#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Enable a webhook |
-| [**GetTenantWebhooks**](#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get webhooks |
-| [**GetWebhookTriggers**](#getwebhooktriggers) | **GET** /api/2.0/settings/webhook/triggers | Get webhook triggers |
-| [**GetWebhooksLogs**](#getwebhookslogs) | **GET** /api/2.0/settings/webhooks/log | Get webhook logs |
+| [**EnableWebhook**](#enablewebhook) | **PUT** /api/2.0/settings/webhook/enable | Switch a webhook on or off |
+| [**GetTenantWebhooks**](#gettenantwebhooks) | **GET** /api/2.0/settings/webhook | Get the portal webhooks |
+| [**GetWebhookTriggers**](#getwebhooktriggers) | **GET** /api/2.0/settings/webhook/triggers | Get the webhook triggers |
+| [**GetWebhooksLogs**](#getwebhookslogs) | **GET** /api/2.0/settings/webhooks/log | Get the webhook delivery log |
 | [**RemoveWebhook**](#removewebhook) | **DELETE** /api/2.0/settings/webhook/{id} | Remove a webhook |
-| [**RetryWebhook**](#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook |
-| [**RetryWebhooks**](#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhooks |
+| [**RetryWebhook**](#retrywebhook) | **PUT** /api/2.0/settings/webhook/{id}/retry | Retry a webhook delivery |
+| [**RetryWebhooks**](#retrywebhooks) | **PUT** /api/2.0/settings/webhook/retry | Retry webhook deliveries |
 | [**UpdateWebhook**](#updatewebhook) | **PUT** /api/2.0/settings/webhook | Update a webhook |
 
 <a id="createwebhook"></a>
 # **CreateWebhook**
-> WebhooksConfigWrapper CreateWebhook (CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper CreateWebhook (CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = null)
 
-Creates a new tenant webhook with the parameters specified in the request.
+Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/).
 
@@ -26,7 +26,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createWebhooksConfigRequestsDto** | [**CreateWebhooksConfigRequestsDto?**](CreateWebhooksConfigRequestsDto.md) | The request parameters for creating the webhook configuration. | [optional]  |
+| **createWebhooksConfigRequestDto** | [**CreateWebhooksConfigRequestDto?**](CreateWebhooksConfigRequestDto.md) | The target a webhook subscription calls, the events it listens for, and the secret it signs with. | [optional]  |
 
 ### Return type
 
@@ -73,12 +73,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var createWebhooksConfigRequestsDto = new CreateWebhooksConfigRequestsDto?(); // CreateWebhooksConfigRequestsDto? | The request parameters for creating the webhook configuration. (optional) 
+            var createWebhooksConfigRequestDto = new CreateWebhooksConfigRequestDto?(); // CreateWebhooksConfigRequestDto? | The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional) 
 
             try
             {
                 // Create a webhook
-                WebhooksConfigWrapper result = apiInstance.CreateWebhook(createWebhooksConfigRequestsDto);
+                WebhooksConfigWrapper result = apiInstance.CreateWebhook(createWebhooksConfigRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -99,7 +99,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.CreateWebhookWithHttpInfo(createWebhooksConfigRequestsDto);
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.CreateWebhookWithHttpInfo(createWebhooksConfigRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -121,11 +121,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant webhook with its config parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **400** | Invalid or empty parameters |  -  |
-| **403** | Access denied |  -  |
+| **200** | The created webhook subscription, without its secret key |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `name` or `uri` is missing or empty, `name` or `secretKey` is longer than 50 characters or `targetId` longer than 255, the target URL is unusable or answers the HEAD request with a non-success code, or the secret key or a trigger flag was rejected |  -  |
+| **403** | The caller is a `Guest`, or a non-admin caller while the developer tools are restricted |  -  |
+| **500** | The target URL gives no answer to the HEAD request: the connection fails or times out, or the certificate is not valid while `ssl` is `true` |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -133,9 +134,9 @@ catch (ApiException e)
 
 <a id="enablewebhook"></a>
 # **EnableWebhook**
-> WebhooksConfigWrapper EnableWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper EnableWebhook (UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = null)
 
-Enables or disables a tenant webhook with the parameters specified in the request.
+Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/).
 
@@ -143,7 +144,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto.md) | The request parameters for updating the webhook configuration. | [optional]  |
+| **updateWebhooksConfigRequestDto** | [**UpdateWebhooksConfigRequestDto?**](UpdateWebhooksConfigRequestDto.md) | The webhook subscription being changed, with the parameters it is to have afterwards. | [optional]  |
 
 ### Return type
 
@@ -190,12 +191,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
+            var updateWebhooksConfigRequestDto = new UpdateWebhooksConfigRequestDto?(); // UpdateWebhooksConfigRequestDto? | The webhook subscription being changed, with the parameters it is to have afterwards. (optional) 
 
             try
             {
-                // Enable a webhook
-                WebhooksConfigWrapper result = apiInstance.EnableWebhook(updateWebhooksConfigRequestsDto);
+                // Switch a webhook on or off
+                WebhooksConfigWrapper result = apiInstance.EnableWebhook(updateWebhooksConfigRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -215,8 +216,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Enable a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.EnableWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+    // Switch a webhook on or off
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.EnableWebhookWithHttpInfo(updateWebhooksConfigRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -238,12 +239,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Enable or disable tenant webhook |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **400** | Invalid or empty parameters |  -  |
-| **403** | Access denied |  -  |
-| **404** | Item not found |  -  |
+| **200** | The webhook subscription in its new state, without its secret key |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `id`, `name` or `uri` is missing or empty, `name` or `secretKey` is longer than 50 characters or `targetId` longer than 255, although this call reads only `id` and `enabled`, or on switching on the saved target answers the HEAD request with a non-success code or the saved secret no longer passes the password rules |  -  |
+| **403** | The subscription belongs to another member, or the caller may not use webhooks at all |  -  |
+| **404** | No webhook subscription with this ID exists in the portal |  -  |
+| **500** | On switching on, the saved target URL gives no answer to the HEAD request: the connection fails or times out, or the certificate is not valid while the subscription has `ssl` set |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -253,7 +255,7 @@ catch (ApiException e)
 # **GetTenantWebhooks**
 > WebhooksConfigWithStatusArrayWrapper GetTenantWebhooks ()
 
-Returns a list of the tenant webhooks.
+Returns the webhook subscriptions of the current portal, each together with the outcome of its most recent  delivery. The portal owner and a `DocSpaceAdmin` see every subscription in the portal, while a `RoomAdmin` or  a `User` sees only the ones they created themselves, so the same call answers differently depending on who  asks. A `Guest` may not use webhooks at all and is refused, and so is any non-admin caller while the portal  keeps the developer tools restricted, which `GET api/2.0/settings/devtoolsaccess` reports. Every entry pairs  the stored configuration with `status`, the HTTP status code the target answered on the last attempt, where 0  means nothing has been delivered yet, while the secret key is not part of the response. The list is neither  paginated nor ordered, and an empty list simply means no subscription exists for the caller. Nothing is  written and the call is safe to repeat. Create a subscription with `POST api/2.0/settings/webhook`, and  inspect single deliveries with `GET api/2.0/settings/webhooks/log`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-webhooks/).
 
@@ -307,7 +309,7 @@ namespace Example
 
             try
             {
-                // Get webhooks
+                // Get the portal webhooks
                 WebhooksConfigWithStatusArrayWrapper result = apiInstance.GetTenantWebhooks();
                 Debug.WriteLine(result);
             }
@@ -328,7 +330,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get webhooks
+    // Get the portal webhooks
     ApiResponse<WebhooksConfigWithStatusArrayWrapper> response = apiInstance.GetTenantWebhooksWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -351,10 +353,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tenant webhooks with their config parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | Access denied |  -  |
+| **200** | The webhook subscriptions visible to the caller, each with the status of its last delivery |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a `Guest`, or a non-admin caller while the developer tools are restricted |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -364,7 +367,7 @@ catch (ApiException e)
 # **GetWebhookTriggers**
 > WebhookTriggerArrayWrapper GetWebhookTriggers ()
 
-Returns a list of triggers for a webhook with their availability for the current user.
+Returns the catalogue of events a webhook subscription can listen to, in the order the portal presents them:  user events, then group, file, folder, room, form and agent ones. Each entry carries the event name as it  appears in a payload, such as `file.created`, the bit value to put into the `triggers` bitmask of a  subscription, and `available`, telling whether the caller's own role may subscribe to that event at all: a  `User` cannot subscribe to the creation of users, groups or rooms, for instance, while a `RoomAdmin` can. Add  the bit values of the wanted events together to build `triggers`; the entry named `*` has the value 0 and  stands for every event, so it is used on its own rather than added. Events unavailable to the caller are  listed all the same, but passing one to `POST api/2.0/settings/webhook` or `PUT api/2.0/settings/webhook` is  rejected as an invalid request. This is fixed reference data: the same for every portal, not paginated,  changing only with the product version, and readable by any authenticated caller, a `Guest` included. Nothing  is written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/).
 
@@ -418,7 +421,7 @@ namespace Example
 
             try
             {
-                // Get webhook triggers
+                // Get the webhook triggers
                 WebhookTriggerArrayWrapper result = apiInstance.GetWebhookTriggers();
                 Debug.WriteLine(result);
             }
@@ -439,7 +442,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get webhook triggers
+    // Get the webhook triggers
     ApiResponse<WebhookTriggerArrayWrapper> response = apiInstance.GetWebhookTriggersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -462,9 +465,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of triggers with availability for the current user |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The triggers a webhook may subscribe to, each marked available for the caller's role or not |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -474,7 +478,7 @@ catch (ApiException e)
 # **GetWebhooksLogs**
 > WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null, int? count = null, int? startIndex = null)
 
-Returns the logs of the webhook activities.
+Returns the delivery records of the portal webhooks, one record per attempt, carrying the trigger, the request  and response headers and bodies, the HTTP `status` the target answered and the `delivery` moment, the last two  staying empty while an attempt is still on its way. Records come newest first and are paged with `startIndex`  and `count`, at most 100 at a time, while the number of records matching the filter is reported as `total`  beside the response. Filters combine with AND: `deliveryFrom` and `deliveryTo` bound the delivery moment,  `hookUri` matches the subscription URL exactly, `configId` picks one subscription, `eventId` one single  record, `groupStatus` keeps only the answered status classes it names with 0 meaning no status filter, and  `trigger` narrows to one event with 0 meaning all of them. `userId` filters by who created the subscription  rather than by who caused the event, and for a caller who is not a `DocSpaceAdmin` it is forced to the caller,  so a non-admin only ever sees deliveries of their own subscriptions. A `Guest` is refused. Nothing is written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/).
 
@@ -482,16 +486,16 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **deliveryFrom** | **DateTime?** | The delivery start time for filtering webhook logs. | [optional]  |
-| **deliveryTo** | **DateTime?** | The delivery end time for filtering webhook logs. | [optional]  |
-| **hookUri** | **string?** | The destination URL where webhooks are delivered. | [optional]  |
-| **configId** | **int?** | The webhook configuration identifier. | [optional]  |
-| **eventId** | **int?** | The unique identifier of the event that triggered the webhook. | [optional]  |
-| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus.md) | The status of the webhook delivery group. | [optional]  |
-| **userId** | **Guid?** | The identifier of the user associated with the webhook event. | [optional]  |
-| **trigger** | [**WebhookTrigger?**](WebhookTrigger.md) | The type of event that triggered the webhook. | [optional]  |
-| **count** | **int?** | The maximum number of webhook log records to return in the query response. | [optional]  |
-| **startIndex** | **int?** | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional]  |
+| **deliveryFrom** | **DateTime?** | The earliest delivery moment a record may carry. Records of attempts still on their way have no delivery  moment yet and fall outside any bound set here. | [optional]  |
+| **deliveryTo** | **DateTime?** | The latest delivery moment a record may carry. All the filters combine with AND, so it narrows whatever the  other ones already kept. | [optional]  |
+| **hookUri** | **string?** | The subscription target address, matched in full rather than as a prefix. Filtering by `configId` is the  reliable way to pick one subscription, since several may share an address. | [optional]  |
+| **configId** | **int?** | The subscription whose deliveries are kept, by the `id` that `GET api/2.0/settings/webhook` reports. | [optional]  |
+| **eventId** | **int?** | A single delivery record, by its own identifier. It narrows the answer to that one record, which is how a  client follows up a retry it queued earlier. | [optional]  |
+| **groupStatus** | [**WebhookGroupStatus?**](WebhookGroupStatus.md) | The classes of answered status to keep, as a bitmask; 0 keeps every record whatever the target answered. | [optional]  |
+| **userId** | **Guid?** | The member whose subscriptions the records belong to, by portal user ID - who created the subscription, not  who caused the event. For a caller who is not a DocSpace administrator it is overwritten with the caller own  ID, so such a caller never sees another member deliveries whatever is sent here. | [optional]  |
+| **trigger** | [**WebhookTrigger?**](WebhookTrigger.md) | The single event kind to keep; 0 keeps every kind. It names one trigger rather than a mask of several, unlike  the `triggers` a subscription is created with. | [optional]  |
+| **count** | **int?** | How many records one page may hold. The maximum is also the default, so a client that wants shorter pages has  to ask for them; the number of records matching the filter comes back as `total` beside the page. | [optional]  |
+| **startIndex** | **int?** | How many matching records to skip before the page begins, counting from the newest. Advance it by `count` to  walk back through the log. | [optional]  |
 
 ### Return type
 
@@ -538,20 +542,20 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var deliveryFrom = 2024-01-15T10:30Z;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
-            var deliveryTo = 2024-01-15T10:30Z;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
-            var hookUri = https://example.com/webhook;  // string? | The destination URL where webhooks are delivered. (optional) 
-            var configId = 1;  // int? | The webhook configuration identifier. (optional) 
-            var eventId = 1;  // int? | The unique identifier of the event that triggered the webhook. (optional) 
-            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
-            var userId = "userId_example";  // Guid? | The identifier of the user associated with the webhook event. (optional) 
-            var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
-            var count = 1;  // int? | The maximum number of webhook log records to return in the query response. (optional) 
-            var startIndex = 1;  // int? | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional) 
+            var deliveryFrom = 2024-01-15T10:30:00Z;  // DateTime? | The earliest delivery moment a record may carry. Records of attempts still on their way have no delivery  moment yet and fall outside any bound set here. (optional) 
+            var deliveryTo = 2024-01-15T10:30:00Z;  // DateTime? | The latest delivery moment a record may carry. All the filters combine with AND, so it narrows whatever the  other ones already kept. (optional) 
+            var hookUri = https://example.com/webhook;  // string? | The subscription target address, matched in full rather than as a prefix. Filtering by `configId` is the  reliable way to pick one subscription, since several may share an address. (optional) 
+            var configId = 1;  // int? | The subscription whose deliveries are kept, by the `id` that `GET api/2.0/settings/webhook` reports. (optional) 
+            var eventId = 1;  // int? | A single delivery record, by its own identifier. It narrows the answer to that one record, which is how a  client follows up a retry it queued earlier. (optional) 
+            var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The classes of answered status to keep, as a bitmask; 0 keeps every record whatever the target answered. (optional) 
+            var userId = {};  // Guid? | The member whose subscriptions the records belong to, by portal user ID - who created the subscription, not  who caused the event. For a caller who is not a DocSpace administrator it is overwritten with the caller own  ID, so such a caller never sees another member deliveries whatever is sent here. (optional) 
+            var trigger = new WebhookTrigger?(); // WebhookTrigger? | The single event kind to keep; 0 keeps every kind. It names one trigger rather than a mask of several, unlike  the `triggers` a subscription is created with. (optional) 
+            var count = 1;  // int? | How many records one page may hold. The maximum is also the default, so a client that wants shorter pages has  to ask for them; the number of records matching the filter comes back as `total` beside the page. (optional) 
+            var startIndex = 1;  // int? | How many matching records to skip before the page begins, counting from the newest. Advance it by `count` to  walk back through the log. (optional) 
 
             try
             {
-                // Get webhook logs
+                // Get the webhook delivery log
                 WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
                 Debug.WriteLine(result);
             }
@@ -572,7 +576,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get webhook logs
+    // Get the webhook delivery log
     ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -595,10 +599,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Logs of the webhook activities |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | Access denied |  -  |
+| **200** | The matching delivery records, newest first, with the total count reported beside them |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The `count` is outside its allowed range |  -  |
+| **403** | The caller is a `Guest`, or a non-admin caller while the developer tools are restricted |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -608,7 +614,7 @@ catch (ApiException e)
 # **RemoveWebhook**
 > WebhooksConfigWrapper RemoveWebhook (int id)
 
-Removes a tenant webhook with the ID specified in the request.
+Removes one webhook subscription from the current portal for good, addressed by `id` in the path. Deliveries  stop with it: matching events are no longer queued, and there is no undo, so a subscription dropped by mistake  has to be created again with `POST api/2.0/settings/webhook`, which gives it a new identifier and needs a new  secret key. To pause deliveries without losing the configuration, switch the subscription off with  `PUT api/2.0/settings/webhook/enable` instead. A `DocSpaceAdmin` may remove any subscription in the portal,  anyone else only the ones they created, and a `Guest` may not use webhooks at all. The response repeats the  subscription as it was just before the removal, so the caller can record what disappeared, again without the  secret key. An identifier that no longer exists gives 404, which is what a second removal of the same  subscription answers as well, so a repeated call is harmless but reports the state truthfully rather than  pretending to succeed.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-webhook/).
 
@@ -616,7 +622,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The ID extracted from the route parameters. |  |
+| **id** | **int** | The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found. |  |
 
 ### Return type
 
@@ -663,7 +669,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The ID extracted from the route parameters.
+            var id = 1;  // int | The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.
 
             try
             {
@@ -711,11 +717,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant webhook with its config parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | Access denied |  -  |
-| **404** | Item not found |  -  |
+| **200** | The removed webhook subscription, as it was just before the removal |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The subscription belongs to another member, or the caller may not use webhooks at all |  -  |
+| **404** | No webhook subscription with this ID exists in the portal |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -725,7 +733,7 @@ catch (ApiException e)
 # **RetryWebhook**
 > WebhooksLogWrapper RetryWebhook (int id)
 
-Retries a webhook with the ID specified in the request.
+Sends one past webhook delivery again. The `id` in the path is that of a delivery record from  `GET api/2.0/settings/webhooks/log`, not of a subscription, and the payload kept in that record is sent once  more to the subscription it belongs to. The work is asynchronous: a fresh delivery record is created and  queued at once, and the response describes that new record, with an identifier of its own and with `status`  and `delivery` not filled in yet. To learn the outcome, read `GET api/2.0/settings/webhooks/log` with  `eventId` set to the returned identifier until `delivery` appears. The original record stays as it is, and  every call queues one more attempt, so this is not safe to repeat blindly. A `DocSpaceAdmin` may retry any  delivery in the portal, anyone else only deliveries of the subscriptions they created, and a `Guest` is  refused. An `id` of 0 is rejected as an invalid request and an unknown one gives 404. The operation is rate  limited, so a burst of calls is answered with 429; to retry several records use  `PUT api/2.0/settings/webhook/retry`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhook/).
 
@@ -733,7 +741,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The ID extracted from the route parameters. |  |
+| **id** | **int** | The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found. |  |
 
 ### Return type
 
@@ -780,11 +788,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The ID extracted from the route parameters.
+            var id = 1;  // int | The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.
 
             try
             {
-                // Retry a webhook
+                // Retry a webhook delivery
                 WebhooksLogWrapper result = apiInstance.RetryWebhook(id);
                 Debug.WriteLine(result);
             }
@@ -805,7 +813,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Retry a webhook
+    // Retry a webhook delivery
     ApiResponse<WebhooksLogWrapper> response = apiInstance.RetryWebhookWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -828,12 +836,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Logs of the webhook activities |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **400** | Id incorrect |  -  |
-| **403** | Access denied |  -  |
-| **404** | Item not found |  -  |
+| **200** | The newly queued delivery record, with its status and delivery moment not filled in yet |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The delivery record identifier is 0 |  -  |
+| **403** | The delivery belongs to another member's subscription, or the caller may not use webhooks |  -  |
+| **404** | No delivery record with this ID exists in the portal |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -841,9 +850,9 @@ catch (ApiException e)
 
 <a id="retrywebhooks"></a>
 # **RetryWebhooks**
-> WebhooksLogArrayWrapper RetryWebhooks (WebhookRetryRequestsDto? webhookRetryRequestsDto = null)
+> WebhooksLogArrayWrapper RetryWebhooks (WebhookRetryRequestDto? webhookRetryRequestDto = null)
 
-Retries all the webhooks with the IDs specified in the request.
+Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/).
 
@@ -851,7 +860,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhookRetryRequestsDto** | [**WebhookRetryRequestsDto?**](WebhookRetryRequestsDto.md) | The parameters for requesting the webhook delivery retries. | [optional]  |
+| **webhookRetryRequestDto** | [**WebhookRetryRequestDto?**](WebhookRetryRequestDto.md) | Which past webhook deliveries are sent again. | [optional]  |
 
 ### Return type
 
@@ -898,12 +907,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? | The parameters for requesting the webhook delivery retries. (optional) 
+            var webhookRetryRequestDto = new WebhookRetryRequestDto?(); // WebhookRetryRequestDto? | Which past webhook deliveries are sent again. (optional) 
 
             try
             {
-                // Retry webhooks
-                WebhooksLogArrayWrapper result = apiInstance.RetryWebhooks(webhookRetryRequestsDto);
+                // Retry webhook deliveries
+                WebhooksLogArrayWrapper result = apiInstance.RetryWebhooks(webhookRetryRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -923,8 +932,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Retry webhooks
-    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.RetryWebhooksWithHttpInfo(webhookRetryRequestsDto);
+    // Retry webhook deliveries
+    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.RetryWebhooksWithHttpInfo(webhookRetryRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -946,10 +955,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Logs of the webhook activities |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | Access denied |  -  |
+| **200** | The newly queued delivery records, one for every identifier that could be retried |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a `Guest`, or a non-admin caller while the developer tools are restricted |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -957,9 +968,9 @@ catch (ApiException e)
 
 <a id="updatewebhook"></a>
 # **UpdateWebhook**
-> WebhooksConfigWrapper UpdateWebhook (UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = null)
+> WebhooksConfigWrapper UpdateWebhook (UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = null)
 
-Updates a tenant webhook with the parameters specified in the request.
+Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/).
 
@@ -967,7 +978,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateWebhooksConfigRequestsDto** | [**UpdateWebhooksConfigRequestsDto?**](UpdateWebhooksConfigRequestsDto.md) | The request parameters for updating the webhook configuration. | [optional]  |
+| **updateWebhooksConfigRequestDto** | [**UpdateWebhooksConfigRequestDto?**](UpdateWebhooksConfigRequestDto.md) | The webhook subscription being changed, with the parameters it is to have afterwards. | [optional]  |
 
 ### Return type
 
@@ -1014,12 +1025,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
+            var updateWebhooksConfigRequestDto = new UpdateWebhooksConfigRequestDto?(); // UpdateWebhooksConfigRequestDto? | The webhook subscription being changed, with the parameters it is to have afterwards. (optional) 
 
             try
             {
                 // Update a webhook
-                WebhooksConfigWrapper result = apiInstance.UpdateWebhook(updateWebhooksConfigRequestsDto);
+                WebhooksConfigWrapper result = apiInstance.UpdateWebhook(updateWebhooksConfigRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1040,7 +1051,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update a webhook
-    ApiResponse<WebhooksConfigWrapper> response = apiInstance.UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+    ApiResponse<WebhooksConfigWrapper> response = apiInstance.UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1062,12 +1073,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated tenant webhook with its config parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **400** | Invalid or empty parameters |  -  |
-| **403** | Access denied |  -  |
-| **404** | Item not found |  -  |
+| **200** | The updated webhook subscription, without its secret key |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `id`, `name` or `uri` is missing or empty, `name` or `secretKey` is longer than 50 characters or `targetId` longer than 255, the target URL is unusable or answers the HEAD request with a non-success code, or the secret key or a trigger flag was rejected |  -  |
+| **403** | The subscription belongs to another member, or the caller may not use webhooks at all |  -  |
+| **404** | No webhook subscription with this ID exists in the portal |  -  |
+| **500** | The target URL gives no answer to the HEAD request: the connection fails or times out, or the certificate is not valid while `ssl` is `true` |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

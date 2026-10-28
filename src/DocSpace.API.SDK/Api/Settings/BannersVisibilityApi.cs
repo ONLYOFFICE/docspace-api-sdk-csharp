@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -302,7 +302,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -317,7 +317,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -388,7 +388,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -404,7 +404,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the visibility settings of the promotional banners in the portal.
+        /// Returns whether the portal's promotional banners are currently hidden from every user's interface. Requires an  authenticated session; every role can read it, since the flag affects what they see regardless of their own  permissions. This is a read-only, idempotent call. The flag only takes effect on a Standalone (self-hosted)  installation; on SaaS, banners are always shown no matter what is saved here. Change the setting with  `POST api/2.0/settings/banner`, which additionally requires an Enterprise license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

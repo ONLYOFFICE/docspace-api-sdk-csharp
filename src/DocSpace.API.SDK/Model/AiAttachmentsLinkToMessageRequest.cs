@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAttachmentsLinkToMessageRequest
     /// </summary>
-    [DataContract(Name = "aiAttachmentsLinkToMessage_request")]
+    [DataContract(Name = "AiAttachmentsLinkToMessageRequest")]
     public partial class AiAttachmentsLinkToMessageRequest : IValidatableObject
     {
     
@@ -74,21 +74,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Attachment ids to bind.
         /// </summary>
-        /// <value>Attachment ids to bind.</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Ids { get; set; }
 
         /// <summary>
         /// Owning message id.
         /// </summary>
-        /// <value>Owning message id.</value>
         [DataMember(Name = "messageId", IsRequired = true, EmitDefaultValue = true)]
         public string MessageId { get; set; }
 
         /// <summary>
         /// Owning thread id.
         /// </summary>
-        /// <value>Owning thread id.</value>
         [DataMember(Name = "threadId", IsRequired = true, EmitDefaultValue = true)]
         public string ThreadId { get; set; }
 

@@ -31,8 +31,11 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
+        /// <remarks>
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/">REST API Reference for AiAssignmentsAssign Operation</seealso>
@@ -40,10 +43,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiAssignmentMutationResult AiAssignmentsAssign(AiAssignmentsAssignRequest aiAssignmentsAssignRequest);
 
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
@@ -53,68 +56,80 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Bulk assign
         /// </summary>
+        /// <remarks>
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>AiBulkAssignmentResult</returns>
-        AiBulkAssignmentResult AiAssignmentsBulkAssign(Dictionary<string, string> requestBody);
+        AiBulkAssignmentResult AiAssignmentsBulkAssign(Dictionary<string, string> aiAssignmentsBulkAssignRequest);
 
         /// <summary>
         /// Bulk assign
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>ApiResponse of AiBulkAssignmentResult</returns>
-        ApiResponse<AiBulkAssignmentResult> AiAssignmentsBulkAssignWithHttpInfo(Dictionary<string, string> requestBody);
+        ApiResponse<AiBulkAssignmentResult> AiAssignmentsBulkAssignWithHttpInfo(Dictionary<string, string> aiAssignmentsBulkAssignRequest);
         /// <summary>
         /// Cascade profile delete
         /// </summary>
+        /// <remarks>
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiAssignmentsCascadeProfileDelete(string body);
+        AiSuccessResponse AiAssignmentsCascadeProfileDelete(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest);
 
         /// <summary>
         /// Cascade profile delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteWithHttpInfo(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest);
         /// <summary>
         /// Get all assignments
         /// </summary>
+        /// <remarks>
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Dictionary&lt;string, string&gt;</returns>
-        Dictionary<string, string> AiAssignmentsGetAllAssignments(string entityId);
+        Dictionary<string, string> AiAssignmentsGetAllAssignments(string? entityId = default);
 
         /// <summary>
         /// Get all assignments
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
-        ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string entityId);
+        ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Get assignment
         /// </summary>
+        /// <remarks>
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>string</returns>
         string AiAssignmentsGetAssignment(string actionType);
@@ -123,77 +138,86 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get assignment
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> AiAssignmentsGetAssignmentWithHttpInfo(string actionType);
         /// <summary>
         /// Resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>AiResolvedAssignment</returns>
-        AiResolvedAssignment AiAssignmentsResolveForAction(string actionType, string entityId);
+        AiResolvedAssignment AiAssignmentsResolveForAction(string actionType, string? entityId = default);
 
         /// <summary>
         /// Resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>ApiResponse of AiResolvedAssignment</returns>
-        ApiResponse<AiResolvedAssignment> AiAssignmentsResolveForActionWithHttpInfo(string actionType, string entityId);
+        ApiResponse<AiResolvedAssignment> AiAssignmentsResolveForActionWithHttpInfo(string actionType, string? entityId = default);
         /// <summary>
         /// Try resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>AiResolvedAssignment</returns>
-        AiResolvedAssignment AiAssignmentsTryResolveForAction(string actionType, string entityId);
+        AiResolvedAssignment AiAssignmentsTryResolveForAction(string actionType, string? entityId = default);
 
         /// <summary>
         /// Try resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>ApiResponse of AiResolvedAssignment</returns>
-        ApiResponse<AiResolvedAssignment> AiAssignmentsTryResolveForActionWithHttpInfo(string actionType, string entityId);
+        ApiResponse<AiResolvedAssignment> AiAssignmentsTryResolveForActionWithHttpInfo(string actionType, string? entityId = default);
         /// <summary>
-        /// Unassign
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiAssignmentsUnassign(string body);
-
-        /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAssignmentsUnassign(string aiActionType);
+
+        /// <summary>
+        /// Clear an action's profile
+        /// </summary>
+        /// <remarks>
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiActionType"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiAssignmentsUnassignWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiAssignmentsUnassignWithHttpInfo(string aiActionType);
         #endregion Synchronous Operations
     }
 
@@ -204,10 +228,10 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
@@ -217,10 +241,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiAssignmentMutationResult> AiAssignmentsAssignAsync(AiAssignmentsAssignRequest aiAssignmentsAssignRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
@@ -232,85 +256,85 @@ namespace DocSpace.API.SDK.Api.AI
         /// Bulk assign
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>Task of AiBulkAssignmentResult</returns>
-        Task<AiBulkAssignmentResult> AiAssignmentsBulkAssignAsync(Dictionary<string, string> requestBody, CancellationToken cancellationToken = default);
+        Task<AiBulkAssignmentResult> AiAssignmentsBulkAssignAsync(Dictionary<string, string> aiAssignmentsBulkAssignRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Bulk assign
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>Task of ApiResponse (AiBulkAssignmentResult)</returns>
-        Task<ApiResponse<AiBulkAssignmentResult>> AiAssignmentsBulkAssignWithHttpInfoAsync(Dictionary<string, string> requestBody, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiBulkAssignmentResult>> AiAssignmentsBulkAssignWithHttpInfoAsync(Dictionary<string, string> aiAssignmentsBulkAssignRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Cascade profile delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteAsync(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Cascade profile delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get all assignments
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
-        Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get all assignments
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get assignment
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>Task of string</returns>
@@ -320,10 +344,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get assignment
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>Task of ApiResponse (string)</returns>
@@ -332,81 +356,81 @@ namespace DocSpace.API.SDK.Api.AI
         /// Resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>Task of AiResolvedAssignment</returns>
-        Task<AiResolvedAssignment> AiAssignmentsResolveForActionAsync(string actionType, string entityId, CancellationToken cancellationToken = default);
+        Task<AiResolvedAssignment> AiAssignmentsResolveForActionAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>Task of ApiResponse (AiResolvedAssignment)</returns>
-        Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsResolveForActionWithHttpInfoAsync(string actionType, string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsResolveForActionWithHttpInfoAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Try resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>Task of AiResolvedAssignment</returns>
-        Task<AiResolvedAssignment> AiAssignmentsTryResolveForActionAsync(string actionType, string entityId, CancellationToken cancellationToken = default);
+        Task<AiResolvedAssignment> AiAssignmentsTryResolveForActionAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Try resolve for action
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>Task of ApiResponse (AiResolvedAssignment)</returns>
-        Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsTryResolveForActionWithHttpInfoAsync(string actionType, string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsTryResolveForActionWithHttpInfoAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiAssignmentsUnassignAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiAssignmentsUnassignAsync(string aiActionType, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiAssignmentsUnassignWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiAssignmentsUnassignWithHttpInfoAsync(string aiActionType, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -623,8 +647,11 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
+        /// <remarks>
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/">REST API Reference for AiAssignmentsAssign Operation</seealso>
@@ -636,8 +663,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
+        /// <remarks>
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/">REST API Reference for AiAssignmentsAssign Operation</seealso>
@@ -663,6 +693,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAssignmentsAssignRequest != null) localVarRequestOptions.Data = aiAssignmentsAssignRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiAssignmentMutationResult>("/api/2.0/ai/assignments/assign", localVarRequestOptions, Configuration);
@@ -680,8 +722,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
+        /// <remarks>
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -694,8 +739,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Assign
+        /// Bind a profile to an action
         /// </summary>
+        /// <remarks>
+        /// Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAssignmentsAssignRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -723,6 +771,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAssignmentsAssignRequest != null) localVarRequestOptions.Data = aiAssignmentsAssignRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -743,28 +803,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Bulk assign
         /// </summary>
+        /// <remarks>
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>AiBulkAssignmentResult</returns>
-        public AiBulkAssignmentResult AiAssignmentsBulkAssign(Dictionary<string, string> requestBody)
+        public AiBulkAssignmentResult AiAssignmentsBulkAssign(Dictionary<string, string> aiAssignmentsBulkAssignRequest)
         {
-            var localVarResponse = AiAssignmentsBulkAssignWithHttpInfo(requestBody);
+            var localVarResponse = AiAssignmentsBulkAssignWithHttpInfo(aiAssignmentsBulkAssignRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Bulk assign
         /// </summary>
+        /// <remarks>
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>ApiResponse of AiBulkAssignmentResult</returns>
-        public ApiResponse<AiBulkAssignmentResult> AiAssignmentsBulkAssignWithHttpInfo(Dictionary<string, string> requestBody)
+        public ApiResponse<AiBulkAssignmentResult> AiAssignmentsBulkAssignWithHttpInfo(Dictionary<string, string> aiAssignmentsBulkAssignRequest)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AssignmentsApi->AiAssignmentsBulkAssign");
+            // verify the required parameter 'aiAssignmentsBulkAssignRequest' is set
+            if (aiAssignmentsBulkAssignRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAssignmentsBulkAssignRequest' when calling AssignmentsApi->AiAssignmentsBulkAssign");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -779,8 +845,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiAssignmentsBulkAssignRequest != null) localVarRequestOptions.Data = aiAssignmentsBulkAssignRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiBulkAssignmentResult>("/api/2.0/ai/assignments/bulk-assign", localVarRequestOptions, Configuration);
@@ -800,30 +878,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Bulk assign
         /// </summary>
+        /// <remarks>
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>Task of AiBulkAssignmentResult</returns>
-        public async Task<AiBulkAssignmentResult> AiAssignmentsBulkAssignAsync(Dictionary<string, string> requestBody, CancellationToken cancellationToken = default)
+        public async Task<AiBulkAssignmentResult> AiAssignmentsBulkAssignAsync(Dictionary<string, string> aiAssignmentsBulkAssignRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiAssignmentsBulkAssignWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiAssignmentsBulkAssignWithHttpInfoAsync(aiAssignmentsBulkAssignRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Bulk assign
         /// </summary>
+        /// <remarks>
+        /// Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiAssignmentsBulkAssignRequest">A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/">REST API Reference for AiAssignmentsBulkAssign Operation</seealso>
         /// <returns>Task of ApiResponse (AiBulkAssignmentResult)</returns>
-        public async Task<ApiResponse<AiBulkAssignmentResult>> AiAssignmentsBulkAssignWithHttpInfoAsync(Dictionary<string, string> requestBody, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiBulkAssignmentResult>> AiAssignmentsBulkAssignWithHttpInfoAsync(Dictionary<string, string> aiAssignmentsBulkAssignRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AssignmentsApi->AiAssignmentsBulkAssign");
+            // verify the required parameter 'aiAssignmentsBulkAssignRequest' is set
+            if (aiAssignmentsBulkAssignRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAssignmentsBulkAssignRequest' when calling AssignmentsApi->AiAssignmentsBulkAssign");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -839,8 +923,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiAssignmentsBulkAssignRequest != null) localVarRequestOptions.Data = aiAssignmentsBulkAssignRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -861,28 +957,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Cascade profile delete
         /// </summary>
+        /// <remarks>
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiAssignmentsCascadeProfileDelete(string body)
+        public AiSuccessResponse AiAssignmentsCascadeProfileDelete(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest)
         {
-            var localVarResponse = AiAssignmentsCascadeProfileDeleteWithHttpInfo(body);
+            var localVarResponse = AiAssignmentsCascadeProfileDeleteWithHttpInfo(aiAssignmentsCascadeProfileDeleteRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Cascade profile delete
         /// </summary>
+        /// <remarks>
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteWithHttpInfo(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AssignmentsApi->AiAssignmentsCascadeProfileDelete");
+            // verify the required parameter 'aiAssignmentsCascadeProfileDeleteRequest' is set
+            if (aiAssignmentsCascadeProfileDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAssignmentsCascadeProfileDeleteRequest' when calling AssignmentsApi->AiAssignmentsCascadeProfileDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -897,8 +999,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiAssignmentsCascadeProfileDeleteRequest != null) localVarRequestOptions.Data = aiAssignmentsCascadeProfileDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/assignments/cascade-profile-delete", localVarRequestOptions, Configuration);
@@ -918,30 +1032,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Cascade profile delete
         /// </summary>
+        /// <remarks>
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiAssignmentsCascadeProfileDeleteAsync(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(aiAssignmentsCascadeProfileDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Cascade profile delete
         /// </summary>
+        /// <remarks>
+        /// Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiAssignmentsCascadeProfileDeleteRequest">The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/">REST API Reference for AiAssignmentsCascadeProfileDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiAssignmentsCascadeProfileDeleteWithHttpInfoAsync(AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AssignmentsApi->AiAssignmentsCascadeProfileDelete");
+            // verify the required parameter 'aiAssignmentsCascadeProfileDeleteRequest' is set
+            if (aiAssignmentsCascadeProfileDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAssignmentsCascadeProfileDeleteRequest' when calling AssignmentsApi->AiAssignmentsCascadeProfileDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -957,8 +1077,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiAssignmentsCascadeProfileDeleteRequest != null) localVarRequestOptions.Data = aiAssignmentsCascadeProfileDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -979,11 +1111,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get all assignments
         /// </summary>
+        /// <remarks>
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Dictionary&lt;string, string&gt;</returns>
-        public Dictionary<string, string> AiAssignmentsGetAllAssignments(string entityId)
+        public Dictionary<string, string> AiAssignmentsGetAllAssignments(string? entityId = default)
         {
             var localVarResponse = AiAssignmentsGetAllAssignmentsWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -992,16 +1127,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get all assignments
         /// </summary>
+        /// <remarks>
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
-        public ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string entityId)
+        public ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsGetAllAssignments");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1015,8 +1149,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<Dictionary<string, string>>("/api/2.0/ai/assignments/get-all-assignments", localVarRequestOptions, Configuration);
@@ -1036,12 +1185,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get all assignments
         /// </summary>
+        /// <remarks>
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
-        public async Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1050,17 +1202,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get all assignments
         /// </summary>
+        /// <remarks>
+        /// Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsGetAllAssignments");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1075,8 +1226,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1097,8 +1263,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get assignment
         /// </summary>
+        /// <remarks>
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>string</returns>
         public string AiAssignmentsGetAssignment(string actionType)
@@ -1110,8 +1279,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get assignment
         /// </summary>
+        /// <remarks>
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>ApiResponse of string</returns>
         public ApiResponse<string> AiAssignmentsGetAssignmentWithHttpInfo(string actionType)
@@ -1135,6 +1307,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<string>("/api/2.0/ai/assignments/get-assignment", localVarRequestOptions, Configuration);
@@ -1154,8 +1338,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get assignment
         /// </summary>
+        /// <remarks>
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>Task of string</returns>
@@ -1168,8 +1355,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get assignment
         /// </summary>
+        /// <remarks>
+        /// Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/">REST API Reference for AiAssignmentsGetAssignment Operation</seealso>
         /// <returns>Task of ApiResponse (string)</returns>
@@ -1195,6 +1385,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1215,12 +1417,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>AiResolvedAssignment</returns>
-        public AiResolvedAssignment AiAssignmentsResolveForAction(string actionType, string entityId)
+        public AiResolvedAssignment AiAssignmentsResolveForAction(string actionType, string? entityId = default)
         {
             var localVarResponse = AiAssignmentsResolveForActionWithHttpInfo(actionType, entityId);
             return localVarResponse.Data;
@@ -1229,20 +1434,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>ApiResponse of AiResolvedAssignment</returns>
-        public ApiResponse<AiResolvedAssignment> AiAssignmentsResolveForActionWithHttpInfo(string actionType, string entityId)
+        public ApiResponse<AiResolvedAssignment> AiAssignmentsResolveForActionWithHttpInfo(string actionType, string? entityId = default)
         {
             // verify the required parameter 'actionType' is set
             if (actionType == null)
                 throw new ApiException(400, "Missing required parameter 'actionType' when calling AssignmentsApi->AiAssignmentsResolveForAction");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsResolveForAction");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1258,8 +1462,23 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiResolvedAssignment>("/api/2.0/ai/assignments/resolve-for-action", localVarRequestOptions, Configuration);
@@ -1279,13 +1498,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>Task of AiResolvedAssignment</returns>
-        public async Task<AiResolvedAssignment> AiAssignmentsResolveForActionAsync(string actionType, string entityId, CancellationToken cancellationToken = default)
+        public async Task<AiResolvedAssignment> AiAssignmentsResolveForActionAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAssignmentsResolveForActionWithHttpInfoAsync(actionType, entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1294,21 +1516,20 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/">REST API Reference for AiAssignmentsResolveForAction Operation</seealso>
         /// <returns>Task of ApiResponse (AiResolvedAssignment)</returns>
-        public async Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsResolveForActionWithHttpInfoAsync(string actionType, string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsResolveForActionWithHttpInfoAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'actionType' is set
             if (actionType == null)
                 throw new ApiException(400, "Missing required parameter 'actionType' when calling AssignmentsApi->AiAssignmentsResolveForAction");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsResolveForAction");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1325,8 +1546,23 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1347,12 +1583,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Try resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>AiResolvedAssignment</returns>
-        public AiResolvedAssignment AiAssignmentsTryResolveForAction(string actionType, string entityId)
+        public AiResolvedAssignment AiAssignmentsTryResolveForAction(string actionType, string? entityId = default)
         {
             var localVarResponse = AiAssignmentsTryResolveForActionWithHttpInfo(actionType, entityId);
             return localVarResponse.Data;
@@ -1361,20 +1600,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Try resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>ApiResponse of AiResolvedAssignment</returns>
-        public ApiResponse<AiResolvedAssignment> AiAssignmentsTryResolveForActionWithHttpInfo(string actionType, string entityId)
+        public ApiResponse<AiResolvedAssignment> AiAssignmentsTryResolveForActionWithHttpInfo(string actionType, string? entityId = default)
         {
             // verify the required parameter 'actionType' is set
             if (actionType == null)
                 throw new ApiException(400, "Missing required parameter 'actionType' when calling AssignmentsApi->AiAssignmentsTryResolveForAction");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsTryResolveForAction");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1390,8 +1628,23 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiResolvedAssignment>("/api/2.0/ai/assignments/try-resolve-for-action", localVarRequestOptions, Configuration);
@@ -1411,13 +1664,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Try resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>Task of AiResolvedAssignment</returns>
-        public async Task<AiResolvedAssignment> AiAssignmentsTryResolveForActionAsync(string actionType, string entityId, CancellationToken cancellationToken = default)
+        public async Task<AiResolvedAssignment> AiAssignmentsTryResolveForActionAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAssignmentsTryResolveForActionWithHttpInfoAsync(actionType, entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1426,21 +1682,20 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Try resolve for action
         /// </summary>
+        /// <remarks>
+        /// Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="actionType"></param>
-        /// <param name="entityId"></param>
+        /// <param name="actionType">The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/">REST API Reference for AiAssignmentsTryResolveForAction Operation</seealso>
         /// <returns>Task of ApiResponse (AiResolvedAssignment)</returns>
-        public async Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsTryResolveForActionWithHttpInfoAsync(string actionType, string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiResolvedAssignment>> AiAssignmentsTryResolveForActionWithHttpInfoAsync(string actionType, string? entityId = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'actionType' is set
             if (actionType == null)
                 throw new ApiException(400, "Missing required parameter 'actionType' when calling AssignmentsApi->AiAssignmentsTryResolveForAction");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling AssignmentsApi->AiAssignmentsTryResolveForAction");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1457,8 +1712,23 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "actionType", actionType));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1477,30 +1747,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
+        /// <remarks>
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiAssignmentsUnassign(string body)
+        public AiSuccessResponse AiAssignmentsUnassign(string aiActionType)
         {
-            var localVarResponse = AiAssignmentsUnassignWithHttpInfo(body);
+            var localVarResponse = AiAssignmentsUnassignWithHttpInfo(aiActionType);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
+        /// <remarks>
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiAssignmentsUnassignWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiAssignmentsUnassignWithHttpInfo(string aiActionType)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AssignmentsApi->AiAssignmentsUnassign");
+            // verify the required parameter 'aiActionType' is set
+            if (aiActionType == null)
+                throw new ApiException(400, "Missing required parameter 'aiActionType' when calling AssignmentsApi->AiAssignmentsUnassign");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1515,8 +1791,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiActionType != null) localVarRequestOptions.Data = aiActionType;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/assignments/unassign", localVarRequestOptions, Configuration);
@@ -1534,32 +1822,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
+        /// <remarks>
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiAssignmentsUnassignAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiAssignmentsUnassignAsync(string aiActionType, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiAssignmentsUnassignWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiAssignmentsUnassignWithHttpInfoAsync(aiActionType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Unassign
+        /// Clear an action's profile
         /// </summary>
+        /// <remarks>
+        /// Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiActionType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/">REST API Reference for AiAssignmentsUnassign Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiAssignmentsUnassignWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiAssignmentsUnassignWithHttpInfoAsync(string aiActionType, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AssignmentsApi->AiAssignmentsUnassign");
+            // verify the required parameter 'aiActionType' is set
+            if (aiActionType == null)
+                throw new ApiException(400, "Missing required parameter 'aiActionType' when calling AssignmentsApi->AiAssignmentsUnassign");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1575,8 +1869,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiActionType != null) localVarRequestOptions.Data = aiActionType;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

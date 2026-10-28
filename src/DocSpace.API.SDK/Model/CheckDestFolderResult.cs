@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - All allowed, 1 - Part allowed, 2 - None allowed]
     /// </summary>
-    /// <value>[0 - All allowed, 1 - Part allowed, 2 - None allowed]</value>
     public enum CheckDestFolderResult
     {
         /// <summary>

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of embedding provider configured for document vectorization.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public AiEmbeddingProviderType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiVectorizationSettingsDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The type of embedding provider configured for document vectorization..</param>
         /// <param name="needReset">Indicates whether the embedding provider API key needs to be reconfigured..</param>
         public AiVectorizationSettingsDto(AiEmbeddingProviderType? type = default, bool needReset = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether the embedding provider API key needs to be reconfigured.
         /// </summary>
-        /// <value>Indicates whether the embedding provider API key needs to be reconfigured.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "needReset", EmitDefaultValue = true)]
         public bool NeedReset { get; set; }
 

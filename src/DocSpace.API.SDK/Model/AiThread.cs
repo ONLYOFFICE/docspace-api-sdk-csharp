@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="threadId">Unique thread identifier (UUID). (required).</param>
         /// <param name="title">Optional thread title. Auto-generated from the first message if not set..</param>
         /// <param name="lastEditDate">Timestamp (ms since epoch) of the last message in this thread. Used for sorting..</param>
-        /// <param name="provider">provider.</param>
-        /// <param name="model">model.</param>
-        /// <param name="profileId">ID of the profile used for this thread. Links to  {@link  Profile.id } ..</param>
-        public AiThread(string threadId = default, string title = default, decimal lastEditDate = default, AiTProvider provider = default, AiModel model = default, string profileId = default)
+        /// <param name="provider">Provider configuration at the time of last message. Used for thread-level provider display..</param>
+        /// <param name="model">Model info at the time of last message..</param>
+        /// <param name="profileId">ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;..</param>
+        public AiThread(string threadId = default, string title = default, decimal lastEditDate = default, AiProvider provider = default, AiModel model = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
             if (threadId == null)
@@ -70,40 +70,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Unique thread identifier (UUID).
         /// </summary>
-        /// <value>Unique thread identifier (UUID).</value>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", IsRequired = true, EmitDefaultValue = true)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// Optional thread title. Auto-generated from the first message if not set.
         /// </summary>
-        /// <value>Optional thread title. Auto-generated from the first message if not set.</value>
+        /// <example>Contract review</example>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) of the last message in this thread. Used for sorting.
         /// </summary>
-        /// <value>Timestamp (ms since epoch) of the last message in this thread. Used for sorting.</value>
+        /// <example>1767225600000</example>
         [DataMember(Name = "lastEditDate", EmitDefaultValue = false)]
         public decimal LastEditDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// Provider configuration at the time of last message. Used for thread-level provider display.
         /// </summary>
         [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public AiTProvider Provider { get; set; }
+        public AiProvider Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model
+        /// Model info at the time of last message.
         /// </summary>
         [DataMember(Name = "model", EmitDefaultValue = false)]
         public AiModel Model { get; set; }
 
         /// <summary>
-        /// ID of the profile used for this thread. Links to  {@link  Profile.id } .
+        /// ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;.
         /// </summary>
-        /// <value>ID of the profile used for this thread. Links to  {@link  Profile.id } .</value>
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 

@@ -40,7 +40,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// file | image.
         /// </summary>
-        /// <value>file | image.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum KindEnum
         {
@@ -60,13 +59,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// file | image.
         /// </summary>
-        /// <value>file | image.</value>
+        /// <example>file</example>
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public KindEnum Kind { get; set; }
         /// <summary>
         /// Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.
         /// </summary>
-        /// <value>Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SourceEnum
         {
@@ -86,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.
         /// </summary>
-        /// <value>Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.</value>
+        /// <example>user</example>
         [DataMember(Name = "source", EmitDefaultValue = false)]
         public SourceEnum? Source { get; set; }
     
@@ -110,7 +108,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="threadId">Owning thread id once linked. Unset while the attachment is a draft..</param>
         /// <param name="entityId">Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding..</param>
         /// <param name="createdAt">Storage-assigned creation timestamp. (required).</param>
-        public AiAttachment(string id = default, KindEnum kind = default, SourceEnum? source = default, string title = default, string content = default, string base64 = default, string path = default, decimal type = default, string messageId = default, string threadId = default, string entityId = default, decimal createdAt = default)
+        /// <param name="canAnalyze">Whether the attached form can be analyzed..</param>
+        /// <param name="formKeys">Keys of the fields inside the form. &#x60;key&#x60; is the field identifier, &#x60;text&#x60; its human-readable label..</param>
+        public AiAttachment(string id = default, KindEnum kind = default, SourceEnum? source = default, string title = default, string content = default, string base64 = default, string path = default, decimal type = default, string messageId = default, string threadId = default, string entityId = default, decimal createdAt = default, bool canAnalyze = default, List<AiAttachmentFormKeysInner> formKeys = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -134,77 +134,92 @@ namespace DocSpace.API.SDK.Model
             this.MessageId = messageId;
             this.ThreadId = threadId;
             this.EntityId = entityId;
+            this.CanAnalyze = canAnalyze;
+            this.FormKeys = formKeys;
         }
 
         /// <summary>
         /// Storage-assigned UUID.
         /// </summary>
-        /// <value>Storage-assigned UUID.</value>
+        /// <example>55555555-5555-5555-5555-555555555555</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Display label (filename or user-visible title).
         /// </summary>
-        /// <value>Display label (filename or user-visible title).</value>
+        /// <example>contract.docx</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Extracted text for files.
         /// </summary>
-        /// <value>Extracted text for files.</value>
+        /// <example>This agreement is made on 1 January 2026 between …</example>
         [DataMember(Name = "content", EmitDefaultValue = false)]
         public string Content { get; set; }
 
         /// <summary>
         /// Base64 data URL for images.
         /// </summary>
-        /// <value>Base64 data URL for images.</value>
         [DataMember(Name = "base64", EmitDefaultValue = false)]
         public string Base64 { get; set; }
 
         /// <summary>
         /// Original host file path (for files).
         /// </summary>
-        /// <value>Original host file path (for files).</value>
+        /// <example>file_1234</example>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 
         /// <summary>
         /// ONLYOFFICE file type code (for files).
         /// </summary>
-        /// <value>ONLYOFFICE file type code (for files).</value>
+        /// <example>7</example>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public decimal Type { get; set; }
 
         /// <summary>
         /// Owning message id once linked. Unset while the attachment is a draft.
         /// </summary>
-        /// <value>Owning message id once linked. Unset while the attachment is a draft.</value>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "messageId", EmitDefaultValue = false)]
         public string MessageId { get; set; }
 
         /// <summary>
         /// Owning thread id once linked. Unset while the attachment is a draft.
         /// </summary>
-        /// <value>Owning thread id once linked. Unset while the attachment is a draft.</value>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", EmitDefaultValue = false)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding.
         /// </summary>
-        /// <value>Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding.</value>
+        /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Storage-assigned creation timestamp.
         /// </summary>
-        /// <value>Storage-assigned creation timestamp.</value>
+        /// <example>1767225600000</example>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal CreatedAt { get; set; }
+
+        /// <summary>
+        /// Whether the attached form can be analyzed.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "canAnalyze", EmitDefaultValue = true)]
+        public bool CanAnalyze { get; set; }
+
+        /// <summary>
+        /// Keys of the fields inside the form. &#x60;key&#x60; is the field identifier, &#x60;text&#x60; its human-readable label.
+        /// </summary>
+        /// <example>[]</example>
+        [DataMember(Name = "formKeys", EmitDefaultValue = false)]
+        public List<AiAttachmentFormKeysInner> FormKeys { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -226,6 +241,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  CanAnalyze: ").Append(CanAnalyze).Append("\n");
+            sb.Append("  FormKeys: ").Append(FormKeys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

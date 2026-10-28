@@ -34,12 +34,12 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAssignmentsAssignRequest
     /// </summary>
-    [DataContract(Name = "aiAssignmentsAssign_request")]
+    [DataContract(Name = "AiAssignmentsAssignRequest")]
     public partial class AiAssignmentsAssignRequest : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets ActionType
+        /// Action the assignment applies to.
         /// </summary>
         [DataMember(Name = "actionType", IsRequired = true, EmitDefaultValue = true)]
         public AiActionType ActionType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiAssignmentsAssignRequest" /> class.
         /// </summary>
-        /// <param name="actionType">actionType (required).</param>
+        /// <param name="actionType">Action the assignment applies to. (required).</param>
         /// <param name="profileId">Profile id to bind. (required).</param>
         public AiAssignmentsAssignRequest(AiActionType actionType = default, string profileId = default)
         {
@@ -68,7 +68,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Profile id to bind.
         /// </summary>
-        /// <value>Profile id to bind.</value>
         [DataMember(Name = "profileId", IsRequired = true, EmitDefaultValue = true)]
         public string ProfileId { get; set; }
 

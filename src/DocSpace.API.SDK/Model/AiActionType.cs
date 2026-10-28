@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines AiActionType
+    /// The AI action a request or an assignment applies to. Each action has its own assignment slot; &#x60;Default&#x60; is the profile used when an action&#39;s own slot is empty.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AiActionType
@@ -89,7 +89,13 @@ namespace DocSpace.API.SDK.Model
         /// Enum Vision for value: Vision
         /// </summary>
         [EnumMember(Value = "Vision")]
-        Vision
+        Vision,
+
+        /// <summary>
+        /// Enum FormAnalysis for value: FormAnalysis
+        /// </summary>
+        [EnumMember(Value = "FormAnalysis")]
+        FormAnalysis
     }
 
 }

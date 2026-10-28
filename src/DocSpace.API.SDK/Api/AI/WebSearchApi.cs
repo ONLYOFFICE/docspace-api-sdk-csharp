@@ -31,28 +31,34 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Clear
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiWebSearchClear(string body);
-
-        /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiWebSearchClear(string aiWebSearchClearRequest);
+
+        /// <summary>
+        /// Clear the web-search configuration
+        /// </summary>
+        /// <remarks>
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string aiWebSearchClearRequest);
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -60,10 +66,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiWebSearchMutationResult AiWebSearchConfigure(AiWebSearchConfigureRequest aiWebSearchConfigureRequest);
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -73,66 +79,124 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>AiWebSearchConfig</returns>
-        AiWebSearchConfig AiWebSearchGetActiveConfig(string entityId);
+        AiWebSearchConfig AiWebSearchGetActiveConfig(string? entityId = default);
 
         /// <summary>
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>ApiResponse of AiWebSearchConfig</returns>
-        ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string entityId);
+        ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>bool</returns>
-        bool AiWebSearchIsConfigured(string entityId);
+        bool AiWebSearchIsConfigured(string? entityId = default);
 
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string entityId);
+        ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string? entityId = default);
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiWebSearchPassthroughContents(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest);
+
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest);
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiWebSearchPassthroughSearch(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest);
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest);
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiWebSearchSetActiveConfig(AiWebSearchConfigureRequest aiWebSearchConfigureRequest);
+        AiSuccessResponse AiWebSearchSetActiveConfig(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest);
 
         /// <summary>
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiWebSearchSetActiveConfigWithHttpInfo(AiWebSearchConfigureRequest aiWebSearchConfigureRequest);
+        ApiResponse<AiSuccessResponse> AiWebSearchSetActiveConfigWithHttpInfo(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest);
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
+        /// <remarks>
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -140,10 +204,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiProfilesTestConnection200Response AiWebSearchTestConnection(AiWebSearchConfig aiWebSearchConfig);
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -160,35 +224,35 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiWebSearchClearAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiWebSearchClearAsync(string aiWebSearchClearRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiWebSearchClearWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiWebSearchClearWithHttpInfoAsync(string aiWebSearchClearRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -198,10 +262,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiWebSearchMutationResult> AiWebSearchConfigureAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -213,82 +277,132 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of AiWebSearchConfig</returns>
-        Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiWebSearchConfig)</returns>
-        Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiWebSearchIsConfiguredAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiWebSearchIsConfiguredAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiWebSearchSetActiveConfigAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiWebSearchSetActiveConfigAsync(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiWebSearchSetActiveConfigWithHttpInfoAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiWebSearchSetActiveConfigWithHttpInfoAsync(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -298,10 +412,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiProfilesTestConnection200Response> AiWebSearchTestConnectionAsync(AiWebSearchConfig aiWebSearchConfig, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -525,30 +639,36 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
+        /// <remarks>
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiWebSearchClear(string body)
+        public AiSuccessResponse AiWebSearchClear(string aiWebSearchClearRequest)
         {
-            var localVarResponse = AiWebSearchClearWithHttpInfo(body);
+            var localVarResponse = AiWebSearchClearWithHttpInfo(aiWebSearchClearRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
+        /// <remarks>
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string aiWebSearchClearRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling WebSearchApi->AiWebSearchClear");
+            // verify the required parameter 'aiWebSearchClearRequest' is set
+            if (aiWebSearchClearRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchClearRequest' when calling WebSearchApi->AiWebSearchClear");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -563,8 +683,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiWebSearchClearRequest != null) localVarRequestOptions.Data = aiWebSearchClearRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/web-search/clear", localVarRequestOptions, Configuration);
@@ -582,32 +714,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
+        /// <remarks>
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiWebSearchClearAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiWebSearchClearAsync(string aiWebSearchClearRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiWebSearchClearWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiWebSearchClearWithHttpInfoAsync(aiWebSearchClearRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
+        /// <remarks>
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiWebSearchClearRequest">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchClearWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchClearWithHttpInfoAsync(string aiWebSearchClearRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling WebSearchApi->AiWebSearchClear");
+            // verify the required parameter 'aiWebSearchClearRequest' is set
+            if (aiWebSearchClearRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchClearRequest' when calling WebSearchApi->AiWebSearchClear");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -623,8 +761,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiWebSearchClearRequest != null) localVarRequestOptions.Data = aiWebSearchClearRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -643,8 +793,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -656,8 +809,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -683,6 +839,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiWebSearchConfigureRequest != null) localVarRequestOptions.Data = aiWebSearchConfigureRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiWebSearchMutationResult>("/api/2.0/ai/web-search/configure", localVarRequestOptions, Configuration);
@@ -700,8 +868,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -714,8 +885,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -743,6 +917,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiWebSearchConfigureRequest != null) localVarRequestOptions.Data = aiWebSearchConfigureRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -763,11 +949,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>AiWebSearchConfig</returns>
-        public AiWebSearchConfig AiWebSearchGetActiveConfig(string entityId)
+        public AiWebSearchConfig AiWebSearchGetActiveConfig(string? entityId = default)
         {
             var localVarResponse = AiWebSearchGetActiveConfigWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -776,16 +965,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>ApiResponse of AiWebSearchConfig</returns>
-        public ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string entityId)
+        public ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchGetActiveConfig");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -799,8 +987,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiWebSearchConfig>("/api/2.0/ai/web-search/get-active-config", localVarRequestOptions, Configuration);
@@ -820,12 +1023,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of AiWebSearchConfig</returns>
-        public async Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchGetActiveConfigWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -834,17 +1040,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiWebSearchConfig)</returns>
-        public async Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchGetActiveConfig");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -859,8 +1064,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -881,11 +1101,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiWebSearchIsConfigured(string entityId)
+        public bool AiWebSearchIsConfigured(string? entityId = default)
         {
             var localVarResponse = AiWebSearchIsConfiguredWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -894,16 +1117,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string entityId)
+        public ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchIsConfigured");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -917,8 +1139,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<bool>("/api/2.0/ai/web-search/is-configured", localVarRequestOptions, Configuration);
@@ -938,12 +1175,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiWebSearchIsConfiguredAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiWebSearchIsConfiguredAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchIsConfiguredWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -952,17 +1192,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchIsConfigured");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -977,8 +1216,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -997,30 +1251,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Set active config
+        /// Web page contents passthrough
         /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiWebSearchSetActiveConfig(AiWebSearchConfigureRequest aiWebSearchConfigureRequest)
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiWebSearchPassthroughContents(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest)
         {
-            var localVarResponse = AiWebSearchSetActiveConfigWithHttpInfo(aiWebSearchConfigureRequest);
+            var localVarResponse = AiWebSearchPassthroughContentsWithHttpInfo(aiWebSearchPassthroughContentsRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set active config
+        /// Web page contents passthrough
         /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiWebSearchSetActiveConfigWithHttpInfo(AiWebSearchConfigureRequest aiWebSearchConfigureRequest)
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest)
         {
-            // verify the required parameter 'aiWebSearchConfigureRequest' is set
-            if (aiWebSearchConfigureRequest == null)
-                throw new ApiException(400, "Missing required parameter 'aiWebSearchConfigureRequest' when calling WebSearchApi->AiWebSearchSetActiveConfig");
+            // verify the required parameter 'aiWebSearchPassthroughContentsRequest' is set
+            if (aiWebSearchPassthroughContentsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchPassthroughContentsRequest' when calling WebSearchApi->AiWebSearchPassthroughContents");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1035,8 +1295,328 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (aiWebSearchConfigureRequest != null) localVarRequestOptions.Data = aiWebSearchConfigureRequest;
+            if (aiWebSearchPassthroughContentsRequest != null) localVarRequestOptions.Data = aiWebSearchPassthroughContentsRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiWebSearchPassthroughContents", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiWebSearchPassthroughContentsWithHttpInfoAsync(aiWebSearchPassthroughContentsRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Web page contents passthrough
+        /// </summary>
+        /// <remarks>
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughContentsRequest">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> aiWebSearchPassthroughContentsRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiWebSearchPassthroughContentsRequest' is set
+            if (aiWebSearchPassthroughContentsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchPassthroughContentsRequest' when calling WebSearchApi->AiWebSearchPassthroughContents");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiWebSearchPassthroughContentsRequest != null) localVarRequestOptions.Data = aiWebSearchPassthroughContentsRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiWebSearchPassthroughContents", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiWebSearchPassthroughSearch(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest)
+        {
+            var localVarResponse = AiWebSearchPassthroughSearchWithHttpInfo(aiWebSearchPassthroughSearchRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest)
+        {
+            // verify the required parameter 'aiWebSearchPassthroughSearchRequest' is set
+            if (aiWebSearchPassthroughSearchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchPassthroughSearchRequest' when calling WebSearchApi->AiWebSearchPassthroughSearch");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiWebSearchPassthroughSearchRequest != null) localVarRequestOptions.Data = aiWebSearchPassthroughSearchRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiWebSearchPassthroughSearch", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiWebSearchPassthroughSearchWithHttpInfoAsync(aiWebSearchPassthroughSearchRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Web search passthrough
+        /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchPassthroughSearchRequest">A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> aiWebSearchPassthroughSearchRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiWebSearchPassthroughSearchRequest' is set
+            if (aiWebSearchPassthroughSearchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchPassthroughSearchRequest' when calling WebSearchApi->AiWebSearchPassthroughSearch");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiWebSearchPassthroughSearchRequest != null) localVarRequestOptions.Data = aiWebSearchPassthroughSearchRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiWebSearchPassthroughSearch", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set active config
+        /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiWebSearchSetActiveConfig(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest)
+        {
+            var localVarResponse = AiWebSearchSetActiveConfigWithHttpInfo(aiWebSearchSetActiveConfigRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set active config
+        /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiWebSearchSetActiveConfigWithHttpInfo(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest)
+        {
+            // verify the required parameter 'aiWebSearchSetActiveConfigRequest' is set
+            if (aiWebSearchSetActiveConfigRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchSetActiveConfigRequest' when calling WebSearchApi->AiWebSearchSetActiveConfig");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiWebSearchSetActiveConfigRequest != null) localVarRequestOptions.Data = aiWebSearchSetActiveConfigRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiSuccessResponse>("/api/2.0/ai/web-search/set-active-config", localVarRequestOptions, Configuration);
@@ -1056,30 +1636,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiWebSearchSetActiveConfigAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiWebSearchSetActiveConfigAsync(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiWebSearchSetActiveConfigWithHttpInfoAsync(aiWebSearchConfigureRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiWebSearchSetActiveConfigWithHttpInfoAsync(aiWebSearchSetActiveConfigRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiWebSearchConfigureRequest"></param>
+        /// <param name="aiWebSearchSetActiveConfigRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchSetActiveConfigWithHttpInfoAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchSetActiveConfigWithHttpInfoAsync(AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'aiWebSearchConfigureRequest' is set
-            if (aiWebSearchConfigureRequest == null)
-                throw new ApiException(400, "Missing required parameter 'aiWebSearchConfigureRequest' when calling WebSearchApi->AiWebSearchSetActiveConfig");
+            // verify the required parameter 'aiWebSearchSetActiveConfigRequest' is set
+            if (aiWebSearchSetActiveConfigRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiWebSearchSetActiveConfigRequest' when calling WebSearchApi->AiWebSearchSetActiveConfig");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1095,8 +1681,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (aiWebSearchConfigureRequest != null) localVarRequestOptions.Data = aiWebSearchConfigureRequest;
+            if (aiWebSearchSetActiveConfigRequest != null) localVarRequestOptions.Data = aiWebSearchSetActiveConfigRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1115,8 +1713,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
+        /// <remarks>
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -1128,8 +1729,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
+        /// <remarks>
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -1155,6 +1759,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiWebSearchConfig != null) localVarRequestOptions.Data = aiWebSearchConfig;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiProfilesTestConnection200Response>("/api/2.0/ai/web-search/test-connection", localVarRequestOptions, Configuration);
@@ -1172,8 +1788,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
+        /// <remarks>
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1186,8 +1805,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
+        /// <remarks>
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1215,6 +1837,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiWebSearchConfig != null) localVarRequestOptions.Data = aiWebSearchConfig;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

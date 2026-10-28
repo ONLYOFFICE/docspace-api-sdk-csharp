@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsAppendUserMessageRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsAppendUserMessage_request")]
+    [DataContract(Name = "AiThreadsAppendUserMessageRequest")]
     public partial class AiThreadsAppendUserMessageRequest : IValidatableObject
     {
     
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiThreadsAppendUserMessageRequest" /> class.
         /// </summary>
         /// <param name="threadId">threadId (required).</param>
-        /// <param name="message">message (required).</param>
+        /// <param name="message">Message to persist (id/createdAt are storage-assigned). (required).</param>
         /// <param name="profileId">profileId.</param>
         public AiThreadsAppendUserMessageRequest(string threadId = default, AiThreadMessageLike message = default, string profileId = default)
         {
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Message to persist (id/createdAt are storage-assigned).
         /// </summary>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public AiThreadMessageLike Message { get; set; }

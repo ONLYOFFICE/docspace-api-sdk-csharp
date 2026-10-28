@@ -5,9 +5,9 @@ Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Text** | **string** |  | 
-**FolderId** | **string** |  | [optional] 
+**Name** | **string** | The prompt name. | 
+**Text** | **string** | The prompt body. | 
+**FolderId** | **string** | The folder to file the prompt under. Omit or send null to leave it outside any folder. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

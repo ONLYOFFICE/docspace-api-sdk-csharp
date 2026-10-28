@@ -34,9 +34,15 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsSetDisabledRequest
     /// </summary>
-    [DataContract(Name = "aiToolsSetDisabled_request")]
+    [DataContract(Name = "AiToolsSetDisabledRequest")]
     public partial class AiToolsSetDisabledRequest : IValidatableObject
     {
+
+        /// <summary>
+        /// The list the write lands in; omitted means the caller&#39;s own.
+        /// </summary>
+        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        public AiChatToolPrefsScope? Scope { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiToolsSetDisabledRequest" /> class.
@@ -49,7 +55,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="serverType">serverType (required).</param>
         /// <param name="toolNames">Tool names to disable. (required).</param>
         /// <param name="entityId">entityId.</param>
-        public AiToolsSetDisabledRequest(string serverType = default, List<string> toolNames = default, string entityId = default)
+        /// <param name="scope">The list the write lands in; omitted means the caller&#39;s own..</param>
+        public AiToolsSetDisabledRequest(string serverType = default, List<string> toolNames = default, string entityId = default, AiChatToolPrefsScope? scope = default)
         {
             // to ensure "serverType" is required (not null)
             if (serverType == null)
@@ -64,6 +71,7 @@ namespace DocSpace.API.SDK.Model
             }
             this.ToolNames = toolNames;
             this.EntityId = entityId;
+            this.Scope = scope;
         }
 
         /// <summary>
@@ -75,7 +83,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Tool names to disable.
         /// </summary>
-        /// <value>Tool names to disable.</value>
         [DataMember(Name = "toolNames", IsRequired = true, EmitDefaultValue = true)]
         public List<string> ToolNames { get; set; }
 
@@ -96,6 +103,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ServerType: ").Append(ServerType).Append("\n");
             sb.Append("  ToolNames: ").Append(ToolNames).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

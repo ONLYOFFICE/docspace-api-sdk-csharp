@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsUpdateMessageRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsUpdateMessage_request")]
+    [DataContract(Name = "AiThreadsUpdateMessageRequest")]
     public partial class AiThreadsUpdateMessageRequest : IValidatableObject
     {
     
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiThreadsUpdateMessageRequest" /> class.
         /// </summary>
         /// <param name="messageId">messageId (required).</param>
-        /// <param name="message">message (required).</param>
+        /// <param name="message">Replacement message content. (required).</param>
         public AiThreadsUpdateMessageRequest(string messageId = default, AiThreadMessageLike message = default)
         {
             // to ensure "messageId" is required (not null)
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         public string MessageId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Replacement message content.
         /// </summary>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public AiThreadMessageLike Message { get; set; }

@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateApiKeyRequest" /> class.
         /// </summary>
-        /// <param name="name">The new name for the API key..</param>
-        /// <param name="permissions">The new list of permissions for the API key..</param>
-        /// <param name="isActive">Indicates whether the API key should be active or not..</param>
+        /// <param name="name">The new label of the key, up to 30 characters, neither empty nor made of whitespace only. Omit it to keep the  current name..</param>
+        /// <param name="permissions">The scopes that replace the current ones. Every value has to come from &#x60;GET api/2.0/keys/permissions&#x60;, an  unknown value or an empty array is rejected, and omitting the field keeps the current scopes..</param>
+        /// <param name="isActive">Whether the key may authenticate requests. Set it to false to stop the key without deleting it and to true to  let it work again; omit it to keep the current state..</param>
         public UpdateApiKeyRequest(string name = default, List<string> permissions = default, bool? isActive = default)
         {
             this.Name = name;
@@ -52,32 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The new name for the API key.
+        /// The new label of the key, up to 30 characters, neither empty nor made of whitespace only. Omit it to keep the  current name.
         /// </summary>
-        /// <value>The new name for the API key.</value>
-        /*
-        <example>Updated API Key</example>
-        */
+        /// <example>Updated API Key</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The new list of permissions for the API key.
+        /// The scopes that replace the current ones. Every value has to come from &#x60;GET api/2.0/keys/permissions&#x60;, an  unknown value or an empty array is rejected, and omitting the field keeps the current scopes.
         /// </summary>
-        /// <value>The new list of permissions for the API key.</value>
-        /*
-        <example>["read","write","delete"]</example>
-        */
+        /// <example>["rooms:read","files:write"]</example>
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
-        /// Indicates whether the API key should be active or not.
+        /// Whether the key may authenticate requests. Set it to false to stop the key without deleting it and to true to  let it work again; omit it to keep the current state.
         /// </summary>
-        /// <value>Indicates whether the API key should be active or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
         public bool? IsActive { get; set; }
 
@@ -119,9 +110,18 @@ namespace DocSpace.API.SDK.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 0)
+            if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            if (this.Name != null) {
+                // Name (string) pattern
+                                Regex regexName = new Regex(@"[\s\S]*\S[\s\S]*", RegexOptions.CultureInvariant);
+                                if (!regexName.Match(this.Name).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+                                }
             }
 
             yield break;

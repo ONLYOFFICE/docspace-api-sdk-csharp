@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Form role blocking deletion]
     /// </summary>
-    /// <value>[0 - None, 1 - Form role blocking deletion]</value>
     public enum RoomSecurityError
     {
         /// <summary>

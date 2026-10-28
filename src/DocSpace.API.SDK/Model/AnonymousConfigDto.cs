@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The anonymous config parameters.
+    /// How the editors treat a participant who opened the document without an account.
     /// </summary>
     [DataContract(Name = "AnonymousConfigDto")]
     public partial class AnonymousConfigDto : IValidatableObject
@@ -46,19 +46,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousConfigDto" /> class.
         /// </summary>
-        /// <param name="request">Specifies if the anonymous is a request. (required).</param>
+        /// <param name="request">Whether the editors ask an anonymous participant for a display name before letting them in. It follows the  chat permission of the document, since a nameless participant cannot take part in one. (required).</param>
         public AnonymousConfigDto(bool request = default)
         {
             this.Request = request;
         }
 
         /// <summary>
-        /// Specifies if the anonymous is a request.
+        /// Whether the editors ask an anonymous participant for a display name before letting them in. It follows the  chat permission of the document, since a nameless participant cannot take part in one.
         /// </summary>
-        /// <value>Specifies if the anonymous is a request.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "request", IsRequired = true, EmitDefaultValue = true)]
         public bool Request { get; set; }
 

@@ -4,16 +4,16 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetIpRestrictions**](#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get the IP portal restrictions |
-| [**ReadIpRestrictionsSettings**](#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get the IP restriction settings |
-| [**SaveIpRestrictions**](#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Update the IP restrictions |
-| [**UpdateIpRestrictionsSettings**](#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update the IP restriction settings |
+| [**GetIpRestrictions**](#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get IP restrictions |
+| [**ReadIpRestrictionsSettings**](#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get IP restriction settings |
+| [**SaveIpRestrictions**](#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Save IP restrictions |
+| [**UpdateIpRestrictionsSettings**](#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update IP restriction settings |
 
 <a id="getiprestrictions"></a>
 # **GetIpRestrictions**
-> IPRestrictionArrayWrapper GetIpRestrictions ()
+> IpRestrictionArrayWrapper GetIpRestrictions ()
 
-Returns the IP portal restrictions.
+Returns the IP restriction list of the current portal - the addresses allowed to reach it, each with its `id`  and the `forAdmin` flag that narrows the entry to DocSpace administrators. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. The call is read-only and  honours `If-None-Match`: send back the `ETag` of an earlier answer and an unchanged list comes back as an  empty not-modified response rather than a body. The list has no defined order and is empty on a portal where  nobody has configured restrictions - and an empty list blocks nobody, whatever the enforcement flag says.  Whether the restrictions are enforced at all is not part of this answer: read that flag with  `GET api/2.0/settings/iprestrictions/settings`. The entries listed here apply to every user of the portal  except its owner. Replace the whole list with `PUT api/2.0/settings/iprestrictions`; single entries cannot be  added or deleted, and that update takes plain addresses rather than the IDs returned here.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/).
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
+[**IpRestrictionArrayWrapper**](IpRestrictionArrayWrapper.md)
 
 ### Authorization
 
@@ -67,8 +67,8 @@ namespace Example
 
             try
             {
-                // Get the IP portal restrictions
-                IPRestrictionArrayWrapper result = apiInstance.GetIpRestrictions();
+                // Get IP restrictions
+                IpRestrictionArrayWrapper result = apiInstance.GetIpRestrictions();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -88,8 +88,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the IP portal restrictions
-    ApiResponse<IPRestrictionArrayWrapper> response = apiInstance.GetIpRestrictionsWithHttpInfo();
+    // Get IP restrictions
+    ApiResponse<IpRestrictionArrayWrapper> response = apiInstance.GetIpRestrictionsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -111,9 +111,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of IP restrictions parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The IP addresses allowed to reach the portal, each with its ID and administrators-only flag; an empty list when the portal has no restrictions |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **304** | The addresses have not changed since the `ETag` sent back in `If-None-Match`, which ignores the administrators-only flags; the body is empty |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -121,9 +124,9 @@ catch (ApiException e)
 
 <a id="readiprestrictionssettings"></a>
 # **ReadIpRestrictionsSettings**
-> IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
+> IpRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
 
-Returns the IP restriction settings.
+Reports whether the IP restrictions of the current portal are enforced, as the `enable` flag together with the  `lastModified` stamp of the setting. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. The call is read-only and honours `If-Modified-Since`: send back the  `Last-Modified` value of an earlier answer and an unchanged setting comes back as an empty not-modified  response rather than a body. The flag is `false` on a portal nobody has configured. A `true` flag on its own  blocks nothing: enforcement also needs at least one stored address, which this answer does not carry - read  the addresses with `GET api/2.0/settings/iprestrictions` - and it is skipped entirely on an installation whose  configuration hides the IP security section. Even when enforced, the portal owner and the installation's own  networks are let through. Change the flag with `PUT api/2.0/settings/iprestrictions/settings`, which replaces  the address list in the same call, so resend the addresses in force when all that changes is the flag.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/).
 
@@ -131,7 +134,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
+[**IpRestrictionsSettingsWrapper**](IpRestrictionsSettingsWrapper.md)
 
 ### Authorization
 
@@ -177,8 +180,8 @@ namespace Example
 
             try
             {
-                // Get the IP restriction settings
-                IPRestrictionsSettingsWrapper result = apiInstance.ReadIpRestrictionsSettings();
+                // Get IP restriction settings
+                IpRestrictionsSettingsWrapper result = apiInstance.ReadIpRestrictionsSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -198,8 +201,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the IP restriction settings
-    ApiResponse<IPRestrictionsSettingsWrapper> response = apiInstance.ReadIpRestrictionsSettingsWithHttpInfo();
+    // Get IP restriction settings
+    ApiResponse<IpRestrictionsSettingsWrapper> response = apiInstance.ReadIpRestrictionsSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -221,9 +224,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | IP restriction settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The enforcement flag of the IP restrictions and the date the setting was last modified |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **304** | The enforcement flag has not changed since the `Last-Modified` value sent back in `If-Modified-Since`; the body is empty |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -233,7 +239,7 @@ catch (ApiException e)
 # **SaveIpRestrictions**
 > IpRestrictionsWrapper SaveIpRestrictions (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Updates the IP restrictions with the parameters specified in the request.
+Replaces the whole IP restriction list of the current portal with the addresses from the request and stores  the enforcement flag in the same call. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. Every entry must be a single IPv4 or IPv6 address: `from-to` ranges and CIDR  blocks are matched by the portal but cannot be stored here and are rejected as an invalid request, as is  `enable: true` with an empty list. An omitted `enable` follows the list - on when addresses are sent, off when  the list is empty. The replacement is written in one transaction, applies to new requests without a restart  and is recorded in the audit trail; entries not repeated in the body are deleted, and sending the same body  twice leaves the portal as it is. Enforcement spares the portal owner and the installation's own networks  only, so a list without the caller's own address locks the remaining administrators out. The answer echoes the  request rather than the stored rows - no entry IDs, and `enable` exactly as sent, empty when it was omitted -  so read the result with `GET api/2.0/settings/iprestrictions`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/).
 
@@ -241,7 +247,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The addresses allowed to reach the portal, and whether the restriction is enforced. | [optional]  |
 
 ### Return type
 
@@ -288,11 +294,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The addresses allowed to reach the portal, and whether the restriction is enforced. (optional) 
 
             try
             {
-                // Update the IP restrictions
+                // Save IP restrictions
                 IpRestrictionsWrapper result = apiInstance.SaveIpRestrictions(ipRestrictionsDto);
                 Debug.WriteLine(result);
             }
@@ -313,7 +319,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update the IP restrictions
+    // Save IP restrictions
     ApiResponse<IpRestrictionsWrapper> response = apiInstance.SaveIpRestrictionsWithHttpInfo(ipRestrictionsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -336,9 +342,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated IP restriction settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The saved addresses and enforcement flag echoed back exactly as sent, without the IDs of the stored entries |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `ipRestrictions`, an entry is not a single IPv4 or IPv6 address, or `enable` is `true` with an empty list |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -348,7 +357,7 @@ catch (ApiException e)
 # **UpdateIpRestrictionsSettings**
 > IpRestrictionsWrapper UpdateIpRestrictionsSettings (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Updates the IP restriction settings with the parameters specified in the request.
+Stores the enforcement flag of the IP restrictions of the current portal together with the whole address list,  replacing the addresses saved before; this operation and `PUT api/2.0/settings/iprestrictions` are two routes  to the same handler and behave identically. The caller needs the portal-settings right of a DocSpace  administrator, otherwise the call is refused. Every entry must be a single IPv4 or IPv6 address: `from-to`  ranges and CIDR blocks are matched by the portal but cannot be stored here and are rejected as an invalid  request, as is `enable: true` with an empty list. An omitted `enable` follows the list - on when addresses are  sent, off when the list is empty - so the flag cannot be moved without resending the addresses that stay in  force. The new state applies to new requests without a restart, is recorded in the audit trail, and sending  the same body twice changes nothing further. Enforcement spares the portal owner and the installation's own  networks only, so a list without the caller's own address locks the remaining administrators out. The answer  echoes the request, so read the stored entries and their IDs with `GET api/2.0/settings/iprestrictions`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/).
 
@@ -356,7 +365,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The addresses allowed to reach the portal, and whether the restriction is enforced. | [optional]  |
 
 ### Return type
 
@@ -403,11 +412,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The addresses allowed to reach the portal, and whether the restriction is enforced. (optional) 
 
             try
             {
-                // Update the IP restriction settings
+                // Update IP restriction settings
                 IpRestrictionsWrapper result = apiInstance.UpdateIpRestrictionsSettings(ipRestrictionsDto);
                 Debug.WriteLine(result);
             }
@@ -428,7 +437,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update the IP restriction settings
+    // Update IP restriction settings
     ApiResponse<IpRestrictionsWrapper> response = apiInstance.UpdateIpRestrictionsSettingsWithHttpInfo(ipRestrictionsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -451,9 +460,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated IP restriction settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The stored enforcement flag and addresses echoed back exactly as sent, without the IDs of the stored entries |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `ipRestrictions`, an entry is not a single IPv4 or IPv6 address, or `enable` is `true` with an empty list |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

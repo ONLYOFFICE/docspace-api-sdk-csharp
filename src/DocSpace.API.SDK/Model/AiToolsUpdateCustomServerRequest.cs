@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsUpdateCustomServerRequest
     /// </summary>
-    [DataContract(Name = "aiToolsUpdateCustomServer_request")]
+    [DataContract(Name = "AiToolsUpdateCustomServerRequest")]
     public partial class AiToolsUpdateCustomServerRequest : IValidatableObject
     {
     
@@ -75,7 +75,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// One MCP server configuration. The shape is intentionally open — MCP allows per-transport fields (&#x60;command&#x60;/&#x60;args&#x60; for stdio, &#x60;url&#x60; for HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which transport is in use.
         /// </summary>
-        /// <value>One MCP server configuration. The shape is intentionally open — MCP allows per-transport fields (&#x60;command&#x60;/&#x60;args&#x60; for stdio, &#x60;url&#x60; for HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which transport is in use.</value>
         [DataMember(Name = "config", IsRequired = true, EmitDefaultValue = true)]
         public Object Config { get; set; }
 

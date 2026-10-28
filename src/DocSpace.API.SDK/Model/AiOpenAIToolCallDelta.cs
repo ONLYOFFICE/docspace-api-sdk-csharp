@@ -32,13 +32,13 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIToolCallDelta
+    /// The incremental part of one tool call the model requested.
     /// </summary>
     [DataContract(Name = "AiOpenAIToolCallDelta")]
     public partial class AiOpenAIToolCallDelta : IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Always &#x60;function&#x60; - the only tool kind the API defines.
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Always &#x60;function&#x60; - the only tool kind the API defines.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
@@ -64,9 +64,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiOpenAIToolCallDelta" /> class.
         /// </summary>
-        /// <param name="index">index (required).</param>
-        /// <param name="id">id.</param>
-        /// <param name="type">type.</param>
+        /// <param name="index">The zero-based position of the tool call within the message. (required).</param>
+        /// <param name="id">The tool call identifier, quoted back when its result is submitted..</param>
+        /// <param name="type">Always &#x60;function&#x60; - the only tool kind the API defines..</param>
         /// <param name="function">function.</param>
         public AiOpenAIToolCallDelta(decimal index = default, string id = default, TypeEnum? type = default, AiOpenAIToolCallDeltaFunction function = default)
         {
@@ -77,13 +77,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Index
+        /// The zero-based position of the tool call within the message.
         /// </summary>
         [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
         public decimal Index { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The tool call identifier, quoted back when its result is submitted.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }

@@ -31,78 +31,90 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput);
 
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput);
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiProfilesDelete(string body);
+        AiSuccessResponse AiProfilesDelete(string aiProfilesDeleteRequest);
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string aiProfilesDeleteRequest);
         /// <summary>
-        /// Get by id
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>AiProfile</returns>
-        AiProfile AiProfilesGetById(string id);
-
-        /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>ApiResponse of AiProfile</returns>
-        ApiResponse<AiProfile> AiProfilesGetByIdWithHttpInfo(string id);
+        /// <returns>AiProfilesGetById200Response</returns>
+        AiProfilesGetById200Response AiProfilesGetById(string id);
+
         /// <summary>
-        /// List
+        /// Get a provider profile
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The AI provider profile identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
+        /// <returns>ApiResponse of AiProfilesGetById200Response</returns>
+        ApiResponse<AiProfilesGetById200Response> AiProfilesGetByIdWithHttpInfo(string id);
+        /// <summary>
+        /// List provider profiles
+        /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>List&lt;AiProfile&gt;</returns>
         List<AiProfile> AiProfilesList();
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -111,8 +123,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>List&lt;AiModel&gt;</returns>
         List<AiModel> AiProfilesListModels(string profileId);
@@ -121,16 +136,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiModel&gt;</returns>
         ApiResponse<List<AiModel>> AiProfilesListModelsWithHttpInfo(string profileId);
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -141,7 +159,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -149,28 +167,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of List&lt;AiModel&gt;</returns>
         ApiResponse<List<AiModel>> AiProfilesListProviderModelsWithHttpInfo(AiProfilesListProviderModelsRequest aiProfilesListProviderModelsRequest);
         /// <summary>
-        /// Test connection
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
-        /// <returns>AiProfilesTestConnection200Response</returns>
-        AiProfilesTestConnection200Response AiProfilesTestConnection(string body);
-
-        /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
+        /// <returns>AiProfilesTestConnection200Response</returns>
+        AiProfilesTestConnection200Response AiProfilesTestConnection(string aiProfilesTestConnectionRequest);
+
+        /// <summary>
+        /// Test a profile's provider
+        /// </summary>
+        /// <remarks>
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>ApiResponse of AiProfilesTestConnection200Response</returns>
-        ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string body);
+        ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string aiProfilesTestConnectionRequest);
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
+        /// <remarks>
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -178,10 +202,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiProfileMutationResult AiProfilesUpdate(AiProfile aiProfile);
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -198,85 +222,85 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
         Task<AiProfileMutationResult> AiProfilesCreateAsync(AiCreateProfileInput aiCreateProfileInput, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>
         Task<ApiResponse<AiProfileMutationResult>> AiProfilesCreateWithHttpInfoAsync(AiCreateProfileInput aiCreateProfileInput, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiProfilesDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiProfilesDeleteAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>Task of AiProfile</returns>
-        Task<AiProfile> AiProfilesGetByIdAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiProfilesGetById200Response</returns>
+        Task<AiProfilesGetById200Response> AiProfilesGetByIdAsync(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>Task of ApiResponse (AiProfile)</returns>
-        Task<ApiResponse<AiProfile>> AiProfilesGetByIdWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiProfilesGetById200Response)</returns>
+        Task<ApiResponse<AiProfilesGetById200Response>> AiProfilesGetByIdWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -285,10 +309,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<List<AiProfile>> AiProfilesListAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -299,10 +323,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of List&lt;AiModel&gt;</returns>
@@ -312,10 +336,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiModel&gt;)</returns>
@@ -324,7 +348,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -337,7 +361,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -346,35 +370,35 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (List&lt;AiModel&gt;)</returns>
         Task<ApiResponse<List<AiModel>>> AiProfilesListProviderModelsWithHttpInfoAsync(AiProfilesListProviderModelsRequest aiProfilesListProviderModelsRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of AiProfilesTestConnection200Response</returns>
-        Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesTestConnection200Response)</returns>
-        Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -384,10 +408,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiProfileMutationResult> AiProfilesUpdateAsync(AiProfile aiProfile, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -611,10 +635,13 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         public AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput)
@@ -624,10 +651,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         public ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput)
@@ -651,6 +681,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiCreateProfileInput != null) localVarRequestOptions.Data = aiCreateProfileInput;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiProfileMutationResult>("/api/2.0/ai/profiles/create", localVarRequestOptions, Configuration);
@@ -668,10 +710,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
@@ -682,10 +727,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Create a provider profile
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>
@@ -711,6 +759,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiCreateProfileInput != null) localVarRequestOptions.Data = aiCreateProfileInput;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -729,30 +789,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiProfilesDelete(string body)
+        public AiSuccessResponse AiProfilesDelete(string aiProfilesDeleteRequest)
         {
-            var localVarResponse = AiProfilesDeleteWithHttpInfo(body);
+            var localVarResponse = AiProfilesDeleteWithHttpInfo(aiProfilesDeleteRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string aiProfilesDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesDelete");
+            // verify the required parameter 'aiProfilesDeleteRequest' is set
+            if (aiProfilesDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesDeleteRequest' when calling ProfilesApi->AiProfilesDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -767,8 +833,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesDeleteRequest != null) localVarRequestOptions.Data = aiProfilesDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/profiles/delete", localVarRequestOptions, Configuration);
@@ -786,32 +864,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiProfilesDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiProfilesDeleteAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiProfilesDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiProfilesDeleteWithHttpInfoAsync(aiProfilesDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a provider profile
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesDelete");
+            // verify the required parameter 'aiProfilesDeleteRequest' is set
+            if (aiProfilesDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesDeleteRequest' when calling ProfilesApi->AiProfilesDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -827,8 +911,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesDeleteRequest != null) localVarRequestOptions.Data = aiProfilesDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -847,26 +943,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>AiProfile</returns>
-        public AiProfile AiProfilesGetById(string id)
+        /// <returns>AiProfilesGetById200Response</returns>
+        public AiProfilesGetById200Response AiProfilesGetById(string id)
         {
             var localVarResponse = AiProfilesGetByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>ApiResponse of AiProfile</returns>
-        public ApiResponse<AiProfile> AiProfilesGetByIdWithHttpInfo(string id)
+        /// <returns>ApiResponse of AiProfilesGetById200Response</returns>
+        public ApiResponse<AiProfilesGetById200Response> AiProfilesGetByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -887,9 +989,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiProfile>("/api/2.0/ai/profiles/get-by-id", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiProfilesGetById200Response>("/api/2.0/ai/profiles/get-by-id", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -904,28 +1018,34 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>Task of AiProfile</returns>
-        public async Task<AiProfile> AiProfilesGetByIdAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiProfilesGetById200Response</returns>
+        public async Task<AiProfilesGetById200Response> AiProfilesGetByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiProfilesGetByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a provider profile
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile by its ID, with its secrets stripped: neither the API key nor the custom headers are ever sent back, on any portal. The ID is required and is read from the query, and an unknown one answers 404. The `baseUrl` in the answer is the one that was stored, not the internal gateway address a round actually dials, so it cannot be used to reach the provider directly. Use `GET api/2.0/ai/profiles/list` to enumerate profiles instead of reading them one by one.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
-        /// <returns>Task of ApiResponse (AiProfile)</returns>
-        public async Task<ApiResponse<AiProfile>> AiProfilesGetByIdWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiProfilesGetById200Response)</returns>
+        public async Task<ApiResponse<AiProfilesGetById200Response>> AiProfilesGetByIdWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -947,10 +1067,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiProfile>("/api/2.0/ai/profiles/get-by-id", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiProfilesGetById200Response>("/api/2.0/ai/profiles/get-by-id", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -965,8 +1097,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>List&lt;AiProfile&gt;</returns>
@@ -977,8 +1112,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiProfile&gt;</returns>
@@ -998,6 +1136,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiProfile>>("/api/2.0/ai/profiles/list", localVarRequestOptions, Configuration);
@@ -1015,8 +1165,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -1028,8 +1181,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List provider profiles
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -1051,6 +1207,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1071,8 +1239,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>List&lt;AiModel&gt;</returns>
         public List<AiModel> AiProfilesListModels(string profileId)
@@ -1084,8 +1255,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiModel&gt;</returns>
         public ApiResponse<List<AiModel>> AiProfilesListModelsWithHttpInfo(string profileId)
@@ -1109,6 +1283,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "profileId", profileId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiModel>>("/api/2.0/ai/profiles/list-models", localVarRequestOptions, Configuration);
@@ -1128,8 +1314,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of List&lt;AiModel&gt;</returns>
@@ -1142,8 +1331,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiModel&gt;)</returns>
@@ -1169,6 +1361,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "profileId", profileId));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1189,6 +1393,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -1202,6 +1409,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -1227,6 +1437,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiProfilesListProviderModelsRequest != null) localVarRequestOptions.Data = aiProfilesListProviderModelsRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<List<AiModel>>("/api/2.0/ai/profiles/list-provider-models", localVarRequestOptions, Configuration);
@@ -1246,6 +1468,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1260,6 +1485,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1287,6 +1515,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiProfilesListProviderModelsRequest != null) localVarRequestOptions.Data = aiProfilesListProviderModelsRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1305,30 +1545,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
+        /// <remarks>
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>AiProfilesTestConnection200Response</returns>
-        public AiProfilesTestConnection200Response AiProfilesTestConnection(string body)
+        public AiProfilesTestConnection200Response AiProfilesTestConnection(string aiProfilesTestConnectionRequest)
         {
-            var localVarResponse = AiProfilesTestConnectionWithHttpInfo(body);
+            var localVarResponse = AiProfilesTestConnectionWithHttpInfo(aiProfilesTestConnectionRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
+        /// <remarks>
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>ApiResponse of AiProfilesTestConnection200Response</returns>
-        public ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string body)
+        public ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string aiProfilesTestConnectionRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesTestConnection");
+            // verify the required parameter 'aiProfilesTestConnectionRequest' is set
+            if (aiProfilesTestConnectionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesTestConnectionRequest' when calling ProfilesApi->AiProfilesTestConnection");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1343,8 +1589,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesTestConnectionRequest != null) localVarRequestOptions.Data = aiProfilesTestConnectionRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiProfilesTestConnection200Response>("/api/2.0/ai/profiles/test-connection", localVarRequestOptions, Configuration);
@@ -1362,32 +1620,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
+        /// <remarks>
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of AiProfilesTestConnection200Response</returns>
-        public async Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiProfilesTestConnectionWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiProfilesTestConnectionWithHttpInfoAsync(aiProfilesTestConnectionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a profile's provider
         /// </summary>
+        /// <remarks>
+        /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesTestConnection200Response)</returns>
-        public async Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesTestConnection");
+            // verify the required parameter 'aiProfilesTestConnectionRequest' is set
+            if (aiProfilesTestConnectionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesTestConnectionRequest' when calling ProfilesApi->AiProfilesTestConnection");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1403,8 +1667,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesTestConnectionRequest != null) localVarRequestOptions.Data = aiProfilesTestConnectionRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1423,8 +1699,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
+        /// <remarks>
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -1436,8 +1715,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
+        /// <remarks>
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -1463,6 +1745,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiProfile != null) localVarRequestOptions.Data = aiProfile;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiProfileMutationResult>("/api/2.0/ai/profiles/update", localVarRequestOptions, Configuration);
@@ -1480,8 +1774,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
+        /// <remarks>
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1494,8 +1791,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a provider profile
         /// </summary>
+        /// <remarks>
+        /// Replaces a stored AI provider profile and returns it, re-checking name uniqueness and probing the credentials against the live provider again. The same two inputs are refused as on create - a private-network `baseUrl` and `providerType: external` - and the whole profile is overwritten by the one supplied rather than merged. On a portal running the AI gateway this answers 403, because profiles are managed centrally there. A profile that is bound to an action or an agent keeps those bindings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1523,6 +1823,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiProfile != null) localVarRequestOptions.Data = aiProfile;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The user status, if the user exists.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public EmployeeStatus? Status { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UserExistsResponseDto" /> class.
         /// </summary>
         /// <param name="exists">Specifies whether the user exists or not. (required).</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">The user status, if the user exists..</param>
         public UserExistsResponseDto(bool exists = default, EmployeeStatus? status = default)
         {
             this.Exists = exists;
@@ -63,10 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the user exists or not.
         /// </summary>
-        /// <value>Specifies whether the user exists or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "exists", IsRequired = true, EmitDefaultValue = true)]
         public bool Exists { get; set; }
 

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// A file attachment draft to persist.
     /// </summary>
-    [DataContract(Name = "aiAttachmentsSaveFile_request_input")]
+    [DataContract(Name = "AiAttachmentsSaveFileRequest_input")]
     public partial class AiAttachmentsSaveFileRequestInput : IValidatableObject
     {
     
@@ -71,28 +71,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Storage path/key of the file.
         /// </summary>
-        /// <value>Storage path/key of the file.</value>
         [DataMember(Name = "path", IsRequired = true, EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
         /// File contents.
         /// </summary>
-        /// <value>File contents.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>
         /// File type discriminator.
         /// </summary>
-        /// <value>File type discriminator.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public decimal Type { get; set; }
 
         /// <summary>
         /// Optional display title.
         /// </summary>
-        /// <value>Optional display title.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 

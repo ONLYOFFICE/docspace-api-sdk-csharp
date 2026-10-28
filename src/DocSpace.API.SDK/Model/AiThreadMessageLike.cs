@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiThreadMessageLike
+    /// A single chat message as it travels on the wire.
     /// </summary>
     [DataContract(Name = "AiThreadMessageLike")]
     public partial class AiThreadMessageLike : IValidatableObject
@@ -40,7 +40,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Message author role.
         /// </summary>
-        /// <value>Message author role.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -66,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Message author role.
         /// </summary>
-        /// <value>Message author role.</value>
+        /// <example>user</example>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public RoleEnum Role { get; set; }
     
@@ -104,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Storage-assigned message id (absent on inbound drafts).
         /// </summary>
-        /// <value>Storage-assigned message id (absent on inbound drafts).</value>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -117,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Creation timestamp, ISO-8601 on the wire.
         /// </summary>
-        /// <value>Creation timestamp, ISO-8601 on the wire.</value>
+        /// <example>2026-01-01T00:00:00.000Z</example>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
@@ -130,14 +129,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Arbitrary per-message metadata.
         /// </summary>
-        /// <value>Arbitrary per-message metadata.</value>
+        /// <example>{}</example>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Object Metadata { get; set; }
 
         /// <summary>
         /// Attachments linked to the message.
         /// </summary>
-        /// <value>Attachments linked to the message.</value>
+        /// <example>["55555555-5555-5555-5555-555555555555"]</example>
         [DataMember(Name = "attachments", EmitDefaultValue = false)]
         public List<Object> Attachments { get; set; }
 

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsReplaceAllCustomServersRequest
     /// </summary>
-    [DataContract(Name = "aiToolsReplaceAllCustomServers_request")]
+    [DataContract(Name = "AiToolsReplaceAllCustomServersRequest")]
     public partial class AiToolsReplaceAllCustomServersRequest : IValidatableObject
     {
     
@@ -62,7 +62,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Full replacement set, keyed by server name.
         /// </summary>
-        /// <value>Full replacement set, keyed by server name.</value>
         [DataMember(Name = "map", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, Object> Map { get; set; }
 

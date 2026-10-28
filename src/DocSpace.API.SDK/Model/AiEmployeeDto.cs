@@ -68,100 +68,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.
         /// </summary>
-        /// <value>The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.</value>
-        /*
-        <example>Mike Zanyatski</example>
-        */
+        /// <example>Mike Zanyatski</example>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// The user avatar.
         /// </summary>
-        /// <value>The user avatar.</value>
-        /*
-        <example>https://example.com/avatar.jpg</example>
-        */
+        /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "avatar", EmitDefaultValue = true)]
         public string Avatar { get; set; }
 
         /// <summary>
         /// The user original size avatar.
         /// </summary>
-        /// <value>The user original size avatar.</value>
-        /*
-        <example>https://example.com/avatar_original.jpg</example>
-        */
+        /// <example>https://example.com/avatar_original.jpg</example>
         [DataMember(Name = "avatarOriginal", EmitDefaultValue = true)]
         public string AvatarOriginal { get; set; }
 
         /// <summary>
         /// The user maximum size avatar.
         /// </summary>
-        /// <value>The user maximum size avatar.</value>
-        /*
-        <example>https://example.com/avatar_max.jpg</example>
-        */
+        /// <example>https://example.com/avatar_max.jpg</example>
         [DataMember(Name = "avatarMax", EmitDefaultValue = true)]
         public string AvatarMax { get; set; }
 
         /// <summary>
         /// The user medium size avatar.
         /// </summary>
-        /// <value>The user medium size avatar.</value>
-        /*
-        <example>https://example.com/avatar_medium.jpg</example>
-        */
+        /// <example>https://example.com/avatar_medium.jpg</example>
         [DataMember(Name = "avatarMedium", EmitDefaultValue = true)]
         public string AvatarMedium { get; set; }
 
         /// <summary>
         /// The user small size avatar.
         /// </summary>
-        /// <value>The user small size avatar.</value>
-        /*
-        <example>https://example.com/avatar_small.jpg</example>
-        */
+        /// <example>https://example.com/avatar_small.jpg</example>
         [DataMember(Name = "avatarSmall", EmitDefaultValue = true)]
         public string AvatarSmall { get; set; }
 
         /// <summary>
         /// The user profile URL.
         /// </summary>
-        /// <value>The user profile URL.</value>
-        /*
-        <example>https://example.com/profile/user123</example>
-        */
+        /// <example>https://example.com/profile/user123</example>
         [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public string ProfileUrl { get; set; }
 
         /// <summary>
         /// Specifies if the user has an avatar or not.
         /// </summary>
-        /// <value>Specifies if the user has an avatar or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "hasAvatar", EmitDefaultValue = true)]
         public bool HasAvatar { get; set; }
 
         /// <summary>
         /// Specifies if the user is anonymous or not.
         /// </summary>
-        /// <value>Specifies if the user is anonymous or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isAnonim", EmitDefaultValue = true)]
         public bool IsAnonim { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The custom color themes settings.
+    /// The colour themes the portal offers, which of them is applied, and how many the plan allows.
     /// </summary>
     [DataContract(Name = "CustomColorThemesSettingsDto")]
     public partial class CustomColorThemesSettingsDto : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomColorThemesSettingsDto" /> class.
         /// </summary>
-        /// <param name="themes">The list of the custom color themes..</param>
-        /// <param name="selected">Specifies whether the custom color theme is selected..</param>
-        /// <param name="limit">The maximum number of the custom color themes..</param>
-        public CustomColorThemesSettingsDto(List<CustomColorThemesSettingsItem> themes = default, int selected = default, int limit = default)
+        /// <param name="themes">Every theme the portal can apply, ordered by ID, with the built-in ones first because they were created  first. It is never empty - the built-in themes cannot be deleted - and a custom theme is one whose ID is  higher than the built-in ones..</param>
+        /// <param name="selected">The ID of the theme in &#x60;themes&#x60; that is currently applied to the whole portal. Deleting the applied theme  moves it to the lowest remaining ID, so it can change without anyone having chosen a new one..</param>
+        /// <param name="limit">How many entries &#x60;themes&#x60; may hold in total, built-in ones included; &#x60;0&#x60; means the plan caps nothing. Once  the cap is reached &#x60;PUT api/2.0/settings/colortheme&#x60; drops a new theme silently instead of failing, so  compare this with the length of &#x60;themes&#x60; to tell whether a save took effect..</param>
+        public CustomColorThemesSettingsDto(List<CustomColorThemeDto> themes = default, int selected = default, int limit = default)
         {
             this.Themes = themes;
             this.Selected = selected;
@@ -52,32 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of the custom color themes.
+        /// Every theme the portal can apply, ordered by ID, with the built-in ones first because they were created  first. It is never empty - the built-in themes cannot be deleted - and a custom theme is one whose ID is  higher than the built-in ones.
         /// </summary>
-        /// <value>The list of the custom color themes.</value>
-        /*
-        <example>[{"id":1,"name":"Custom Theme"}]</example>
-        */
+        /// <example>[{"id":1,"name":"Custom Theme"}]</example>
         [DataMember(Name = "themes", EmitDefaultValue = true)]
-        public List<CustomColorThemesSettingsItem> Themes { get; set; }
+        public List<CustomColorThemeDto> Themes { get; set; }
 
         /// <summary>
-        /// Specifies whether the custom color theme is selected.
+        /// The ID of the theme in &#x60;themes&#x60; that is currently applied to the whole portal. Deleting the applied theme  moves it to the lowest remaining ID, so it can change without anyone having chosen a new one.
         /// </summary>
-        /// <value>Specifies whether the custom color theme is selected.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "selected", EmitDefaultValue = false)]
         public int Selected { get; set; }
 
         /// <summary>
-        /// The maximum number of the custom color themes.
+        /// How many entries &#x60;themes&#x60; may hold in total, built-in ones included; &#x60;0&#x60; means the plan caps nothing. Once  the cap is reached &#x60;PUT api/2.0/settings/colortheme&#x60; drops a new theme silently instead of failing, so  compare this with the length of &#x60;themes&#x60; to tell whether a save took effect.
         /// </summary>
-        /// <value>The maximum number of the custom color themes.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 

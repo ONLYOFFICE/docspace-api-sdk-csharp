@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiResolvedAssignment" /> class.
         /// </summary>
-        /// <param name="profileId">profileId (required).</param>
-        /// <param name="profile">profile (required).</param>
+        /// <param name="profileId">The identifier of the resolved profile. (required).</param>
+        /// <param name="profile">The resolved profile itself. (required).</param>
         public AiResolvedAssignment(string profileId = default, AiProfile profile = default)
         {
             // to ensure "profileId" is required (not null)
@@ -65,13 +65,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets ProfileId
+        /// The identifier of the resolved profile.
         /// </summary>
         [DataMember(Name = "profileId", IsRequired = true, EmitDefaultValue = true)]
         public string ProfileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Profile
+        /// The resolved profile itself.
         /// </summary>
         [DataMember(Name = "profile", IsRequired = true, EmitDefaultValue = true)]
         public AiProfile Profile { get; set; }

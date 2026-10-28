@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiCreatePromptInput" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="text">text (required).</param>
-        /// <param name="folderId">folderId.</param>
+        /// <param name="name">The prompt name. (required).</param>
+        /// <param name="text">The prompt body. (required).</param>
+        /// <param name="folderId">The folder to file the prompt under. Omit or send null to leave it outside any folder..</param>
         public AiCreatePromptInput(string name = default, string text = default, string folderId = default)
         {
             // to ensure "name" is required (not null)
@@ -67,20 +67,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The prompt name.
         /// </summary>
+        /// <example>Contract summary</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Text
+        /// The prompt body.
         /// </summary>
+        /// <example>Summarise the key obligations and dates in the attached contract.</example>
         [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
-        /// Gets or Sets FolderId
+        /// The folder to file the prompt under. Omit or send null to leave it outside any folder.
         /// </summary>
+        /// <example>44444444-4444-4444-4444-444444444444</example>
         [DataMember(Name = "folderId", EmitDefaultValue = true)]
         public string FolderId { get; set; }
 

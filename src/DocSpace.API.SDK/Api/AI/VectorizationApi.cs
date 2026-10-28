@@ -33,23 +33,26 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiVectorizationStartTask(Dictionary<string, Object> requestBody);
+        /// <returns>AiVectorizationStartTask200Response</returns>
+        AiVectorizationStartTask200Response AiVectorizationStartTask(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest);
 
         /// <summary>
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiVectorizationStartTaskWithHttpInfo(Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of AiVectorizationStartTask200Response</returns>
+        ApiResponse<AiVectorizationStartTask200Response> AiVectorizationStartTaskWithHttpInfo(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest);
         #endregion Synchronous Operations
     }
 
@@ -63,27 +66,27 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiVectorizationStartTaskAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiVectorizationStartTask200Response</returns>
+        Task<AiVectorizationStartTask200Response> AiVectorizationStartTaskAsync(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiVectorizationStartTaskWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiVectorizationStartTask200Response)</returns>
+        Task<ApiResponse<AiVectorizationStartTask200Response>> AiVectorizationStartTaskWithHttpInfoAsync(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -302,28 +305,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiVectorizationStartTask(Dictionary<string, Object> requestBody)
+        /// <returns>AiVectorizationStartTask200Response</returns>
+        public AiVectorizationStartTask200Response AiVectorizationStartTask(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest)
         {
-            var localVarResponse = AiVectorizationStartTaskWithHttpInfo(requestBody);
+            var localVarResponse = AiVectorizationStartTaskWithHttpInfo(aiVectorizationStartTaskRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiVectorizationStartTaskWithHttpInfo(Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of AiVectorizationStartTask200Response</returns>
+        public ApiResponse<AiVectorizationStartTask200Response> AiVectorizationStartTaskWithHttpInfo(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling VectorizationApi->AiVectorizationStartTask");
+            // verify the required parameter 'aiVectorizationStartTaskRequest' is set
+            if (aiVectorizationStartTaskRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiVectorizationStartTaskRequest' when calling VectorizationApi->AiVectorizationStartTask");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -338,11 +347,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiVectorizationStartTaskRequest != null) localVarRequestOptions.Data = aiVectorizationStartTaskRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/vectorization/tasks", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiVectorizationStartTask200Response>("/api/2.0/ai/vectorization/tasks", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -359,30 +380,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiVectorizationStartTaskAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiVectorizationStartTask200Response</returns>
+        public async Task<AiVectorizationStartTask200Response> AiVectorizationStartTaskAsync(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiVectorizationStartTaskWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiVectorizationStartTaskWithHttpInfoAsync(aiVectorizationStartTaskRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiVectorizationStartTaskRequest">The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiVectorizationStartTaskWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiVectorizationStartTask200Response)</returns>
+        public async Task<ApiResponse<AiVectorizationStartTask200Response>> AiVectorizationStartTaskWithHttpInfoAsync(AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling VectorizationApi->AiVectorizationStartTask");
+            // verify the required parameter 'aiVectorizationStartTaskRequest' is set
+            if (aiVectorizationStartTaskRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiVectorizationStartTaskRequest' when calling VectorizationApi->AiVectorizationStartTask");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -398,12 +425,24 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiVectorizationStartTaskRequest != null) localVarRequestOptions.Data = aiVectorizationStartTaskRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/vectorization/tasks", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiVectorizationStartTask200Response>("/api/2.0/ai/vectorization/tasks", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

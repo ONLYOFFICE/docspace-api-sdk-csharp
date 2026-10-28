@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.FilesSettingsWrapper
+The successful API response containing the FilesSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FilesSettingsDto**](FilesSettingsDto.md) |  | [optional] 
+**Response** | [**FilesSettingsDto**](FilesSettingsDto.md) | The FilesSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

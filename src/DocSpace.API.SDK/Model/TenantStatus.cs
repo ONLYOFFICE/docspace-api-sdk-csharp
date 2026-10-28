@@ -32,9 +32,8 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]
+    /// [0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption, 7 - Blocked]
     /// </summary>
-    /// <value>[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]</value>
     public enum TenantStatus
     {
         /// <summary>
@@ -70,7 +69,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Encryption for value: 6
         /// </summary>
-        Encryption = 6
+        Encryption = 6,
+
+        /// <summary>
+        /// Enum Blocked for value: 7
+        /// </summary>
+        Blocked = 7
     }
 
 }

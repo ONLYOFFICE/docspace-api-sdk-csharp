@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// EncryptionKeyRequestDto
+    /// The two halves of an encryption key pair to store for the calling user, plus the identifier the pair is kept  under.
     /// </summary>
     [DataContract(Name = "EncryptionKeyRequestDto")]
     public partial class EncryptionKeyRequestDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EncryptionKeyRequestDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="publicKey">publicKey.</param>
-        /// <param name="privateKeyEnc">privateKeyEnc.</param>
+        /// <param name="id">Names the pair inside the caller&#39;s own key set. The client generates it, and leaving it out means the all-zero  GUID, which is the pair a client that never sends an identifier keeps working with..</param>
+        /// <param name="publicKey">The public half of the pair, as the client&#39;s crypto engine produced it and stored verbatim. This is the half  handed to the other members of a private room so that they can encrypt file keys for this user..</param>
+        /// <param name="privateKeyEnc">The private half of the pair, encrypted on the client with the user&#39;s password before it is sent. The portal  stores it as opaque text and cannot decrypt it, so material lost on the client cannot be recovered from here..</param>
         public EncryptionKeyRequestDto(Guid id = default, string publicKey = default, string privateKeyEnc = default)
         {
             this.Id = id;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Names the pair inside the caller&#39;s own key set. The client generates it, and leaving it out means the all-zero  GUID, which is the pair a client that never sends an identifier keeps working with.
         /// </summary>
+        /// <example>9924256B-447C-4F19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublicKey
+        /// The public half of the pair, as the client&#39;s crypto engine produced it and stored verbatim. This is the half  handed to the other members of a private room so that they can encrypt file keys for this user.
         /// </summary>
+        /// <example>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...</example>
         [DataMember(Name = "publicKey", EmitDefaultValue = true)]
         public string PublicKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets PrivateKeyEnc
+        /// The private half of the pair, encrypted on the client with the user&#39;s password before it is sent. The portal  stores it as opaque text and cannot decrypt it, so material lost on the client cannot be recovered from here.
         /// </summary>
+        /// <example>U2FsdGVkX1+Lm3s...</example>
         [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]
         public string PrivateKeyEnc { get; set; }
 

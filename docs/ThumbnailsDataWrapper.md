@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.ThumbnailsDataWrapper
+The successful API response containing the ThumbnailsDataDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**ThumbnailsDataDto**](ThumbnailsDataDto.md) |  | [optional] 
+**Response** | [**ThumbnailsDataDto**](ThumbnailsDataDto.md) | The ThumbnailsDataDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.IsDefaultWhiteLabelLogosArrayWrapper
+The successful API response containing the list of IsDefaultWhiteLabelLogosDto objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;IsDefaultWhiteLabelLogosDto&gt;**](IsDefaultWhiteLabelLogosDto.md) |  | [optional] 
+**Response** | [**List&lt;IsDefaultWhiteLabelLogosDto&gt;**](IsDefaultWhiteLabelLogosDto.md) | The list of IsDefaultWhiteLabelLogosDto objects returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

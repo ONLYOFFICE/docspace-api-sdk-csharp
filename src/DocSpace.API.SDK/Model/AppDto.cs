@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The portal application information.
+    /// One feature module of the portal: whether it is switched on here, and the settings stored for it.
     /// </summary>
     [DataContract(Name = "AppDto")]
     public partial class AppDto : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AppDto" /> class.
         /// </summary>
-        /// <param name="id">The application identifier (stable slug). The client maps this to its title, description and icon..</param>
-        /// <param name="enabled">Whether the application is enabled for the current tenant..</param>
+        /// <param name="id">The application&#39;s stable key, declared in the installation configuration - &#x60;ai-rooms&#x60;, &#x60;docs-cloud&#x60; and  the like. It is what every other operation of this group addresses an application by, and a client maps it  to a title and an icon of its own; the portal ships no display name for it..</param>
+        /// <param name="enabled">Whether the application is switched on for this portal. It is the portal&#39;s own flag where one has been  saved, and the default the installation configuration gives the application otherwise..</param>
         /// <param name="settings">settings.</param>
-        public AppDto(string id = default, bool enabled = default, AppDtoSettings settings = default)
+        public AppDto(string id = default, bool enabled = default, Object settings = default)
         {
             this.Id = id;
             this.Enabled = enabled;
@@ -52,22 +52,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The application identifier (stable slug). The client maps this to its title, description and icon.
+        /// The application&#39;s stable key, declared in the installation configuration - &#x60;ai-rooms&#x60;, &#x60;docs-cloud&#x60; and  the like. It is what every other operation of this group addresses an application by, and a client maps it  to a title and an icon of its own; the portal ships no display name for it.
         /// </summary>
-        /// <value>The application identifier (stable slug). The client maps this to its title, description and icon.</value>
-        /*
-        <example>ai-rooms</example>
-        */
+        /// <example>ai-rooms</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Whether the application is enabled for the current tenant.
+        /// Whether the application is switched on for this portal. It is the portal&#39;s own flag where one has been  saved, and the default the installation configuration gives the application otherwise.
         /// </summary>
-        /// <value>Whether the application is enabled for the current tenant.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
@@ -75,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Settings
         /// </summary>
         [DataMember(Name = "settings", EmitDefaultValue = true)]
-        public AppDtoSettings Settings { get; set; }
+        public Object Settings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -32,9 +32,8 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Mode passed to  {@link  PromptsEngine.importBundle } .
+    /// Mode passed to &#x60;PromptsEngine.importBundle&#x60;.
     /// </summary>
-    /// <value>Mode passed to  {@link  PromptsEngine.importBundle } .</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AiImportMode
     {

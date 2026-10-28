@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiExportTextToDocxRequest
     /// </summary>
-    [DataContract(Name = "aiExportTextToDocx_request")]
+    [DataContract(Name = "AiExportTextToDocxRequest")]
     public partial class AiExportTextToDocxRequest : IValidatableObject
     {
     
@@ -74,14 +74,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Document title (also the file name).
         /// </summary>
-        /// <value>Document title (also the file name).</value>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Markdown content to convert.
         /// </summary>
-        /// <value>Markdown content to convert.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
 

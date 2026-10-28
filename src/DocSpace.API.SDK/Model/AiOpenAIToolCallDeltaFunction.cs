@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIToolCallDeltaFunction
+    /// The call itself: the function name and its JSON-encoded arguments.
     /// </summary>
     [DataContract(Name = "AiOpenAIToolCallDelta_function")]
     public partial class AiOpenAIToolCallDeltaFunction : IValidatableObject

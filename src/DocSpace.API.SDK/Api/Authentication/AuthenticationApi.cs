@@ -34,78 +34,78 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        AuthenticationTokenWrapper AuthenticateMe(AuthRequestsDto? authRequestsDto = default);
+        AuthenticationTokenWrapper AuthenticateMe(AuthRequestDto? authRequestDto = default);
 
         /// <summary>
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestsDto? authRequestsDto = default);
+        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestDto? authRequestDto = default);
         /// <summary>
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default);
+        AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default);
 
         /// <summary>
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default);
+        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default);
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ConfirmWrapper</returns>
-        ConfirmWrapper CheckConfirm(EmailValidationKeyModel? emailValidationKeyModel = default);
+        ConfirmWrapper CheckConfirm(CheckConfirmRequestDto? checkConfirmRequestDto = default);
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ApiResponse of ConfirmWrapper</returns>
-        ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(EmailValidationKeyModel? emailValidationKeyModel = default);
+        ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(CheckConfirmRequestDto? checkConfirmRequestDto = default);
         /// <summary>
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
@@ -116,7 +116,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
@@ -126,7 +126,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
@@ -137,7 +137,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
@@ -147,48 +147,48 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        AuthenticationTokenWrapper SaveMobilePhone(MobileRequestsDto? mobileRequestsDto = default);
+        AuthenticationTokenWrapper SaveMobilePhone(MobileRequestDto? mobileRequestDto = default);
 
         /// <summary>
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestsDto? mobileRequestsDto = default);
+        ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestDto? mobileRequestDto = default);
         /// <summary>
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        AuthenticationTokenWrapper SendSmsCode(AuthRequestsDto? authRequestsDto = default);
+        AuthenticationTokenWrapper SendSmsCode(AuthRequestDto? authRequestDto = default);
 
         /// <summary>
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestsDto? authRequestsDto = default);
+        ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestDto? authRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -202,84 +202,84 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        Task<AuthenticationTokenWrapper> AuthenticateMeAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<AuthenticationTokenWrapper> AuthenticateMeAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeWithHttpInfoAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeWithHttpInfoAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ConfirmWrapper</returns>
-        Task<ConfirmWrapper> CheckConfirmAsync(EmailValidationKeyModel? emailValidationKeyModel = default, CancellationToken cancellationToken = default);
+        Task<ConfirmWrapper> CheckConfirmAsync(CheckConfirmRequestDto? checkConfirmRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (ConfirmWrapper)</returns>
-        Task<ApiResponse<ConfirmWrapper>> CheckConfirmWithHttpInfoAsync(EmailValidationKeyModel? emailValidationKeyModel = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ConfirmWrapper>> CheckConfirmWithHttpInfoAsync(CheckConfirmRequestDto? checkConfirmRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -291,7 +291,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -302,7 +302,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -314,7 +314,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -325,52 +325,52 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        Task<AuthenticationTokenWrapper> SaveMobilePhoneAsync(MobileRequestsDto? mobileRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<AuthenticationTokenWrapper> SaveMobilePhoneAsync(MobileRequestDto? mobileRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        Task<ApiResponse<AuthenticationTokenWrapper>> SaveMobilePhoneWithHttpInfoAsync(MobileRequestsDto? mobileRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuthenticationTokenWrapper>> SaveMobilePhoneWithHttpInfoAsync(MobileRequestDto? mobileRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        Task<AuthenticationTokenWrapper> SendSmsCodeAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<AuthenticationTokenWrapper> SendSmsCodeAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        Task<ApiResponse<AuthenticationTokenWrapper>> SendSmsCodeWithHttpInfoAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuthenticationTokenWrapper>> SendSmsCodeWithHttpInfoAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -590,15 +590,15 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        public AuthenticationTokenWrapper AuthenticateMe(AuthRequestsDto? authRequestsDto = default)
+        public AuthenticationTokenWrapper AuthenticateMe(AuthRequestDto? authRequestDto = default)
         {
-            var localVarResponse = AuthenticateMeWithHttpInfo(authRequestsDto);
+            var localVarResponse = AuthenticateMeWithHttpInfo(authRequestDto);
             return localVarResponse.Data;
         }
 
@@ -606,13 +606,13 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestsDto? authRequestsDto = default)
+        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeWithHttpInfo(AuthRequestDto? authRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -627,8 +627,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authRequestDto != null) localVarRequestOptions.Data = authRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<AuthenticationTokenWrapper>("/api/2.0/authentication", localVarRequestOptions, Configuration);
@@ -649,16 +679,16 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        public async Task<AuthenticationTokenWrapper> AuthenticateMeAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationTokenWrapper> AuthenticateMeAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AuthenticateMeWithHttpInfoAsync(authRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AuthenticateMeWithHttpInfoAsync(authRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -666,14 +696,14 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+        /// Signs a user in to the current portal and either issues the authentication token or reports which second  factor is still missing. Credentials go in the body as `userName` with `password` or `passwordHash`, as the  key of a confirmation link in `confirmData`, or as a third-party account (`provider` with `accessToken`, or  `serializedProfile`), which only a standalone installation or a tariff with third-party sign-in allows. Open  to unauthenticated callers, mutating and not  idempotent: it writes a login event, sets the portal cookies and counts every failure against the brute-force  limit. When a second factor is required for this user the answer carries no `token` but `sms` with the masked  phone number - or a `confirmUrl` pointing at `POST api/2.0/authentication/setphone` while no number is  activated yet - or `tfa` with the setup key while the authenticator app is not connected; submit the code to  `POST api/2.0/authentication/{code}` to finish such a sign-in. Otherwise the answer carries `token` for the  `Authorization` header and `expires`, which is omitted when `session=true` ties the token to the browser  session. An unknown user fails with 404, rejected credentials with 401, a disabled or blocked user with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/">REST API Reference for AuthenticateMe Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeWithHttpInfoAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeWithHttpInfoAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -689,8 +719,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authRequestDto != null) localVarRequestOptions.Data = authRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -712,16 +772,16 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        public AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default)
+        public AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default)
         {
-            var localVarResponse = AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authWithCodeRequestsDto);
+            var localVarResponse = AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authWithCodeRequestDto);
             return localVarResponse.Data;
         }
 
@@ -729,14 +789,14 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default)
+        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -756,8 +816,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("code", ClientUtils.ParameterToString(code)); // path parameter
-            if (authWithCodeRequestsDto != null) localVarRequestOptions.Data = authWithCodeRequestsDto;
+            if (authWithCodeRequestDto != null) localVarRequestOptions.Data = authWithCodeRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<AuthenticationTokenWrapper>("/api/2.0/authentication/{code}", localVarRequestOptions, Configuration);
@@ -778,17 +868,17 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        public async Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(code, authWithCodeRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(code, authWithCodeRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -796,15 +886,15 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticate a user by code
         /// </summary>
         /// <remarks>
-        /// Authenticates the current user by SMS or two-factor authentication code.
+        /// Finishes a two-factor sign-in: checks the one-time code and, when it matches, issues the authentication token.  Call it only after `POST api/2.0/authentication` answered with `sms` or `tfa` set, and repeat the same  credentials in the body next to `code` - the code alone does not identify the user. The code comes from the  SMS the portal sent, which `POST api/2.0/authentication/sendsms` resends, or from the authenticator app;  whichever second factor the portal has enabled for this user is the one checked here. Open to unauthenticated  callers, mutating and not idempotent: a code is single-use, the sign-in is written to the login history, and  the first code accepted from an authenticator app also connects that app to the user. The answer carries  `token` for the `Authorization` header, `expires` unless `session=true` tied the token to the browser session,  and either `sms` with the masked phone number or `tfa`. A wrong, empty or expired code fails with 401 and  counts against the brute-force limit, which then refuses further attempts with 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
-        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
+        /// <param name="authWithCodeRequestDto">The same credentials as an ordinary sign-in, plus the one-time code that completes it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestDto? authWithCodeRequestDto = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -825,8 +915,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("code", ClientUtils.ParameterToString(code)); // path parameter
-            if (authWithCodeRequestsDto != null) localVarRequestOptions.Data = authWithCodeRequestsDto;
+            if (authWithCodeRequestDto != null) localVarRequestOptions.Data = authWithCodeRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -845,32 +965,32 @@ namespace DocSpace.API.SDK.Api.Authentication
         }
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ConfirmWrapper</returns>
-        public ConfirmWrapper CheckConfirm(EmailValidationKeyModel? emailValidationKeyModel = default)
+        public ConfirmWrapper CheckConfirm(CheckConfirmRequestDto? checkConfirmRequestDto = default)
         {
-            var localVarResponse = CheckConfirmWithHttpInfo(emailValidationKeyModel);
+            var localVarResponse = CheckConfirmWithHttpInfo(checkConfirmRequestDto);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>ApiResponse of ConfirmWrapper</returns>
-        public ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(EmailValidationKeyModel? emailValidationKeyModel = default)
+        public ApiResponse<ConfirmWrapper> CheckConfirmWithHttpInfo(CheckConfirmRequestDto? checkConfirmRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -885,8 +1005,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (emailValidationKeyModel != null) localVarRequestOptions.Data = emailValidationKeyModel;
+            if (checkConfirmRequestDto != null) localVarRequestOptions.Data = checkConfirmRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<ConfirmWrapper>("/api/2.0/authentication/confirm", localVarRequestOptions, Configuration);
@@ -904,34 +1054,34 @@ namespace DocSpace.API.SDK.Api.Authentication
         }
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ConfirmWrapper</returns>
-        public async Task<ConfirmWrapper> CheckConfirmAsync(EmailValidationKeyModel? emailValidationKeyModel = default, CancellationToken cancellationToken = default)
+        public async Task<ConfirmWrapper> CheckConfirmAsync(CheckConfirmRequestDto? checkConfirmRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CheckConfirmWithHttpInfoAsync(emailValidationKeyModel, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CheckConfirmWithHttpInfoAsync(checkConfirmRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Open confirmation email URL
+        /// Check a confirmation link
         /// </summary>
         /// <remarks>
-        /// Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+        /// Checks the key of a confirmation link that the portal sent by email and reports whether the action behind that  link can still be carried out - an employee invitation, phone activation, a password change, portal removal  and so on. Take `key` and `type` from the query string of the link; when `key` is left empty, the key saved in  the confirmation cookie of the same `type` is used instead. Open to unauthenticated callers and read-only: it  neither accepts the invitation nor signs anyone in. `result` is `Ok` when the link may be used, `Invalid` when  the key does not match the type or the email, `Expired` when it is too old, and `TariffLimit`, `UserExisted`,  `UserExcluded` or `QuotaFailed` when the key is sound but the invitation behind it cannot be accepted. Only  `Ok` should be followed by the operation that performs the action - `POST api/2.0/people` with  `fromInviteLink` for an invitation, `POST api/2.0/authentication` with `confirmData` for a sign-in link - and  for an invitation to a room the answer also carries the identifier and the title of that room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailValidationKeyModel">The confirmation email parameters. (optional)</param>
+        /// <param name="checkConfirmRequestDto">The confirmation link parameters to check. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/">REST API Reference for CheckConfirm Operation</seealso>
         /// <returns>Task of ApiResponse (ConfirmWrapper)</returns>
-        public async Task<ApiResponse<ConfirmWrapper>> CheckConfirmWithHttpInfoAsync(EmailValidationKeyModel? emailValidationKeyModel = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ConfirmWrapper>> CheckConfirmWithHttpInfoAsync(CheckConfirmRequestDto? checkConfirmRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -947,8 +1097,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (emailValidationKeyModel != null) localVarRequestOptions.Data = emailValidationKeyModel;
+            if (checkConfirmRequestDto != null) localVarRequestOptions.Data = checkConfirmRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -970,7 +1150,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
@@ -985,7 +1165,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/">REST API Reference for GetIsAuthentificated Operation</seealso>
@@ -1006,6 +1186,36 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/authentication", localVarRequestOptions, Configuration);
@@ -1026,7 +1236,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1042,7 +1252,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Check authentication
         /// </summary>
         /// <remarks>
-        /// Checks if the current user is authenticated or not.
+        /// Reports whether the credentials that came with this very request identify a signed-in user of the current  portal - the authentication cookie, or the token in the `Authorization` header. Nothing has to be called  first: the operation is open to unauthenticated callers, who simply get `false`, it is read-only and  idempotent, and it answers even while the portal's payment has lapsed. The result is a bare boolean that  carries no reason, so `false` covers a missing, malformed, expired and revoked token alike; the way to recover  from it is to sign in again with `POST api/2.0/authentication`. It says nothing about who the caller is or how  long the session still lasts - read `GET api/2.0/people/@self` for the profile behind the token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1065,6 +1275,36 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1086,7 +1326,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
@@ -1101,7 +1341,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/">REST API Reference for Logout Operation</seealso>
@@ -1122,6 +1362,36 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<StringWrapper>("/api/2.0/authentication/logout", localVarRequestOptions, Configuration);
@@ -1142,7 +1412,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1158,7 +1428,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Log out
         /// </summary>
         /// <remarks>
-        /// Logs out of the current user account.
+        /// Ends the session the request itself was made with: the login event behind the authentication cookie is closed,  the sockets opened for it are disconnected, the portal cookies are cleared and a logout event is written to  the login history. Send it with the cookie or token of the session that is to be closed; an anonymous call is  accepted and closes nothing. The operation is mutating and idempotent - the same session cannot be closed  twice - and it touches only that one session: the other sessions of the same user stay alive and are ended by  `PUT api/2.0/security/activeconnections/logoutallexceptthis` or  `PUT api/2.0/security/activeconnections/logout/{loginEventId}`. The answer is a single logout URL when the  user signed in through SSO and the portal has an SLO endpoint configured, and the client has to open that URL  to end the session on the identity provider as well; for everyone else it is empty and nothing more is needed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1181,6 +1451,36 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1202,15 +1502,15 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        public AuthenticationTokenWrapper SaveMobilePhone(MobileRequestsDto? mobileRequestsDto = default)
+        public AuthenticationTokenWrapper SaveMobilePhone(MobileRequestDto? mobileRequestDto = default)
         {
-            var localVarResponse = SaveMobilePhoneWithHttpInfo(mobileRequestsDto);
+            var localVarResponse = SaveMobilePhoneWithHttpInfo(mobileRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1218,13 +1518,13 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        public ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestsDto? mobileRequestsDto = default)
+        public ApiResponse<AuthenticationTokenWrapper> SaveMobilePhoneWithHttpInfo(MobileRequestDto? mobileRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1239,7 +1539,7 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (mobileRequestsDto != null) localVarRequestOptions.Data = mobileRequestsDto;
+            if (mobileRequestDto != null) localVarRequestOptions.Data = mobileRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1291,16 +1591,16 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        public async Task<AuthenticationTokenWrapper> SaveMobilePhoneAsync(MobileRequestsDto? mobileRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationTokenWrapper> SaveMobilePhoneAsync(MobileRequestDto? mobileRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveMobilePhoneWithHttpInfoAsync(mobileRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveMobilePhoneWithHttpInfoAsync(mobileRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1308,14 +1608,14 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Set a mobile phone
         /// </summary>
         /// <remarks>
-        /// Sets a mobile phone for the current user.
+        /// Stores the mobile phone number of a user who is going through phone activation and sends the first SMS  authentication code to it. It is reachable only with the phone-activation confirmation link that  `POST api/2.0/authentication` returns in `confirmUrl` when SMS two-factor is required and the user has no  activated number yet: that link authorizes the call in place of an authentication token, and no token is  issued here. The operation is mutating and not idempotent - it saves the number as not activated, writes an  audit event and sends a message - and an already activated number is not replaced this way, the stored number  has to be erased first. The answer carries `sms`, the masked number and `expires`, the moment the code stops  being accepted. Submit that code to `POST api/2.0/authentication/{code}`, which signs the user in and marks  the number activated, or ask for another one with `POST api/2.0/authentication/sendsms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mobileRequestsDto">The parameters required for the mobile phone verification. (optional)</param>
+        /// <param name="mobileRequestDto">The phone number a user going through phone activation registers for SMS codes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/">REST API Reference for SaveMobilePhone Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        public async Task<ApiResponse<AuthenticationTokenWrapper>> SaveMobilePhoneWithHttpInfoAsync(MobileRequestsDto? mobileRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuthenticationTokenWrapper>> SaveMobilePhoneWithHttpInfoAsync(MobileRequestDto? mobileRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1331,7 +1631,7 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (mobileRequestsDto != null) localVarRequestOptions.Data = mobileRequestsDto;
+            if (mobileRequestDto != null) localVarRequestOptions.Data = mobileRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1384,15 +1684,15 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        public AuthenticationTokenWrapper SendSmsCode(AuthRequestsDto? authRequestsDto = default)
+        public AuthenticationTokenWrapper SendSmsCode(AuthRequestDto? authRequestDto = default)
         {
-            var localVarResponse = SendSmsCodeWithHttpInfo(authRequestsDto);
+            var localVarResponse = SendSmsCodeWithHttpInfo(authRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1400,13 +1700,13 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        public ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestsDto? authRequestsDto = default)
+        public ApiResponse<AuthenticationTokenWrapper> SendSmsCodeWithHttpInfo(AuthRequestDto? authRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1421,8 +1721,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authRequestDto != null) localVarRequestOptions.Data = authRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<AuthenticationTokenWrapper>("/api/2.0/authentication/sendsms", localVarRequestOptions, Configuration);
@@ -1443,16 +1773,16 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        public async Task<AuthenticationTokenWrapper> SendSmsCodeAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationTokenWrapper> SendSmsCodeAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SendSmsCodeWithHttpInfoAsync(authRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendSmsCodeWithHttpInfoAsync(authRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1460,14 +1790,14 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Send SMS code
         /// </summary>
         /// <remarks>
-        /// Sends SMS with an authentication code.
+        /// Sends a new SMS authentication code to the phone number stored for the user and reports when that code  expires. The credentials in the body are checked exactly as by `POST api/2.0/authentication`, so use this  operation to resend the code after that call answered with `sms`; the user needs SMS two-factor enabled and a  phone number already stored, which `POST api/2.0/authentication/setphone` registers. Open to unauthenticated  callers, mutating and not idempotent: every call sends a message, is counted in the portal's SMS usage and  spends one of the few codes a number is allowed within the code lifetime (ten minutes by default), after which  the call fails until those codes expire. Codes sent earlier stay valid, so a resent code does not invalidate  them, and the first one to be accepted invalidates all of them. The answer carries `sms`, the masked number  and `expires`, and no token - submit the code to `POST api/2.0/authentication/{code}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authRequestDto">The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/">REST API Reference for SendSmsCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        public async Task<ApiResponse<AuthenticationTokenWrapper>> SendSmsCodeWithHttpInfoAsync(AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuthenticationTokenWrapper>> SendSmsCodeWithHttpInfoAsync(AuthRequestDto? authRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1483,8 +1813,38 @@ namespace DocSpace.API.SDK.Api.Authentication
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authRequestDto != null) localVarRequestOptions.Data = authRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 

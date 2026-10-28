@@ -5,8 +5,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddRoomGroup**](#addroomgroup) | **POST** /api/2.0/files/group | Add a new room group |
-| [**ChangeRoomGroupIcon**](#changeroomgroupicon) | **POST** /api/2.0/files/group/{id}/icon | Change group icon |
-| [**DeleteRoomGroup**](#deleteroomgroup) | **DELETE** /api/2.0/files/group/{id} | Delete group |
+| [**ChangeRoomGroupIcon**](#changeroomgroupicon) | **POST** /api/2.0/files/group/{id}/icon | Change room group icon |
+| [**DeleteRoomGroup**](#deleteroomgroup) | **DELETE** /api/2.0/files/group/{id} | Delete a room group |
 | [**GetRoomGroupInfo**](#getroomgroupinfo) | **GET** /api/2.0/files/group/{id} | Get room group info |
 | [**GetRoomGroups**](#getroomgroups) | **GET** /api/2.0/files/group | List room groups |
 | [**UpdateRoomGroup**](#updateroomgroup) | **PUT** /api/2.0/files/group/{id} | Update room group |
@@ -15,7 +15,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AddRoomGroup**
 > RoomGroupWrapper AddRoomGroup (RoomGroupRequestDto? roomGroupRequestDto = null)
 
-Creates a new room group with the specified name, icon, and list of rooms.
+Creates a room group, a personal collection that gathers rooms the caller already works with under one name  and icon; it belongs to the account that created it and is never shown to other members of the portal. Pass  the group name, the identifier of one of the built-in covers offered by `GET api/2.0/files/rooms/covers`, and  a list of at least one room - a number for a room stored in the portal, a string for a room on a connected  third-party account. Any role may create its own group, a guest included: what is checked is read access to  each listed room, not the role of the caller. Repeated identifiers are collapsed, and a value that is not a  room identifier at all is rejected as an invalid request. When none of the listed rooms can be read the group  is not created; when only some of them can, the group is created with those rooms and the call is still  reported as failed, so re-read `GET api/2.0/files/group` before retrying. A room may sit in several groups,  and two groups of the same account may carry the same name. The answer is the stored group with its rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-group/).
 
@@ -23,7 +23,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomGroupRequestDto** | [**RoomGroupRequestDto?**](RoomGroupRequestDto.md) | The request parameters for creating a room group | [optional]  |
+| **roomGroupRequestDto** | [**RoomGroupRequestDto?**](RoomGroupRequestDto.md) | The name, the icon and the rooms of a room group to create. | [optional]  |
 
 ### Return type
 
@@ -70,7 +70,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var roomGroupRequestDto = new RoomGroupRequestDto?(); // RoomGroupRequestDto? | The request parameters for creating a room group (optional) 
+            var roomGroupRequestDto = new RoomGroupRequestDto?(); // RoomGroupRequestDto? | The name, the icon and the rooms of a room group to create. (optional) 
 
             try
             {
@@ -118,9 +118,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The created room group with the rooms that were linked to it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `name`, `icon` or `rooms`, the name is blank or longer than 128 characters, the icon is not a built-in cover, `searchArea` names a section other than `Active` and `Forms`, a room identifier is neither a positive number nor a non-numeric string, a third-party room identifier refers to a storage account that is not connected, or none of the listed rooms can be added and the existing ones all belong to the other section than `searchArea` |  -  |
+| **403** | The `rooms` list is empty, the listed rooms exist but none of them is a room the caller can read, or only some of them could be added - the group is then created with those |  -  |
+| **404** | None of the listed rooms exists, or a string room identifier does not name a third-party storage |  -  |
+| **500** | A third-party room identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -130,7 +134,7 @@ catch (ApiException e)
 # **ChangeRoomGroupIcon**
 > RoomGroupWrapper ChangeRoomGroupIcon (int id, IconRequest? iconRequest = null)
 
-Changes the icon of an existing room group.
+Replaces the icon of one of the caller's own room groups and returns the whole group, its name and its rooms  left as they were. Send the identifier of one of the built-in covers offered by  `GET api/2.0/files/rooms/covers`; an empty string strips the icon, after which the group comes back with an  empty `icon`, and any other value - including a word that merely reads like one, such as `none` - is rejected  as an invalid request. An uploaded image cannot be used here, unlike the logo of a room. Leaving `icon` out of  the body or sending it as null is accepted and changes nothing, whereas a request that carries no body at all,  or a body that is not JSON, is refused. Setting the icon the group already has is accepted as well, so  retrying the call is safe. Any role may re-icon its own group, and a group belonging to another account is  answered as missing rather than refused, exactly as reading it would be.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-group-icon/).
 
@@ -138,8 +142,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Group id |  |
-| **iconRequest** | [**IconRequest?**](IconRequest.md) | Icon update data. | [optional]  |
+| **id** | **int** | The room group to re-icon, identified by the value `GET api/2.0/files/group` reports for it. A group of  another account cannot be addressed and reads as missing. |  |
+| **iconRequest** | [**IconRequest?**](IconRequest.md) | The icon to give the group. A body that leaves the icon out is accepted and changes nothing. | [optional]  |
 
 ### Return type
 
@@ -186,12 +190,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | Group id
-            var iconRequest = new IconRequest?(); // IconRequest? | Icon update data. (optional) 
+            var id = 42;  // int | The room group to re-icon, identified by the value `GET api/2.0/files/group` reports for it. A group of  another account cannot be addressed and reads as missing.
+            var iconRequest = new IconRequest?(); // IconRequest? | The icon to give the group. A body that leaves the icon out is accepted and changes nothing. (optional) 
 
             try
             {
-                // Change group icon
+                // Change room group icon
                 RoomGroupWrapper result = apiInstance.ChangeRoomGroupIcon(id, iconRequest);
                 Debug.WriteLine(result);
             }
@@ -212,7 +216,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change group icon
+    // Change room group icon
     ApiResponse<RoomGroupWrapper> response = apiInstance.ChangeRoomGroupIconWithHttpInfo(id, iconRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -235,9 +239,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The room group with the new icon |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or the icon is neither a built-in cover nor an empty string |  -  |
+| **404** | The group does not exist or belongs to another account |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -247,7 +254,7 @@ catch (ApiException e)
 # **DeleteRoomGroup**
 > void DeleteRoomGroup (int id, bool? includeMembers = null)
 
-Deletes the specified room group.
+Deletes one of the caller's own room groups. Only the collection goes away: the rooms it gathered, their  content and the shares on them are left exactly as they were, and a room that was in no other group simply  stops being grouped. Deleting a group of another account is refused, and an identifier that names nothing -  because it never existed, or because the group has already been deleted - is answered as missing, so repeating  the call after a successful delete does not report success a second time. The operation is destructive and  cannot be undone: there is no trash for groups, and rebuilding one means calling `POST api/2.0/files/group`  again with the same name, icon and rooms, which gives it a new identifier. Nothing is returned in the body.  The `includeMembers` parameter is accepted here because the route shares its contract with  `GET api/2.0/files/group/{id}`, and has no effect on what is deleted. Read the group first when the rooms it  gathers still have to be recorded somewhere.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-group/).
 
@@ -255,8 +262,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The group unique identifier. |  |
-| **includeMembers** | **bool?** | Whether to include group members. | [optional]  |
+| **id** | **int** | The room group to act on, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing. |  |
+| **includeMembers** | **bool?** | Whether the rooms of the group are listed in the answer: true fills the `rooms` array, false leaves it out and  reports only how many there are in `totalRooms`. | [optional]  |
 
 ### Return type
 
@@ -303,12 +310,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 10;  // int | The group unique identifier.
-            var includeMembers = true;  // bool? | Whether to include group members. (optional) 
+            var id = 42;  // int | The room group to act on, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing.
+            var includeMembers = true;  // bool? | Whether the rooms of the group are listed in the answer: true fills the `rooms` array, false leaves it out and  reports only how many there are in `totalRooms`. (optional) 
 
             try
             {
-                // Delete group
+                // Delete a room group
                 apiInstance.DeleteRoomGroup(id, includeMembers);
             }
             catch (ApiException  e)
@@ -328,7 +335,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete group
+    // Delete a room group
     apiInstance.DeleteRoomGroupWithHttpInfo(id, includeMembers);
 }
 catch (ApiException e)
@@ -342,15 +349,19 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The room group no longer exists; the body is empty and the rooms it gathered are left as they were |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The group belongs to another account |  -  |
+| **404** | The group does not exist |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -360,7 +371,7 @@ catch (ApiException e)
 # **GetRoomGroupInfo**
 > RoomGroupWrapper GetRoomGroupInfo (int id, bool? includeMembers = null)
 
-Returns detailed information about a room group.
+Returns one room group of the calling account together with the rooms it gathers. Groups are personal: an  identifier that belongs to another member is answered the same way as one that was never created or has  already been deleted, and a portal administrator is no exception to that rule. Take the identifier from  `GET api/2.0/files/group`, which lists the groups the caller owns. Set `includeMembers` to false to get the  group without the `rooms` array, which is the cheaper form when only the name, the icon and the number of  rooms are needed; `totalRooms` is filled either way. A room moved to the archive is left out of both `rooms`  and `totalRooms` while its membership survives, so taking the room out of the archive brings it back into the  group. A room the caller can no longer open is left out the same way, and comes back if access to it is  granted again. Rooms stored in the portal are listed before rooms on connected third-party accounts. The call is  read-only and changes nothing about the group or the rooms it refers to.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-group-info/).
 
@@ -368,8 +379,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The group unique identifier. |  |
-| **includeMembers** | **bool?** | Whether to include group members. | [optional]  |
+| **id** | **int** | The room group to act on, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing. |  |
+| **includeMembers** | **bool?** | Whether the rooms of the group are listed in the answer: true fills the `rooms` array, false leaves it out and  reports only how many there are in `totalRooms`. | [optional]  |
 
 ### Return type
 
@@ -416,8 +427,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 10;  // int | The group unique identifier.
-            var includeMembers = true;  // bool? | Whether to include group members. (optional) 
+            var id = 42;  // int | The room group to act on, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing.
+            var includeMembers = true;  // bool? | Whether the rooms of the group are listed in the answer: true fills the `rooms` array, false leaves it out and  reports only how many there are in `totalRooms`. (optional) 
 
             try
             {
@@ -465,9 +476,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The room group with the rooms it gathers |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **404** | The group does not exist or belongs to another account |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -475,9 +489,9 @@ catch (ApiException e)
 
 <a id="getroomgroups"></a>
 # **GetRoomGroups**
-> RoomGroupArrayWrapper GetRoomGroups (int id, bool? includeMembers = null)
+> RoomGroupArrayWrapper GetRoomGroups (bool? includeMembers = null, SearchArea? searchArea = null)
 
-Returns a list of all room groups for the current user.
+Returns every room group of the calling account, each with the rooms it gathers. Only groups the caller  created are listed: groups of other members never appear here, and an account that has never made one gets an  empty array back. Set `includeMembers` to false to leave the `rooms` array out of every entry and keep the  name, the icon and `totalRooms` alone, which is the cheaper form when the list is only being shown as a menu.  Archived rooms are skipped in both the `rooms` array and the `totalRooms` count, and reappear once the room is  taken out of the archive; rooms the caller can no longer open are skipped the same way until access to them  is granted again. The listing is neither paged nor filtered - it always carries the whole set - and  the order of the entries is not contractual, so sort them on the client when the order matters. The call is  read-only. Use `GET api/2.0/files/group/{id}` when the identifier of a single group is already known, and  `POST api/2.0/files/group` to add one.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/).
 
@@ -485,8 +499,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The group unique identifier. |  |
-| **includeMembers** | **bool?** | Whether to include group members. | [optional]  |
+| **includeMembers** | **bool?** | Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea.md) | The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. | [optional]  |
 
 ### Return type
 
@@ -533,13 +547,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 10;  // int | The group unique identifier.
-            var includeMembers = true;  // bool? | Whether to include group members. (optional) 
+            var includeMembers = true;  // bool? | Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional) 
+            var searchArea = new SearchArea?(); // SearchArea? | The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional) 
 
             try
             {
                 // List room groups
-                RoomGroupArrayWrapper result = apiInstance.GetRoomGroups(id, includeMembers);
+                RoomGroupArrayWrapper result = apiInstance.GetRoomGroups(includeMembers, searchArea);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -560,7 +574,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List room groups
-    ApiResponse<RoomGroupArrayWrapper> response = apiInstance.GetRoomGroupsWithHttpInfo(id, includeMembers);
+    ApiResponse<RoomGroupArrayWrapper> response = apiInstance.GetRoomGroupsWithHttpInfo(includeMembers, searchArea);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -582,9 +596,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The room groups of the calling account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The `searchArea` names a section other than `Active` and `Forms` |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -594,7 +610,7 @@ catch (ApiException e)
 # **UpdateRoomGroup**
 > RoomGroupWrapper UpdateRoomGroup (int id, UpdateRoomGroupRequest updateRoomGroupRequest)
 
-Updates room group properties and adds or removes rooms.
+Applies changes to one of the caller's own room groups: a new name, rooms to attach, rooms to detach, or any  combination of the three in a single call. A body that carries none of the three (`{}`) is accepted and  changes nothing, while a body that names them and leaves every one of them empty asks for an update that  cannot be performed and is rejected as an invalid request. `roomsToAdd` is resolved the way creation resolves  its list: every identifier has to name a room the caller can read, repeats and rooms already in the group are  collapsed, and when only part of the list resolves the rest is still attached and the call is reported as  failed. `roomsToRemove` works the other way round - a room already in the group is always detached, even when  the caller has since lost access to it, whereas an identifier that is not in the group is resolved first and  refused when it names nothing. The steps are applied in order and are not rolled back when a later one fails.  A group of another account is answered as missing. The answer is the group as stored after the call.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-group/).
 
@@ -602,8 +618,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The group ID. |  |
-| **updateRoomGroupRequest** | [**UpdateRoomGroupRequest**](UpdateRoomGroupRequest.md) | The request for updating a group. |  |
+| **id** | **int** | The room group to change, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing. |  |
+| **updateRoomGroupRequest** | [**UpdateRoomGroupRequest**](UpdateRoomGroupRequest.md) | The changes to apply. Carrying none of them leaves the group as it is, and each of them may be sent on its own  or together with the others. |  |
 
 ### Return type
 
@@ -650,8 +666,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group ID.
-            var updateRoomGroupRequest = new UpdateRoomGroupRequest(); // UpdateRoomGroupRequest | The request for updating a group.
+            var id = 42;  // int | The room group to change, identified by the value `GET api/2.0/files/group` reports for it. A group of another  account cannot be addressed and reads as missing.
+            var updateRoomGroupRequest = new UpdateRoomGroupRequest(); // UpdateRoomGroupRequest | The changes to apply. Carrying none of them leaves the group as it is, and each of them may be sent on its own  or together with the others.
 
             try
             {
@@ -699,9 +715,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The room group as stored after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or names its members with every one of them null, the new name is blank or longer than 128 characters, a room identifier is neither a positive number nor a non-numeric string, a third-party room identifier refers to a storage account that is not connected, or none of the rooms of `roomsToAdd` can be added and the existing ones all belong to the other section than the group |  -  |
+| **403** | The rooms of `roomsToAdd`, or the rooms of `roomsToRemove` that are not in the group, exist but none of them is a room the caller can read, or only some of the rooms could be applied - the earlier steps stay applied |  -  |
+| **404** | The group does not exist or belongs to another account, none of the rooms of `roomsToAdd` or of the rooms of `roomsToRemove` that are not in the group exists, or a string room identifier does not name a third-party storage |  -  |
+| **500** | A third-party room identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

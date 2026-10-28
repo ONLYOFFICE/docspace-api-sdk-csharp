@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]
     /// </summary>
-    /// <value>[0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]</value>
     public enum OperationStatus
     {
         /// <summary>

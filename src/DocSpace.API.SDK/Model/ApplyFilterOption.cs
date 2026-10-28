@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - All, 1 - Files, 2 - Folders]
     /// </summary>
-    /// <value>[0 - All, 1 - Files, 2 - Folders]</value>
     public enum ApplyFilterOption
     {
         /// <summary>

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]
     /// </summary>
-    /// <value>[0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]</value>
     public enum AiEmbeddingProviderType
     {
         /// <summary>

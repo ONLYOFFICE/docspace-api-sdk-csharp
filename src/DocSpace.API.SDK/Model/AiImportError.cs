@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Per-entry error reported by  {@link  PromptsEngine.importBundle } .
+    /// Per-entry error reported by &#x60;PromptsEngine.importBundle&#x60;.
     /// </summary>
     [DataContract(Name = "AiImportError")]
     public partial class AiImportError : IValidatableObject
@@ -40,7 +40,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// &#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id.
         /// </summary>
-        /// <value>&#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum KindEnum
         {
@@ -60,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// &#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id.
         /// </summary>
-        /// <value>&#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id.</value>
+        /// <example>prompt</example>
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public KindEnum Kind { get; set; }
     
@@ -73,9 +72,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiImportError" /> class.
         /// </summary>
         /// <param name="kind">&#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id. (required).</param>
-        /// <param name="ref">@ref (required).</param>
-        /// <param name="error">error (required).</param>
-        public AiImportError(KindEnum kind = default, string @ref = default, AiTErrorData error = default)
+        /// <param name="ref">The offending entry - its name or its id. (required).</param>
+        /// <param name="error">Why the entry was rejected. (required).</param>
+        public AiImportError(KindEnum kind = default, string @ref = default, AiErrorData error = default)
         {
             this.Kind = kind;
             // to ensure "@ref" is required (not null)
@@ -93,16 +92,18 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ref
+        /// The offending entry - its name or its id.
         /// </summary>
+        /// <example>33333333-3333-3333-3333-333333333333</example>
         [DataMember(Name = "ref", IsRequired = true, EmitDefaultValue = true)]
         public string Ref { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the entry was rejected.
         /// </summary>
+        /// <example>a prompt of that name already exists</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

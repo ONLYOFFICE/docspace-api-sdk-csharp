@@ -5,7 +5,7 @@ Generic success acknowledgement for mutations that return no data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** | **bool** |  | 
+**Success** | **bool** | Always true — the mutation completed. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

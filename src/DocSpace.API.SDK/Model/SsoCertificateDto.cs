@@ -1,0 +1,152 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// A certificate used to sign or encrypt SAML messages, with its validity period.
+    /// </summary>
+    [DataContract(Name = "SsoCertificateDto")]
+    public partial class SsoCertificateDto : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SsoCertificateDto" /> class.
+        /// </summary>
+        /// <param name="selfSigned">Specifies if a certificate is self-signed or not..</param>
+        /// <param name="crt">The CRT certificate file..</param>
+        /// <param name="key">The certificate key..</param>
+        /// <param name="action">The certificate action..</param>
+        /// <param name="domainName">The certificate domain name..</param>
+        /// <param name="startDate">The certificate start date..</param>
+        /// <param name="expiredDate">The certificate expiration date..</param>
+        public SsoCertificateDto(bool selfSigned = default, string crt = default, string key = default, string action = default, string domainName = default, DateTime startDate = default, DateTime expiredDate = default)
+        {
+            this.SelfSigned = selfSigned;
+            this.Crt = crt;
+            this.Key = key;
+            this.Action = action;
+            this.DomainName = domainName;
+            this.StartDate = startDate;
+            this.ExpiredDate = expiredDate;
+        }
+
+        /// <summary>
+        /// Specifies if a certificate is self-signed or not.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "selfSigned", EmitDefaultValue = true)]
+        public bool SelfSigned { get; set; }
+
+        /// <summary>
+        /// The CRT certificate file.
+        /// </summary>
+        /// <example>crt file</example>
+        [DataMember(Name = "crt", EmitDefaultValue = true)]
+        public string Crt { get; set; }
+
+        /// <summary>
+        /// The certificate key.
+        /// </summary>
+        /// <example>key</example>
+        [DataMember(Name = "key", EmitDefaultValue = true)]
+        public string Key { get; set; }
+
+        /// <summary>
+        /// The certificate action.
+        /// </summary>
+        /// <example>validate</example>
+        [DataMember(Name = "action", EmitDefaultValue = true)]
+        public string Action { get; set; }
+
+        /// <summary>
+        /// The certificate domain name.
+        /// </summary>
+        /// <example>example.com</example>
+        [DataMember(Name = "domainName", EmitDefaultValue = true)]
+        public string DomainName { get; set; }
+
+        /// <summary>
+        /// The certificate start date.
+        /// </summary>
+        /// <example>2024-01-01T00:00:00Z</example>
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        public DateTime StartDate { get; set; }
+
+        /// <summary>
+        /// The certificate expiration date.
+        /// </summary>
+        /// <example>2024-01-01T00:00:00Z</example>
+        [DataMember(Name = "expiredDate", EmitDefaultValue = false)]
+        public DateTime ExpiredDate { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class SsoCertificateDto {\n");
+            sb.Append("  SelfSigned: ").Append(SelfSigned).Append("\n");
+            sb.Append("  Crt: ").Append(Crt).Append("\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  DomainName: ").Append(DomainName).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  ExpiredDate: ").Append(ExpiredDate).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

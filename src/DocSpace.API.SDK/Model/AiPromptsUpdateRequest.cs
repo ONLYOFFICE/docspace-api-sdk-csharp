@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPromptsUpdateRequest
     /// </summary>
-    [DataContract(Name = "aiPromptsUpdate_request")]
+    [DataContract(Name = "AiPromptsUpdateRequest")]
     public partial class AiPromptsUpdateRequest : IValidatableObject
     {
     
@@ -67,7 +67,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Prompt id to update.
         /// </summary>
-        /// <value>Prompt id to update.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 

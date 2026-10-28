@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsAddCustomServerRequest
     /// </summary>
-    [DataContract(Name = "aiToolsAddCustomServer_request")]
+    [DataContract(Name = "AiToolsAddCustomServerRequest")]
     public partial class AiToolsAddCustomServerRequest : IValidatableObject
     {
     
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiToolsAddCustomServerRequest" /> class.
         /// </summary>
         /// <param name="name">Server name (unique within scope). (required).</param>
-        /// <param name="config">One MCP server configuration. The shape is intentionally open — MCP allows per-transport fields (&#x60;command&#x60;/&#x60;args&#x60; for stdio, &#x60;url&#x60; for HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which transport is in use. (required).</param>
+        /// <param name="config">Server transport configuration. (required).</param>
         /// <param name="entityId">entityId.</param>
         public AiToolsAddCustomServerRequest(string name = default, Object config = default, string entityId = default)
         {
@@ -69,14 +69,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Server name (unique within scope).
         /// </summary>
-        /// <value>Server name (unique within scope).</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// One MCP server configuration. The shape is intentionally open — MCP allows per-transport fields (&#x60;command&#x60;/&#x60;args&#x60; for stdio, &#x60;url&#x60; for HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which transport is in use.
+        /// Server transport configuration.
         /// </summary>
-        /// <value>One MCP server configuration. The shape is intentionally open — MCP allows per-transport fields (&#x60;command&#x60;/&#x60;args&#x60; for stdio, &#x60;url&#x60; for HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which transport is in use.</value>
         [DataMember(Name = "config", IsRequired = true, EmitDefaultValue = true)]
         public Object Config { get; set; }
 

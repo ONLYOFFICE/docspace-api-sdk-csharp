@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsRenameRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsRename_request")]
+    [DataContract(Name = "AiThreadsRenameRequest")]
     public partial class AiThreadsRenameRequest : IValidatableObject
     {
     
@@ -73,7 +73,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// New thread title.
         /// </summary>
-        /// <value>New thread title.</value>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAttachmentsSaveFileRequest
     /// </summary>
-    [DataContract(Name = "aiAttachmentsSaveFile_request")]
+    [DataContract(Name = "AiAttachmentsSaveFileRequest")]
     public partial class AiAttachmentsSaveFileRequest : IValidatableObject
     {
     
@@ -68,7 +68,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Optional entity (room) scope.
         /// </summary>
-        /// <value>Optional entity (room) scope.</value>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 

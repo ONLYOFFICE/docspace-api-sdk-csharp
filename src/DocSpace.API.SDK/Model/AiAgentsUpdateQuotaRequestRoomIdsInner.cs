@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
     /// A DocSpace room id: an integer for native rooms, a string for third-party-backed ones.
     /// </summary>
     [JsonConverter(typeof(AiAgentsUpdateQuotaRequestRoomIdsInnerJsonConverter))]
-    [DataContract(Name = "aiAgentsUpdateQuota_request_roomIds_inner")]
+    [DataContract(Name = "AiAgentsUpdateQuotaRequest_roomIds_inner")]
     public partial class AiAgentsUpdateQuotaRequestRoomIdsInner : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="actualInstance">An instance of decimal.</param>
         public AiAgentsUpdateQuotaRequestRoomIdsInner(decimal actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="actualInstance">An instance of string.</param>
         public AiAgentsUpdateQuotaRequestRoomIdsInner(string actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -77,13 +77,13 @@ namespace DocSpace.API.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(decimal) || value is decimal)
+                if (value.GetType() == typeof(decimal))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
-                else if (value.GetType() == typeof(string) || value is string)
+                else if (value.GetType() == typeof(string))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>An instance of decimal</returns>
         public decimal GetDecimal()
         {
-            return (decimal)this.ActualInstance;
+            return (decimal)ActualInstance;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>An instance of string</returns>
         public string GetString()
         {
-            return (string)this.ActualInstance;
+            return (string)ActualInstance;
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AiAgentsUpdateQuotaRequestRoomIdsInner {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings);
         }
 
         /// <summary>
@@ -147,22 +147,12 @@ namespace DocSpace.API.SDK.Model
             {
                 return newAiAgentsUpdateQuotaRequestRoomIdsInner;
             }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(decimal).GetProperty("AdditionalProperties") == null)
-                {
-                    newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<decimal>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings));
-                }
-                else
-                {
-                    newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<decimal>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("decimal");
-                match++;
+                newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<decimal>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newAiAgentsUpdateQuotaRequestRoomIdsInner;
             }
             catch (Exception exception)
             {
@@ -172,17 +162,9 @@ namespace DocSpace.API.SDK.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(string).GetProperty("AdditionalProperties") == null)
-                {
-                    newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<string>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings));
-                }
-                else
-                {
-                    newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<string>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("string");
-                match++;
+                newAiAgentsUpdateQuotaRequestRoomIdsInner = new AiAgentsUpdateQuotaRequestRoomIdsInner(JsonConvert.DeserializeObject<string>(jsonString, AiAgentsUpdateQuotaRequestRoomIdsInner.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newAiAgentsUpdateQuotaRequestRoomIdsInner;
             }
             catch (Exception exception)
             {
@@ -190,19 +172,9 @@ namespace DocSpace.API.SDK.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
             }
 
-            if (match == 0)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
-            }
-            else if (match > 1)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newAiAgentsUpdateQuotaRequestRoomIdsInner;
+            // no match found, throw an exception
+            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
         }
-
 
         /// <summary>
         /// To validate all properties of the instance

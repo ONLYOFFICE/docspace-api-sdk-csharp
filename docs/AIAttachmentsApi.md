@@ -4,21 +4,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AiAttachmentsDelete**](#aiattachmentsdelete) | **DELETE** /api/2.0/ai/attachments/delete | Delete |
+| [**AiAttachmentsDelete**](#aiattachmentsdelete) | **DELETE** /api/2.0/ai/attachments/delete | Delete one attachment |
 | [**AiAttachmentsDeleteMany**](#aiattachmentsdeletemany) | **DELETE** /api/2.0/ai/attachments/delete-many | Delete many |
-| [**AiAttachmentsGet**](#aiattachmentsget) | **POST** /api/2.0/ai/attachments/get | Get |
+| [**AiAttachmentsGet**](#aiattachmentsget) | **POST** /api/2.0/ai/attachments/get | Get one attachment |
 | [**AiAttachmentsGetMany**](#aiattachmentsgetmany) | **POST** /api/2.0/ai/attachments/get-many | Get many |
+| [**AiAttachmentsGetSuggestedQuestions**](#aiattachmentsgetsuggestedquestions) | **POST** /api/2.0/ai/attachments/suggested-questions | Get suggested questions |
 | [**AiAttachmentsLinkToMessage**](#aiattachmentslinktomessage) | **POST** /api/2.0/ai/attachments/link-to-message | Link to message |
 | [**AiAttachmentsSaveFile**](#aiattachmentssavefile) | **POST** /api/2.0/ai/attachments/save-file | Save file |
 | [**AiAttachmentsSaveFilesMany**](#aiattachmentssavefilesmany) | **POST** /api/2.0/ai/attachments/save-files-many | Save files many |
-| [**AiAttachmentsSaveImage**](#aiattachmentssaveimage) | **POST** /api/2.0/ai/attachments/save-image | Save image |
-| [**AiAttachmentsSaveImagesMany**](#aiattachmentssaveimagesmany) | **POST** /api/2.0/ai/attachments/save-images-many | Save images many |
 
 <a id="aiattachmentsdelete"></a>
 # **AiAttachmentsDelete**
-> AiSuccessResponse AiAttachmentsDelete (string body)
+> AiSuccessResponse AiAttachmentsDelete (string aiAttachmentsDeleteRequest)
 
-
+Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/).
 
@@ -26,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** |  |  |
+| **aiAttachmentsDeleteRequest** | **string** | The ID of the attachment to delete, as a bare JSON string. |  |
 
 ### Return type
 
@@ -34,7 +33,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -53,16 +52,23 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | 
+            var aiAttachmentsDeleteRequest = "aiAttachmentsDeleteRequest_example";  // string | The ID of the attachment to delete, as a bare JSON string.
 
             try
             {
-                // Delete
-                AiSuccessResponse result = apiInstance.AiAttachmentsDelete(body);
+                // Delete one attachment
+                AiSuccessResponse result = apiInstance.AiAttachmentsDelete(aiAttachmentsDeleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -82,8 +88,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteWithHttpInfo(body);
+    // Delete one attachment
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteWithHttpInfo(aiAttachmentsDeleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -105,16 +111,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aiattachmentsdeletemany"></a>
 # **AiAttachmentsDeleteMany**
-> AiSuccessResponse AiAttachmentsDeleteMany (List<string> requestBody)
+> AiSuccessResponse AiAttachmentsDeleteMany (List<string> aiAttachmentsDeleteManyRequest)
 
-
+Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/).
 
@@ -122,7 +131,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;string&gt;**](string.md) |  |  |
+| **aiAttachmentsDeleteManyRequest** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to delete, as a bare JSON array of strings. |  |
 
 ### Return type
 
@@ -130,7 +139,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -149,16 +158,23 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<string>(); // List<string> | 
+            var aiAttachmentsDeleteManyRequest = new List<string>(); // List<string> | The IDs of the attachments to delete, as a bare JSON array of strings.
 
             try
             {
                 // Delete many
-                AiSuccessResponse result = apiInstance.AiAttachmentsDeleteMany(requestBody);
+                AiSuccessResponse result = apiInstance.AiAttachmentsDeleteMany(aiAttachmentsDeleteManyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -179,7 +195,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete many
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteManyWithHttpInfo(requestBody);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteManyWithHttpInfo(aiAttachmentsDeleteManyRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -201,16 +217,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aiattachmentsget"></a>
 # **AiAttachmentsGet**
-> AiAttachment AiAttachmentsGet (string body)
+> AiAttachment AiAttachmentsGet (string aiAttachmentsGetRequest)
 
-
+Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/).
 
@@ -218,7 +237,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** |  |  |
+| **aiAttachmentsGetRequest** | **string** | The ID of the attachment to read, as a bare JSON string. |  |
 
 ### Return type
 
@@ -226,7 +245,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -245,16 +264,23 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | 
+            var aiAttachmentsGetRequest = "aiAttachmentsGetRequest_example";  // string | The ID of the attachment to read, as a bare JSON string.
 
             try
             {
-                // Get
-                AiAttachment result = apiInstance.AiAttachmentsGet(body);
+                // Get one attachment
+                AiAttachment result = apiInstance.AiAttachmentsGet(aiAttachmentsGetRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -274,8 +300,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get
-    ApiResponse<AiAttachment> response = apiInstance.AiAttachmentsGetWithHttpInfo(body);
+    // Get one attachment
+    ApiResponse<AiAttachment> response = apiInstance.AiAttachmentsGetWithHttpInfo(aiAttachmentsGetRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -297,16 +323,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The attachment, or a null body when no attachment has that ID. |  -  |
+| **400** | The attachment ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aiattachmentsgetmany"></a>
 # **AiAttachmentsGetMany**
-> List&lt;AiAttachment&gt; AiAttachmentsGetMany (List<string> requestBody)
+> List&lt;AiAttachment&gt; AiAttachmentsGetMany (List<string> aiAttachmentsGetManyRequest)
 
-
+Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/).
 
@@ -314,7 +344,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;string&gt;**](string.md) |  |  |
+| **aiAttachmentsGetManyRequest** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. |  |
 
 ### Return type
 
@@ -322,7 +352,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -341,16 +371,23 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<string>(); // List<string> | 
+            var aiAttachmentsGetManyRequest = new List<string>(); // List<string> | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.
 
             try
             {
                 // Get many
-                List<AiAttachment> result = apiInstance.AiAttachmentsGetMany(requestBody);
+                List<AiAttachment> result = apiInstance.AiAttachmentsGetMany(aiAttachmentsGetManyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -371,7 +408,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get many
-    ApiResponse<List<AiAttachment>> response = apiInstance.AiAttachmentsGetManyWithHttpInfo(requestBody);
+    ApiResponse<List<AiAttachment>> response = apiInstance.AiAttachmentsGetManyWithHttpInfo(aiAttachmentsGetManyRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -393,8 +430,118 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | The attachments, aligned by position with the IDs that were sent. A missing one leaves its slot empty. |  -  |
+| **400** | The list of attachment IDs is malformed. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aiattachmentsgetsuggestedquestions"></a>
+# **AiAttachmentsGetSuggestedQuestions**
+> AiSuccessResponse AiAttachmentsGetSuggestedQuestions (Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest)
+
+
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **aiAttachmentsGetSuggestedQuestionsRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
+
+### Return type
+
+[**AiSuccessResponse**](AiSuccessResponse.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AiAttachmentsGetSuggestedQuestionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
+            var aiAttachmentsGetSuggestedQuestionsRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
+
+            try
+            {
+                // Get suggested questions
+                AiSuccessResponse result = apiInstance.AiAttachmentsGetSuggestedQuestions(aiAttachmentsGetSuggestedQuestionsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsGetSuggestedQuestions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AiAttachmentsGetSuggestedQuestionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get suggested questions
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsGetSuggestedQuestionsWithHttpInfo(aiAttachmentsGetSuggestedQuestionsRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsGetSuggestedQuestionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **200** | Success. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -402,7 +549,7 @@ catch (ApiException e)
 # **AiAttachmentsLinkToMessage**
 > AiSuccessResponse AiAttachmentsLinkToMessage (AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest)
 
-
+Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/).
 
@@ -418,7 +565,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -437,6 +584,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -489,8 +643,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | Confirms the attachments are now bound to the message. |  -  |
+| **400** | The attachment or message reference is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The message or the attachment does not exist. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -498,7 +657,7 @@ catch (ApiException e)
 # **AiAttachmentsSaveFile**
 > AiAttachment AiAttachmentsSaveFile (AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest)
 
-
+Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/).
 
@@ -514,7 +673,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -533,6 +692,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -585,8 +751,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The stored draft, whose ID links it to a message later. |  -  |
+| **400** | The attachment payload is malformed, or `input.path` is missing or empty. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -594,7 +764,7 @@ catch (ApiException e)
 # **AiAttachmentsSaveFilesMany**
 > List&lt;AiAttachment&gt; AiAttachmentsSaveFilesMany (AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest)
 
-
+Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/).
 
@@ -610,7 +780,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -629,6 +799,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -681,200 +858,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The stored drafts, in the order they were sent. |  -  |
+| **400** | `inputs` is not an array, or one of its entries is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="aiattachmentssaveimage"></a>
-# **AiAttachmentsSaveImage**
-> AiAttachment AiAttachmentsSaveImage (AiAttachmentsSaveImageRequest aiAttachmentsSaveImageRequest)
-
-
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-image/).
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **aiAttachmentsSaveImageRequest** | [**AiAttachmentsSaveImageRequest**](AiAttachmentsSaveImageRequest.md) |  |  |
-
-### Return type
-
-[**AiAttachment**](AiAttachment.md)
-
-### Authorization
-
-No authorization required
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using DocSpace.API.SDK.Api;
-using DocSpace.API.SDK.Client;
-using DocSpace.API.SDK.Model;
-
-namespace Example
-{
-    public class AiAttachmentsSaveImageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://your-docspace.onlyoffice.com";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var aiAttachmentsSaveImageRequest = new AiAttachmentsSaveImageRequest(); // AiAttachmentsSaveImageRequest | 
-
-            try
-            {
-                // Save image
-                AiAttachment result = apiInstance.AiAttachmentsSaveImage(aiAttachmentsSaveImageRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsSaveImage: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the AiAttachmentsSaveImageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Save image
-    ApiResponse<AiAttachment> response = apiInstance.AiAttachmentsSaveImageWithHttpInfo(aiAttachmentsSaveImageRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsSaveImageWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success. |  -  |
-| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="aiattachmentssaveimagesmany"></a>
-# **AiAttachmentsSaveImagesMany**
-> List&lt;AiAttachment&gt; AiAttachmentsSaveImagesMany (AiAttachmentsSaveImagesManyRequest aiAttachmentsSaveImagesManyRequest)
-
-
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-images-many/).
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **aiAttachmentsSaveImagesManyRequest** | [**AiAttachmentsSaveImagesManyRequest**](AiAttachmentsSaveImagesManyRequest.md) |  |  |
-
-### Return type
-
-[**List&lt;AiAttachment&gt;**](AiAttachment.md)
-
-### Authorization
-
-No authorization required
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using DocSpace.API.SDK.Api;
-using DocSpace.API.SDK.Client;
-using DocSpace.API.SDK.Model;
-
-namespace Example
-{
-    public class AiAttachmentsSaveImagesManyExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://your-docspace.onlyoffice.com";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var aiAttachmentsSaveImagesManyRequest = new AiAttachmentsSaveImagesManyRequest(); // AiAttachmentsSaveImagesManyRequest | 
-
-            try
-            {
-                // Save images many
-                List<AiAttachment> result = apiInstance.AiAttachmentsSaveImagesMany(aiAttachmentsSaveImagesManyRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsSaveImagesMany: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the AiAttachmentsSaveImagesManyWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Save images many
-    ApiResponse<List<AiAttachment>> response = apiInstance.AiAttachmentsSaveImagesManyWithHttpInfo(aiAttachmentsSaveImagesManyRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AttachmentsApi.AiAttachmentsSaveImagesManyWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success. |  -  |
-| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

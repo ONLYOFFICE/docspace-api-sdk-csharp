@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [1 - User name, 2 - User email, 4 - User ip adress, 8 - Current date, 16 - Room name]
     /// </summary>
-    /// <value>[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current date, 16 - Room name]</value>
     public enum WatermarkAdditions
     {
         /// <summary>

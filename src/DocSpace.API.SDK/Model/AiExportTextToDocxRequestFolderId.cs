@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
     /// Target folder id (int or string).
     /// </summary>
     [JsonConverter(typeof(AiExportTextToDocxRequestFolderIdJsonConverter))]
-    [DataContract(Name = "aiExportTextToDocx_request_folderId")]
+    [DataContract(Name = "AiExportTextToDocxRequest_folderId")]
     public partial class AiExportTextToDocxRequestFolderId : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="actualInstance">An instance of string.</param>
         public AiExportTextToDocxRequestFolderId(string actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="actualInstance">An instance of decimal.</param>
         public AiExportTextToDocxRequestFolderId(decimal actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
 
@@ -77,13 +77,13 @@ namespace DocSpace.API.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(decimal) || value is decimal)
+                if (value.GetType() == typeof(decimal))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
-                else if (value.GetType() == typeof(string) || value is string)
+                else if (value.GetType() == typeof(string))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>An instance of string</returns>
         public string GetString()
         {
-            return (string)this.ActualInstance;
+            return (string)ActualInstance;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>An instance of decimal</returns>
         public decimal GetDecimal()
         {
-            return (decimal)this.ActualInstance;
+            return (decimal)ActualInstance;
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AiExportTextToDocxRequestFolderId {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, AiExportTextToDocxRequestFolderId.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, AiExportTextToDocxRequestFolderId.SerializerSettings);
         }
 
         /// <summary>
@@ -147,22 +147,12 @@ namespace DocSpace.API.SDK.Model
             {
                 return newAiExportTextToDocxRequestFolderId;
             }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(decimal).GetProperty("AdditionalProperties") == null)
-                {
-                    newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<decimal>(jsonString, AiExportTextToDocxRequestFolderId.SerializerSettings));
-                }
-                else
-                {
-                    newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<decimal>(jsonString, AiExportTextToDocxRequestFolderId.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("decimal");
-                match++;
+                newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<decimal>(jsonString, AiExportTextToDocxRequestFolderId.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newAiExportTextToDocxRequestFolderId;
             }
             catch (Exception exception)
             {
@@ -172,17 +162,9 @@ namespace DocSpace.API.SDK.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(string).GetProperty("AdditionalProperties") == null)
-                {
-                    newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<string>(jsonString, AiExportTextToDocxRequestFolderId.SerializerSettings));
-                }
-                else
-                {
-                    newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<string>(jsonString, AiExportTextToDocxRequestFolderId.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("string");
-                match++;
+                newAiExportTextToDocxRequestFolderId = new AiExportTextToDocxRequestFolderId(JsonConvert.DeserializeObject<string>(jsonString, AiExportTextToDocxRequestFolderId.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newAiExportTextToDocxRequestFolderId;
             }
             catch (Exception exception)
             {
@@ -190,19 +172,9 @@ namespace DocSpace.API.SDK.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
             }
 
-            if (match == 0)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
-            }
-            else if (match > 1)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newAiExportTextToDocxRequestFolderId;
+            // no match found, throw an exception
+            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
         }
-
 
         /// <summary>
         /// To validate all properties of the instance

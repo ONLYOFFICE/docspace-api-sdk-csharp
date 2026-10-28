@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Private, 2 - NotPrivate]
     /// </summary>
-    /// <value>[0 - None, 1 - Private, 2 - NotPrivate]</value>
     public enum RoomPrivacyFilter
     {
         /// <summary>

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The document config parameters.
+    /// The document itself as the editors address it: what to fetch, under which revision key, and what this caller may  do with it.
     /// </summary>
     [DataContract(Name = "DocumentConfigDto")]
     public partial class DocumentConfigDto : IValidatableObject
@@ -41,19 +41,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentConfigDto" /> class.
         /// </summary>
-        /// <param name="fileType">The file type of the document..</param>
-        /// <param name="info">info.</param>
-        /// <param name="isLinkedForMe">Specifies if the documnet is linked for current user..</param>
-        /// <param name="key">The document key..</param>
-        /// <param name="permissions">permissions.</param>
-        /// <param name="sharedLinkParam">The shared link parameter of the document..</param>
-        /// <param name="sharedLinkKey">The shared link key of the document..</param>
-        /// <param name="referenceData">referenceData.</param>
-        /// <param name="title">The document title..</param>
-        /// <param name="url">The document url..</param>
-        /// <param name="isForm">Indicates whether this is a form..</param>
-        /// <param name="options">options.</param>
-        public DocumentConfigDto(string fileType = default, InfoConfigDto info = default, bool isLinkedForMe = default, string key = default, PermissionsConfig permissions = default, string sharedLinkParam = default, string sharedLinkKey = default, FileReferenceData referenceData = default, string title = default, string url = default, bool isForm = default, Options options = default)
+        /// <param name="fileType">The format the editors treat the content as, without the leading dot. For a file that had to be converted this  is the format it was converted to, not the one it is stored under..</param>
+        /// <param name="info">The facts the editor information panel shows about the document..</param>
+        /// <param name="isLinkedForMe">Whether the caller opened the original document rather than a link pointing at it, which matters only for  formats whose editing is restricted through links..</param>
+        /// <param name="key">Identifies the exact revision to the editors: everyone who receives the same key joins the same co-editing  session, and the key changes as soon as the document is saved..</param>
+        /// <param name="permissions">What this caller may do inside the editor - edit, comment, review, fill, download, print, copy and chat..</param>
+        /// <param name="sharedLinkParam">The name of the query parameter that carries the external share key. It is set only when the document was  opened through an external link..</param>
+        /// <param name="sharedLinkKey">The external share key this opening runs under, empty when the caller opened the document as a portal member.  The editors pass it back on every request they make for the document..</param>
+        /// <param name="referenceData">How another spreadsheet names this document in a formula. Pass it to &#x60;POST api/2.0/files/file/referencedata&#x60;  to resolve such a reference..</param>
+        /// <param name="title">The name the editors display. When a past version was opened, the moment that version was created is appended  to it in brackets..</param>
+        /// <param name="url">Where the editors fetch the content. It is addressed to the host the document service can reach, which is not  necessarily the address a browser should follow..</param>
+        /// <param name="isForm">Whether the document is a fillable PDF form. A PDF that the portal has never classified is inspected while the  configuration is built, so the answer is trustworthy even for a freshly uploaded file..</param>
+        /// <param name="options">Extra instructions for the editors, currently the watermark to draw over the document. It is empty when the  room sets no watermark..</param>
+        public DocumentConfigDto(string fileType = default, InfoConfigDto info = default, bool isLinkedForMe = default, string key = default, PermissionsConfigDto permissions = default, string sharedLinkParam = default, string sharedLinkKey = default, FileReferenceDataDto referenceData = default, string title = default, string url = default, bool isForm = default, DocumentOptionsDto options = default)
         {
             this.FileType = fileType;
             this.Info = info;
@@ -70,108 +70,84 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file type of the document.
+        /// The format the editors treat the content as, without the leading dot. For a file that had to be converted this  is the format it was converted to, not the one it is stored under.
         /// </summary>
-        /// <value>The file type of the document.</value>
-        /*
-        <example>docx</example>
-        */
+        /// <example>docx</example>
         [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Info
+        /// The facts the editor information panel shows about the document.
         /// </summary>
         [DataMember(Name = "info", EmitDefaultValue = false)]
         public InfoConfigDto Info { get; set; }
 
         /// <summary>
-        /// Specifies if the documnet is linked for current user.
+        /// Whether the caller opened the original document rather than a link pointing at it, which matters only for  formats whose editing is restricted through links.
         /// </summary>
-        /// <value>Specifies if the documnet is linked for current user.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLinkedForMe", EmitDefaultValue = true)]
         public bool IsLinkedForMe { get; set; }
 
         /// <summary>
-        /// The document key.
+        /// Identifies the exact revision to the editors: everyone who receives the same key joins the same co-editing  session, and the key changes as soon as the document is saved.
         /// </summary>
-        /// <value>The document key.</value>
-        /*
-        <example>doc-key-123-abc</example>
-        */
+        /// <example>1_512_3</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Permissions
+        /// What this caller may do inside the editor - edit, comment, review, fill, download, print, copy and chat.
         /// </summary>
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public PermissionsConfig Permissions { get; set; }
+        public PermissionsConfigDto Permissions { get; set; }
 
         /// <summary>
-        /// The shared link parameter of the document.
+        /// The name of the query parameter that carries the external share key. It is set only when the document was  opened through an external link.
         /// </summary>
-        /// <value>The shared link parameter of the document.</value>
-        /*
-        <example>share-param-123</example>
-        */
+        /// <example>share</example>
         [DataMember(Name = "sharedLinkParam", EmitDefaultValue = true)]
         public string SharedLinkParam { get; set; }
 
         /// <summary>
-        /// The shared link key of the document.
+        /// The external share key this opening runs under, empty when the caller opened the document as a portal member.  The editors pass it back on every request they make for the document.
         /// </summary>
-        /// <value>The shared link key of the document.</value>
-        /*
-        <example>share-key-abc</example>
-        */
+        /// <example>HkQd9nT2</example>
         [DataMember(Name = "sharedLinkKey", EmitDefaultValue = true)]
         public string SharedLinkKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceData
+        /// How another spreadsheet names this document in a formula. Pass it to &#x60;POST api/2.0/files/file/referencedata&#x60;  to resolve such a reference.
         /// </summary>
         [DataMember(Name = "referenceData", EmitDefaultValue = false)]
-        public FileReferenceData ReferenceData { get; set; }
+        public FileReferenceDataDto ReferenceData { get; set; }
 
         /// <summary>
-        /// The document title.
+        /// The name the editors display. When a past version was opened, the moment that version was created is appended  to it in brackets.
         /// </summary>
-        /// <value>The document title.</value>
-        /*
-        <example>Document Title</example>
-        */
+        /// <example>Budget 2026.xlsx</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The document url.
+        /// Where the editors fetch the content. It is addressed to the host the document service can reach, which is not  necessarily the address a browser should follow.
         /// </summary>
-        /// <value>The document url.</value>
-        /*
-        <example>http://localhost/documents/doc.docx</example>
-        */
+        /// <example>https://portal.example.com/filehandler.ashx?action=download&amp;fileid=512</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// Indicates whether this is a form.
+        /// Whether the document is a fillable PDF form. A PDF that the portal has never classified is inspected while the  configuration is built, so the answer is trustworthy even for a freshly uploaded file.
         /// </summary>
-        /// <value>Indicates whether this is a form.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isForm", EmitDefaultValue = true)]
         public bool IsForm { get; set; }
 
         /// <summary>
-        /// Gets or Sets Options
+        /// Extra instructions for the editors, currently the watermark to draw over the document. It is empty when the  room sets no watermark.
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = false)]
-        public Options Options { get; set; }
+        public DocumentOptionsDto Options { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

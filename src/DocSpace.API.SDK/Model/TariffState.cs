@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]
     /// </summary>
-    /// <value>[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]</value>
     public enum TariffState
     {
         /// <summary>

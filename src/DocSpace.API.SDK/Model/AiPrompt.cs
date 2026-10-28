@@ -80,42 +80,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Unique prompt identifier (UUID).
         /// </summary>
-        /// <value>Unique prompt identifier (UUID).</value>
+        /// <example>33333333-3333-3333-3333-333333333333</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Prompt display name shown in the prompt picker.
         /// </summary>
-        /// <value>Prompt display name shown in the prompt picker.</value>
+        /// <example>Contract summary</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Prompt template text. May contain placeholder tokens.
         /// </summary>
-        /// <value>Prompt template text. May contain placeholder tokens.</value>
+        /// <example>Summarise the key obligations and dates in the attached contract.</example>
         [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
         /// Optional parent folder ID. &#x60;undefined&#x60; means the prompt is at the root level.
         /// </summary>
-        /// <value>Optional parent folder ID. &#x60;undefined&#x60; means the prompt is at the root level.</value>
+        /// <example>44444444-4444-4444-4444-444444444444</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public string FolderId { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) when the prompt was created.
         /// </summary>
-        /// <value>Timestamp (ms since epoch) when the prompt was created.</value>
+        /// <example>1767225600000</example>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal CreatedAt { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) of the last prompt modification.
         /// </summary>
-        /// <value>Timestamp (ms since epoch) of the last prompt modification.</value>
+        /// <example>1767225600000</example>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal UpdatedAt { get; set; }
 

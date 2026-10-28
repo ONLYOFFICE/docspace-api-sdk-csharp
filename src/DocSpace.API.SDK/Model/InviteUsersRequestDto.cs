@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of user invitations.
         /// </summary>
-        /// <value>The list of user invitations.</value>
-        /*
-        <example>[{"email":"user@example.com","type":1}]</example>
-        */
+        /// <example>[{"email":"user@example.com","type":1}]</example>
         [DataMember(Name = "invitations", IsRequired = true, EmitDefaultValue = true)]
         public List<UserInvitationRequestDto> Invitations { get; set; }
 
         /// <summary>
         /// The culture code of invitations.
         /// </summary>
-        /// <value>The culture code of invitations.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 

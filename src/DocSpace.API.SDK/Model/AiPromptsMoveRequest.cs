@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPromptsMoveRequest
     /// </summary>
-    [DataContract(Name = "aiPromptsMove_request")]
+    [DataContract(Name = "AiPromptsMoveRequest")]
     public partial class AiPromptsMoveRequest : IValidatableObject
     {
     
@@ -67,14 +67,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Prompt id to move.
         /// </summary>
-        /// <value>Prompt id to move.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Target folder id, or &#x60;null&#x60; for root.
         /// </summary>
-        /// <value>Target folder id, or &#x60;null&#x60; for root.</value>
         [DataMember(Name = "folderId", IsRequired = true, EmitDefaultValue = true)]
         public string FolderId { get; set; }
 

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Badges, 1 - Rooms activity, 2 - Daily feed, 3 - Usefull tips]
     /// </summary>
-    /// <value>[0 - Badges, 1 - Rooms activity, 2 - Daily feed, 3 - Usefull tips]</value>
     public enum NotificationType
     {
         /// <summary>

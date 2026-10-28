@@ -31,8 +31,11 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -40,10 +43,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiPromptMutationResult AiPromptsCreate(AiCreatePromptInput aiCreatePromptInput);
 
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -53,124 +56,145 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>AiFolderMutationResult</returns>
-        AiFolderMutationResult AiPromptsCreateFolder(string body);
+        AiFolderMutationResult AiPromptsCreateFolder(string aiPromptsCreateFolderRequest);
 
         /// <summary>
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>ApiResponse of AiFolderMutationResult</returns>
-        ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string body);
+        ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string aiPromptsCreateFolderRequest);
         /// <summary>
-        /// Delete
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiPromptsDelete(string body);
-
-        /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiPromptsDelete(string aiPromptsDeleteRequest);
+
+        /// <summary>
+        /// Delete a saved prompt
+        /// </summary>
+        /// <remarks>
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string body);
-        /// <summary>
-        /// Delete folder
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiPromptsDeleteFolder(string body);
-
+        ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string aiPromptsDeleteRequest);
         /// <summary>
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiPromptsDeleteFolder(string aiPromptsDeleteFolderRequest);
+
+        /// <summary>
+        /// Delete folder
+        /// </summary>
+        /// <remarks>
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string aiPromptsDeleteFolderRequest);
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
+        /// <remarks>
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>AiPromptBundle</returns>
         AiPromptBundle AiPromptsExport();
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>ApiResponse of AiPromptBundle</returns>
         ApiResponse<AiPromptBundle> AiPromptsExportWithHttpInfo();
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>AiPrompt</returns>
         AiPrompt AiPromptsGetById(string id);
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>ApiResponse of AiPrompt</returns>
         ApiResponse<AiPrompt> AiPromptsGetByIdWithHttpInfo(string id);
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
+        /// <remarks>
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>AiPromptFolder</returns>
         AiPromptFolder AiPromptsGetFolderById(string id);
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>ApiResponse of AiPromptFolder</returns>
         ApiResponse<AiPromptFolder> AiPromptsGetFolderByIdWithHttpInfo(string id);
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -181,7 +205,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -189,28 +213,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of AiImportResult</returns>
         ApiResponse<AiImportResult> AiPromptsImportBundleWithHttpInfo(AiPromptsImportBundleRequest aiPromptsImportBundleRequest);
         /// <summary>
-        /// List
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
-        /// <returns>List&lt;AiPrompt&gt;</returns>
-        List<AiPrompt> AiPromptsList(string folderId);
-
-        /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
+        /// <returns>List&lt;AiPrompt&gt;</returns>
+        List<AiPrompt> AiPromptsList(string? folderId = default);
+
+        /// <summary>
+        /// List saved prompts
+        /// </summary>
+        /// <remarks>
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPrompt&gt;</returns>
-        ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string folderId);
+        ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string? folderId = default);
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>List&lt;AiPromptFolder&gt;</returns>
@@ -220,15 +250,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPromptFolder&gt;</returns>
         ApiResponse<List<AiPromptFolder>> AiPromptsListFoldersWithHttpInfo();
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -236,10 +269,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiPromptMutationResult AiPromptsMove(AiPromptsMoveRequest aiPromptsMoveRequest);
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -249,6 +282,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -259,7 +295,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -267,8 +303,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of AiFolderMutationResult</returns>
         ApiResponse<AiFolderMutationResult> AiPromptsRenameFolderWithHttpInfo(AiPromptsRenameFolderRequest aiPromptsRenameFolderRequest);
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -276,10 +315,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiPromptMutationResult AiPromptsUpdate(AiPromptsUpdateRequest aiPromptsUpdateRequest);
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -296,10 +335,10 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -309,10 +348,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiPromptMutationResult> AiPromptsCreateAsync(AiCreatePromptInput aiCreatePromptInput, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -324,82 +363,82 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of AiFolderMutationResult</returns>
-        Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderMutationResult)</returns>
-        Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiPromptsDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiPromptsDeleteAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -408,10 +447,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiPromptBundle> AiPromptsExportAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -419,51 +458,51 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiPromptBundle)</returns>
         Task<ApiResponse<AiPromptBundle>> AiPromptsExportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of AiPrompt</returns>
         Task<AiPrompt> AiPromptsGetByIdAsync(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPrompt)</returns>
         Task<ApiResponse<AiPrompt>> AiPromptsGetByIdWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of AiPromptFolder</returns>
         Task<AiPromptFolder> AiPromptsGetFolderByIdAsync(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptFolder)</returns>
@@ -472,7 +511,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -485,7 +524,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -494,35 +533,35 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiImportResult)</returns>
         Task<ApiResponse<AiImportResult>> AiPromptsImportBundleWithHttpInfoAsync(AiPromptsImportBundleRequest aiPromptsImportBundleRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of List&lt;AiPrompt&gt;</returns>
-        Task<List<AiPrompt>> AiPromptsListAsync(string folderId, CancellationToken cancellationToken = default);
+        Task<List<AiPrompt>> AiPromptsListAsync(string? folderId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiPrompt&gt;)</returns>
-        Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string folderId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string? folderId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -534,7 +573,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -542,10 +581,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (List&lt;AiPromptFolder&gt;)</returns>
         Task<ApiResponse<List<AiPromptFolder>>> AiPromptsListFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -555,10 +594,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiPromptMutationResult> AiPromptsMoveAsync(AiPromptsMoveRequest aiPromptsMoveRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -570,7 +609,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -583,7 +622,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -592,10 +631,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiFolderMutationResult)</returns>
         Task<ApiResponse<AiFolderMutationResult>> AiPromptsRenameFolderWithHttpInfoAsync(AiPromptsRenameFolderRequest aiPromptsRenameFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -605,10 +644,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiPromptMutationResult> AiPromptsUpdateAsync(AiPromptsUpdateRequest aiPromptsUpdateRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -832,8 +871,11 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -845,8 +887,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -872,6 +917,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiCreatePromptInput != null) localVarRequestOptions.Data = aiCreatePromptInput;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiPromptMutationResult>("/api/2.0/ai/prompts/create", localVarRequestOptions, Configuration);
@@ -889,8 +946,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -903,8 +963,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Create
+        /// Save a prompt
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -932,6 +995,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiCreatePromptInput != null) localVarRequestOptions.Data = aiCreatePromptInput;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -952,28 +1027,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>AiFolderMutationResult</returns>
-        public AiFolderMutationResult AiPromptsCreateFolder(string body)
+        public AiFolderMutationResult AiPromptsCreateFolder(string aiPromptsCreateFolderRequest)
         {
-            var localVarResponse = AiPromptsCreateFolderWithHttpInfo(body);
+            var localVarResponse = AiPromptsCreateFolderWithHttpInfo(aiPromptsCreateFolderRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>ApiResponse of AiFolderMutationResult</returns>
-        public ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string body)
+        public ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string aiPromptsCreateFolderRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsCreateFolder");
+            // verify the required parameter 'aiPromptsCreateFolderRequest' is set
+            if (aiPromptsCreateFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsCreateFolderRequest' when calling PromptsApi->AiPromptsCreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -988,8 +1069,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsCreateFolderRequest != null) localVarRequestOptions.Data = aiPromptsCreateFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiFolderMutationResult>("/api/2.0/ai/prompts/create-folder", localVarRequestOptions, Configuration);
@@ -1009,30 +1102,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of AiFolderMutationResult</returns>
-        public async Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsCreateFolderWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsCreateFolderWithHttpInfoAsync(aiPromptsCreateFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderMutationResult)</returns>
-        public async Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsCreateFolder");
+            // verify the required parameter 'aiPromptsCreateFolderRequest' is set
+            if (aiPromptsCreateFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsCreateFolderRequest' when calling PromptsApi->AiPromptsCreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1048,8 +1147,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsCreateFolderRequest != null) localVarRequestOptions.Data = aiPromptsCreateFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1068,30 +1179,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiPromptsDelete(string body)
+        public AiSuccessResponse AiPromptsDelete(string aiPromptsDeleteRequest)
         {
-            var localVarResponse = AiPromptsDeleteWithHttpInfo(body);
+            var localVarResponse = AiPromptsDeleteWithHttpInfo(aiPromptsDeleteRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string aiPromptsDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDelete");
+            // verify the required parameter 'aiPromptsDeleteRequest' is set
+            if (aiPromptsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteRequest' when calling PromptsApi->AiPromptsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1106,8 +1223,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteRequest != null) localVarRequestOptions.Data = aiPromptsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/prompts/delete", localVarRequestOptions, Configuration);
@@ -1125,32 +1254,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiPromptsDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiPromptsDeleteAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsDeleteWithHttpInfoAsync(aiPromptsDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete
+        /// Delete a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDelete");
+            // verify the required parameter 'aiPromptsDeleteRequest' is set
+            if (aiPromptsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteRequest' when calling PromptsApi->AiPromptsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1166,8 +1301,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteRequest != null) localVarRequestOptions.Data = aiPromptsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1188,28 +1335,34 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiPromptsDeleteFolder(string body)
+        public AiSuccessResponse AiPromptsDeleteFolder(string aiPromptsDeleteFolderRequest)
         {
-            var localVarResponse = AiPromptsDeleteFolderWithHttpInfo(body);
+            var localVarResponse = AiPromptsDeleteFolderWithHttpInfo(aiPromptsDeleteFolderRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string aiPromptsDeleteFolderRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDeleteFolder");
+            // verify the required parameter 'aiPromptsDeleteFolderRequest' is set
+            if (aiPromptsDeleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteFolderRequest' when calling PromptsApi->AiPromptsDeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1224,8 +1377,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteFolderRequest != null) localVarRequestOptions.Data = aiPromptsDeleteFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/prompts/delete-folder", localVarRequestOptions, Configuration);
@@ -1245,30 +1410,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsDeleteFolderWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsDeleteFolderWithHttpInfoAsync(aiPromptsDeleteFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDeleteFolder");
+            // verify the required parameter 'aiPromptsDeleteFolderRequest' is set
+            if (aiPromptsDeleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteFolderRequest' when calling PromptsApi->AiPromptsDeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1284,8 +1455,20 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteFolderRequest != null) localVarRequestOptions.Data = aiPromptsDeleteFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1304,8 +1487,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
+        /// <remarks>
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>AiPromptBundle</returns>
@@ -1316,8 +1502,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
+        /// <remarks>
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>ApiResponse of AiPromptBundle</returns>
@@ -1337,6 +1526,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiPromptBundle>("/api/2.0/ai/prompts/export", localVarRequestOptions, Configuration);
@@ -1354,8 +1555,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
+        /// <remarks>
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
@@ -1367,8 +1571,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Export
+        /// Export the prompt library
         /// </summary>
+        /// <remarks>
+        /// Builds a versioned bundle of every prompt and folder in the caller's library and returns it, with no parameters. The bundle is self-contained: it carries its own format version so an older export can still be read back, and it is the input `POST api/2.0/ai/prompts/import-bundle` expects. This is also the only way to read the whole library at once, since listing is folder-scoped. Nothing is changed by the call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
@@ -1390,6 +1597,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1408,10 +1627,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>AiPrompt</returns>
         public AiPrompt AiPromptsGetById(string id)
@@ -1421,10 +1643,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>ApiResponse of AiPrompt</returns>
         public ApiResponse<AiPrompt> AiPromptsGetByIdWithHttpInfo(string id)
@@ -1448,6 +1673,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiPrompt>("/api/2.0/ai/prompts/get-by-id", localVarRequestOptions, Configuration);
@@ -1465,10 +1702,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of AiPrompt</returns>
@@ -1479,10 +1719,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get by id
+        /// Get a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt by its ID. The ID is required and is read from the query. An ID that is unknown, or that belongs to another user, is not reported as 404: the answer is an empty body with status 200, so treat a missing payload as no such prompt. Prompt IDs come from `GET api/2.0/ai/prompts/list` or from the answer of the create operation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPrompt)</returns>
@@ -1508,6 +1751,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1526,10 +1781,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
+        /// <remarks>
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>AiPromptFolder</returns>
         public AiPromptFolder AiPromptsGetFolderById(string id)
@@ -1539,10 +1797,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
+        /// <remarks>
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>ApiResponse of AiPromptFolder</returns>
         public ApiResponse<AiPromptFolder> AiPromptsGetFolderByIdWithHttpInfo(string id)
@@ -1566,6 +1827,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiPromptFolder>("/api/2.0/ai/prompts/get-folder-by-id", localVarRequestOptions, Configuration);
@@ -1583,10 +1856,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
+        /// <remarks>
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of AiPromptFolder</returns>
@@ -1597,10 +1873,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get folder by id
+        /// Get a prompt folder
         /// </summary>
+        /// <remarks>
+        /// Returns one folder of the caller's prompt library by its ID, without the prompts inside it. The ID is required and is read from the query. An unknown or foreign ID is not reported as 404: the answer is an empty body with status 200. This differs from the delete operation on the same ID, which does answer 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptFolder)</returns>
@@ -1626,6 +1905,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1646,6 +1937,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -1659,6 +1953,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -1684,6 +1981,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsImportBundleRequest != null) localVarRequestOptions.Data = aiPromptsImportBundleRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiImportResult>("/api/2.0/ai/prompts/import-bundle", localVarRequestOptions, Configuration);
@@ -1703,6 +2012,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1717,6 +2029,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1744,6 +2059,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsImportBundleRequest != null) localVarRequestOptions.Data = aiPromptsImportBundleRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1762,31 +2089,33 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
+        /// <remarks>
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>List&lt;AiPrompt&gt;</returns>
-        public List<AiPrompt> AiPromptsList(string folderId)
+        public List<AiPrompt> AiPromptsList(string? folderId = default)
         {
             var localVarResponse = AiPromptsListWithHttpInfo(folderId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
+        /// <remarks>
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPrompt&gt;</returns>
-        public ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string folderId)
+        public ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string? folderId = default)
         {
-            // verify the required parameter 'folderId' is set
-            if (folderId == null)
-                throw new ApiException(400, "Missing required parameter 'folderId' when calling PromptsApi->AiPromptsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1800,8 +2129,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            if (folderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiPrompt>>("/api/2.0/ai/prompts/list", localVarRequestOptions, Configuration);
@@ -1819,33 +2163,35 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
+        /// <remarks>
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of List&lt;AiPrompt&gt;</returns>
-        public async Task<List<AiPrompt>> AiPromptsListAsync(string folderId, CancellationToken cancellationToken = default)
+        public async Task<List<AiPrompt>> AiPromptsListAsync(string? folderId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiPromptsListWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List
+        /// List saved prompts
         /// </summary>
+        /// <remarks>
+        /// Lists the caller's saved prompts, newest first. `folderId` scopes the answer to one folder, and omitting it - or sending it empty - lists the prompts that sit at the root rather than every prompt, because the client fetcher cannot tell an absent value from a null one. There is therefore no way to ask for the whole library in one call: walk the folders from `GET api/2.0/ai/prompts/list-folders`, or take everything at once with `GET api/2.0/ai/prompts/export`. The prompts of other users are never included.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiPrompt&gt;)</returns>
-        public async Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string folderId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string? folderId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'folderId' is set
-            if (folderId == null)
-                throw new ApiException(400, "Missing required parameter 'folderId' when calling PromptsApi->AiPromptsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1860,8 +2206,23 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            if (folderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1882,6 +2243,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>List&lt;AiPromptFolder&gt;</returns>
@@ -1894,6 +2258,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPromptFolder&gt;</returns>
@@ -1913,6 +2280,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<List<AiPromptFolder>>("/api/2.0/ai/prompts/list-folders", localVarRequestOptions, Configuration);
@@ -1932,6 +2311,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
@@ -1945,6 +2327,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists every folder of the caller's prompt library, newest first, with no parameters and no pagination. Folders are flat, so the answer is a single list rather than a tree. The prompts inside them are not included - read those with `GET api/2.0/ai/prompts/list` per folder. Another user's folders are never listed.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
@@ -1966,6 +2351,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1984,8 +2381,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -1997,8 +2397,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -2024,6 +2427,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsMoveRequest != null) localVarRequestOptions.Data = aiPromptsMoveRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiPromptMutationResult>("/api/2.0/ai/prompts/move", localVarRequestOptions, Configuration);
@@ -2041,8 +2456,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2055,8 +2473,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Move
+        /// Move a prompt to a folder
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2084,6 +2505,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsMoveRequest != null) localVarRequestOptions.Data = aiPromptsMoveRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2104,6 +2537,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -2117,6 +2553,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -2142,6 +2581,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsRenameFolderRequest != null) localVarRequestOptions.Data = aiPromptsRenameFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiFolderMutationResult>("/api/2.0/ai/prompts/rename-folder", localVarRequestOptions, Configuration);
@@ -2161,6 +2612,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2175,6 +2629,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2202,6 +2659,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsRenameFolderRequest != null) localVarRequestOptions.Data = aiPromptsRenameFolderRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -2220,8 +2689,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -2233,8 +2705,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -2260,6 +2735,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsUpdateRequest != null) localVarRequestOptions.Data = aiPromptsUpdateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Put<AiPromptMutationResult>("/api/2.0/ai/prompts/update", localVarRequestOptions, Configuration);
@@ -2277,8 +2764,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2291,8 +2781,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update
+        /// Update a saved prompt
         /// </summary>
+        /// <remarks>
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2320,6 +2813,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiPromptsUpdateRequest != null) localVarRequestOptions.Data = aiPromptsUpdateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

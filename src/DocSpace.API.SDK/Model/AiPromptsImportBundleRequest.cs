@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPromptsImportBundleRequest
     /// </summary>
-    [DataContract(Name = "aiPromptsImportBundle_request")]
+    [DataContract(Name = "AiPromptsImportBundleRequest")]
     public partial class AiPromptsImportBundleRequest : IValidatableObject
     {
     
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPromptsImportBundleRequest" /> class.
         /// </summary>
-        /// <param name="bundle">bundle (required).</param>
+        /// <param name="bundle">Bundle to restore. (required).</param>
         /// <param name="options">options.</param>
         public AiPromptsImportBundleRequest(AiPromptBundle bundle = default, AiPromptsImportBundleRequestOptions options = default)
         {
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Bundle
+        /// Bundle to restore.
         /// </summary>
         [DataMember(Name = "bundle", IsRequired = true, EmitDefaultValue = true)]
         public AiPromptBundle Bundle { get; set; }

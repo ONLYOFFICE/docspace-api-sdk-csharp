@@ -66,40 +66,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The group ID.
         /// </summary>
-        /// <value>The group ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The group name.
         /// </summary>
-        /// <value>The group name.</value>
-        /*
-        <example>Group Name</example>
-        */
+        /// <example>Group Name</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The group manager.
         /// </summary>
-        /// <value>The group manager.</value>
-        /*
-        <example>Jake.Zazhitski</example>
-        */
+        /// <example>Jake.Zazhitski</example>
         [DataMember(Name = "manager", EmitDefaultValue = true)]
         public string Manager { get; set; }
 
         /// <summary>
         /// Indicates whether the group is a system group.
         /// </summary>
-        /// <value>Indicates whether the group is a system group.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
         public bool? IsSystem { get; set; }
 

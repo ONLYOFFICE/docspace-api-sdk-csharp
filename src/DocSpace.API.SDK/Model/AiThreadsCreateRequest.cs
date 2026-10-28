@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsCreateRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsCreate_request")]
+    [DataContract(Name = "AiThreadsCreateRequest")]
     public partial class AiThreadsCreateRequest : IValidatableObject
     {
     
@@ -64,21 +64,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Thread title.
         /// </summary>
-        /// <value>Thread title.</value>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Optional profile to bind.
         /// </summary>
-        /// <value>Optional profile to bind.</value>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 
         /// <summary>
         /// Optional entity (room) scope.
         /// </summary>
-        /// <value>Optional entity (room) scope.</value>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 

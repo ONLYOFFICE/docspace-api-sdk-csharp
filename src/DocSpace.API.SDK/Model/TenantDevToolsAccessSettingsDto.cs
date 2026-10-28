@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the Developer Tools access settings for the current tenant.
+    /// Whether the developer tools are closed to the portal&#39;s users with the &#x60;User&#x60; role.
     /// </summary>
     [DataContract(Name = "TenantDevToolsAccessSettingsDto")]
     public partial class TenantDevToolsAccessSettingsDto : IValidatableObject
@@ -41,21 +41,27 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantDevToolsAccessSettingsDto" /> class.
         /// </summary>
-        /// <param name="limitedAccessForUsers">Determines if users have restricted access to the Developer Tools..</param>
-        public TenantDevToolsAccessSettingsDto(bool limitedAccessForUsers = default)
+        /// <param name="limitedAccessForUsers">Specifies if the Developer Tools access are limited for users or not..</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
+        public TenantDevToolsAccessSettingsDto(bool limitedAccessForUsers = default, DateTime lastModified = default)
         {
             this.LimitedAccessForUsers = limitedAccessForUsers;
+            this.LastModified = lastModified;
         }
 
         /// <summary>
-        /// Determines if users have restricted access to the Developer Tools.
+        /// Specifies if the Developer Tools access are limited for users or not.
         /// </summary>
-        /// <value>Determines if users have restricted access to the Developer Tools.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "limitedAccessForUsers", EmitDefaultValue = true)]
         public bool LimitedAccessForUsers { get; set; }
+
+        /// <summary>
+        /// The timestamp indicating when the settings were last modified.
+        /// </summary>
+        /// <example>1990-01-01T00:00:00Z</example>
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,6 +72,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TenantDevToolsAccessSettingsDto {\n");
             sb.Append("  LimitedAccessForUsers: ").Append(LimitedAccessForUsers).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

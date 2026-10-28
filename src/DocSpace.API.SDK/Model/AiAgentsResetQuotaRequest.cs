@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsResetQuotaRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsResetQuota_request")]
+    [DataContract(Name = "AiAgentsResetQuotaRequest")]
     public partial class AiAgentsResetQuotaRequest : IValidatableObject
     {
     
@@ -60,7 +60,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Agent (room) ids to reset to the tenant default quota.
         /// </summary>
-        /// <value>Agent (room) ids to reset to the tenant default quota.</value>
         [DataMember(Name = "roomIds", IsRequired = true, EmitDefaultValue = true)]
         public List<AiAgentsUpdateQuotaRequestRoomIdsInner> RoomIds { get; set; }
 

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsSetAllowAlwaysRequest
     /// </summary>
-    [DataContract(Name = "aiToolsSetAllowAlways_request")]
+    [DataContract(Name = "AiToolsSetAllowAlwaysRequest")]
     public partial class AiToolsSetAllowAlwaysRequest : IValidatableObject
     {
     
@@ -83,7 +83,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Whether the tool is always allowed.
         /// </summary>
-        /// <value>Whether the tool is always allowed.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public bool Value { get; set; }
 

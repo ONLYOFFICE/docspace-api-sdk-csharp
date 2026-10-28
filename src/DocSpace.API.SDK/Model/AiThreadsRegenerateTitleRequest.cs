@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsRegenerateTitleRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsRegenerateTitle_request")]
+    [DataContract(Name = "AiThreadsRegenerateTitleRequest")]
     public partial class AiThreadsRegenerateTitleRequest : IValidatableObject
     {
     
@@ -47,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiThreadsRegenerateTitleRequest" /> class.
         /// </summary>
         /// <param name="threadId">threadId (required).</param>
-        /// <param name="profile">profile (required).</param>
-        public AiThreadsRegenerateTitleRequest(string threadId = default, AiProfile profile = default)
+        /// <param name="profile">Profile used to regenerate the title. (required).</param>
+        /// <param name="entityMeta">entityMeta.</param>
+        public AiThreadsRegenerateTitleRequest(string threadId = default, AiProfile profile = default, AiThreadsOpenOrCreateRequestEntityMeta entityMeta = default)
         {
             // to ensure "threadId" is required (not null)
             if (threadId == null)
@@ -62,6 +63,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("profile is a required property for AiThreadsRegenerateTitleRequest and cannot be null");
             }
             this.Profile = profile;
+            this.EntityMeta = entityMeta;
         }
 
         /// <summary>
@@ -71,10 +73,16 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Profile
+        /// Profile used to regenerate the title.
         /// </summary>
         [DataMember(Name = "profile", IsRequired = true, EmitDefaultValue = true)]
         public AiProfile Profile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EntityMeta
+        /// </summary>
+        [DataMember(Name = "entityMeta", EmitDefaultValue = false)]
+        public AiThreadsOpenOrCreateRequestEntityMeta EntityMeta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,6 +94,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class AiThreadsRegenerateTitleRequest {\n");
             sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  EntityMeta: ").Append(EntityMeta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
