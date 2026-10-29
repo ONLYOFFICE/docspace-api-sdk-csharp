@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The events the subscription listens for, as a bitmask combining the flags; 0 subscribes to all of them. Take  the flags the caller role is allowed to use from &#x60;GET api/2.0/settings/webhook/triggers&#x60;, since a flag beyond  that set is refused with 400. A subscription still only fires for events its creator may see.
+        /// The events the subscription listens for, as a bitmask adding together the &#x60;id&#x60; values of the entries of &#x60;GET  api/2.0/settings/webhook/triggers&#x60;. 0 is the catch-all, not none: it stands for every event the  subscription creator&#39;s role may receive, not for every event of the portal.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="uri">The address the portal posts the event payload to. It has to be an absolute &#x60;http&#x60; or &#x60;https&#x60; address outside  the installation own network, and it is probed before anything is stored: it must answer a HEAD request with  a success code, and a redirect does not count as one. (required).</param>
         /// <param name="secretKey">The shared secret the payload signature is computed with, so the receiver can tell a genuine call from a  forged one. It has to satisfy the portal password rules published by  &#x60;GET api/2.0/settings/security/password&#x60;, and it is never echoed back by any operation. On an update an empty  value keeps the secret already stored..</param>
         /// <param name="enabled">Whether the subscription delivers at all. While it is off the matching events are dropped rather than queued,  so nothing from that period arrives once it is switched on again..</param>
-        /// <param name="ssl">Whether the target certificate is verified. Setting it demands an &#x60;https&#x60; target with a valid certificate;  leaving it off delivers without checking the certificate at all..</param>
-        /// <param name="triggers">The events the subscription listens for, as a bitmask combining the flags; 0 subscribes to all of them. Take  the flags the caller role is allowed to use from &#x60;GET api/2.0/settings/webhook/triggers&#x60;, since a flag beyond  that set is refused with 400. A subscription still only fires for events its creator may see..</param>
-        /// <param name="targetId">The single entity the subscription is narrowed to, by its identifier - a room or a file, for instance.  Leaving it out delivers events about every entity the subscribed triggers cover..</param>
-        public CreateWebhooksConfigRequestDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default)
+        /// <param name="ssl">Whether the target certificate is verified. &#x60;true&#x60; demands an &#x60;https&#x60; address with a valid certificate; &#x60;false&#x60;  delivers without checking the certificate, and is what a plain &#x60;http&#x60; target needs..</param>
+        /// <param name="triggers">The events the subscription listens for, as a bitmask adding together the &#x60;id&#x60; values of the entries of &#x60;GET  api/2.0/settings/webhook/triggers&#x60;. 0 is the catch-all, not none: it stands for every event the  subscription creator&#39;s role may receive, not for every event of the portal..</param>
+        /// <param name="targetId">The single entity the subscription is narrowed to, by its identifier in the API that owns it. For user events  it is the GUID of a user (&#x60;id&#x60; of &#x60;GET api/2.0/people&#x60;), for group events the GUID of a group (&#x60;id&#x60; of &#x60;GET  api/2.0/group&#x60;), and either must be one the subscription&#39;s creator may see; for file, folder, room and form  events it is the entry ID from the Files API (&#x60;id&#x60; of &#x60;GET api/2.0/files/rooms&#x60; or of a folder listing), a  number for the portal&#39;s own storage and a string for third-party storage. Leaving it out delivers events  about every entity the subscribed triggers cover..</param>
+        public CreateWebhooksConfigRequestDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool? ssl = default, WebhookTrigger? triggers = default, string targetId = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -109,16 +109,16 @@ namespace DocSpace.API.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Whether the target certificate is verified. Setting it demands an &#x60;https&#x60; target with a valid certificate;  leaving it off delivers without checking the certificate at all.
+        /// Whether the target certificate is verified. &#x60;true&#x60; demands an &#x60;https&#x60; address with a valid certificate; &#x60;false&#x60;  delivers without checking the certificate, and is what a plain &#x60;http&#x60; target needs.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "ssl", EmitDefaultValue = true)]
-        public bool Ssl { get; set; }
+        public bool? Ssl { get; set; }
 
         /// <summary>
-        /// The single entity the subscription is narrowed to, by its identifier - a room or a file, for instance.  Leaving it out delivers events about every entity the subscribed triggers cover.
+        /// The single entity the subscription is narrowed to, by its identifier in the API that owns it. For user events  it is the GUID of a user (&#x60;id&#x60; of &#x60;GET api/2.0/people&#x60;), for group events the GUID of a group (&#x60;id&#x60; of &#x60;GET  api/2.0/group&#x60;), and either must be one the subscription&#39;s creator may see; for file, folder, room and form  events it is the entry ID from the Files API (&#x60;id&#x60; of &#x60;GET api/2.0/files/rooms&#x60; or of a folder listing), a  number for the portal&#39;s own storage and a string for third-party storage. Leaving it out delivers events  about every entity the subscribed triggers cover.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000001</example>
+        /// <example>9924256a-739c-462b-be1a-e1d3a1d6f2d4</example>
         [DataMember(Name = "targetId", EmitDefaultValue = true)]
         public string TargetId { get; set; }
 

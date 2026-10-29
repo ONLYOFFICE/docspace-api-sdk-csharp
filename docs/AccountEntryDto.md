@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **UsedSpace** | **double?** | The portal used space of the user. | [optional] 
 **Shared** | **bool?** | Specifies whether the group can be shared or not. | [optional] 
 **IsCustomQuota** | **bool?** | Specifies if the user has a custom quota or not. | [optional] 
+**AiServicesLimit** | [**UserServiceLimitDto**](UserServiceLimitDto.md) | The spending limit on the AI services in force for this user - the personal one, or else the limit for every  user - with what the user spent against it. Null when no such limit applies to the user, when the portal has no  billing service, or when the caller is neither a DocSpace administrator nor the user; the limit of the portal as  a whole is not reflected here. The value, and the spending in particular, can lag by a few minutes. | [optional] 
 **LoginEventId** | **int?** | The current login event ID. | [optional] 
 **AuthCookieLifetime** | **double?** | The auth cookie lifetime in seconds. | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the current user. | [optional] 

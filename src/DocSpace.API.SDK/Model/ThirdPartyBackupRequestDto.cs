@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyBackupRequestDto" /> class.
         /// </summary>
-        /// <param name="url">The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;; the presets with a fixed address and the OAuth services ignore it..</param>
+        /// <param name="url">The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;. For &#x60;kDrive&#x60; it is the WebDAV address of the drive, &#x60;https://{kDrive ID}.connect.kdrive.infomaniak.com&#x60;,  optionally followed by a folder path; the kDrive ID is the number after &#x60;/drive/&#x60; in the URL of the kDrive web app.  The OAuth services ignore it..</param>
         /// <param name="login">The account name at the storage service, used by the services that authenticate by login and password. A login  sent without a password is rejected as an invalid request..</param>
         /// <param name="password">The password, or the application password, for &#x60;login&#x60; at the storage service. Either this or &#x60;token&#x60; has to  be sent, and the credentials are verified against the service before the account is saved..</param>
         /// <param name="token">The OAuth 2.0 authorization code from the consent screen of &#x60;Box&#x60;, &#x60;DropboxV2&#x60;, &#x60;GoogleDrive&#x60; or &#x60;OneDrive&#x60; -  not an access token: the portal exchanges the code for its own token and keeps that. The client ID and  redirect URL the consent screen URL is built from come from &#x60;GET api/2.0/files/thirdparty/capabilities&#x60;..</param>
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;; the presets with a fixed address and the OAuth services ignore it.
+        /// The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;. For &#x60;kDrive&#x60; it is the WebDAV address of the drive, &#x60;https://{kDrive ID}.connect.kdrive.infomaniak.com&#x60;,  optionally followed by a folder path; the kDrive ID is the number after &#x60;/drive/&#x60; in the URL of the kDrive web app.  The OAuth services ignore it.
         /// </summary>
         /// <example>https://cloud.example.com/remote.php/dav/files/admin/</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]

@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="fieldId">The field ID. (required).</param>
         /// <param name="stringValue">The string value..</param>
-        /// <param name="numberValue">The number value..</param>
+        /// <param name="numberValue">The number value: a whole number of at most 2^53-1 (9007199254740991) in magnitude, the largest integer a JSON  client reads exactly. A larger one is refused rather than stored and returned rounded..</param>
         /// <param name="dateValue">The date value. A value without a time zone offset is treated as UTC, the same way the metadata filters treat their date bounds..</param>
         /// <param name="optionIds">The selected choice option IDs..</param>
         public MetadataValueRequest(int fieldId = default, string stringValue = default, long? numberValue = default, DateTime? dateValue = default, List<Guid> optionIds = default)
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         public string StringValue { get; set; }
 
         /// <summary>
-        /// The number value.
+        /// The number value: a whole number of at most 2^53-1 (9007199254740991) in magnitude, the largest integer a JSON  client reads exactly. A larger one is refused rather than stored and returned rounded.
         /// </summary>
         /// <example>150000</example>
         [DataMember(Name = "numberValue", EmitDefaultValue = true)]

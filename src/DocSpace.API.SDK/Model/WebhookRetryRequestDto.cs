@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookRetryRequestDto" /> class.
         /// </summary>
-        /// <param name="ids">The delivery records to send again, by the identifiers &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. An  identifier that exists nowhere, and one belonging to another member subscription when the caller is not a  DocSpace administrator, is skipped in silence rather than failing the call, so compare the number of records  that come back against the number sent. An empty list is accepted and queues nothing..</param>
+        /// <param name="ids">The delivery records to send again, by the &#x60;id&#x60; values &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. The bound  is per call: a longer batch has to be split into several calls..</param>
         public WebhookRetryRequestDto(List<int> ids = default)
         {
             this.Ids = ids;
         }
 
         /// <summary>
-        /// The delivery records to send again, by the identifiers &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. An  identifier that exists nowhere, and one belonging to another member subscription when the caller is not a  DocSpace administrator, is skipped in silence rather than failing the call, so compare the number of records  that come back against the number sent. An empty list is accepted and queues nothing.
+        /// The delivery records to send again, by the &#x60;id&#x60; values &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. The bound  is per call: a longer batch has to be split into several calls.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "ids", EmitDefaultValue = true)]

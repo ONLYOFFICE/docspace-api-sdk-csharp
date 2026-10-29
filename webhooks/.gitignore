@@ -1,0 +1,4 @@
+# Per-run logs the generate-webhook-sdk skill writes into generated/; bin/ and obj/ are covered by the
+# repository .gitignore.
+.generate.log
+.verify.log

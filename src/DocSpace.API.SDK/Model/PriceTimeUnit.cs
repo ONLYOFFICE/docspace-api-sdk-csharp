@@ -32,44 +32,49 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - Hour, 2 - Day, 3 - Week, 4 - Month, 5 - Year, 6 - ThreeYears]
+    /// [1 - None, 2 - Hour, 3 - Day, 4 - Week, 5 - Month, 6 - Year, 7 - ThreeYears, 8 - Minute]
     /// </summary>
     public enum PriceTimeUnit
     {
         /// <summary>
-        /// Enum None for value: 0
+        /// Enum None for value: 1
         /// </summary>
-        None = 0,
+        None = 1,
 
         /// <summary>
-        /// Enum Hour for value: 1
+        /// Enum Hour for value: 2
         /// </summary>
-        Hour = 1,
+        Hour = 2,
 
         /// <summary>
-        /// Enum Day for value: 2
+        /// Enum Day for value: 3
         /// </summary>
-        Day = 2,
+        Day = 3,
 
         /// <summary>
-        /// Enum Week for value: 3
+        /// Enum Week for value: 4
         /// </summary>
-        Week = 3,
+        Week = 4,
 
         /// <summary>
-        /// Enum Month for value: 4
+        /// Enum Month for value: 5
         /// </summary>
-        Month = 4,
+        Month = 5,
 
         /// <summary>
-        /// Enum Year for value: 5
+        /// Enum Year for value: 6
         /// </summary>
-        Year = 5,
+        Year = 6,
 
         /// <summary>
-        /// Enum ThreeYears for value: 6
+        /// Enum ThreeYears for value: 7
         /// </summary>
-        ThreeYears = 6
+        ThreeYears = 7,
+
+        /// <summary>
+        /// Enum Minute for value: 8
+        /// </summary>
+        Minute = 8
     }
 
 }

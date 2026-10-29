@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="image">The feature&#39;s icon as SVG markup to render inline - not a URL to fetch. It is filled in only when the  quota comes from the catalogue, and left empty on the quota the portal is actually on, on a feature that  this quota switches off, and on a feature that ships no icon..</param>
         /// <param name="value">value.</param>
         /// <param name="type">How to read &#x60;value&#x60; and &#x60;used&#x60;: &#x60;size&#x60; for bytes, &#x60;count&#x60; for a number of things, &#x60;flag&#x60; for a feature  that is merely on or off..</param>
-        /// <param name="used">How much of the limit is already used. It is present only on the quota the portal is actually on, and  only for a feature whose consumption is counted; a guest is shown none of these figures and a plain member  only the one for total size, so an absent value can mean the caller may not see it rather than that  nothing is used..</param>
+        /// <param name="used">How much of the limit is already used. It is present only when the portal&#39;s own quota is read through  &#x60;GET api/2.0/portal/payment/quota&#x60;, and only for a feature whose consumption is counted..</param>
         /// <param name="priceTitle">What the feature is charged as, in the portal language - for instance the per-unit price of an add-on. It  is filled in only for a feature that costs money on top of the plan..</param>
         public TenantQuotaFeatureDto(string id = default, string title = default, string image = default, Object value = default, string type = default, FeatureUsedDto used = default, string priceTitle = default)
         {
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// How much of the limit is already used. It is present only on the quota the portal is actually on, and  only for a feature whose consumption is counted; a guest is shown none of these figures and a plain member  only the one for total size, so an absent value can mean the caller may not see it rather than that  nothing is used.
+        /// How much of the limit is already used. It is present only when the portal&#39;s own quota is read through  &#x60;GET api/2.0/portal/payment/quota&#x60;, and only for a feature whose consumption is counted.
         /// </summary>
         [DataMember(Name = "used", EmitDefaultValue = false)]
         public FeatureUsedDto Used { get; set; }

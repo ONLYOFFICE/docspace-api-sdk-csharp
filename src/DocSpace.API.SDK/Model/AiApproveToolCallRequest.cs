@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="threadId">Thread the assistant message belongs to. (required).</param>
         /// <param name="messageId">Storage id of the assistant message holding the tool call. (required).</param>
         /// <param name="idx">Index of the tool-call content part inside &#x60;message.content&#x60;. (required).</param>
-        /// <param name="message">Snapshot of the assistant message at the time the tool call surfaced. (required).</param>
+        /// <param name="message">Snapshot of the assistant message at the time the tool call surfaced. Optional and ignored: the engine resumes from the stored message, and the copy inflated the body past the parser limit (Bug 84608)..</param>
         /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
         /// <param name="profileId">Session-level profile override for this request only..</param>
@@ -76,13 +76,8 @@ namespace DocSpace.API.SDK.Model
             }
             this.MessageId = messageId;
             this.Idx = idx;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for AiApproveToolCallRequest and cannot be null");
-            }
-            this.Message = message;
             this.AllowAlways = allowAlways;
+            this.Message = message;
             this.ActionArgs = actionArgs;
             this.EntityId = entityId;
             this.ProfileId = profileId;
@@ -119,9 +114,9 @@ namespace DocSpace.API.SDK.Model
         public decimal Idx { get; set; }
 
         /// <summary>
-        /// Snapshot of the assistant message at the time the tool call surfaced.
+        /// Snapshot of the assistant message at the time the tool call surfaced. Optional and ignored: the engine resumes from the stored message, and the copy inflated the body past the parser limit (Bug 84608).
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public AiThreadMessageLike Message { get; set; }
 
         /// <summary>

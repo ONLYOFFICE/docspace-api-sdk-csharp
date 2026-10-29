@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="nonProfit">Whether this is the non-profit quota, which is granted rather than bought. A portal on it cannot buy any  other plan, so a catalogue asked for plans returns this one alone. (required).</param>
         /// <param name="free">Whether this is the free quota a portal falls back to when nothing is paid for. It has no end date and  the tightest limits of any quota. (required).</param>
         /// <param name="trial">Whether this is the trial quota, which grants the paid limits for a while and then expires. A trial is not  extended by paying - a plan has to be bought instead. (required).</param>
-        /// <param name="features">The features the quota switches on, each with the limit it grants and, on the quota the portal is  actually on, how much of that limit is already used. A feature that is absent is off, so the list is the  whole truth about what the quota includes. (required).</param>
-        /// <param name="usersQuota">The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics..</param>
+        /// <param name="features">The features the quota includes, each with the limit it grants and, on the portal&#39;s own quota, how much of it  is used. A flag that is off is listed with &#x60;value&#x60; false; an absent feature is one this answer does not report. (required).</param>
+        /// <param name="usersQuota">The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values. It is filled in only on a server installation or when the portal&#39;s plan includes statistics..</param>
         /// <param name="roomsQuota">The same kind of per-room storage override, filled in and read the same way as &#x60;usersQuota&#x60;..</param>
         /// <param name="aiAgentsQuota">The same kind of per-agent storage override for AI agents, filled in and read the same way as  &#x60;usersQuota&#x60;..</param>
         /// <param name="tenantCustomQuota">The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as &#x60;usersQuota&#x60;..</param>
@@ -126,14 +126,14 @@ namespace DocSpace.API.SDK.Model
         public bool Trial { get; set; }
 
         /// <summary>
-        /// The features the quota switches on, each with the limit it grants and, on the quota the portal is  actually on, how much of that limit is already used. A feature that is absent is off, so the list is the  whole truth about what the quota includes.
+        /// The features the quota includes, each with the limit it grants and, on the portal&#39;s own quota, how much of it  is used. A flag that is off is listed with &#x60;value&#x60; false; an absent feature is one this answer does not report.
         /// </summary>
         /// <example>[{"id":"00000000-0000-0000-0000-000000000001","title":"Premium Storage"}]</example>
         [DataMember(Name = "features", IsRequired = true, EmitDefaultValue = true)]
         public List<TenantQuotaFeatureDto> Features { get; set; }
 
         /// <summary>
-        /// The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics.
+        /// The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values. It is filled in only on a server installation or when the portal&#39;s plan includes statistics.
         /// </summary>
         [DataMember(Name = "usersQuota", EmitDefaultValue = false)]
         public EntityQuotaDto UsersQuota { get; set; }

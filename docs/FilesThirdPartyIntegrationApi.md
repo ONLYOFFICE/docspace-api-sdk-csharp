@@ -697,7 +697,7 @@ catch (ApiException e)
 # **SaveThirdParty**
 > ThirdPartyFolderWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
 
-Connects an account at a third-party storage service to the portal, or re-authenticates one that is already  connected, and returns the folder that now stands for its root. Send `providerId` to update an existing  account and omit it to connect a new one; the accepted `providerKey` values come from  `GET api/2.0/files/thirdparty/providers`. The credentials to send depend on the service: the OAuth services  take `token`, which is the authorization code from their consent screen and not an access token, while the  WebDAV family and SharePoint take `login` with `password`, plus `url` where the server address is not fixed.  Credentials are verified against the service before anything is stored, so a wrong password is refused and  nothing is saved. The caller needs the rights to create rooms, and the portal-wide third-party switch has to  be on, otherwise the call is refused. A new account is attached to the Rooms section and becomes available as  room storage for `POST api/2.0/files/rooms/thirdparty/{id}`. Connecting twice with the same title creates two  separate accounts.
+Connects an account at a third-party storage service as room storage, or, with `providerId`, re-authenticates an  account the caller connected earlier, and returns the folder that stands for the account's root. Take  `providerKey` from `GET api/2.0/files/thirdparty/providers` and send `url` wherever it reports  `requiredConnectionUrl`; OAuth services take `token`, the authorization code from their consent screen, the  others `login` and `password`. The caller needs the right to create rooms, and the portal-wide third-party switch  has to be on. Credentials are checked before anything is stored; a call without `providerId` always adds a new  account, and a re-authenticated room account keeps its server address. The new account is used by  `POST api/2.0/files/rooms/thirdparty/{id}`; backup storage is connected by `POST api/2.0/files/thirdparty/backup`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/).
 
@@ -801,7 +801,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The root folder of the connected account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read or has no `customerTitle` or `providerKey`, `providerId` is neither a number nor a numeric string, or, for a new account, `providerKey` names no known storage service or the `token` or `password` the service needs is missing |  -  |
+| **400** | The request body cannot be read or has no `customerTitle` or `providerKey`, `providerId` is neither a number nor a numeric string, or, for a new account, `providerKey` names no known storage service, the `token` or `password` the service needs is missing, or `url` is missing or is not an HTTP address for a service that needs it |  -  |
 | **403** | The caller cannot create rooms, the portal-wide third-party switch is off or no storage service is enabled, the title of a new account is empty once invalid characters are removed, the service rejects the credentials, or `providerId` names an account connected by another member |  -  |
 | **404** | `providerId` names no third-party account on the portal |  -  |
 | **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
@@ -816,7 +816,7 @@ catch (ApiException e)
 # **SaveThirdPartyBackup**
 > ThirdPartyFolderWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
 
-Connects the third-party storage account the portal writes its backups to, and returns the folder that stands  for its root. Only a portal administrator may call it, and the portal-wide third-party switch has to be on;  other callers are refused. The account is portal-wide and single: a second call does not add another one but  re-authenticates and retitles the existing one, which makes the operation safe to repeat with the same body.  The credentials follow the same rules as in `POST api/2.0/files/thirdparty` - an authorization code in `token`  for the OAuth services, `login` with `password` and, where the server address is not fixed, `url` for the  WebDAV family and SharePoint - and are verified against the service before anything is stored, so a wrong  password leaves the previous account untouched. The account is deliberately absent from  `GET api/2.0/files/thirdparty`; read it back with `GET api/2.0/files/thirdparty/backup` and remove it with  `DELETE api/2.0/files/thirdparty/{providerId}`.
+Connects the third-party storage account the portal writes its backups to, and returns the folder that stands  for its root. Only a portal administrator may call it, and the portal-wide third-party switch has to be on;  other callers are refused. The account is portal-wide and single: a second call does not add another one but  re-authenticates and retitles the existing one, which makes the operation safe to repeat with the same body.  The credentials follow the same rules as in `POST api/2.0/files/thirdparty` - an authorization code in `token`  for the OAuth services, `login` with `password` and, where the server address is not fixed, `url` for the  WebDAV family, kDrive and SharePoint - and are verified against the service before anything is stored, so a  wrong password leaves the previous account untouched. The account is deliberately absent from  `GET api/2.0/files/thirdparty`; read it back with `GET api/2.0/files/thirdparty/backup` and remove it with  `DELETE api/2.0/files/thirdparty/{providerId}`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/).
 
@@ -920,7 +920,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The root folder of the backup storage account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, `providerKey` names no known storage service, or, while no backup account is connected yet, the `token` or `password` the service needs is missing |  -  |
+| **400** | The request body cannot be read, `providerKey` names no known storage service, `url` is missing or is not an HTTP address for a service that needs it, or, while no backup account is connected yet, the `token` or `password` the service needs is missing |  -  |
 | **403** | The caller is not a DocSpace administrator, the portal-wide third-party switch is off or no storage service is enabled, the service rejects the credentials, or, while no backup account is connected yet, the title is empty once invalid characters are removed |  -  |
 | **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
 | **401** | Unauthorized |  -  |

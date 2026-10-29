@@ -44,9 +44,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fieldId">The ID of the template field the condition is on. A custom field is addressed by ASC.Files.Core.MetadataFilterConditionRequest.Name instead..</param>
         /// <param name="name">The name of a custom field, for the conditions on the custom fields, which have no identifier outside. Either the  field ID or the name is given; the name is matched without regard to case..</param>
         /// <param name="op">The operator, one of ASC.Files.Core.MetadataFilterOperators: eq or contains for a string field, eq, range,  gt, gte, lt or lte for a number field, range, gt, gte, lt or lte for a date field, in for a  choice field. Optional: an omitted operator is read as eq for a string, as range for a date, as in for a  choice, and for a number as eq when a value is given or as range when a bound is. A present one has to belong  to the field type and to the arguments: eq takes a value, range takes bounds..</param>
-        /// <param name="value">The value of a single-valued condition: the whole or a part of a string field, the exact value of a number field,  or the bound of a gt, gte, lt or lte condition on a number or a date field. A JSON number is accepted as  well as a string. A date given without a time (2026-06-30) names the whole day (UTC)..</param>
-        /// <param name="from">The inclusive lower bound of a range. A date given without a time (2026-06-01) is the start of that day (UTC)..</param>
-        /// <param name="to">The inclusive upper bound of a range. A date given without a time (2026-06-30) covers the whole day (UTC);  a value with a time is an instant and is taken as is..</param>
+        /// <param name="value">The value of a single-valued condition: the whole or a part of a string field, the exact value of a number field,  or the bound of a gt, gte, lt or lte condition on a number or a date field. A JSON number is accepted as  well as a string. A number is a whole number of at most 2^53-1 in magnitude, the limit of a stored number value.  A date given without a time (2026-06-30) names the whole day (UTC)..</param>
+        /// <param name="from">The inclusive lower bound of a range. A number is a whole number of at most 2^53-1 in magnitude, the limit of a  stored number value. A date given without a time (2026-06-01) is the start of that day (UTC)..</param>
+        /// <param name="to">The inclusive upper bound of a range. A number is a whole number of at most 2^53-1 in magnitude, the limit of a  stored number value. A date given without a time (2026-06-30) covers the whole day (UTC); a value with a time  is an instant and is taken as is..</param>
         /// <param name="optionIds">The options any of which the choice field must hold..</param>
         public MetadataFilterConditionRequest(int fieldId = default, string name = default, string op = default, string value = default, string from = default, string to = default, List<Guid> optionIds = default)
         {
@@ -81,21 +81,21 @@ namespace DocSpace.API.SDK.Model
         public string Op { get; set; }
 
         /// <summary>
-        /// The value of a single-valued condition: the whole or a part of a string field, the exact value of a number field,  or the bound of a gt, gte, lt or lte condition on a number or a date field. A JSON number is accepted as  well as a string. A date given without a time (2026-06-30) names the whole day (UTC).
+        /// The value of a single-valued condition: the whole or a part of a string field, the exact value of a number field,  or the bound of a gt, gte, lt or lte condition on a number or a date field. A JSON number is accepted as  well as a string. A number is a whole number of at most 2^53-1 in magnitude, the limit of a stored number value.  A date given without a time (2026-06-30) names the whole day (UTC).
         /// </summary>
         /// <example>ACME</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
-        /// The inclusive lower bound of a range. A date given without a time (2026-06-01) is the start of that day (UTC).
+        /// The inclusive lower bound of a range. A number is a whole number of at most 2^53-1 in magnitude, the limit of a  stored number value. A date given without a time (2026-06-01) is the start of that day (UTC).
         /// </summary>
         /// <example>2026-01-01</example>
         [DataMember(Name = "from", EmitDefaultValue = true)]
         public string From { get; set; }
 
         /// <summary>
-        /// The inclusive upper bound of a range. A date given without a time (2026-06-30) covers the whole day (UTC);  a value with a time is an instant and is taken as is.
+        /// The inclusive upper bound of a range. A number is a whole number of at most 2^53-1 in magnitude, the limit of a  stored number value. A date given without a time (2026-06-30) covers the whole day (UTC); a value with a time  is an instant and is taken as is.
         /// </summary>
         /// <example>2026-06-30</example>
         [DataMember(Name = "to", EmitDefaultValue = true)]

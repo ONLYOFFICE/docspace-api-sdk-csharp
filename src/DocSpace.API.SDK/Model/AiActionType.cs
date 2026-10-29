@@ -95,7 +95,13 @@ namespace DocSpace.API.SDK.Model
         /// Enum FormAnalysis for value: FormAnalysis
         /// </summary>
         [EnumMember(Value = "FormAnalysis")]
-        FormAnalysis
+        FormAnalysis,
+
+        /// <summary>
+        /// Enum GenerateMeta for value: GenerateMeta
+        /// </summary>
+        [EnumMember(Value = "GenerateMeta")]
+        GenerateMeta
     }
 
 }

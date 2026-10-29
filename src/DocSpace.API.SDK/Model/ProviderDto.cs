@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="connected">Whether the service can be used on this portal: it is enabled in the configuration and, for an OAuth service,  its application is registered. It says nothing about whether an account of it is connected..</param>
         /// <param name="oauth">Whether an account of this service is connected with an OAuth 2.0 authorization code in &#x60;token&#x60;; when false,  it is connected with &#x60;login&#x60; and &#x60;password&#x60;..</param>
         /// <param name="redirectUrl">The redirect URL this portal is registered with at the service, to build the consent screen URL from. It comes  back as null for the services that do not use OAuth..</param>
-        /// <param name="requiredConnectionUrl">Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it..</param>
+        /// <param name="requiredConnectionUrl">Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance and for kDrive, whose address names the drive. The OAuth services do not  need it..</param>
         /// <param name="clientId">The OAuth 2.0 client ID this portal is registered with at the service, to build the consent screen URL from.  It comes back as null for the services that do not use OAuth..</param>
         public ProviderDto(string name = default, string key = default, bool connected = default, bool oauth = default, string redirectUrl = default, bool requiredConnectionUrl = default, string clientId = default)
         {
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         public string RedirectUrl { get; set; }
 
         /// <summary>
-        /// Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it.
+        /// Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance and for kDrive, whose address names the drive. The OAuth services do not  need it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "requiredConnectionUrl", EmitDefaultValue = true)]

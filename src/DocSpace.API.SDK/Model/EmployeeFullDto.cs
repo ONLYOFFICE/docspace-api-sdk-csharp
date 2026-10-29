@@ -93,13 +93,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="usedSpace">The portal used space of the user..</param>
         /// <param name="shared">Specifies if the user has access rights..</param>
         /// <param name="isCustomQuota">Specifies if the user has a custom quota or not..</param>
+        /// <param name="aiServicesLimit">The spending limit on the AI services in force for this user - the personal one, or else the limit for every  user - with what the user spent against it. Null when no such limit applies to the user, when the portal has no  billing service, or when the caller is neither a DocSpace administrator nor the user; the limit of the portal as  a whole is not reflected here. The value, and the spending in particular, can lag by a few minutes..</param>
         /// <param name="loginEventId">The current login event ID..</param>
         /// <param name="authCookieLifetime">The auth cookie lifetime in seconds..</param>
         /// <param name="createdBy">The user who created the current user..</param>
         /// <param name="registrationDate">The user registration date..</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, UserServiceLimitDto aiServicesLimit = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -129,6 +130,7 @@ namespace DocSpace.API.SDK.Model
             this.UsedSpace = usedSpace;
             this.Shared = shared;
             this.IsCustomQuota = isCustomQuota;
+            this.AiServicesLimit = aiServicesLimit;
             this.LoginEventId = loginEventId;
             this.AuthCookieLifetime = authCookieLifetime;
             this.CreatedBy = createdBy;
@@ -305,6 +307,12 @@ namespace DocSpace.API.SDK.Model
         public bool? IsCustomQuota { get; set; }
 
         /// <summary>
+        /// The spending limit on the AI services in force for this user - the personal one, or else the limit for every  user - with what the user spent against it. Null when no such limit applies to the user, when the portal has no  billing service, or when the caller is neither a DocSpace administrator nor the user; the limit of the portal as  a whole is not reflected here. The value, and the spending in particular, can lag by a few minutes.
+        /// </summary>
+        [DataMember(Name = "aiServicesLimit", EmitDefaultValue = false)]
+        public UserServiceLimitDto AiServicesLimit { get; set; }
+
+        /// <summary>
         /// The current login event ID.
         /// </summary>
         /// <example>123</example>
@@ -380,6 +388,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UsedSpace: ").Append(UsedSpace).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
             sb.Append("  IsCustomQuota: ").Append(IsCustomQuota).Append("\n");
+            sb.Append("  AiServicesLimit: ").Append(AiServicesLimit).Append("\n");
             sb.Append("  LoginEventId: ").Append(LoginEventId).Append("\n");
             sb.Append("  AuthCookieLifetime: ").Append(AuthCookieLifetime).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");

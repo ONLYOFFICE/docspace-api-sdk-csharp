@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.PriceTimeUnit
-[0 - None, 1 - Hour, 2 - Day, 3 - Week, 4 - Month, 5 - Year, 6 - ThreeYears]
+[1 - None, 2 - Hour, 3 - Day, 4 - Week, 5 - Month, 6 - Year, 7 - ThreeYears, 8 - Minute]
 
 ## Properties
 
