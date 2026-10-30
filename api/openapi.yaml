@@ -23239,11 +23239,11 @@ paths:
             \ stored in the portal itself, a string\r\naddresses a folder on a connected\
             \ third-party account, and both kinds may be sent in one list."
           example:
-          - 1
-          - 2
-          - 3
+          - "1"
+          - "2"
+          - "3"
           items:
-            $ref: "#/components/schemas/checkMoveOrCopyBatchItems_folderIds_parameter_inner"
+            type: string
           nullable: true
           type: array
           default: null
@@ -23260,11 +23260,11 @@ paths:
             \ stored in the portal itself, a string addresses a\r\nfile on a connected\
             \ third-party account, and both kinds may be sent in one list."
           example:
-          - 1
-          - 2
-          - 3
+          - "1"
+          - "2"
+          - "3"
           items:
-            $ref: "#/components/schemas/checkMoveOrCopyBatchItems_folderIds_parameter_inner"
+            type: string
           nullable: true
           type: array
           default: null
@@ -23279,7 +23279,13 @@ paths:
         name: destFolderId
         required: false
         schema:
-          $ref: "#/components/schemas/checkMoveOrCopyBatchItems_destFolderId_parameter"
+          description: "The folder the items go to, by id — a number for a folder\
+            \ stored in the portal itself, a string for a folder\r\non a connected\
+            \ third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`;\
+            \ the\r\ncaller has to be allowed to create items in it, and the id of\
+            \ a room addresses the root of that room."
+          example: "1"
+          type: string
         style: form
       - description: "What happens to an item whose name is already taken in the destination\
           \ folder: `skip` leaves it where it is,\r\n`overwrite` replaces the entry\
@@ -23673,11 +23679,11 @@ paths:
             \ stored in the portal itself, a string\r\naddresses a folder on a connected\
             \ third-party account, and both kinds may be sent in one list."
           example:
-          - 1
-          - 2
-          - 3
+          - "1"
+          - "2"
+          - "3"
           items:
-            $ref: "#/components/schemas/checkMoveOrCopyBatchItems_folderIds_parameter_inner"
+            type: string
           nullable: true
           type: array
           default: null
@@ -23694,11 +23700,11 @@ paths:
             \ stored in the portal itself, a string addresses a\r\nfile on a connected\
             \ third-party account, and both kinds may be sent in one list."
           example:
-          - 1
-          - 2
-          - 3
+          - "1"
+          - "2"
+          - "3"
           items:
-            $ref: "#/components/schemas/checkMoveOrCopyBatchItems_folderIds_parameter_inner"
+            type: string
           nullable: true
           type: array
           default: null
@@ -23713,7 +23719,13 @@ paths:
         name: destFolderId
         required: false
         schema:
-          $ref: "#/components/schemas/checkMoveOrCopyBatchItems_destFolderId_parameter"
+          description: "The folder the items go to, by id — a number for a folder\
+            \ stored in the portal itself, a string for a folder\r\non a connected\
+            \ third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`;\
+            \ the\r\ncaller has to be allowed to create items in it, and the id of\
+            \ a room addresses the root of that room."
+          example: "1"
+          type: string
         style: form
       - description: "What happens to an item whose name is already taken in the destination\
           \ folder: `skip` leaves it where it is,\r\n`overwrite` replaces the entry\
@@ -110786,24 +110798,6 @@ components:
         stream.writeTimeout:
           format: int32
           type: integer
-    checkMoveOrCopyBatchItems_folderIds_parameter_inner:
-      anyOf:
-      - example: 1234
-        type: integer
-      - example: some text
-        type: string
-    checkMoveOrCopyBatchItems_destFolderId_parameter:
-      description: "The folder the items go to, by id — a number for a folder stored\
-        \ in the portal itself, a string for a folder\r\non a connected third-party\
-        \ account. Take it from a folder listing such as `GET api/2.0/files/@root`;\
-        \ the\r\ncaller has to be allowed to create items in it, and the id of a room\
-        \ addresses the root of that room."
-      example: 1
-      oneOf:
-      - example: 1234
-        type: integer
-      - example: some text
-        type: string
     uploadSession_request:
       properties:
         file:

@@ -193,7 +193,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
-        FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
+        FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
 
         /// <summary>
         /// Check move or copy conflicts
@@ -212,7 +212,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
+        ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
         /// <summary>
         /// Check the destination folder
         /// </summary>
@@ -230,7 +230,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
-        CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
+        CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
 
         /// <summary>
         /// Check the destination folder
@@ -249,7 +249,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
+        ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
         /// <summary>
         /// Copy files and folders
         /// </summary>
@@ -1058,7 +1058,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
+        Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check move or copy conflicts
@@ -1078,7 +1078,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the destination folder
         /// </summary>
@@ -1097,7 +1097,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of CheckDestFolderWrapper</returns>
-        Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
+        Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check the destination folder
@@ -1117,7 +1117,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Copy files and folders
         /// </summary>
@@ -3179,7 +3179,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
-        public FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
+        public FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarResponse = CheckMoveOrCopyBatchItemsWithHttpInfo(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut);
             return localVarResponse.Data;
@@ -3202,7 +3202,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        public ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
+        public ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3314,7 +3314,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        public async Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
+        public async Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckMoveOrCopyBatchItemsWithHttpInfoAsync(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3338,7 +3338,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3451,7 +3451,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
-        public CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
+        public CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarResponse = CheckMoveOrCopyDestFolderWithHttpInfo(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut);
             return localVarResponse.Data;
@@ -3474,7 +3474,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        public ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
+        public ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3586,7 +3586,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of CheckDestFolderWrapper</returns>
-        public async Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
+        public async Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckMoveOrCopyDestFolderWithHttpInfoAsync(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3610,7 +3610,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        public async Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<string>? folderIds = default, List<string>? fileIds = default, string? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
