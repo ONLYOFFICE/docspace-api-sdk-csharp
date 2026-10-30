@@ -87,7 +87,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="order">The place of the entry in a room where the members arrange the content themselves, given as the position of  the entry preceded by the positions of the folders leading to it, separated by dots. It is empty when nothing  has been arranged..</param>
         /// <param name="isFavorite">Set when the calling account has marked the entry as a favorite, which is what puts it into the favorites  listing. For a file that is not marked it is null rather than false..</param>
         /// <param name="fileEntryType">Tells a folder from a file, and so which of the two shapes the rest of the object has. A room is reported as a  folder here..</param>
-        public AiFileEntryBaseDto(string title = default, AiFileShare? access = default, AiEmployeeDto sharedBy = default, AiEmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, AiApiDateTime created = default, AiEmployeeDto createdBy = default, AiApiDateTime updated = default, AiApiDateTime autoDelete = default, AiFolderType? rootFolderType = default, AiFolderType? parentRoomType = default, AiEmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, AiFileEntryType? fileEntryType = default)
+        /// <param name="entryKind">Which concrete type the object is: &#x60;file&#x60;, &#x60;thirdPartyFile&#x60;, &#x60;folder&#x60;, &#x60;thirdPartyFolder&#x60;. It is what tells the types apart in a list that mixes several of them; a response limited by &#x60;fields&#x60; may leave it out..</param>
+        public AiFileEntryBaseDto(string title = default, AiFileShare? access = default, AiEmployeeDto sharedBy = default, AiEmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, AiApiDateTime created = default, AiEmployeeDto createdBy = default, AiApiDateTime updated = default, AiApiDateTime autoDelete = default, AiFolderType? rootFolderType = default, AiFolderType? parentRoomType = default, AiEmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, AiFileEntryType? fileEntryType = default, string entryKind = default)
         {
             this.Title = title;
             this.Access = access;
@@ -111,6 +112,7 @@ namespace DocSpace.API.SDK.Model
             this.Order = order;
             this.IsFavorite = isFavorite;
             this.FileEntryType = fileEntryType;
+            this.EntryKind = entryKind;
         }
 
         /// <summary>
@@ -233,6 +235,13 @@ namespace DocSpace.API.SDK.Model
         public bool? IsFavorite { get; set; }
 
         /// <summary>
+        /// Which concrete type the object is: &#x60;file&#x60;, &#x60;thirdPartyFile&#x60;, &#x60;folder&#x60;, &#x60;thirdPartyFolder&#x60;. It is what tells the types apart in a list that mixes several of them; a response limited by &#x60;fields&#x60; may leave it out.
+        /// </summary>
+        /// <example>file</example>
+        [DataMember(Name = "entryKind", EmitDefaultValue = false)]
+        public string EntryKind { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -262,6 +271,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  IsFavorite: ").Append(IsFavorite).Append("\n");
             sb.Append("  FileEntryType: ").Append(FileEntryType).Append("\n");
+            sb.Append("  EntryKind: ").Append(EntryKind).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
