@@ -42,14 +42,16 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="IsDefaultWhiteLabelLogosWrapper" /> class.
         /// </summary>
         /// <param name="response">The IsDefaultWhiteLabelLogosDto object returned by the operation..</param>
-        /// <param name="count">The total number of items in the response.</param>
+        /// <param name="count">How many items this response carries: the length of the page for a list, 1 for a single object.</param>
+        /// <param name="total">How many items the whole list holds across all pages, for working out how many pages to request. Sent only by the operations that page their results, and left out of every other response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public IsDefaultWhiteLabelLogosWrapper(IsDefaultWhiteLabelLogosDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public IsDefaultWhiteLabelLogosWrapper(IsDefaultWhiteLabelLogosDto response = default, int count = default, long total = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
+            this.Total = total;
             this.Links = links;
             this.Status = status;
             this.StatusCode = statusCode;
@@ -62,10 +64,16 @@ namespace DocSpace.API.SDK.Model
         public IsDefaultWhiteLabelLogosDto Response { get; set; }
 
         /// <summary>
-        /// The total number of items in the response
+        /// How many items this response carries: the length of the page for a list, 1 for a single object
         /// </summary>
         [DataMember(Name = "count", EmitDefaultValue = false)]
         public int Count { get; set; }
+
+        /// <summary>
+        /// How many items the whole list holds across all pages, for working out how many pages to request. Sent only by the operations that page their results, and left out of every other response
+        /// </summary>
+        [DataMember(Name = "total", EmitDefaultValue = false)]
+        public long Total { get; set; }
 
         /// <summary>
         /// List of links related to the response
@@ -95,6 +103,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class IsDefaultWhiteLabelLogosWrapper {\n");
             sb.Append("  Response: ").Append(Response).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
