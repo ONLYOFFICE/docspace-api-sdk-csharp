@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.SubjectType
-[0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link]
+[0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link, 5 - Read access to a room linked to an AI project the user is a member of]
 
 ## Properties
 

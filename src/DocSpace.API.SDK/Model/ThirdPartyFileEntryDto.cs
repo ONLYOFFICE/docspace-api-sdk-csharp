@@ -57,8 +57,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expirationDate">When the link being used stops working, written with the offset of the portal&#39;s time zone. It is null for a  link that never expires and whenever no link is involved..</param>
         /// <param name="isLinkExpired">Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved..</param>
         /// <param name="assignedMetadataTemplates">The IDs of the metadata templates assigned to the file entry..</param>
+        /// <param name="hasMetadataFields">Whether the entry has a metadata field a user can see and fill, by hand or with the AI filling: a field of a  visible assigned template, or a custom field. False when the entry has no metadata, when its assigned templates  are all hidden, or when they have no fields. It says nothing about the values: it stays true once every field is  filled, and nothing about the caller&#39;s rights: writing the values still needs the right to edit the entry  (&#x60;security.Edit&#x60;). It cannot be derived from &#x60;assignedMetadataTemplates&#x60;, which lists hidden templates too and  never lists the custom fields. Present, with a value, in the folder listing and in the file and folder info  responses; absent in the other responses that carry an entry (the answer to a creation, an upload or a rename),  which do not compute it, and for an entry of a third-party storage, which has no metadata. The same flag is  answered by &#x60;GET api/2.0/files/metadata/file/{fileId}&#x60; and &#x60;GET api/2.0/files/metadata/folder/{folderId}&#x60;..</param>
         /// <param name="metadataMatches">Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here..</param>
-        public ThirdPartyFileEntryDto(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, AiFileEntryDtoAllOfShareSettings shareSettings = default, AiFileEntryDtoAllOfSecurity security = default, AiFileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default, List<int> assignedMetadataTemplates = default, List<MetadataMatchDto> metadataMatches = default) : base()
+        public ThirdPartyFileEntryDto(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoAllOfShareSettings shareSettings = default, FileEntryDtoAllOfSecurity security = default, FileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default, List<int> assignedMetadataTemplates = default, bool? hasMetadataFields = default, List<MetadataMatchDto> metadataMatches = default) : base()
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -75,6 +76,7 @@ namespace DocSpace.API.SDK.Model
             this.ExpirationDate = expirationDate;
             this.IsLinkExpired = isLinkExpired;
             this.AssignedMetadataTemplates = assignedMetadataTemplates;
+            this.HasMetadataFields = hasMetadataFields;
             this.MetadataMatches = metadataMatches;
         }
 
@@ -131,19 +133,19 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets ShareSettings
         /// </summary>
         [DataMember(Name = "shareSettings", EmitDefaultValue = true)]
-        public AiFileEntryDtoAllOfShareSettings ShareSettings { get; set; }
+        public FileEntryDtoAllOfShareSettings ShareSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets Security
         /// </summary>
         [DataMember(Name = "security", EmitDefaultValue = true)]
-        public AiFileEntryDtoAllOfSecurity Security { get; set; }
+        public FileEntryDtoAllOfSecurity Security { get; set; }
 
         /// <summary>
         /// Gets or Sets AvailableShareRights
         /// </summary>
         [DataMember(Name = "availableShareRights", EmitDefaultValue = true)]
-        public AiFileEntryDtoAllOfAvailableShareRights AvailableShareRights { get; set; }
+        public FileEntryDtoAllOfAvailableShareRights AvailableShareRights { get; set; }
 
         /// <summary>
         /// The token of the link the entry is being read through, which is the value the external-share operations expect  and which also has to be carried by the download and preview addresses. It is null whenever the entry is not  being read through a link.
@@ -179,6 +181,13 @@ namespace DocSpace.API.SDK.Model
         public List<int> AssignedMetadataTemplates { get; set; }
 
         /// <summary>
+        /// Whether the entry has a metadata field a user can see and fill, by hand or with the AI filling: a field of a  visible assigned template, or a custom field. False when the entry has no metadata, when its assigned templates  are all hidden, or when they have no fields. It says nothing about the values: it stays true once every field is  filled, and nothing about the caller&#39;s rights: writing the values still needs the right to edit the entry  (&#x60;security.Edit&#x60;). It cannot be derived from &#x60;assignedMetadataTemplates&#x60;, which lists hidden templates too and  never lists the custom fields. Present, with a value, in the folder listing and in the file and folder info  responses; absent in the other responses that carry an entry (the answer to a creation, an upload or a rename),  which do not compute it, and for an entry of a third-party storage, which has no metadata. The same flag is  answered by &#x60;GET api/2.0/files/metadata/file/{fileId}&#x60; and &#x60;GET api/2.0/files/metadata/folder/{folderId}&#x60;.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "hasMetadataFields", EmitDefaultValue = true)]
+        public bool? HasMetadataFields { get; set; }
+
+        /// <summary>
         /// Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here.
         /// </summary>
         [DataMember(Name = "metadataMatches", EmitDefaultValue = true)]
@@ -208,6 +217,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  IsLinkExpired: ").Append(IsLinkExpired).Append("\n");
             sb.Append("  AssignedMetadataTemplates: ").Append(AssignedMetadataTemplates).Append("\n");
+            sb.Append("  HasMetadataFields: ").Append(HasMetadataFields).Append("\n");
             sb.Append("  MetadataMatches: ").Append(MetadataMatches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

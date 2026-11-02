@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI Room]
+    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI Room, 10 - Instructions room, 11 - Knowledge room, 12 - AI project room]
     /// </summary>
     public enum RoomType
     {
@@ -64,7 +64,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum AiRoom for value: 9
         /// </summary>
-        AiRoom = 9
+        AiRoom = 9,
+
+        /// <summary>
+        /// Enum InstructionsRoom for value: 10
+        /// </summary>
+        InstructionsRoom = 10,
+
+        /// <summary>
+        /// Enum KnowledgeRoom for value: 11
+        /// </summary>
+        KnowledgeRoom = 11,
+
+        /// <summary>
+        /// Enum AiProjectRoom for value: 12
+        /// </summary>
+        AiProjectRoom = 12
     }
 
 }

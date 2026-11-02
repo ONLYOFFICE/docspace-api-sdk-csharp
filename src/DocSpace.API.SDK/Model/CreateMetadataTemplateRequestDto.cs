@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="name">The template name. (required).</param>
         /// <param name="visible">Specifies if the template is visible in the UI pickers..</param>
-        /// <param name="fields">The template metadata fields..</param>
+        /// <param name="fields">The template metadata fields. At least one field is required: a template without fields is not created..</param>
         public CreateMetadataTemplateRequestDto(string name = default, bool visible = default, List<MetadataFieldRequest> fields = default)
         {
             // to ensure "name" is required (not null)
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         public bool Visible { get; set; }
 
         /// <summary>
-        /// The template metadata fields.
+        /// The template metadata fields. At least one field is required: a template without fields is not created.
         /// </summary>
         /// <example>[{"name":"Contract number","type":0},{"name":"Signed on","type":1}]</example>
         [DataMember(Name = "fields", EmitDefaultValue = true)]

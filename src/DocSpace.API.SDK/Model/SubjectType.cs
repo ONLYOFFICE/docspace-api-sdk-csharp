@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link]
+    /// [0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link, 5 - Read access to a room linked to an AI project the user is a member of]
     /// </summary>
     public enum SubjectType
     {
@@ -59,7 +59,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum PrimaryExternalLink for value: 4
         /// </summary>
-        PrimaryExternalLink = 4
+        PrimaryExternalLink = 4,
+
+        /// <summary>
+        /// Enum AiProject for value: 5
+        /// </summary>
+        AiProject = 5
     }
 
 }

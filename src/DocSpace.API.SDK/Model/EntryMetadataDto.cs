@@ -43,10 +43,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="templates">The assigned metadata templates, each field carrying its value on the entry..</param>
         /// <param name="customFields">The custom fields with their values..</param>
-        public EntryMetadataDto(List<EntryTemplateDto> templates = default, List<CustomFieldValueDto> customFields = default)
+        /// <param name="hasMetadataFields">Whether the entry has a metadata field a user can see and fill, by hand or with the AI filling: a field of a  template in &#x60;templates&#x60; whose &#x60;visible&#x60; is true, or a custom field in &#x60;customFields&#x60;. False when both lists are  empty, when every template is hidden, or when none of the visible ones has a field. It says nothing about the  values: it stays true once every field is filled. The same flag is carried by the entry in a folder listing and  in the file and folder info responses as &#x60;hasMetadataFields&#x60;, so a client that has the listing needs no call here  to decide whether to offer the filling..</param>
+        public EntryMetadataDto(List<EntryTemplateDto> templates = default, List<CustomFieldValueDto> customFields = default, bool hasMetadataFields = default)
         {
             this.Templates = templates;
             this.CustomFields = customFields;
+            this.HasMetadataFields = hasMetadataFields;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace DocSpace.API.SDK.Model
         public List<CustomFieldValueDto> CustomFields { get; set; }
 
         /// <summary>
+        /// Whether the entry has a metadata field a user can see and fill, by hand or with the AI filling: a field of a  template in &#x60;templates&#x60; whose &#x60;visible&#x60; is true, or a custom field in &#x60;customFields&#x60;. False when both lists are  empty, when every template is hidden, or when none of the visible ones has a field. It says nothing about the  values: it stays true once every field is filled. The same flag is carried by the entry in a folder listing and  in the file and folder info responses as &#x60;hasMetadataFields&#x60;, so a client that has the listing needs no call here  to decide whether to offer the filling.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "hasMetadataFields", EmitDefaultValue = true)]
+        public bool HasMetadataFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class EntryMetadataDto {\n");
             sb.Append("  Templates: ").Append(Templates).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
+            sb.Append("  HasMetadataFields: ").Append(HasMetadataFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.RoomType
-[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI Room]
+[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI Room, 10 - Instructions room, 11 - Knowledge room, 12 - AI project room]
 
 ## Properties
 

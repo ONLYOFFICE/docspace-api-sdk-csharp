@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 - Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 - Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room, 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room, 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 - Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Chat outputs, 34 - AI Agents, 35 - Default Templates, 36 - Forms, 37 - Ai]
+    /// [0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 - Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 - Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room, 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room, 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 - Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Chat outputs, 34 - AI Agents, 35 - Default Templates, 36 - Forms, 37 - Ai, 38 - Instructions room, 39 - Knowledge room, 40 - AI project room, 41 - AI rooms]
     /// </summary>
     public enum FolderType
     {
@@ -189,7 +189,27 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Ai for value: 37
         /// </summary>
-        Ai = 37
+        Ai = 37,
+
+        /// <summary>
+        /// Enum InstructionsRoom for value: 38
+        /// </summary>
+        InstructionsRoom = 38,
+
+        /// <summary>
+        /// Enum KnowledgeRoom for value: 39
+        /// </summary>
+        KnowledgeRoom = 39,
+
+        /// <summary>
+        /// Enum AiProjectRoom for value: 40
+        /// </summary>
+        AiProjectRoom = 40,
+
+        /// <summary>
+        /// Enum AiHub for value: 41
+        /// </summary>
+        AiHub = 41
     }
 
 }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The AI settings the editor opens with. They follow the portal-wide AI access setting, so every document of the  portal gets the same value.
+    /// The AI settings the editor opens with. They follow the portal-wide AI access setting for signed-in users; an  anonymous visitor who opened the document through an external link always gets AI disabled.
     /// </summary>
     [DataContract(Name = "AiConfigDto")]
     public partial class AiConfigDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiConfigDto" /> class.
         /// </summary>
-        /// <param name="disabled">Indicates whether the AI feature is disabled..</param>
+        /// <param name="disabled">Whether the editor hides its AI tools. It is set when AI is turned off for the portal, and always for an  anonymous visitor of an external link..</param>
         public AiConfigDto(bool disabled = default)
         {
             this.Disabled = disabled;
         }
 
         /// <summary>
-        /// Indicates whether the AI feature is disabled.
+        /// Whether the editor hides its AI tools. It is set when AI is turned off for the portal, and always for an  anonymous visitor of an external link.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "disabled", EmitDefaultValue = true)]
