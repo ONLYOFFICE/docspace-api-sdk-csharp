@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of &#x60;ToolsEngine.replaceAllCustomServers&#x60; — either every entry persisted, or no entries persisted plus a per-key error report.
+    /// The outcome of replacing the custom MCP servers: either every entry was stored, or none was and the errors are reported per server.
     /// </summary>
     [DataContract(Name = "AiToolsBulkResult")]
     public partial class AiToolsBulkResult : IValidatableObject

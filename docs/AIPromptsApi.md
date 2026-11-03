@@ -30,7 +30,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiCreatePromptInput** | [**AiCreatePromptInput**](AiCreatePromptInput.md) | Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`. |  |
+| **aiCreatePromptInput** | [**AiCreatePromptInput**](AiCreatePromptInput.md) | Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`. |  |
 
 ### Return type
 
@@ -68,7 +68,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var aiCreatePromptInput = new AiCreatePromptInput(); // AiCreatePromptInput | Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.
+            var aiCreatePromptInput = new AiCreatePromptInput(); // AiCreatePromptInput | Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.
 
             try
             {

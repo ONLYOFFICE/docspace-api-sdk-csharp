@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Union of all 17 built-in AI provider type identifiers.  The &#x60;external&#x60; provider has no built-in transport — it delegates every HTTP request to &#x60;PlatformAdapter.externalFetch&#x60; and parses the response with the inner provider selected by &#x60;Profile.basedOn&#x60;.
+    /// The built-in AI provider types. &#x60;external&#x60; has no transport of its own: the requests go through a transport the embedding application supplies and are parsed with the provider named in &#x60;basedOn&#x60;.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AiBuiltinProviderType

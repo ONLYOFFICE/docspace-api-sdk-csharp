@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Storage-assigned UUID. | 
 **Kind** | **string** | file | image. | 
-**Source** | **string** | Origin of the attachment. `user` — uploaded by the user in the composer (the default when unset, for backward compatibility). `tool` — produced by a tool call (e.g. `generate_image`). Lets the integrator's adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source. | [optional] 
+**Source** | **string** | Where the attachment came from: `user` - attached by the user (also when unset); `tool` - produced by a tool call (for example `generate_image`). | [optional] 
 **Title** | **string** | Display label (filename or user-visible title). | 
 **Content** | **string** | Extracted text for files. | [optional] 
 **Base64** | **string** | Base64 data URL for images. | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Type** | **decimal** | ONLYOFFICE file type code (for files). | [optional] 
 **MessageId** | **string** | Owning message id once linked. Unset while the attachment is a draft. | [optional] 
 **ThreadId** | **string** | Owning thread id once linked. Unset while the attachment is a draft. | [optional] 
-**EntityId** | **string** | Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread's own entity binding. | [optional] 
+**EntityId** | **string** | The room or folder the attachment was created in, as an opaque token; once the attachment is bound to a message it repeats the thread's own scope. | [optional] 
 **CreatedAt** | **decimal** | Storage-assigned creation timestamp. | 
 **CanAnalyze** | **bool** | Whether the attached form can be analyzed. | [optional] 
 **FormKeys** | [**List&lt;AiAttachmentFormKeysInner&gt;**](AiAttachmentFormKeysInner.md) | Keys of the fields inside the form. `key` is the field identifier, `text` its human-readable label. | [optional] 

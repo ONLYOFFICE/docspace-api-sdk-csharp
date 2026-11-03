@@ -37,6 +37,36 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "AiExportTextToDocxRequest")]
     public partial class AiExportTextToDocxRequest : IValidatableObject
     {
+        /// <summary>
+        /// Output format: &#x60;Docx&#x60; (the default when omitted), &#x60;Pdf&#x60;, or &#x60;Md&#x60;, which stores the markdown verbatim instead of converting it.
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FormatEnum
+        {
+            /// <summary>
+            /// Enum Docx for value: Docx
+            /// </summary>
+            [EnumMember(Value = "Docx")]
+            Docx,
+
+            /// <summary>
+            /// Enum Pdf for value: Pdf
+            /// </summary>
+            [EnumMember(Value = "Pdf")]
+            Pdf,
+
+            /// <summary>
+            /// Enum Md for value: Md
+            /// </summary>
+            [EnumMember(Value = "Md")]
+            Md
+        }
+
+        /// <summary>
+        /// Output format: &#x60;Docx&#x60; (the default when omitted), &#x60;Pdf&#x60;, or &#x60;Md&#x60;, which stores the markdown verbatim instead of converting it.
+        /// </summary>
+        [DataMember(Name = "format", EmitDefaultValue = false)]
+        public FormatEnum? Format { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiExportTextToDocxRequest" /> class.
@@ -49,7 +79,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">Document title (also the file name). (required).</param>
         /// <param name="content">Markdown content to convert. (required).</param>
         /// <param name="folderId">folderId (required).</param>
-        public AiExportTextToDocxRequest(string title = default, string content = default, AiExportTextToDocxRequestFolderId folderId = default)
+        /// <param name="format">Output format: &#x60;Docx&#x60; (the default when omitted), &#x60;Pdf&#x60;, or &#x60;Md&#x60;, which stores the markdown verbatim instead of converting it..</param>
+        public AiExportTextToDocxRequest(string title = default, string content = default, AiExportTextToDocxRequestFolderId folderId = default, FormatEnum? format = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -69,6 +100,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("folderId is a required property for AiExportTextToDocxRequest and cannot be null");
             }
             this.FolderId = folderId;
+            this.Format = format;
         }
 
         /// <summary>
@@ -100,6 +132,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  FolderId: ").Append(FolderId).Append("\n");
+            sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

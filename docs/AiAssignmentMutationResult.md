@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.AiAssignmentMutationResult
-Outcome of `AssignmentsEngine.assign` / `AssignmentsEngine.unassign`. Either a success or a field-scoped error suitable for displaying in the profile editor.
+The outcome of an assign or unassign: a success, or an error naming the field that was refused.
 
 ## Properties
 

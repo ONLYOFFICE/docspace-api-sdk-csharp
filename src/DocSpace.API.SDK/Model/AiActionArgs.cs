@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiActionArgs
+    /// Per-request options of an AI round: extra tools, the depth of reasoning, a system prompt override and the rooms and folder connected as context.
     /// </summary>
     [DataContract(Name = "AiActionArgs")]
     public partial class AiActionArgs : IValidatableObject
@@ -51,12 +51,24 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isReasoning">Legacy extended-thinking switch; stands for &#x60;medium&#x60;. &#x60;reasoningLevel&#x60; wins when both are set..</param>
         /// <param name="reasoningLevel">Depth of extended thinking for the round; providers clamp it to what the model accepts..</param>
         /// <param name="prompt">prompt.</param>
-        public AiActionArgs(List<AiMCPItem> tools = default, bool isReasoning = default, AiReasoningLevel? reasoningLevel = default, AiActionArgsPrompt prompt = default)
+        /// <param name="toolInstructions">Usage notes of the MCP servers the caller holds the connection to, keyed by server type; folded into the system prompt as advisory text..</param>
+        /// <param name="contextRooms">Instructions rooms connected to the chat as context, each with the skills the round may use..</param>
+        /// <param name="knowledgeRooms">Knowledge rooms connected to the chat; the knowledge search tool of the round is limited to them. Each &#x60;id&#x60; has to be a DocSpace room id..</param>
+        /// <param name="knowledgeRoom">A single knowledge room, as an older client sends it. Read only when &#x60;knowledgeRooms&#x60; is absent; send &#x60;knowledgeRooms&#x60; instead..</param>
+        /// <param name="folderContext">The folder connected to the chat as the round&#39;s context. It becomes the location the model is told the user works in, and the entry the round is attributed to..</param>
+        /// <param name="entityId">The entry the round is attributed to. A hint, resolved against the caller&#39;s own access..</param>
+        public AiActionArgs(List<AiMCPItem> tools = default, bool isReasoning = default, AiReasoningLevel? reasoningLevel = default, AiActionArgsPrompt prompt = default, Dictionary<string, string> toolInstructions = default, List<AiContextRoomRef> contextRooms = default, List<AiKnowledgeRoomRef> knowledgeRooms = default, AiKnowledgeRoomRef knowledgeRoom = default, AiFolderContextRef folderContext = default, string entityId = default)
         {
             this.Tools = tools;
             this.IsReasoning = isReasoning;
             this.ReasoningLevel = reasoningLevel;
             this.Prompt = prompt;
+            this.ToolInstructions = toolInstructions;
+            this.ContextRooms = contextRooms;
+            this.KnowledgeRooms = knowledgeRooms;
+            this.KnowledgeRoom = knowledgeRoom;
+            this.FolderContext = folderContext;
+            this.EntityId = entityId;
         }
 
         /// <summary>
@@ -80,6 +92,43 @@ namespace DocSpace.API.SDK.Model
         public AiActionArgsPrompt Prompt { get; set; }
 
         /// <summary>
+        /// Usage notes of the MCP servers the caller holds the connection to, keyed by server type; folded into the system prompt as advisory text.
+        /// </summary>
+        [DataMember(Name = "toolInstructions", EmitDefaultValue = false)]
+        public Dictionary<string, string> ToolInstructions { get; set; }
+
+        /// <summary>
+        /// Instructions rooms connected to the chat as context, each with the skills the round may use.
+        /// </summary>
+        [DataMember(Name = "contextRooms", EmitDefaultValue = false)]
+        public List<AiContextRoomRef> ContextRooms { get; set; }
+
+        /// <summary>
+        /// Knowledge rooms connected to the chat; the knowledge search tool of the round is limited to them. Each &#x60;id&#x60; has to be a DocSpace room id.
+        /// </summary>
+        [DataMember(Name = "knowledgeRooms", EmitDefaultValue = false)]
+        public List<AiKnowledgeRoomRef> KnowledgeRooms { get; set; }
+
+        /// <summary>
+        /// A single knowledge room, as an older client sends it. Read only when &#x60;knowledgeRooms&#x60; is absent; send &#x60;knowledgeRooms&#x60; instead.
+        /// </summary>
+        [DataMember(Name = "knowledgeRoom", EmitDefaultValue = false)]
+        [Obsolete]
+        public AiKnowledgeRoomRef KnowledgeRoom { get; set; }
+
+        /// <summary>
+        /// The folder connected to the chat as the round&#39;s context. It becomes the location the model is told the user works in, and the entry the round is attributed to.
+        /// </summary>
+        [DataMember(Name = "folderContext", EmitDefaultValue = false)]
+        public AiFolderContextRef FolderContext { get; set; }
+
+        /// <summary>
+        /// The entry the round is attributed to. A hint, resolved against the caller&#39;s own access.
+        /// </summary>
+        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        public string EntityId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +140,12 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  IsReasoning: ").Append(IsReasoning).Append("\n");
             sb.Append("  ReasoningLevel: ").Append(ReasoningLevel).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
+            sb.Append("  ToolInstructions: ").Append(ToolInstructions).Append("\n");
+            sb.Append("  ContextRooms: ").Append(ContextRooms).Append("\n");
+            sb.Append("  KnowledgeRooms: ").Append(KnowledgeRooms).Append("\n");
+            sb.Append("  KnowledgeRoom: ").Append(KnowledgeRoom).Append("\n");
+            sb.Append("  FolderContext: ").Append(FolderContext).Append("\n");
+            sb.Append("  EntityId: ").Append(EntityId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

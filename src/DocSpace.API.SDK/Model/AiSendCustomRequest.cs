@@ -49,8 +49,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isStream">Stream the reply (ndjson) when true, else return a single message. (required).</param>
         /// <param name="systemPrompt">Caller-supplied system prompt for this one-turn call. (required).</param>
         /// <param name="userMessage">userMessage (required).</param>
-        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
-        public AiSendCustomRequest(bool isStream = default, string systemPrompt = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default)
+        /// <param name="actionArgs">Per-request options of the round: extra tools, reasoning, a prompt override and the connected context..</param>
+        /// <param name="profileId">Profile to run this call on. When omitted, or when no profile has this id, the &#x60;Default&#x60; assignment is used..</param>
+        public AiSendCustomRequest(bool isStream = default, string systemPrompt = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default, string profileId = default)
         {
             this.IsStream = isStream;
             // to ensure "systemPrompt" is required (not null)
@@ -66,6 +67,7 @@ namespace DocSpace.API.SDK.Model
             }
             this.UserMessage = userMessage;
             this.ActionArgs = actionArgs;
+            this.ProfileId = profileId;
         }
 
         /// <summary>
@@ -87,10 +89,16 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Per-request engine options: extra tools, reasoning, prompt override.
+        /// Per-request options of the round: extra tools, reasoning, a prompt override and the connected context.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiActionArgs ActionArgs { get; set; }
+
+        /// <summary>
+        /// Profile to run this call on. When omitted, or when no profile has this id, the &#x60;Default&#x60; assignment is used.
+        /// </summary>
+        [DataMember(Name = "profileId", EmitDefaultValue = false)]
+        public string ProfileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,6 +112,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  SystemPrompt: ").Append(SystemPrompt).Append("\n");
             sb.Append("  UserMessage: ").Append(UserMessage).Append("\n");
             sb.Append("  ActionArgs: ").Append(ActionArgs).Append("\n");
+            sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

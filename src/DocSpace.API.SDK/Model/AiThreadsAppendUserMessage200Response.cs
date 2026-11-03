@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiThreadsAppendUserMessage200Response" /> class.
         /// </summary>
-        /// <param name="messageId">Identifier of the message that was appended to the thread. (required).</param>
-        public AiThreadsAppendUserMessage200Response(string messageId = default)
+        /// <param name="messageId">The stored message itself - with its storage-assigned &#x60;id&#x60; and &#x60;createdAt&#x60; - despite the field name, which is kept for the clients that already read it. The message ID is &#x60;messageId.id&#x60;. (required).</param>
+        public AiThreadsAppendUserMessage200Response(AiThreadMessageLike messageId = default)
         {
             // to ensure "messageId" is required (not null)
             if (messageId == null)
@@ -58,11 +58,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Identifier of the message that was appended to the thread.
+        /// The stored message itself - with its storage-assigned &#x60;id&#x60; and &#x60;createdAt&#x60; - despite the field name, which is kept for the clients that already read it. The message ID is &#x60;messageId.id&#x60;.
         /// </summary>
-        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "messageId", IsRequired = true, EmitDefaultValue = true)]
-        public string MessageId { get; set; }
+        public AiThreadMessageLike MessageId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

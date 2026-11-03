@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Input for creating a prompt — the engine generates &#x60;id&#x60;/&#x60;createdAt&#x60;/&#x60;updatedAt&#x60;.
+    /// Input for creating a prompt; the service fills in &#x60;id&#x60;, &#x60;createdAt&#x60; and &#x60;updatedAt&#x60;.
     /// </summary>
     [DataContract(Name = "AiCreatePromptInput")]
     public partial class AiCreatePromptInput : IValidatableObject

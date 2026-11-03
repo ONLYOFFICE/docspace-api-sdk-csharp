@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Per-entry error reported by &#x60;PromptsEngine.importBundle&#x60;.
+    /// One refused entry of a prompt bundle import.
     /// </summary>
     [DataContract(Name = "AiImportError")]
     public partial class AiImportError : IValidatableObject

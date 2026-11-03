@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of &#x60;AssignmentsEngine.assign&#x60; / &#x60;AssignmentsEngine.unassign&#x60;. Either a success or a field-scoped error suitable for displaying in the profile editor.
+    /// The outcome of an assign or unassign: a success, or an error naming the field that was refused.
     /// </summary>
     [DataContract(Name = "AiAssignmentMutationResult")]
     public partial class AiAssignmentMutationResult : IValidatableObject

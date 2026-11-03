@@ -109,8 +109,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="entityId">The DocSpace folder the request names. For a chat it is the AI project the chat runs in, and is omitted outside a project; the settings operations accept it for the room the client is in, which has to be one the caller can open, but their data is kept per user and portal, not per room. (optional)</param>
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Dictionary&lt;string, string&gt;</returns>
-        Dictionary<string, string> AiAssignmentsGetAllAssignments(string? entityId = default, string? expand = default);
+        /// <returns>AiAssignmentsGetAllAssignments200Response</returns>
+        AiAssignmentsGetAllAssignments200Response AiAssignmentsGetAllAssignments(string? entityId = default, string? expand = default);
 
         /// <summary>
         /// Get all assignments
@@ -122,8 +122,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="entityId">The DocSpace folder the request names. For a chat it is the AI project the chat runs in, and is omitted outside a project; the settings operations accept it for the room the client is in, which has to be one the caller can open, but their data is kept per user and portal, not per room. (optional)</param>
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
-        ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default, string? expand = default);
+        /// <returns>ApiResponse of AiAssignmentsGetAllAssignments200Response</returns>
+        ApiResponse<AiAssignmentsGetAllAssignments200Response> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default, string? expand = default);
         /// <summary>
         /// Get assignment
         /// </summary>
@@ -315,8 +315,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
-        Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiAssignmentsGetAllAssignments200Response</returns>
+        Task<AiAssignmentsGetAllAssignments200Response> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get all assignments
@@ -329,8 +329,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiAssignmentsGetAllAssignments200Response)</returns>
+        Task<ApiResponse<AiAssignmentsGetAllAssignments200Response>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get assignment
         /// </summary>
@@ -1122,8 +1122,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="entityId">The DocSpace folder the request names. For a chat it is the AI project the chat runs in, and is omitted outside a project; the settings operations accept it for the room the client is in, which has to be one the caller can open, but their data is kept per user and portal, not per room. (optional)</param>
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Dictionary&lt;string, string&gt;</returns>
-        public Dictionary<string, string> AiAssignmentsGetAllAssignments(string? entityId = default, string? expand = default)
+        /// <returns>AiAssignmentsGetAllAssignments200Response</returns>
+        public AiAssignmentsGetAllAssignments200Response AiAssignmentsGetAllAssignments(string? entityId = default, string? expand = default)
         {
             var localVarResponse = AiAssignmentsGetAllAssignmentsWithHttpInfo(entityId, expand);
             return localVarResponse.Data;
@@ -1139,8 +1139,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="entityId">The DocSpace folder the request names. For a chat it is the AI project the chat runs in, and is omitted outside a project; the settings operations accept it for the room the client is in, which has to be one the caller can open, but their data is kept per user and portal, not per room. (optional)</param>
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
-        public ApiResponse<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default, string? expand = default)
+        /// <returns>ApiResponse of AiAssignmentsGetAllAssignments200Response</returns>
+        public ApiResponse<AiAssignmentsGetAllAssignments200Response> AiAssignmentsGetAllAssignmentsWithHttpInfo(string? entityId = default, string? expand = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1178,7 +1178,7 @@ namespace DocSpace.API.SDK.Api.AI
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<Dictionary<string, string>>("/api/2.0/ai/assignments/get-all-assignments", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiAssignmentsGetAllAssignments200Response>("/api/2.0/ai/assignments/get-all-assignments", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1203,8 +1203,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
-        public async Task<Dictionary<string, string>> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiAssignmentsGetAllAssignments200Response</returns>
+        public async Task<AiAssignmentsGetAllAssignments200Response> AiAssignmentsGetAllAssignmentsAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(entityId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1221,8 +1221,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="expand">Set to profile to answer the assigned profiles themselves instead of their IDs: `{ assignments, profilesTotal, chatProfilesTotal }`. Omit for the plain ID map. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/">REST API Reference for AiAssignmentsGetAllAssignments Operation</seealso>
-        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, string>>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiAssignmentsGetAllAssignments200Response)</returns>
+        public async Task<ApiResponse<AiAssignmentsGetAllAssignments200Response>> AiAssignmentsGetAllAssignmentsWithHttpInfoAsync(string? entityId = default, string? expand = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1262,7 +1262,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<Dictionary<string, string>>("/api/2.0/ai/assignments/get-all-assignments", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiAssignmentsGetAllAssignments200Response>("/api/2.0/ai/assignments/get-all-assignments", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

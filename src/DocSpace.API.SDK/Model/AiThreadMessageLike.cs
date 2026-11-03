@@ -82,8 +82,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="content">content (required).</param>
         /// <param name="createdAt">Creation timestamp, ISO-8601 on the wire..</param>
         /// <param name="status">status.</param>
-        /// <param name="metadata">Arbitrary per-message metadata..</param>
-        /// <param name="attachments">Attachments linked to the message..</param>
+        /// <param name="metadata">Per-message metadata. The chat library writes &#x60;custom&#x60; (with the round&#39;s &#x60;contextEntityId&#x60;) and &#x60;steps&#x60; (token usage per provider request); &#x60;unstable_state&#x60;, &#x60;unstable_annotations&#x60;, &#x60;unstable_data&#x60; and &#x60;submittedFeedback&#x60; may appear as well. Read it as an open map..</param>
+        /// <param name="attachments">Attachments linked to the message (&#x60;id&#x60;, &#x60;type&#x60;, &#x60;name&#x60;, &#x60;contentType&#x60;, &#x60;status&#x60;, &#x60;content&#x60;). Read them as open objects..</param>
         public AiThreadMessageLike(string id = default, RoleEnum role = default, AiThreadMessageLikeContent content = default, string createdAt = default, AiThreadMessageLikeStatus status = default, Object metadata = default, List<Object> attachments = default)
         {
             this.Role = role;
@@ -127,14 +127,14 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLikeStatus Status { get; set; }
 
         /// <summary>
-        /// Arbitrary per-message metadata.
+        /// Per-message metadata. The chat library writes &#x60;custom&#x60; (with the round&#39;s &#x60;contextEntityId&#x60;) and &#x60;steps&#x60; (token usage per provider request); &#x60;unstable_state&#x60;, &#x60;unstable_annotations&#x60;, &#x60;unstable_data&#x60; and &#x60;submittedFeedback&#x60; may appear as well. Read it as an open map.
         /// </summary>
         /// <example>{}</example>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Object Metadata { get; set; }
 
         /// <summary>
-        /// Attachments linked to the message.
+        /// Attachments linked to the message (&#x60;id&#x60;, &#x60;type&#x60;, &#x60;name&#x60;, &#x60;contentType&#x60;, &#x60;status&#x60;, &#x60;content&#x60;). Read them as open objects.
         /// </summary>
         /// <example>["55555555-5555-5555-5555-555555555555"]</example>
         [DataMember(Name = "attachments", EmitDefaultValue = false)]

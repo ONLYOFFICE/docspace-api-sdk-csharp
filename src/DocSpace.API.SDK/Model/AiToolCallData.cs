@@ -49,11 +49,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="threadId">Thread the assistant message belongs to. (required).</param>
         /// <param name="messageId">Storage id of the assistant message holding the tool call. (required).</param>
         /// <param name="idx">Index of the tool-call content part inside &#x60;message.content&#x60;. (required).</param>
-        /// <param name="message">Snapshot of the assistant message at the time the tool call surfaced. Optional and ignored: the engine resumes from the stored message, and the copy inflated the body past the parser limit (Bug 84608)..</param>
-        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="message">A copy of the assistant message as it was when the tool call surfaced. Optional and ignored: the round resumes from the stored message. Leave it out - a long conversation&#39;s copy can push the body past the size limit..</param>
+        /// <param name="actionArgs">Per-request options of the round: extra tools, reasoning, a prompt override and the connected context..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
+        /// <param name="contextEntityId">The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted..</param>
         /// <param name="profileId">Session-level profile override for this request only..</param>
-        public AiToolCallData(string threadId = default, string messageId = default, decimal idx = default, AiThreadMessageLike message = default, AiActionArgs actionArgs = default, string entityId = default, string profileId = default)
+        public AiToolCallData(string threadId = default, string messageId = default, decimal idx = default, AiThreadMessageLike message = default, AiActionArgs actionArgs = default, string entityId = default, string contextEntityId = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
             if (threadId == null)
@@ -71,6 +72,7 @@ namespace DocSpace.API.SDK.Model
             this.Message = message;
             this.ActionArgs = actionArgs;
             this.EntityId = entityId;
+            this.ContextEntityId = contextEntityId;
             this.ProfileId = profileId;
         }
 
@@ -96,14 +98,14 @@ namespace DocSpace.API.SDK.Model
         public decimal Idx { get; set; }
 
         /// <summary>
-        /// Snapshot of the assistant message at the time the tool call surfaced. Optional and ignored: the engine resumes from the stored message, and the copy inflated the body past the parser limit (Bug 84608).
+        /// A copy of the assistant message as it was when the tool call surfaced. Optional and ignored: the round resumes from the stored message. Leave it out - a long conversation&#39;s copy can push the body past the size limit.
         /// </summary>
         /// <example>{"role":"assistant","content":""}</example>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public AiThreadMessageLike Message { get; set; }
 
         /// <summary>
-        /// Per-request engine options: extra tools, reasoning, prompt override.
+        /// Per-request options of the round: extra tools, reasoning, a prompt override and the connected context.
         /// </summary>
         /// <example>{"isReasoning":false}</example>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
@@ -115,6 +117,12 @@ namespace DocSpace.API.SDK.Model
         /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
+
+        /// <summary>
+        /// The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted.
+        /// </summary>
+        [DataMember(Name = "contextEntityId", EmitDefaultValue = false)]
+        public string ContextEntityId { get; set; }
 
         /// <summary>
         /// Session-level profile override for this request only.
@@ -137,6 +145,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ActionArgs: ").Append(ActionArgs).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  ContextEntityId: ").Append(ContextEntityId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

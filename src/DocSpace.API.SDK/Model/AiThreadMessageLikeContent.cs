@@ -33,7 +33,7 @@ using System.Reflection;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Message content: either plain text or a list of typed content parts (text, image, tool-call, …). Parts are open-ended by content type.
+    /// Message content: either plain text or a list of typed content parts. One part schema lists every field of every part kind of the &#x60;@assistant-ui/react&#x60; 0.11 &#x60;ThreadMessageLike&#x60; union (text, reasoning, source, image, file, audio, data, tool-call) plus what the chat library adds itself (&#x60;name&#x60; on an image part, &#x60;metadata&#x60; on a tool-call part), so a strict client can read any stored part; each field says which kinds carry it.
     /// </summary>
     [JsonConverter(typeof(AiThreadMessageLikeContentJsonConverter))]
     [DataContract(Name = "AiThreadMessageLike_content")]

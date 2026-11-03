@@ -11,9 +11,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="aicontextgetcontextfolders"></a>
 # **AiContextGetContextFolders**
-> AiSuccessResponse AiContextGetContextFolders ()
+> List&lt;AiContextFolder&gt; AiContextGetContextFolders ()
 
-
+Lists the Instructions rooms the caller can connect to a chat as context, grouped under the account they belong to (`docspace` for this portal). Only a room the caller can read that holds at least one skill is listed: one without skills would connect nothing. An empty list means there is nothing to connect. At most 1000 Instructions rooms are read; any beyond them are left out without a signal. Read the skills of one room with `GET api/2.0/ai/context/get-room-skills`. This is a read-only operation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-context-get-context-folders/).
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+[**List&lt;AiContextFolder&gt;**](AiContextFolder.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ namespace Example
             try
             {
                 // Get context folders
-                AiSuccessResponse result = apiInstance.AiContextGetContextFolders();
+                List<AiContextFolder> result = apiInstance.AiContextGetContextFolders();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -80,7 +80,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get context folders
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiContextGetContextFoldersWithHttpInfo();
+    ApiResponse<List<AiContextFolder>> response = apiInstance.AiContextGetContextFoldersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -102,7 +102,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The Instructions rooms the caller can connect, grouped by account. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -111,9 +111,9 @@ catch (ApiException e)
 
 <a id="aicontextgetknowledgefolders"></a>
 # **AiContextGetKnowledgeFolders**
-> AiSuccessResponse AiContextGetKnowledgeFolders ()
+> List&lt;AiContextFolder&gt; AiContextGetKnowledgeFolders ()
 
-
+Lists the Knowledge rooms the caller can connect to a chat as its knowledge base, grouped under the account they belong to (`docspace` for this portal). A connected Knowledge room limits the knowledge search of a round to it (`actionArgs.knowledgeRooms`). An empty list means there is none the caller can read. At most 1000 Knowledge rooms are listed; any beyond them are left out without a signal. This is a read-only operation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-context-get-knowledge-folders/).
 
@@ -121,7 +121,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+[**List&lt;AiContextFolder&gt;**](AiContextFolder.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ namespace Example
             try
             {
                 // Get knowledge folders
-                AiSuccessResponse result = apiInstance.AiContextGetKnowledgeFolders();
+                List<AiContextFolder> result = apiInstance.AiContextGetKnowledgeFolders();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -180,7 +180,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get knowledge folders
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiContextGetKnowledgeFoldersWithHttpInfo();
+    ApiResponse<List<AiContextFolder>> response = apiInstance.AiContextGetKnowledgeFoldersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -202,7 +202,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The Knowledge rooms the caller can connect, grouped by account. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -211,9 +211,9 @@ catch (ApiException e)
 
 <a id="aicontextgetroomskill"></a>
 # **AiContextGetRoomSkill**
-> AiSuccessResponse AiContextGetRoomSkill (string cloud, string roomId, string skillId)
+> string AiContextGetRoomSkill (string roomId, string skillId, string? cloud = null)
 
-
+Returns the Markdown file of one skill of an Instructions room as a JSON string. `roomId` and `skillId` are required, and the skill has to be one of that room's skills: the ID of any other file, readable or not, answers 404, as does a room that is not an Instructions room the caller can read. Only the first 256 KiB of the file are read, which covers the 64 K characters a chat passes to the model; a longer file comes back cut there without a signal. This is a read-only operation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-context-get-room-skill/).
 
@@ -221,13 +221,13 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **cloud** | **string** |  |  |
-| **roomId** | **string** |  |  |
-| **skillId** | **string** |  |  |
+| **roomId** | **string** | The Instructions room identifier. |  |
+| **skillId** | **string** | The skill identifier, as `GET api/2.0/ai/context/get-room-skills` lists it. |  |
+| **cloud** | **string?** | The account the room belongs to. Only `docspace`, this portal, exists, and the value is not read; omit it. | [optional]  |
 
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+**string**
 
 ### Authorization
 
@@ -261,14 +261,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ContextApi(httpClient, config, httpClientHandler);
-            var cloud = "cloud_example";  // string | 
-            var roomId = "roomId_example";  // string | 
-            var skillId = "skillId_example";  // string | 
+            var roomId = "roomId_example";  // string | The Instructions room identifier.
+            var skillId = "skillId_example";  // string | The skill identifier, as `GET api/2.0/ai/context/get-room-skills` lists it.
+            var cloud = "cloud_example";  // string? | The account the room belongs to. Only `docspace`, this portal, exists, and the value is not read; omit it. (optional) 
 
             try
             {
                 // Get room skill
-                AiSuccessResponse result = apiInstance.AiContextGetRoomSkill(cloud, roomId, skillId);
+                string result = apiInstance.AiContextGetRoomSkill(roomId, skillId, cloud);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -289,7 +289,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get room skill
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiContextGetRoomSkillWithHttpInfo(cloud, roomId, skillId);
+    ApiResponse<string> response = apiInstance.AiContextGetRoomSkillWithHttpInfo(roomId, skillId, cloud);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -311,18 +311,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The skill's Markdown file as a JSON string, its first 256 KiB. |  -  |
+| **400** | `roomId` or `skillId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The room is not an Instructions room the caller can read, or `skillId` is not one of its skills. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aicontextgetroomskills"></a>
 # **AiContextGetRoomSkills**
-> AiSuccessResponse AiContextGetRoomSkills (string cloud, string roomId)
+> List&lt;AiRoomSkill&gt; AiContextGetRoomSkills (string roomId, string? cloud = null)
 
-
+Lists the skills of one Instructions room: the ID, name and description from the frontmatter of each skill file, not its body. `roomId` is required; `cloud` is accepted and not read. A room that is not an Instructions room the caller can read answers 404. Read the body of one skill with `GET api/2.0/ai/context/get-room-skill`. This is a read-only operation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-context-get-room-skills/).
 
@@ -330,12 +332,12 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **cloud** | **string** |  |  |
-| **roomId** | **string** |  |  |
+| **roomId** | **string** | The Instructions room identifier. |  |
+| **cloud** | **string?** | The account the room belongs to. Only `docspace`, this portal, exists, and the value is not read; omit it. | [optional]  |
 
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+[**List&lt;AiRoomSkill&gt;**](AiRoomSkill.md)
 
 ### Authorization
 
@@ -369,13 +371,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ContextApi(httpClient, config, httpClientHandler);
-            var cloud = "cloud_example";  // string | 
-            var roomId = "roomId_example";  // string | 
+            var roomId = "roomId_example";  // string | The Instructions room identifier.
+            var cloud = "cloud_example";  // string? | The account the room belongs to. Only `docspace`, this portal, exists, and the value is not read; omit it. (optional) 
 
             try
             {
                 // Get room skills
-                AiSuccessResponse result = apiInstance.AiContextGetRoomSkills(cloud, roomId);
+                List<AiRoomSkill> result = apiInstance.AiContextGetRoomSkills(roomId, cloud);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -396,7 +398,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get room skills
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiContextGetRoomSkillsWithHttpInfo(cloud, roomId);
+    ApiResponse<List<AiRoomSkill>> response = apiInstance.AiContextGetRoomSkillsWithHttpInfo(roomId, cloud);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -418,9 +420,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The skills of the room, frontmatter only. |  -  |
+| **400** | `roomId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The room is not an Instructions room the caller can read. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

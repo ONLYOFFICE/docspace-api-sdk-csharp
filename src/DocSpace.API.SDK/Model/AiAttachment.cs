@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public KindEnum Kind { get; set; }
         /// <summary>
-        /// Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.
+        /// Where the attachment came from: &#x60;user&#x60; - attached by the user (also when unset); &#x60;tool&#x60; - produced by a tool call (for example &#x60;generate_image&#x60;).
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SourceEnum
@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.
+        /// Where the attachment came from: &#x60;user&#x60; - attached by the user (also when unset); &#x60;tool&#x60; - produced by a tool call (for example &#x60;generate_image&#x60;).
         /// </summary>
         /// <example>user</example>
         [DataMember(Name = "source", EmitDefaultValue = false)]
@@ -98,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">Storage-assigned UUID. (required).</param>
         /// <param name="kind">file | image. (required).</param>
-        /// <param name="source">Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source..</param>
+        /// <param name="source">Where the attachment came from: &#x60;user&#x60; - attached by the user (also when unset); &#x60;tool&#x60; - produced by a tool call (for example &#x60;generate_image&#x60;)..</param>
         /// <param name="title">Display label (filename or user-visible title). (required).</param>
         /// <param name="content">Extracted text for files..</param>
         /// <param name="base64">Base64 data URL for images..</param>
@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="type">ONLYOFFICE file type code (for files)..</param>
         /// <param name="messageId">Owning message id once linked. Unset while the attachment is a draft..</param>
         /// <param name="threadId">Owning thread id once linked. Unset while the attachment is a draft..</param>
-        /// <param name="entityId">Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding..</param>
+        /// <param name="entityId">The room or folder the attachment was created in, as an opaque token; once the attachment is bound to a message it repeats the thread&#39;s own scope..</param>
         /// <param name="createdAt">Storage-assigned creation timestamp. (required).</param>
         /// <param name="canAnalyze">Whether the attached form can be analyzed..</param>
         /// <param name="formKeys">Keys of the fields inside the form. &#x60;key&#x60; is the field identifier, &#x60;text&#x60; its human-readable label..</param>
@@ -194,7 +194,7 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding.
+        /// The room or folder the attachment was created in, as an opaque token; once the attachment is bound to a message it repeats the thread&#39;s own scope.
         /// </summary>
         /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]

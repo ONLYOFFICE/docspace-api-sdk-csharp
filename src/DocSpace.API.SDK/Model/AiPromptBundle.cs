@@ -37,25 +37,6 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "AiPromptBundle")]
     public partial class AiPromptBundle : IValidatableObject
     {
-        /// <summary>
-        /// The bundle format version, so an import can migrate an older export.
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum VersionEnum
-        {
-            /// <summary>
-            /// Enum _1 for value: 1
-            /// </summary>
-            [EnumMember(Value = "1")]
-            _1
-        }
-
-        /// <summary>
-        /// The bundle format version, so an import can migrate an older export.
-        /// </summary>
-        /// <example>1</example>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public VersionEnum @Version { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPromptBundle" /> class.
@@ -68,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="version">The bundle format version, so an import can migrate an older export. (required).</param>
         /// <param name="folders">Every exported prompt folder. (required).</param>
         /// <param name="prompts">Every exported prompt. (required).</param>
-        public AiPromptBundle(VersionEnum version = default, List<AiPromptFolder> folders = default, List<AiPrompt> prompts = default)
+        public AiPromptBundle(int version = default, List<AiPromptFolder> folders = default, List<AiPrompt> prompts = default)
         {
             this.@Version = version;
             // to ensure "folders" is required (not null)
@@ -84,6 +65,13 @@ namespace DocSpace.API.SDK.Model
             }
             this.Prompts = prompts;
         }
+
+        /// <summary>
+        /// The bundle format version, so an import can migrate an older export.
+        /// </summary>
+        /// <example>1</example>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        public int @Version { get; set; }
 
         /// <summary>
         /// Every exported prompt folder.
@@ -130,6 +118,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // @Version (int) maximum
+            if (this.@Version > (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for @Version, must be a value less than or equal to 1.", new [] { "@Version" });
+            }
+
+            // @Version (int) minimum
+            if (this.@Version < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for @Version, must be a value greater than or equal to 1.", new [] { "@Version" });
+            }
+
             yield break;
         }
 

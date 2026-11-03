@@ -47,10 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiRegenerateStreamRequest" /> class.
         /// </summary>
         /// <param name="threadId">Target thread (must already exist). (required).</param>
-        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="messageId">The user message to re-roll from: everything stored after it is deleted. When omitted, or no longer in the thread, the last user message is used..</param>
+        /// <param name="keepCount">How many messages from the start of the thread to keep, used when &#x60;messageId&#x60; does not resolve. The message at &#x60;keepCount - 1&#x60; has to be a user message; otherwise the value is ignored..</param>
+        /// <param name="expectedLength">The thread length the caller saw when it computed &#x60;keepCount&#x60;. When it differs from the stored length, &#x60;keepCount&#x60; is discarded and the last user message is used instead..</param>
+        /// <param name="actionArgs">Per-request options of the round: extra tools, reasoning, a prompt override and the connected context..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
+        /// <param name="contextEntityId">The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted..</param>
         /// <param name="profileId">Session-level profile override for this request only..</param>
-        public AiRegenerateStreamRequest(string threadId = default, AiActionArgs actionArgs = default, string entityId = default, string profileId = default)
+        public AiRegenerateStreamRequest(string threadId = default, string messageId = default, int keepCount = default, int expectedLength = default, AiActionArgs actionArgs = default, string entityId = default, string contextEntityId = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
             if (threadId == null)
@@ -58,8 +62,12 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("threadId is a required property for AiRegenerateStreamRequest and cannot be null");
             }
             this.ThreadId = threadId;
+            this.MessageId = messageId;
+            this.KeepCount = keepCount;
+            this.ExpectedLength = expectedLength;
             this.ActionArgs = actionArgs;
             this.EntityId = entityId;
+            this.ContextEntityId = contextEntityId;
             this.ProfileId = profileId;
         }
 
@@ -70,7 +78,25 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Per-request engine options: extra tools, reasoning, prompt override.
+        /// The user message to re-roll from: everything stored after it is deleted. When omitted, or no longer in the thread, the last user message is used.
+        /// </summary>
+        [DataMember(Name = "messageId", EmitDefaultValue = false)]
+        public string MessageId { get; set; }
+
+        /// <summary>
+        /// How many messages from the start of the thread to keep, used when &#x60;messageId&#x60; does not resolve. The message at &#x60;keepCount - 1&#x60; has to be a user message; otherwise the value is ignored.
+        /// </summary>
+        [DataMember(Name = "keepCount", EmitDefaultValue = false)]
+        public int KeepCount { get; set; }
+
+        /// <summary>
+        /// The thread length the caller saw when it computed &#x60;keepCount&#x60;. When it differs from the stored length, &#x60;keepCount&#x60; is discarded and the last user message is used instead.
+        /// </summary>
+        [DataMember(Name = "expectedLength", EmitDefaultValue = false)]
+        public int ExpectedLength { get; set; }
+
+        /// <summary>
+        /// Per-request options of the round: extra tools, reasoning, a prompt override and the connected context.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiActionArgs ActionArgs { get; set; }
@@ -80,6 +106,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
+
+        /// <summary>
+        /// The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted.
+        /// </summary>
+        [DataMember(Name = "contextEntityId", EmitDefaultValue = false)]
+        public string ContextEntityId { get; set; }
 
         /// <summary>
         /// Session-level profile override for this request only.
@@ -96,8 +128,12 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class AiRegenerateStreamRequest {\n");
             sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
+            sb.Append("  MessageId: ").Append(MessageId).Append("\n");
+            sb.Append("  KeepCount: ").Append(KeepCount).Append("\n");
+            sb.Append("  ExpectedLength: ").Append(ExpectedLength).Append("\n");
             sb.Append("  ActionArgs: ").Append(ActionArgs).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  ContextEntityId: ").Append(ContextEntityId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.AiImportMode
-Mode passed to `PromptsEngine.importBundle`.
+How an imported prompt bundle meets the library: `merge` adds to it, `replace` replaces it.
 
 ## Properties
 

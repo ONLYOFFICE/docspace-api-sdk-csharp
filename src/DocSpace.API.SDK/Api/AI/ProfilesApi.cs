@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput);
@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput);
@@ -228,7 +228,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
@@ -241,7 +241,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>
@@ -641,7 +641,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         public AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput)
@@ -657,7 +657,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         public ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput)
@@ -716,7 +716,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
@@ -733,7 +733,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an AI provider profile - the endpoint, credentials and model that a chat round runs on - and returns it. The name has to be unique, the credentials are probed against the live provider before anything is stored, and the portal's first profile also takes the `Default` assignment slot. Two inputs are refused outright: a `baseUrl` pointing at a private network address, and `providerType: external`, which delegates transport to the host application and therefore cannot work for a profile the server manages. On a portal running the AI gateway, profiles are managed centrally and this operation answers 403.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>

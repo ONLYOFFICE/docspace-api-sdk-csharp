@@ -54,9 +54,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="actionType">Which AI action to run — selects the assignment slot and action. (required).</param>
         /// <param name="userMessage">The user turn to send. (required).</param>
-        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="actionArgs">Per-request options of the round: extra tools, reasoning, a prompt override and the connected context..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
-        public AiSendRequest(AiActionType actionType = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default, string entityId = default)
+        /// <param name="contextEntityId">The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted..</param>
+        public AiSendRequest(AiActionType actionType = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default, string entityId = default, string contextEntityId = default)
         {
             this.ActionType = actionType;
             // to ensure "userMessage" is required (not null)
@@ -67,6 +68,7 @@ namespace DocSpace.API.SDK.Model
             this.UserMessage = userMessage;
             this.ActionArgs = actionArgs;
             this.EntityId = entityId;
+            this.ContextEntityId = contextEntityId;
         }
 
         /// <summary>
@@ -76,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Per-request engine options: extra tools, reasoning, prompt override.
+        /// Per-request options of the round: extra tools, reasoning, a prompt override and the connected context.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiActionArgs ActionArgs { get; set; }
@@ -86,6 +88,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
+
+        /// <summary>
+        /// The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted.
+        /// </summary>
+        [DataMember(Name = "contextEntityId", EmitDefaultValue = false)]
+        public string ContextEntityId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,6 +107,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UserMessage: ").Append(UserMessage).Append("\n");
             sb.Append("  ActionArgs: ").Append(ActionArgs).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  ContextEntityId: ").Append(ContextEntityId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

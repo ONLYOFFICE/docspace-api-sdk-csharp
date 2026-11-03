@@ -46,8 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiThreadMessageLikeStatus" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
-        public AiThreadMessageLikeStatus(string type = default)
+        /// <param name="type">&#x60;running&#x60;, &#x60;requires-action&#x60;, &#x60;complete&#x60; or &#x60;incomplete&#x60;. (required).</param>
+        /// <param name="reason">Why the message is in that state: &#x60;tool-calls&#x60; or &#x60;interrupt&#x60; for &#x60;requires-action&#x60;; &#x60;stop&#x60; or &#x60;unknown&#x60; for &#x60;complete&#x60;; &#x60;cancelled&#x60;, &#x60;tool-calls&#x60;, &#x60;length&#x60;, &#x60;content-filter&#x60;, &#x60;other&#x60; or &#x60;error&#x60; for &#x60;incomplete&#x60;. An &#x60;incomplete&#x60; message the chat stored carries &#x60;cancelled&#x60; (the round was stopped) or &#x60;error&#x60;..</param>
+        /// <param name="error">What failed, on an &#x60;incomplete&#x60; message whose &#x60;reason&#x60; is &#x60;error&#x60;..</param>
+        public AiThreadMessageLikeStatus(string type = default, string reason = default, AiChatErrorPayload error = default)
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -55,13 +57,27 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("type is a required property for AiThreadMessageLikeStatus and cannot be null");
             }
             this.Type = type;
+            this.Reason = reason;
+            this.Error = error;
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// &#x60;running&#x60;, &#x60;requires-action&#x60;, &#x60;complete&#x60; or &#x60;incomplete&#x60;.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Why the message is in that state: &#x60;tool-calls&#x60; or &#x60;interrupt&#x60; for &#x60;requires-action&#x60;; &#x60;stop&#x60; or &#x60;unknown&#x60; for &#x60;complete&#x60;; &#x60;cancelled&#x60;, &#x60;tool-calls&#x60;, &#x60;length&#x60;, &#x60;content-filter&#x60;, &#x60;other&#x60; or &#x60;error&#x60; for &#x60;incomplete&#x60;. An &#x60;incomplete&#x60; message the chat stored carries &#x60;cancelled&#x60; (the round was stopped) or &#x60;error&#x60;.
+        /// </summary>
+        [DataMember(Name = "reason", EmitDefaultValue = false)]
+        public string Reason { get; set; }
+
+        /// <summary>
+        /// What failed, on an &#x60;incomplete&#x60; message whose &#x60;reason&#x60; is &#x60;error&#x60;.
+        /// </summary>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
+        public AiChatErrorPayload Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +88,8 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class AiThreadMessageLikeStatus {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

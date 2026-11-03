@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of &#x60;WebSearchEngine.configure&#x60; — either the persisted config or a field-scoped error suitable for the settings form.
+    /// The outcome of storing a web-search configuration: the stored configuration, or an error naming the field that was refused.
     /// </summary>
     [DataContract(Name = "AiWebSearchMutationResult")]
     public partial class AiWebSearchMutationResult : IValidatableObject

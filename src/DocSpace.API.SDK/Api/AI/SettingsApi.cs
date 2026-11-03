@@ -55,23 +55,23 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiSettingsGetToolMode();
+        /// <returns>AiToolPermissionModeWrapper</returns>
+        AiToolPermissionModeWrapper AiSettingsGetToolMode();
 
         /// <summary>
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiSettingsGetToolModeWithHttpInfo();
+        /// <returns>ApiResponse of AiToolPermissionModeWrapper</returns>
+        ApiResponse<AiToolPermissionModeWrapper> AiSettingsGetToolModeWithHttpInfo();
         /// <summary>
         /// Get user AI settings
         /// </summary>
@@ -118,25 +118,25 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiSettingsSetToolMode(Dictionary<string, Object> aiSettingsSetToolModeRequest);
+        /// <returns>AiToolPermissionModeWrapper</returns>
+        AiToolPermissionModeWrapper AiSettingsSetToolMode(Dictionary<string, Object> aiSettingsSetToolModeRequest);
 
         /// <summary>
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiSettingsSetToolModeWithHttpInfo(Dictionary<string, Object> aiSettingsSetToolModeRequest);
+        /// <returns>ApiResponse of AiToolPermissionModeWrapper</returns>
+        ApiResponse<AiToolPermissionModeWrapper> AiSettingsSetToolModeWithHttpInfo(Dictionary<string, Object> aiSettingsSetToolModeRequest);
         /// <summary>
         /// Update user AI settings
         /// </summary>
@@ -219,25 +219,25 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiSettingsGetToolModeAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AiToolPermissionModeWrapper</returns>
+        Task<AiToolPermissionModeWrapper> AiSettingsGetToolModeAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiSettingsGetToolModeWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiToolPermissionModeWrapper)</returns>
+        Task<ApiResponse<AiToolPermissionModeWrapper>> AiSettingsGetToolModeWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get user AI settings
         /// </summary>
@@ -288,27 +288,27 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiSettingsSetToolModeAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiToolPermissionModeWrapper</returns>
+        Task<AiToolPermissionModeWrapper> AiSettingsSetToolModeAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiSettingsSetToolModeWithHttpInfoAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiToolPermissionModeWrapper)</returns>
+        Task<ApiResponse<AiToolPermissionModeWrapper>> AiSettingsSetToolModeWithHttpInfoAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update user AI settings
         /// </summary>
@@ -718,12 +718,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiSettingsGetToolMode()
+        /// <returns>AiToolPermissionModeWrapper</returns>
+        public AiToolPermissionModeWrapper AiSettingsGetToolMode()
         {
             var localVarResponse = AiSettingsGetToolModeWithHttpInfo();
             return localVarResponse.Data;
@@ -733,12 +733,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiSettingsGetToolModeWithHttpInfo()
+        /// <returns>ApiResponse of AiToolPermissionModeWrapper</returns>
+        public ApiResponse<AiToolPermissionModeWrapper> AiSettingsGetToolModeWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -768,7 +768,7 @@ namespace DocSpace.API.SDK.Api.AI
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiSuccessResponse>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiToolPermissionModeWrapper>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -786,13 +786,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiSettingsGetToolModeAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AiToolPermissionModeWrapper</returns>
+        public async Task<AiToolPermissionModeWrapper> AiSettingsGetToolModeAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiSettingsGetToolModeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -802,13 +802,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+        /// Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), inside the service's `response` envelope, proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/">REST API Reference for AiSettingsGetToolMode Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiSettingsGetToolModeWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiToolPermissionModeWrapper)</returns>
+        public async Task<ApiResponse<AiToolPermissionModeWrapper>> AiSettingsGetToolModeWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -840,7 +840,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiSuccessResponse>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiToolPermissionModeWrapper>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1138,13 +1138,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiSettingsSetToolMode(Dictionary<string, Object> aiSettingsSetToolModeRequest)
+        /// <returns>AiToolPermissionModeWrapper</returns>
+        public AiToolPermissionModeWrapper AiSettingsSetToolMode(Dictionary<string, Object> aiSettingsSetToolModeRequest)
         {
             var localVarResponse = AiSettingsSetToolModeWithHttpInfo(aiSettingsSetToolModeRequest);
             return localVarResponse.Data;
@@ -1154,13 +1154,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiSettingsSetToolModeWithHttpInfo(Dictionary<string, Object> aiSettingsSetToolModeRequest)
+        /// <returns>ApiResponse of AiToolPermissionModeWrapper</returns>
+        public ApiResponse<AiToolPermissionModeWrapper> AiSettingsSetToolModeWithHttpInfo(Dictionary<string, Object> aiSettingsSetToolModeRequest)
         {
             // verify the required parameter 'aiSettingsSetToolModeRequest' is set
             if (aiSettingsSetToolModeRequest == null)
@@ -1195,7 +1195,7 @@ namespace DocSpace.API.SDK.Api.AI
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Put<AiSuccessResponse>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiToolPermissionModeWrapper>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1213,14 +1213,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiSettingsSetToolModeAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiToolPermissionModeWrapper</returns>
+        public async Task<AiToolPermissionModeWrapper> AiSettingsSetToolModeAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiSettingsSetToolModeWithHttpInfoAsync(aiSettingsSetToolModeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1230,14 +1230,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set the tool permission mode
         /// </summary>
         /// <remarks>
-        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+        /// Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum with 400; the answer is the stored mode inside the service's `response` envelope. The mode applies to every chat of the user in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiSettingsSetToolModeRequest">`{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/">REST API Reference for AiSettingsSetToolMode Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiSettingsSetToolModeWithHttpInfoAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiToolPermissionModeWrapper)</returns>
+        public async Task<ApiResponse<AiToolPermissionModeWrapper>> AiSettingsSetToolModeWithHttpInfoAsync(Dictionary<string, Object> aiSettingsSetToolModeRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiSettingsSetToolModeRequest' is set
             if (aiSettingsSetToolModeRequest == null)
@@ -1274,7 +1274,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<AiSuccessResponse>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiToolPermissionModeWrapper>("/api/2.0/ai/config/tool-mode", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

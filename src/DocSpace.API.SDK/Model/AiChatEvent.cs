@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Discriminated event emitted by the streaming methods of &#x60;AIEngine&#x60;. The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a &#x60;ChatEvent&#x60; so the same stream can be replayed over SSE, WebSocket, or in-process.  Pause point: &#x60;tool-call-pending&#x60; is the only stop. The UI must execute the tool itself (consulting &#x60;autoAllow&#x60; to decide between the silent path and the approve dialog) and resume via &#x60;AIEngine.approveToolCall&#x60; or &#x60;AIEngine.denyToolCall&#x60;.  Other variants are pure data:  - &#x60;message-start&#x60; / &#x60;message-delta&#x60; / &#x60;message-end&#x60; — assistant reply lifecycle. - &#x60;message-incomplete&#x60; — the provider returned an error or incomplete status. - &#x60;thread-title&#x60; — auto-generated title ready for a new thread.
+    /// One event of a chat stream, told apart by &#x60;type&#x60;: &#x60;message-start&#x60;, &#x60;message-delta&#x60; and &#x60;message-end&#x60; frame the assistant reply, &#x60;message-incomplete&#x60; reports a provider error or an unfinished answer, &#x60;thread-title&#x60; carries a generated title, and &#x60;tool-call-pending&#x60; pauses the round until the call is approved (&#x60;POST api/2.0/ai/ai/approve-tool-call&#x60;) or denied (&#x60;POST api/2.0/ai/ai/deny-tool-call&#x60;).
     /// </summary>
     [DataContract(Name = "AiChatEvent")]
     public partial class AiChatEvent : IValidatableObject
@@ -106,8 +106,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="messageId">The storage identifier of that message..</param>
         /// <param name="idx">The zero-based position of the pending tool call within the message..</param>
         /// <param name="threadId">The thread the event belongs to..</param>
-        /// <param name="autoAllow">The consumer should execute the tool without prompting the user. Decided by the tool permission mode (&#x60;resolveAutoAllow&#x60;): under ask never; under auto a tool in the persisted always-allow list or one that opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this); under allow every tool. For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip..</param>
-        /// <param name="serverExecuted">Set when the tool is served by a server-side system source: the consumer must NOT execute it locally — only show the approval UI (unless &#x60;autoAllow&#x60;) and resume via &#x60;approveToolCall&#x60; (no &#x60;result&#x60; needed) / &#x60;denyToolCall&#x60;. The engine runs it in-engine..</param>
+        /// <param name="autoAllow">The tool runs without asking the user, as the user&#39;s tool permission mode decides: under &#x60;ask&#x60; never - the always-allow list, &#x60;requireApproval&#x60; and the annotations are all ignored; under &#x60;auto&#x60; a tool on the always-allow list, one with &#x60;requireApproval: false&#x60;, or one annotated &#x60;readOnlyHint: true&#x60; or &#x60;destructiveHint: false&#x60;; under &#x60;allow&#x60; every tool..</param>
+        /// <param name="serverExecuted">The tool is run by the service itself: the client must not run it, only ask for approval (unless &#x60;autoAllow&#x60;) and approve or deny the call - an approval needs no &#x60;result&#x60;..</param>
         /// <param name="title">The generated thread title..</param>
         /// <param name="profileId">The profile that generated the title, when one was used..</param>
         public AiChatEvent(TypeEnum type = default, AiThreadMessageLike message = default, string messageId = default, decimal idx = default, string threadId = default, bool autoAllow = default, bool serverExecuted = default, string title = default, string profileId = default)
@@ -150,13 +150,13 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// The consumer should execute the tool without prompting the user. Decided by the tool permission mode (&#x60;resolveAutoAllow&#x60;): under ask never; under auto a tool in the persisted always-allow list or one that opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this); under allow every tool. For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip.
+        /// The tool runs without asking the user, as the user&#39;s tool permission mode decides: under &#x60;ask&#x60; never - the always-allow list, &#x60;requireApproval&#x60; and the annotations are all ignored; under &#x60;auto&#x60; a tool on the always-allow list, one with &#x60;requireApproval: false&#x60;, or one annotated &#x60;readOnlyHint: true&#x60; or &#x60;destructiveHint: false&#x60;; under &#x60;allow&#x60; every tool.
         /// </summary>
         [DataMember(Name = "autoAllow", EmitDefaultValue = true)]
         public bool AutoAllow { get; set; }
 
         /// <summary>
-        /// Set when the tool is served by a server-side system source: the consumer must NOT execute it locally — only show the approval UI (unless &#x60;autoAllow&#x60;) and resume via &#x60;approveToolCall&#x60; (no &#x60;result&#x60; needed) / &#x60;denyToolCall&#x60;. The engine runs it in-engine.
+        /// The tool is run by the service itself: the client must not run it, only ask for approval (unless &#x60;autoAllow&#x60;) and approve or deny the call - an approval needs no &#x60;result&#x60;.
         /// </summary>
         [DataMember(Name = "serverExecuted", EmitDefaultValue = true)]
         public bool ServerExecuted { get; set; }

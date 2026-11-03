@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiCreateProfileInput** | [**AiCreateProfileInput**](AiCreateProfileInput.md) | Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`). |  |
+| **aiCreateProfileInput** | [**AiCreateProfileInput**](AiCreateProfileInput.md) | Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`). |  |
 
 ### Return type
 
@@ -63,7 +63,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var aiCreateProfileInput = new AiCreateProfileInput(); // AiCreateProfileInput | Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).
+            var aiCreateProfileInput = new AiCreateProfileInput(); // AiCreateProfileInput | Input for creating a new profile: the shape of a profile without the fields the service fills in (`id`, `createdAt`).
 
             try
             {

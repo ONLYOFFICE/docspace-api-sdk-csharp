@@ -336,7 +336,7 @@ catch (ApiException e)
 
 <a id="aiassignmentsgetallassignments"></a>
 # **AiAssignmentsGetAllAssignments**
-> Dictionary&lt;string, string&gt; AiAssignmentsGetAllAssignments (string? entityId = null, string? expand = null)
+> AiAssignmentsGetAllAssignments200Response AiAssignmentsGetAllAssignments (string? entityId = null, string? expand = null)
 
 Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId`, when sent, has to name a room the caller can open; the bindings are portal-wide, so the answer is the same set with or without it. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others. With `expand=profile` the answer is `{ assignments, profilesTotal, chatProfilesTotal }`: the assigned profiles themselves (as `GET api/2.0/ai/profiles/list` describes them) keyed by action, a binding whose profile no longer exists left out, plus how many profiles the portal has and how many of them can chat; this is the one read a chat needs to start.
 
@@ -351,7 +351,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-**Dictionary<string, string>**
+[**AiAssignmentsGetAllAssignments200Response**](AiAssignmentsGetAllAssignments200Response.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ namespace Example
             try
             {
                 // Get all assignments
-                Dictionary<string, string> result = apiInstance.AiAssignmentsGetAllAssignments(entityId, expand);
+                AiAssignmentsGetAllAssignments200Response result = apiInstance.AiAssignmentsGetAllAssignments(entityId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -412,7 +412,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get all assignments
-    ApiResponse<Dictionary<string, string>> response = apiInstance.AiAssignmentsGetAllAssignmentsWithHttpInfo(entityId, expand);
+    ApiResponse<AiAssignmentsGetAllAssignments200Response> response = apiInstance.AiAssignmentsGetAllAssignmentsWithHttpInfo(entityId, expand);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

@@ -48,10 +48,11 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="threadId">Target thread; a new one is created (with an auto title) when omitted..</param>
         /// <param name="userMessage">The user turn to send. (required).</param>
-        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="actionArgs">Per-request options of the round: extra tools, reasoning, a prompt override and the connected context..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
+        /// <param name="contextEntityId">The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted..</param>
         /// <param name="profileId">Session-level profile override for this request only..</param>
-        public AiSendStreamBody(string threadId = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default, string entityId = default, string profileId = default)
+        public AiSendStreamBody(string threadId = default, AiThreadMessageLike userMessage = default, AiActionArgs actionArgs = default, string entityId = default, string contextEntityId = default, string profileId = default)
         {
             // to ensure "userMessage" is required (not null)
             if (userMessage == null)
@@ -62,6 +63,7 @@ namespace DocSpace.API.SDK.Model
             this.ThreadId = threadId;
             this.ActionArgs = actionArgs;
             this.EntityId = entityId;
+            this.ContextEntityId = contextEntityId;
             this.ProfileId = profileId;
         }
 
@@ -80,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Per-request engine options: extra tools, reasoning, prompt override.
+        /// Per-request options of the round: extra tools, reasoning, a prompt override and the connected context.
         /// </summary>
         /// <example>{"isReasoning":false}</example>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
@@ -92,6 +94,12 @@ namespace DocSpace.API.SDK.Model
         /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
+
+        /// <summary>
+        /// The folder or room the user is in. Tools run against it and the model is told it is the user&#39;s location; falls back to &#x60;entityId&#x60; when omitted.
+        /// </summary>
+        [DataMember(Name = "contextEntityId", EmitDefaultValue = false)]
+        public string ContextEntityId { get; set; }
 
         /// <summary>
         /// Session-level profile override for this request only.
@@ -112,6 +120,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UserMessage: ").Append(UserMessage).Append("\n");
             sb.Append("  ActionArgs: ").Append(ActionArgs).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  ContextEntityId: ").Append(ContextEntityId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

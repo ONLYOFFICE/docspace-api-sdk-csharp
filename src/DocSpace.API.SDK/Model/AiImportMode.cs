@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Mode passed to &#x60;PromptsEngine.importBundle&#x60;.
+    /// How an imported prompt bundle meets the library: &#x60;merge&#x60; adds to it, &#x60;replace&#x60; replaces it.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AiImportMode

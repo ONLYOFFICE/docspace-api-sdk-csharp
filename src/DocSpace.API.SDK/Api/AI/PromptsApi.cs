@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>AiPromptMutationResult</returns>
         AiPromptMutationResult AiPromptsCreate(AiCreatePromptInput aiCreatePromptInput);
@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>ApiResponse of AiPromptMutationResult</returns>
         ApiResponse<AiPromptMutationResult> AiPromptsCreateWithHttpInfo(AiCreatePromptInput aiCreatePromptInput);
@@ -341,7 +341,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>Task of AiPromptMutationResult</returns>
@@ -354,7 +354,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptMutationResult)</returns>
@@ -877,7 +877,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>AiPromptMutationResult</returns>
         public AiPromptMutationResult AiPromptsCreate(AiCreatePromptInput aiCreatePromptInput)
@@ -893,7 +893,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>ApiResponse of AiPromptMutationResult</returns>
         public ApiResponse<AiPromptMutationResult> AiPromptsCreateWithHttpInfo(AiCreatePromptInput aiCreatePromptInput)
@@ -952,7 +952,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>Task of AiPromptMutationResult</returns>
@@ -969,7 +969,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
+        /// <param name="aiCreatePromptInput">Input for creating a prompt; the service fills in `id`, `createdAt` and `updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptMutationResult)</returns>

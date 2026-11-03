@@ -50,9 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="description">Human-readable description shown to the AI model and in the tools list UI. (required).</param>
         /// <param name="inputSchema">JSON Schema describing the tool&#39;s input parameters. (required).</param>
         /// <param name="enabled">Whether this tool is currently enabled. Disabled tools are hidden from the AI model..</param>
-        /// <param name="serverType">Server type (MCP server name / host tool group id) this tool belongs to — the key the persisted disabled map is stored under. Set by the source that enumerated the tool, so a caller-supplied tool can still be attributed to its group after being flattened into a single list: that is what lets the engine apply the disabled map to &#x60;actionArgs.tools&#x60; instead of trusting the caller to pre-filter. Wire-serializable, so it survives a remote (server-side) engine..</param>
-        /// <param name="requireApproval">Whether the consumer must show an approval dialog before this tool runs. Feeds the &#x60;autoAllow&#x60; flag on a &#x60;tool-call-pending&#x60; event together with the user&#39;s tool permission mode: &#x60;false&#x60; skips the dialog under the auto mode, the default (under ask only the persisted always-allow list does), &#x60;true&#x60; and &#x60;undefined&#x60; defer to that list; allow skips it for every tool. Host tools set it and default to &#x60;false&#x60;; MCP / custom-server tools leave it unset. Wire-serializable, so it survives a remote (server-side) engine..</param>
-        /// <param name="annotations">The MCP tool annotations as the server declared them in &#x60;tools/list&#x60; (kept verbatim on the descriptor; never sent to the model). The approval flow reads two of them under the auto permission mode: &#x60;readOnlyHint: true&#x60; and &#x60;destructiveHint: false&#x60; run without the dialog, a destructive or unannotated tool keeps asking — see &#x60;resolveAutoAllow&#x60;. Wire-serializable..</param>
+        /// <param name="serverType">The server or tool group the tool belongs to (an MCP server name or a host tool group ID): the key a disabled tool is stored under, so a tool sent in &#x60;actionArgs.tools&#x60; is still matched to its group..</param>
+        /// <param name="requireApproval">Whether the tool asks for approval before it runs, under the &#x60;auto&#x60; tool permission mode: &#x60;false&#x60; runs it without asking; &#x60;true&#x60; or absent leaves it to the always-allow list and the tool&#39;s MCP annotations (see &#x60;annotations&#x60;). Under &#x60;ask&#x60; every call asks and under &#x60;allow&#x60; none does, whatever this says. Host tools default to &#x60;false&#x60;; MCP and custom-server tools leave it unset..</param>
+        /// <param name="annotations">The MCP tool annotations as the server declared them in &#x60;tools/list&#x60;; never sent to the model. Under the &#x60;auto&#x60; tool permission mode a tool that cannot destroy anything runs without approval - one annotated &#x60;readOnlyHint: true&#x60;, or one with an explicit &#x60;destructiveHint: false&#x60;; a destructive tool, and one with no annotations (the protocol&#39;s default is destructive), keeps asking..</param>
         public AiMCPItem(string name = default, string description = default, Object inputSchema = default, bool enabled = default, string serverType = default, bool requireApproval = default, AiToolAnnotations annotations = default)
         {
             // to ensure "name" is required (not null)
@@ -108,21 +108,21 @@ namespace DocSpace.API.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Server type (MCP server name / host tool group id) this tool belongs to — the key the persisted disabled map is stored under. Set by the source that enumerated the tool, so a caller-supplied tool can still be attributed to its group after being flattened into a single list: that is what lets the engine apply the disabled map to &#x60;actionArgs.tools&#x60; instead of trusting the caller to pre-filter. Wire-serializable, so it survives a remote (server-side) engine.
+        /// The server or tool group the tool belongs to (an MCP server name or a host tool group ID): the key a disabled tool is stored under, so a tool sent in &#x60;actionArgs.tools&#x60; is still matched to its group.
         /// </summary>
         /// <example>docspace</example>
         [DataMember(Name = "serverType", EmitDefaultValue = false)]
         public string ServerType { get; set; }
 
         /// <summary>
-        /// Whether the consumer must show an approval dialog before this tool runs. Feeds the &#x60;autoAllow&#x60; flag on a &#x60;tool-call-pending&#x60; event together with the user&#39;s tool permission mode: &#x60;false&#x60; skips the dialog under the auto mode, the default (under ask only the persisted always-allow list does), &#x60;true&#x60; and &#x60;undefined&#x60; defer to that list; allow skips it for every tool. Host tools set it and default to &#x60;false&#x60;; MCP / custom-server tools leave it unset. Wire-serializable, so it survives a remote (server-side) engine.
+        /// Whether the tool asks for approval before it runs, under the &#x60;auto&#x60; tool permission mode: &#x60;false&#x60; runs it without asking; &#x60;true&#x60; or absent leaves it to the always-allow list and the tool&#39;s MCP annotations (see &#x60;annotations&#x60;). Under &#x60;ask&#x60; every call asks and under &#x60;allow&#x60; none does, whatever this says. Host tools default to &#x60;false&#x60;; MCP and custom-server tools leave it unset.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "requireApproval", EmitDefaultValue = true)]
         public bool RequireApproval { get; set; }
 
         /// <summary>
-        /// The MCP tool annotations as the server declared them in &#x60;tools/list&#x60; (kept verbatim on the descriptor; never sent to the model). The approval flow reads two of them under the auto permission mode: &#x60;readOnlyHint: true&#x60; and &#x60;destructiveHint: false&#x60; run without the dialog, a destructive or unannotated tool keeps asking — see &#x60;resolveAutoAllow&#x60;. Wire-serializable.
+        /// The MCP tool annotations as the server declared them in &#x60;tools/list&#x60;; never sent to the model. Under the &#x60;auto&#x60; tool permission mode a tool that cannot destroy anything runs without approval - one annotated &#x60;readOnlyHint: true&#x60;, or one with an explicit &#x60;destructiveHint: false&#x60;; a destructive tool, and one with no annotations (the protocol&#39;s default is destructive), keeps asking.
         /// </summary>
         [DataMember(Name = "annotations", EmitDefaultValue = false)]
         public AiToolAnnotations Annotations { get; set; }

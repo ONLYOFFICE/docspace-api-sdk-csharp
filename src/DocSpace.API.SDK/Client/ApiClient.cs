@@ -88,8 +88,19 @@ namespace DocSpace.API.SDK.Client
 
         public async Task<T> Deserialize<T>(HttpResponseMessage response)
         {
-            var result = (T)await Deserialize(response, typeof(T)).ConfigureAwait(false);
-            return result;
+            var value = await Deserialize(response, typeof(T)).ConfigureAwait(false);
+
+            // DocSpace: an answer with no value (no body, or a JSON null) for a value type (bool, an enum) used to throw
+            // NullReferenceException on the cast below, or ApiException(500) from the parser; it is reported with the
+            // answer's own status instead, and never read as default(T) - for a bool a silent false.
+            if (value == null && default(T) != null)
+            {
+                throw new ApiException((int)response.StatusCode,
+                    $"The {(int)response.StatusCode} answer carries no {typeof(T).Name} value.",
+                    await response.Content.ReadAsStringAsync().ConfigureAwait(false));
+            }
+
+            return (T)value;
         }
 
         /// <summary>
@@ -172,9 +183,17 @@ namespace DocSpace.API.SDK.Client
             }
 
             // at this point, it must be a model (json)
+            var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            // DocSpace: no value for a value type is not a parse error - Deserialize<T> reports it with the answer's status.
+            if (type.IsValueType && Nullable.GetUnderlyingType(type) == null && (string.IsNullOrWhiteSpace(json) || json.Trim() == "null"))
+            {
+                return null;
+            }
+
             try
             {
-                return JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync().ConfigureAwait(false), type, _serializerSettings);
+                return JsonConvert.DeserializeObject(json, type, _serializerSettings);
             }
             catch (Exception e)
             {
@@ -434,8 +453,12 @@ namespace DocSpace.API.SDK.Client
 
         private async Task<ApiResponse<T>> ToApiResponse<T>(HttpResponseMessage response, object responseData, Uri uri)
         {
-            T result = (T)responseData;
             string rawContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            // DocSpace: a non-2xx answer has no data, and unboxing null into a value-type T (bool, an enum) threw
+            // NullReferenceException before the caller got the status as an ApiException. A 2xx answer always has its
+            // value here: Deserialize<T> refuses one without.
+            T result = responseData is T typed ? typed : default;
 
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
             {
@@ -551,7 +574,8 @@ namespace DocSpace.API.SDK.Client
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
                 if (typeof(DocSpace.API.SDK.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    responseData = (T)typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    // DocSpace: FromJson takes the JSON text, not the HttpContent upstream passed (ArgumentException on every oneOf/anyOf answer).
+                    responseData = (T)typeof(T).GetMethod("FromJson").Invoke(null, new object[] { await response.Content.ReadAsStringAsync().ConfigureAwait(false) });
                 }
                 else if (typeof(T).Name == "Stream") // for binary response
                 {

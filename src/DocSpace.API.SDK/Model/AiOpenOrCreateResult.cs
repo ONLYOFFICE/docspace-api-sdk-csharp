@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Resolved thread state returned by &#x60;ThreadsEngine.openOrCreate&#x60;.
+    /// The thread that was opened or created, with its stored messages.
     /// </summary>
     [DataContract(Name = "AiOpenOrCreateResult")]
     public partial class AiOpenOrCreateResult : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiOpenOrCreateResult" /> class.
         /// </summary>
         /// <param name="threadId">The thread that was opened, or the one just created. (required).</param>
-        /// <param name="title">Empty string for existing threads — the engine doesn&#39;t re-fetch. (required).</param>
+        /// <param name="title">The title generated for a thread this call created; an empty string when it opened an existing thread. (required).</param>
         /// <param name="priorMessages">The messages already in the thread - empty for a thread that was just created. (required).</param>
         public AiOpenOrCreateResult(string threadId = default, string title = default, List<AiThreadMessageLike> priorMessages = default)
         {
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Empty string for existing threads — the engine doesn&#39;t re-fetch.
+        /// The title generated for a thread this call created; an empty string when it opened an existing thread.
         /// </summary>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
