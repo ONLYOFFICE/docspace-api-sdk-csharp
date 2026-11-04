@@ -54,6 +54,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteKeysWithHttpInfo(Guid id);
         /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>EncryptionKeyArrayWrapper</returns>
+        EncryptionKeyArrayWrapper GetRoomCandidateKeys(int roomId, List<Guid>? userIds = default);
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
+        ApiResponse<EncryptionKeyArrayWrapper> GetRoomCandidateKeysWithHttpInfo(int roomId, List<Guid>? userIds = default);
+        /// <summary>
         /// Get own encryption keys
         /// </summary>
         /// <remarks>
@@ -177,6 +202,33 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteKeysWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>Task of EncryptionKeyArrayWrapper</returns>
+        Task<EncryptionKeyArrayWrapper> GetRoomCandidateKeysAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
+        Task<ApiResponse<EncryptionKeyArrayWrapper>> GetRoomCandidateKeysWithHttpInfoAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get own encryption keys
         /// </summary>
@@ -661,6 +713,200 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("DeleteKeys", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>EncryptionKeyArrayWrapper</returns>
+        public EncryptionKeyArrayWrapper GetRoomCandidateKeys(int roomId, List<Guid>? userIds = default)
+        {
+            var localVarResponse = GetRoomCandidateKeysWithHttpInfo(roomId, userIds);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
+        public ApiResponse<EncryptionKeyArrayWrapper> GetRoomCandidateKeysWithHttpInfo(int roomId, List<Guid>? userIds = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("roomId", ClientUtils.ParameterToString(roomId)); // path parameter
+            if (userIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "userIds", userIds));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<EncryptionKeyArrayWrapper>("/api/2.0/privacyroom/{roomId}/access/candidates", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomCandidateKeys", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>Task of EncryptionKeyArrayWrapper</returns>
+        public async Task<EncryptionKeyArrayWrapper> GetRoomCandidateKeysAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetRoomCandidateKeysWithHttpInfoAsync(roomId, userIds, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get public keys of room invitees
+        /// </summary>
+        /// <remarks>
+        /// Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
+        /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
+        public async Task<ApiResponse<EncryptionKeyArrayWrapper>> GetRoomCandidateKeysWithHttpInfoAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("roomId", ClientUtils.ParameterToString(roomId)); // path parameter
+            if (userIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "userIds", userIds));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<EncryptionKeyArrayWrapper>("/api/2.0/privacyroom/{roomId}/access/candidates", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomCandidateKeys", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

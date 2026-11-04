@@ -5,6 +5,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**DeleteKeys**](#deletekeys) | **DELETE** /api/2.0/privacyroom/keys/{id} | Delete an encryption key |
+| [**GetRoomCandidateKeys**](#getroomcandidatekeys) | **GET** /api/2.0/privacyroom/{roomId}/access/candidates | Get public keys of room invitees |
 | [**GetUserKeys**](#getuserkeys) | **GET** /api/2.0/privacyroom/keys | Get own encryption keys |
 | [**GetUserKeysForRoom**](#getuserkeysforroom) | **GET** /api/2.0/privacyroom/{roomId}/access | Get private room access keys |
 | [**ReplaceKey**](#replacekey) | **PUT** /api/2.0/privacyroom/keys | Rotate an encryption key |
@@ -117,6 +118,127 @@ catch (ApiException e)
 | **400** | The key identifier is not a valid GUID |  -  |
 | **403** | The caller is a guest, who cannot own encryption keys |  -  |
 | **404** | The encryption key is not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getroomcandidatekeys"></a>
+# **GetRoomCandidateKeys**
+> EncryptionKeyArrayWrapper GetRoomCandidateKeys (int roomId, List<Guid>? userIds = null)
+
+Returns the public encryption keys of people who are about to be invited to a private room, so that a client can  encrypt the room's file keys for them before it grants the access. `GET api/2.0/privacyroom/{roomId}/access`  covers members only, which makes this the call that comes first when inviting. The room has to be an active  private room: an archived one cannot change its access and is refused, and an unknown one is reported as missing.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused. The call is read-only and grants nothing, and  `PUT api/2.0/files/rooms/{id}/share` still does the inviting. The answer holds one entry per key, and no entry  ever carries `privateKeyEnc`, not even the caller's own. A listed user who is absent cannot be invited as they  are: they have no key yet and need to create one with `POST api/2.0/privacyroom/keys`, or they are a guest, a  terminated user, or nobody on this portal. A duplicate id counts once, and no ids answer an empty list. A  malformed id, a room that is not private, or a folder inside a room is rejected as invalid.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **roomId** | **int** | The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`. |  |
+| **userIds** | [**List&lt;Guid&gt;?**](Guid.md) | The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. | [optional]  |
+
+### Return type
+
+[**EncryptionKeyArrayWrapper**](EncryptionKeyArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetRoomCandidateKeysExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
+            var roomId = 1234;  // int | The private room the people are invited to. Take it from the `id` of the room returned by  `POST api/2.0/files/rooms` or listed by `GET api/2.0/files/rooms`.
+            var userIds = new List<Guid>?(); // List<Guid>? | The people to read the keys of, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of  a user returned by `GET api/2.0/people`. (optional) 
+
+            try
+            {
+                // Get public keys of room invitees
+                EncryptionKeyArrayWrapper result = apiInstance.GetRoomCandidateKeys(roomId, userIds);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PrivacyRoomApi.GetRoomCandidateKeys: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRoomCandidateKeysWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get public keys of room invitees
+    ApiResponse<EncryptionKeyArrayWrapper> response = apiInstance.GetRoomCandidateKeysWithHttpInfo(roomId, userIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PrivacyRoomApi.GetRoomCandidateKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The public encryption keys of the listed users who can be invited |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The room is not a private room, or a user ID is malformed |  -  |
+| **403** | The caller has no read access to the room or cannot change its access |  -  |
+| **404** | The room is not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

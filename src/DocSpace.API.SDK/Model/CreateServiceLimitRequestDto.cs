@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Whom the limit applies to.
         /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
-        public ServiceLimitScope? Scope { get; set; }
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
+        public ServiceLimitScope Scope { get; set; }
 
         /// <summary>
         /// The window the thresholds apply to, in UTC. A day, week or month is calendar-aligned rather than rolling - a  daily limit resets at midnight UTC, a weekly one on Monday - while a lifetime limit counts from its creation and  never resets.
@@ -53,12 +53,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateServiceLimitRequestDto" /> class.
         /// </summary>
-        /// <param name="scope">Whom the limit applies to..</param>
+        [JsonConstructorAttribute]
+        protected CreateServiceLimitRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateServiceLimitRequestDto" /> class.
+        /// </summary>
+        /// <param name="scope">Whom the limit applies to. (required).</param>
         /// <param name="userId">The ID of the portal user a personal limit is set for, as returned in &#x60;id&#x60; by the people operations..</param>
         /// <param name="amountValue">The most money the AI services may cost per period, in their currency, which cannot be chosen. Zero blocks the  AI services completely..</param>
         /// <param name="quantityValue">The largest quantity the AI services may consume per period, in their common unit. Zero blocks the AI services  completely..</param>
         /// <param name="period">The window the thresholds apply to, in UTC. A day, week or month is calendar-aligned rather than rolling - a  daily limit resets at midnight UTC, a weekly one on Monday - while a lifetime limit counts from its creation and  never resets..</param>
-        public CreateServiceLimitRequestDto(ServiceLimitScope? scope = default, Guid? userId = default, double? amountValue = default, int? quantityValue = default, ServiceLimitPeriod? period = default)
+        public CreateServiceLimitRequestDto(ServiceLimitScope scope = default, Guid? userId = default, double? amountValue = default, int? quantityValue = default, ServiceLimitPeriod? period = default)
         {
             this.Scope = scope;
             this.UserId = userId;

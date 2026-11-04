@@ -3326,6 +3326,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete an encryption key</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getroomcandidatekeys"><strong>GetRoomCandidateKeys</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access/candidates</td>
+        <td>Get public keys of room invitees</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeys"><strong>GetUserKeys</strong></a></td>
         <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
         <td>Get own encryption keys</td>
