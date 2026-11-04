@@ -39,7 +39,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="name">The name of the group as it is shown in the portal..</param>
         /// <param name="manager">The user name of the user who manages the group, not an ID. Absent when the group has no manager..</param>
         /// <param name="isSystem">&#x60;true&#x60; for a built-in system group, whose members follow from the user types rather than from membership changes. Absent for every other group, never &#x60;false&#x60;..</param>
-        public GroupSummaryPayload(Guid id = default, string name = default, string manager = default, bool isSystem = default)
+        public GroupSummaryPayload(Guid? id = default, string name = default, string manager = default, bool? isSystem = default)
         {
             this.Id = id;
             this.Name = name;
@@ -55,7 +55,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>c652dd0b-fa6e-4bb7-a3b2-9a2e4e6b7d1c</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>
         /// The name of the group as it is shown in the portal.
@@ -85,7 +85,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
-        public bool IsSystem { get; set; }
+        public bool? IsSystem { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

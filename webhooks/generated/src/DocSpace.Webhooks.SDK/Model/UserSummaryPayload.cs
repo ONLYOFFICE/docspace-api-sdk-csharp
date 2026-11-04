@@ -40,7 +40,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="userName">The unique login name of the user, made from the local part of their email address when the account is created. Absent when the subscription&#39;s creator is a User or a Guest, who may not see the contacts of other users, unless this user is that creator..</param>
         /// <param name="avatar">The absolute URL of the 82x82 avatar, with a hash query parameter that changes when the profile does..</param>
         /// <param name="profileUrl">The absolute link to the user in the portal&#39;s list of people, or of guests for a guest; today it is a search of that list by the user&#39;s email address. Absent when the subscription&#39;s creator is a User or a Guest, who may not see the contacts of other users, unless this user is that creator..</param>
-        public UserSummaryPayload(Guid id = default, string displayName = default, string userName = default, string avatar = default, string profileUrl = default)
+        public UserSummaryPayload(Guid? id = default, string displayName = default, string userName = default, string avatar = default, string profileUrl = default)
         {
             this.Id = id;
             this.DisplayName = displayName;
@@ -57,7 +57,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>9924256a-739c-462b-be1a-e1d3a1d6f2d4</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>
         /// The user&#39;s full name in the name order set for the portal, HTML-encoded.

@@ -43,7 +43,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="isSystem">&#x60;true&#x60; for a built-in system group, whose members follow from the user types rather than from membership changes. Absent for every other group, never &#x60;false&#x60;..</param>
         /// <param name="manager">manager.</param>
         /// <param name="membersCount">How many users belong to the group at the time of the event, disabled accounts not counted; 0 for a group without members..</param>
-        public GroupPayload(Guid id = default, string name = default, Guid parent = default, Guid category = default, bool isLDAP = default, bool isSystem = default, UserSummaryPayload manager = default, int membersCount = default)
+        public GroupPayload(Guid? id = default, string name = default, Guid? parent = default, Guid? category = default, bool? isLDAP = default, bool? isSystem = default, UserSummaryPayload manager = default, int? membersCount = default)
         {
             this.Id = id;
             this.Name = name;
@@ -63,7 +63,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>c652dd0b-fa6e-4bb7-a3b2-9a2e4e6b7d1c</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>
         /// The name of the group as it is shown in the portal, after a rename the new one.
@@ -83,7 +83,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>3f5c2a1e-8b7d-4e6f-9a0b-1c2d3e4f5a6b</example>
         */
         [DataMember(Name = "parent", EmitDefaultValue = false)]
-        public Guid Parent { get; set; }
+        public Guid? Parent { get; set; }
 
         /// <summary>
         /// The ID of the group category: the empty GUID for the groups members create, and one fixed category ID for the built-in system groups.
@@ -93,7 +93,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "category", EmitDefaultValue = false)]
-        public Guid Category { get; set; }
+        public Guid? Category { get; set; }
 
         /// <summary>
         /// Whether the group is synchronized from an LDAP directory, where its name and members are managed; &#x60;false&#x60; for a group created in the portal.
@@ -103,7 +103,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>false</example>
         */
         [DataMember(Name = "isLDAP", EmitDefaultValue = true)]
-        public bool IsLDAP { get; set; }
+        public bool? IsLDAP { get; set; }
 
         /// <summary>
         /// &#x60;true&#x60; for a built-in system group, whose members follow from the user types rather than from membership changes. Absent for every other group, never &#x60;false&#x60;.
@@ -113,7 +113,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
-        public bool IsSystem { get; set; }
+        public bool? IsSystem { get; set; }
 
         /// <summary>
         /// Gets or Sets Manager
@@ -129,7 +129,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>12</example>
         */
         [DataMember(Name = "membersCount", EmitDefaultValue = false)]
-        public int MembersCount { get; set; }
+        public int? MembersCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -54,7 +54,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="providerKey">The connected third-party storage the entry lives in; absent for the portal&#39;s own storage..</param>
         /// <param name="providerId">The ID of the third-party storage connection the entry comes through; absent for the portal&#39;s own storage..</param>
         /// <param name="order">The position of the entry in a room with indexing turned on; meaningful only inside such a room..</param>
-        public FileEntryPayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int fileEntryType = default, DateTime created = default, UserSummaryPayload createdBy = default, DateTime updated = default, UserSummaryPayload updatedBy = default, int rootFolderType = default, int parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool providerItem = default, string providerKey = default, int providerId = default, int order = default)
+        public FileEntryPayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int? fileEntryType = default, DateTime? created = default, UserSummaryPayload createdBy = default, DateTime? updated = default, UserSummaryPayload updatedBy = default, int? rootFolderType = default, int? parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool? providerItem = default, string providerKey = default, int? providerId = default, int? order = default)
         {
             this.Id = id;
             this.ParentId = parentId;
@@ -113,7 +113,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2</example>
         */
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
-        public int FileEntryType { get; set; }
+        public int? FileEntryType { get; set; }
 
         /// <summary>
         /// When the entry was created, in UTC.
@@ -123,7 +123,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -139,7 +139,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "updated", EmitDefaultValue = false)]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedBy
@@ -155,7 +155,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>14</example>
         */
         [DataMember(Name = "rootFolderType", EmitDefaultValue = false)]
-        public int RootFolderType { get; set; }
+        public int? RootFolderType { get; set; }
 
         /// <summary>
         /// The type of the room the entry is inside, at any depth; absent for an entry outside rooms. Values of &#x60;FolderType&#x60;: 0 &#x3D; DEFAULT, 1 &#x3D; COMMON, 2 &#x3D; BUNCH, 3 &#x3D; TRASH, 5 &#x3D; USER, 6 &#x3D; SHARE, 8 &#x3D; Projects, 10 &#x3D; Favorites, 11 &#x3D; Recent, 12 &#x3D; Templates, 13 &#x3D; Privacy, 14 &#x3D; VirtualRooms, 15 &#x3D; FillingFormsRoom, 16 &#x3D; EditingRoom, 19 &#x3D; CustomRoom, 20 &#x3D; Archive, 21 &#x3D; ThirdpartyBackup, 22 &#x3D; PublicRoom, 25 &#x3D; ReadyFormFolder, 26 &#x3D; InProcessFormFolder, 27 &#x3D; FormFillingFolderDone, 28 &#x3D; FormFillingFolderInProgress, 29 &#x3D; VirtualDataRoom, 30 &#x3D; RoomTemplates, 31 &#x3D; AiRoom, 32 &#x3D; Knowledge, 33 &#x3D; ChatOutputs, 34 &#x3D; AiAgents, 35 &#x3D; DefaultTemplates, 36 &#x3D; Forms, 37 &#x3D; Ai.
@@ -165,7 +165,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>19</example>
         */
         [DataMember(Name = "parentRoomType", EmitDefaultValue = false)]
-        public int ParentRoomType { get; set; }
+        public int? ParentRoomType { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginId
@@ -207,7 +207,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
-        public bool ProviderItem { get; set; }
+        public bool? ProviderItem { get; set; }
 
         /// <summary>
         /// The connected third-party storage the entry lives in; absent for the portal&#39;s own storage.
@@ -227,7 +227,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = false)]
-        public int ProviderId { get; set; }
+        public int? ProviderId { get; set; }
 
         /// <summary>
         /// The position of the entry in a room with indexing turned on; meaningful only inside such a room.
@@ -237,7 +237,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "order", EmitDefaultValue = false)]
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

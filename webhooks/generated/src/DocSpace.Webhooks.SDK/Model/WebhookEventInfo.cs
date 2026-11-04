@@ -40,7 +40,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="createBy">The ID of the user whose action caused the event. Omitted when it is the empty GUID, as for background jobs..</param>
         /// <param name="trigger">The trigger name, e.g. \&quot;file.created\&quot;. \&quot;*\&quot; only in the legacy-payload fallback..</param>
         /// <param name="triggerId">The bit value of the trigger. Omitted when 0, the \&quot;*\&quot; fallback..</param>
-        public WebhookEventInfo(int id = default, DateTime createOn = default, Guid createBy = default, string trigger = default, long triggerId = default)
+        public WebhookEventInfo(int? id = default, DateTime? createOn = default, Guid? createBy = default, string trigger = default, long? triggerId = default)
         {
             this.Id = id;
             this.CreateOn = createOn;
@@ -57,7 +57,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1234</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// When the event happened, in UTC and whole seconds. It stays the same on every retry, automatic or manual, so it says nothing about when the request was sent: a freshness check on it would reject legitimate retries, and the replay defence is deduplication on &#x60;id&#x60;. Echoed in the unsigned x-docspace-event-timestamp header.
@@ -67,7 +67,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2024-01-15T10:30:00Z</example>
         */
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
-        public DateTime CreateOn { get; set; }
+        public DateTime? CreateOn { get; set; }
 
         /// <summary>
         /// The ID of the user whose action caused the event. Omitted when it is the empty GUID, as for background jobs.
@@ -77,7 +77,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>9924256a-739c-462b-be1a-e1d3a1d6f2d4</example>
         */
         [DataMember(Name = "createBy", EmitDefaultValue = false)]
-        public Guid CreateBy { get; set; }
+        public Guid? CreateBy { get; set; }
 
         /// <summary>
         /// The trigger name, e.g. \&quot;file.created\&quot;. \&quot;*\&quot; only in the legacy-payload fallback.
@@ -97,7 +97,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>128</example>
         */
         [DataMember(Name = "triggerId", EmitDefaultValue = false)]
-        public long TriggerId { get; set; }
+        public long? TriggerId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

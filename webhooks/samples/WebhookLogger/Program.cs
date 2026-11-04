@@ -286,10 +286,10 @@ static string? Summarize(object? payload) => payload switch
     // FileEntryPayload case that would catch all three.
     FilePayload f =>
         $"file: {f.Title}  id={f.Id?.ActualInstance}  "
-        + $"v{f.VarVersion}  {f.ContentLength} bytes",
+        + $"v{f.VarVersion}  {f.ContentLength ?? 0} bytes",
     FolderPayload d =>
         $"folder: {d.Title}  id={d.Id?.ActualInstance}  "
-        + $"{d.FilesCount} files / {d.FoldersCount} folders",
+        + $"{d.FilesCount ?? 0} files / {d.FoldersCount ?? 0} folders",
     RoomPayload r =>
         $"room: {r.Title}  id={r.Id?.ActualInstance}  "
         + $"roomType={r.RoomType}",

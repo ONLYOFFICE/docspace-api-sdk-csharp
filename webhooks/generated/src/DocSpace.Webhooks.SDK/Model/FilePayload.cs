@@ -69,7 +69,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="customFilterEnabled">True when custom filtering is turned on for the spreadsheet; absent otherwise..</param>
         /// <param name="customFilterEnabledBy">customFilterEnabledBy.</param>
         /// <param name="vectorizationStatus">The state of the file&#39;s indexing for the AI features of the portal; absent when it does not apply. Values of &#x60;VectorizationStatus&#x60;: 0 &#x3D; InProgress, 1 &#x3D; Completed, 2 &#x3D; Failed..</param>
-        public FilePayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int fileEntryType = default, DateTime created = default, UserSummaryPayload createdBy = default, DateTime updated = default, UserSummaryPayload updatedBy = default, int rootFolderType = default, int parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool providerItem = default, string providerKey = default, int providerId = default, int order = default, int varVersion = default, int versionGroup = default, long contentLength = default, int fileType = default, string fileExst = default, string comment = default, string viewUrl = default, string webUrl = default, bool encrypted = default, bool locked = default, UserSummaryPayload lockedBy = default, bool isForm = default, bool customFilterEnabled = default, UserSummaryPayload customFilterEnabledBy = default, int vectorizationStatus = default)
+        public FilePayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int? fileEntryType = default, DateTime? created = default, UserSummaryPayload createdBy = default, DateTime? updated = default, UserSummaryPayload updatedBy = default, int? rootFolderType = default, int? parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool? providerItem = default, string providerKey = default, int? providerId = default, int? order = default, int? varVersion = default, int? versionGroup = default, long? contentLength = default, int? fileType = default, string fileExst = default, string comment = default, string viewUrl = default, string webUrl = default, bool? encrypted = default, bool? locked = default, UserSummaryPayload lockedBy = default, bool? isForm = default, bool? customFilterEnabled = default, UserSummaryPayload customFilterEnabledBy = default, int? vectorizationStatus = default)
         {
             this.Id = id;
             this.ParentId = parentId;
@@ -143,7 +143,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2</example>
         */
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
-        public int FileEntryType { get; set; }
+        public int? FileEntryType { get; set; }
 
         /// <summary>
         /// When the entry was created, in UTC.
@@ -153,7 +153,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -169,7 +169,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "updated", EmitDefaultValue = false)]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedBy
@@ -185,7 +185,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>14</example>
         */
         [DataMember(Name = "rootFolderType", EmitDefaultValue = false)]
-        public int RootFolderType { get; set; }
+        public int? RootFolderType { get; set; }
 
         /// <summary>
         /// The type of the room the entry is inside, at any depth; absent for an entry outside rooms. Values of &#x60;FolderType&#x60;: 0 &#x3D; DEFAULT, 1 &#x3D; COMMON, 2 &#x3D; BUNCH, 3 &#x3D; TRASH, 5 &#x3D; USER, 6 &#x3D; SHARE, 8 &#x3D; Projects, 10 &#x3D; Favorites, 11 &#x3D; Recent, 12 &#x3D; Templates, 13 &#x3D; Privacy, 14 &#x3D; VirtualRooms, 15 &#x3D; FillingFormsRoom, 16 &#x3D; EditingRoom, 19 &#x3D; CustomRoom, 20 &#x3D; Archive, 21 &#x3D; ThirdpartyBackup, 22 &#x3D; PublicRoom, 25 &#x3D; ReadyFormFolder, 26 &#x3D; InProcessFormFolder, 27 &#x3D; FormFillingFolderDone, 28 &#x3D; FormFillingFolderInProgress, 29 &#x3D; VirtualDataRoom, 30 &#x3D; RoomTemplates, 31 &#x3D; AiRoom, 32 &#x3D; Knowledge, 33 &#x3D; ChatOutputs, 34 &#x3D; AiAgents, 35 &#x3D; DefaultTemplates, 36 &#x3D; Forms, 37 &#x3D; Ai.
@@ -195,7 +195,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>19</example>
         */
         [DataMember(Name = "parentRoomType", EmitDefaultValue = false)]
-        public int ParentRoomType { get; set; }
+        public int? ParentRoomType { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginId
@@ -237,7 +237,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
-        public bool ProviderItem { get; set; }
+        public bool? ProviderItem { get; set; }
 
         /// <summary>
         /// The connected third-party storage the entry lives in; absent for the portal&#39;s own storage.
@@ -257,7 +257,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = false)]
-        public int ProviderId { get; set; }
+        public int? ProviderId { get; set; }
 
         /// <summary>
         /// The position of the entry in a room with indexing turned on; meaningful only inside such a room.
@@ -267,7 +267,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "order", EmitDefaultValue = false)]
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         /// <summary>
         /// The number of the current version of the file, starting at 1 and growing with every saved version.
@@ -277,7 +277,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public int VarVersion { get; set; }
+        public int? VarVersion { get; set; }
 
         /// <summary>
         /// The number of the version group the current version belongs to; the versions saved during one editing session share a group.
@@ -287,7 +287,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "versionGroup", EmitDefaultValue = false)]
-        public int VersionGroup { get; set; }
+        public int? VersionGroup { get; set; }
 
         /// <summary>
         /// The size of the current version of the file in bytes.
@@ -297,7 +297,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>12345</example>
         */
         [DataMember(Name = "contentLength", EmitDefaultValue = false)]
-        public long ContentLength { get; set; }
+        public long? ContentLength { get; set; }
 
         /// <summary>
         /// The kind of content the file holds, derived from its extension: a document, a spreadsheet, a presentation, a PDF, an image and so on. Values of &#x60;FileType&#x60;: 0 &#x3D; Unknown, 1 &#x3D; Archive, 2 &#x3D; Video, 3 &#x3D; Audio, 4 &#x3D; Image, 5 &#x3D; Spreadsheet, 6 &#x3D; Presentation, 7 &#x3D; Document, 10 &#x3D; Pdf, 11 &#x3D; Diagram.
@@ -307,7 +307,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>7</example>
         */
         [DataMember(Name = "fileType", EmitDefaultValue = false)]
-        public int FileType { get; set; }
+        public int? FileType { get; set; }
 
         /// <summary>
         /// The file extension, including the leading dot.
@@ -357,7 +357,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>false</example>
         */
         [DataMember(Name = "encrypted", EmitDefaultValue = true)]
-        public bool Encrypted { get; set; }
+        public bool? Encrypted { get; set; }
 
         /// <summary>
         /// True when the file is locked, so that only the user who locked it can edit it; absent otherwise. A file.updated raised by locking or unlocking the file tells the two apart by this field.
@@ -367,7 +367,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "locked", EmitDefaultValue = true)]
-        public bool Locked { get; set; }
+        public bool? Locked { get; set; }
 
         /// <summary>
         /// Gets or Sets LockedBy
@@ -383,7 +383,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isForm", EmitDefaultValue = true)]
-        public bool IsForm { get; set; }
+        public bool? IsForm { get; set; }
 
         /// <summary>
         /// True when custom filtering is turned on for the spreadsheet; absent otherwise.
@@ -393,7 +393,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "customFilterEnabled", EmitDefaultValue = true)]
-        public bool CustomFilterEnabled { get; set; }
+        public bool? CustomFilterEnabled { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFilterEnabledBy
@@ -409,7 +409,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>0</example>
         */
         [DataMember(Name = "vectorizationStatus", EmitDefaultValue = false)]
-        public int VectorizationStatus { get; set; }
+        public int? VectorizationStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

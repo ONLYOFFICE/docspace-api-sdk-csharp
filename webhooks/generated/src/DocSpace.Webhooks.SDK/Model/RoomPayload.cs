@@ -65,7 +65,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="usedSpace">The space used by the room in bytes..</param>
         /// <param name="color">The background colour of the room icon, as a hex RGB code..</param>
         /// <param name="cover">The name of the cover picture chosen for the room icon; absent when none is chosen..</param>
-        public RoomPayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int fileEntryType = default, DateTime created = default, UserSummaryPayload createdBy = default, DateTime updated = default, UserSummaryPayload updatedBy = default, int rootFolderType = default, int parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool providerItem = default, string providerKey = default, int providerId = default, int order = default, int roomType = default, int type = default, int filesCount = default, int foldersCount = default, bool varPrivate = default, bool indexing = default, bool denyDownload = default, long quotaLimit = default, long usedSpace = default, string color = default, string cover = default)
+        public RoomPayload(EntryId id = default, EntryId parentId = default, EntryId rootFolderId = default, string title = default, int? fileEntryType = default, DateTime? created = default, UserSummaryPayload createdBy = default, DateTime? updated = default, UserSummaryPayload updatedBy = default, int? rootFolderType = default, int? parentRoomType = default, EntryId originId = default, EntryId originRoomId = default, string originTitle = default, string originRoomTitle = default, bool? providerItem = default, string providerKey = default, int? providerId = default, int? order = default, int? roomType = default, int? type = default, int? filesCount = default, int? foldersCount = default, bool? varPrivate = default, bool? indexing = default, bool? denyDownload = default, long? quotaLimit = default, long? usedSpace = default, string color = default, string cover = default)
         {
             this.Id = id;
             this.ParentId = parentId;
@@ -135,7 +135,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2</example>
         */
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
-        public int FileEntryType { get; set; }
+        public int? FileEntryType { get; set; }
 
         /// <summary>
         /// When the entry was created, in UTC.
@@ -145,7 +145,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -161,7 +161,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2021-01-01T00:00:00Z</example>
         */
         [DataMember(Name = "updated", EmitDefaultValue = false)]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedBy
@@ -177,7 +177,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>14</example>
         */
         [DataMember(Name = "rootFolderType", EmitDefaultValue = false)]
-        public int RootFolderType { get; set; }
+        public int? RootFolderType { get; set; }
 
         /// <summary>
         /// The type of the room the entry is inside, at any depth; absent for an entry outside rooms. Values of &#x60;FolderType&#x60;: 0 &#x3D; DEFAULT, 1 &#x3D; COMMON, 2 &#x3D; BUNCH, 3 &#x3D; TRASH, 5 &#x3D; USER, 6 &#x3D; SHARE, 8 &#x3D; Projects, 10 &#x3D; Favorites, 11 &#x3D; Recent, 12 &#x3D; Templates, 13 &#x3D; Privacy, 14 &#x3D; VirtualRooms, 15 &#x3D; FillingFormsRoom, 16 &#x3D; EditingRoom, 19 &#x3D; CustomRoom, 20 &#x3D; Archive, 21 &#x3D; ThirdpartyBackup, 22 &#x3D; PublicRoom, 25 &#x3D; ReadyFormFolder, 26 &#x3D; InProcessFormFolder, 27 &#x3D; FormFillingFolderDone, 28 &#x3D; FormFillingFolderInProgress, 29 &#x3D; VirtualDataRoom, 30 &#x3D; RoomTemplates, 31 &#x3D; AiRoom, 32 &#x3D; Knowledge, 33 &#x3D; ChatOutputs, 34 &#x3D; AiAgents, 35 &#x3D; DefaultTemplates, 36 &#x3D; Forms, 37 &#x3D; Ai.
@@ -187,7 +187,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>19</example>
         */
         [DataMember(Name = "parentRoomType", EmitDefaultValue = false)]
-        public int ParentRoomType { get; set; }
+        public int? ParentRoomType { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginId
@@ -229,7 +229,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
-        public bool ProviderItem { get; set; }
+        public bool? ProviderItem { get; set; }
 
         /// <summary>
         /// The connected third-party storage the entry lives in; absent for the portal&#39;s own storage.
@@ -249,7 +249,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = false)]
-        public int ProviderId { get; set; }
+        public int? ProviderId { get; set; }
 
         /// <summary>
         /// The position of the entry in a room with indexing turned on; meaningful only inside such a room.
@@ -259,7 +259,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "order", EmitDefaultValue = false)]
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         /// <summary>
         /// The kind of room, which decides what the room is for and which roles it offers. Values of &#x60;RoomType&#x60;: 1 &#x3D; FillingFormsRoom, 2 &#x3D; EditingRoom, 5 &#x3D; CustomRoom, 6 &#x3D; PublicRoom, 8 &#x3D; VirtualDataRoom, 9 &#x3D; AiRoom.
@@ -269,7 +269,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2</example>
         */
         [DataMember(Name = "roomType", EmitDefaultValue = false)]
-        public int RoomType { get; set; }
+        public int? RoomType { get; set; }
 
         /// <summary>
         /// The same kind of room as &#x60;roomType&#x60;, in the numbering the portal uses for folders. Values of &#x60;FolderType&#x60;: 0 &#x3D; DEFAULT, 1 &#x3D; COMMON, 2 &#x3D; BUNCH, 3 &#x3D; TRASH, 5 &#x3D; USER, 6 &#x3D; SHARE, 8 &#x3D; Projects, 10 &#x3D; Favorites, 11 &#x3D; Recent, 12 &#x3D; Templates, 13 &#x3D; Privacy, 14 &#x3D; VirtualRooms, 15 &#x3D; FillingFormsRoom, 16 &#x3D; EditingRoom, 19 &#x3D; CustomRoom, 20 &#x3D; Archive, 21 &#x3D; ThirdpartyBackup, 22 &#x3D; PublicRoom, 25 &#x3D; ReadyFormFolder, 26 &#x3D; InProcessFormFolder, 27 &#x3D; FormFillingFolderDone, 28 &#x3D; FormFillingFolderInProgress, 29 &#x3D; VirtualDataRoom, 30 &#x3D; RoomTemplates, 31 &#x3D; AiRoom, 32 &#x3D; Knowledge, 33 &#x3D; ChatOutputs, 34 &#x3D; AiAgents, 35 &#x3D; DefaultTemplates, 36 &#x3D; Forms, 37 &#x3D; Ai.
@@ -279,7 +279,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>16</example>
         */
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public int? Type { get; set; }
 
         /// <summary>
         /// The number of files the room directly contains.
@@ -289,7 +289,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>0</example>
         */
         [DataMember(Name = "filesCount", EmitDefaultValue = false)]
-        public int FilesCount { get; set; }
+        public int? FilesCount { get; set; }
 
         /// <summary>
         /// The number of folders the room directly contains.
@@ -299,7 +299,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>0</example>
         */
         [DataMember(Name = "foldersCount", EmitDefaultValue = false)]
-        public int FoldersCount { get; set; }
+        public int? FoldersCount { get; set; }
 
         /// <summary>
         /// True for a private room, whose files are end-to-end encrypted.
@@ -309,7 +309,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>false</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
-        public bool Private { get; set; }
+        public bool? Private { get; set; }
 
         /// <summary>
         /// True when the room numbers its files and folders in a fixed order; &#x60;order&#x60; on each entry is that number.
@@ -319,7 +319,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>false</example>
         */
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
-        public bool Indexing { get; set; }
+        public bool? Indexing { get; set; }
 
         /// <summary>
         /// True when downloading, copying and printing the room&#39;s files is restricted for those who may only view them.
@@ -329,7 +329,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
-        public bool DenyDownload { get; set; }
+        public bool? DenyDownload { get; set; }
 
         /// <summary>
         /// The room&#39;s own quota in bytes, -1 for an explicit \&quot;no limit\&quot;. Absent when the room has no quota of its own, so the portal&#39;s default room quota applies, if room quotas are on, and absent as well for a subscription whose creator the REST API would not show a room quota to: one who may neither edit the room nor create in it and is not its editor, or, for a room in the archive, may not delete it. Unlike &#x60;quotaLimit&#x60; of the REST API, it is the stored value whether or not room quotas are turned on and wherever the room lies, the archive included, and it carries no default quota.
@@ -339,7 +339,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>10737418240</example>
         */
         [DataMember(Name = "quotaLimit", EmitDefaultValue = false)]
-        public long QuotaLimit { get; set; }
+        public long? QuotaLimit { get; set; }
 
         /// <summary>
         /// The space used by the room in bytes.
@@ -349,7 +349,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>12345</example>
         */
         [DataMember(Name = "usedSpace", EmitDefaultValue = false)]
-        public long UsedSpace { get; set; }
+        public long? UsedSpace { get; set; }
 
         /// <summary>
         /// The background colour of the room icon, as a hex RGB code.

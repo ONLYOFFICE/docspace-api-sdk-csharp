@@ -45,7 +45,7 @@ namespace DocSpace.Webhooks.SDK.Model
         /// <param name="lastSuccessOn">When the last delivery to this subscription succeeded, in UTC. Sent only on an automatic retry, like &#x60;lastFailureOn&#x60;; absent there too when no delivery has succeeded yet..</param>
         /// <param name="retryCount">How many times this delivery has been retried automatically. Omitted on the first attempt (0); present from attempt 2. A manual retry is a new delivery and starts again from 0, so its first attempt carries no &#x60;retryCount&#x60;, &#x60;lastFailureOn&#x60; or &#x60;lastSuccessOn&#x60;; only the repeated &#x60;event.id&#x60; shows that the event was sent before..</param>
         /// <param name="retryOn">When this retry was sent, in UTC, cut to whole seconds. Sent only on an automatic retry, like &#x60;lastFailureOn&#x60;..</param>
-        public WebhookConfigInfo(int id = default, string name = default, string url = default, List<string> triggers = default, WebhookTargetInfo target = default, DateTime lastFailureOn = default, string lastFailureContent = default, DateTime lastSuccessOn = default, int retryCount = default, DateTime retryOn = default)
+        public WebhookConfigInfo(int? id = default, string name = default, string url = default, List<string> triggers = default, WebhookTargetInfo target = default, DateTime? lastFailureOn = default, string lastFailureContent = default, DateTime? lastSuccessOn = default, int? retryCount = default, DateTime? retryOn = default)
         {
             this.Id = id;
             this.Name = name;
@@ -67,7 +67,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// The subscription name given by its creator.
@@ -113,7 +113,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2024-01-15T10:29:00Z</example>
         */
         [DataMember(Name = "lastFailureOn", EmitDefaultValue = false)]
-        public DateTime LastFailureOn { get; set; }
+        public DateTime? LastFailureOn { get; set; }
 
         /// <summary>
         /// What the receiver answered, or the network error, when the last delivery to this subscription failed. Sent only on an automatic retry, like &#x60;lastFailureOn&#x60;.
@@ -133,7 +133,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2024-01-15T09:12:00Z</example>
         */
         [DataMember(Name = "lastSuccessOn", EmitDefaultValue = false)]
-        public DateTime LastSuccessOn { get; set; }
+        public DateTime? LastSuccessOn { get; set; }
 
         /// <summary>
         /// How many times this delivery has been retried automatically. Omitted on the first attempt (0); present from attempt 2. A manual retry is a new delivery and starts again from 0, so its first attempt carries no &#x60;retryCount&#x60;, &#x60;lastFailureOn&#x60; or &#x60;lastSuccessOn&#x60;; only the repeated &#x60;event.id&#x60; shows that the event was sent before.
@@ -143,7 +143,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2</example>
         */
         [DataMember(Name = "retryCount", EmitDefaultValue = false)]
-        public int RetryCount { get; set; }
+        public int? RetryCount { get; set; }
 
         /// <summary>
         /// When this retry was sent, in UTC, cut to whole seconds. Sent only on an automatic retry, like &#x60;lastFailureOn&#x60;.
@@ -153,7 +153,7 @@ namespace DocSpace.Webhooks.SDK.Model
         <example>2024-01-15T10:31:00Z</example>
         */
         [DataMember(Name = "retryOn", EmitDefaultValue = false)]
-        public DateTime RetryOn { get; set; }
+        public DateTime? RetryOn { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
