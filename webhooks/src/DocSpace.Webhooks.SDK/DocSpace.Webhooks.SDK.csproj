@@ -8,7 +8,8 @@
     <RootNamespace>DocSpace.Webhooks.SDK</RootNamespace>
     <AssemblyName>DocSpace.Webhooks.SDK</AssemblyName>
     <PackageId>DocSpace.Webhooks.SDK</PackageId>
-    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>4.1.0</Version>
     <Authors>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Authors>
     <Company>Ascensio System SIA &lt;integration@onlyoffice.com&gt; (https://www.onlyoffice.com)</Company>
     <AssemblyTitle>DocSpace.Webhooks.SDK</AssemblyTitle>
