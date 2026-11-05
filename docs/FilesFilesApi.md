@@ -7470,7 +7470,7 @@ catch (ApiException e)
 | **200** | The editor configuration for the requested file and mode |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller cannot read the file, asked for a past version without access to the file history, or the file is in Trash |  -  |
 | **404** | The file id, or the requested version of it, resolves to nothing |  -  |
-| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing, or it is an encrypted file of a private room and the connected document server cannot work with encrypted files |  -  |
 | **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
@@ -7601,7 +7601,7 @@ catch (ApiException e)
 | **200** | The editor configuration for the requested file and mode |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller cannot read the file, asked for a past version without access to the file history, or the file is in Trash |  -  |
 | **404** | The file id, or the requested version of it, resolves to nothing |  -  |
-| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing, or it is an encrypted file of a private room and the connected document server cannot work with encrypted files |  -  |
 | **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
