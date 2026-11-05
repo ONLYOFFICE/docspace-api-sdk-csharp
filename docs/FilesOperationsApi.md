@@ -42,7 +42,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AbortUploadSession**
 > void AbortUploadSession (string sessionId, int folderId)
 
-Cancels a chunked upload opened with `POST api/2.0/files/{folderId}/session` and discards the parts already  received, so nothing of it reaches the folder. The session is found by the id in the path alone: the folder  segment is not matched against it, and neither is the account that opened it, which makes the id the only  secret protecting the transfer. The call is destructive and is not safe to repeat, because the record is gone  afterwards: a second attempt, a session already closed by  `PUT api/2.0/files/{folderId}/session/{sessionId}/finalize` and a session that expired after twelve hours of  silence all fail rather than answer as missing. Finalizing removes the session too, so there is nothing left  to abort once the file exists. The answer carries no body. An upload that is simply abandoned needs no call at  all, since the session and its buffered parts are dropped when it expires.
+Cancels a chunked upload opened with `POST api/2.0/files/{folderId}/session` and discards the parts already  received, so nothing of it reaches the folder. Only the account that opened the session may cancel it, and the  folder in the path has to be the one it was opened against. The call is destructive and is not safe to repeat, because the record is gone  afterwards: a second attempt, a session already closed by  `PUT api/2.0/files/{folderId}/session/{sessionId}/finalize` and a session that expired after twelve hours of  silence all fail rather than answer as missing. Finalizing removes the session too, so there is nothing left  to abort once the file exists. The answer carries no body. An upload that is simply abandoned needs no call at  all, since the session and its buffered parts are dropped when it expires.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/).
 
@@ -51,7 +51,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **sessionId** | **string** | The session to cancel, as returned in `id` when it was created: a 32-character hexadecimal string that  identifies the session on its own. |  |
-| **folderId** | **int** | The folder the session was opened against. It is part of the route only and is not matched against the  session, which is found by its own id. |  |
+| **folderId** | **int** | The folder the session was opened against. Take it from the path the session was created on. |  |
 
 ### Return type
 
@@ -99,7 +99,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var sessionId = 9f1c7a2b4d3e4f5a8b6c0d1e2f3a4b5c;  // string | The session to cancel, as returned in `id` when it was created: a 32-character hexadecimal string that  identifies the session on its own.
-            var folderId = 1;  // int | The folder the session was opened against. It is part of the route only and is not matched against the  session, which is found by its own id.
+            var folderId = 1;  // int | The folder the session was opened against. Take it from the path the session was created on.
 
             try
             {
@@ -145,7 +145,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The session and the parts received so far have been discarded |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The session was opened by another account |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -161,7 +161,7 @@ catch (ApiException e)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
-Cancels a chunked upload opened with `POST api/2.0/files/{folderId}/session` and discards the parts already  received, so nothing of it reaches the folder. The session is found by the id in the path alone: the folder  segment is not matched against it, and neither is the account that opened it, which makes the id the only  secret protecting the transfer. The call is destructive and is not safe to repeat, because the record is gone  afterwards: a second attempt, a session already closed by  `PUT api/2.0/files/{folderId}/session/{sessionId}/finalize` and a session that expired after twelve hours of  silence all fail rather than answer as missing. Finalizing removes the session too, so there is nothing left  to abort once the file exists. The answer carries no body. An upload that is simply abandoned needs no call at  all, since the session and its buffered parts are dropped when it expires.
+Cancels a chunked upload opened with `POST api/2.0/files/{folderId}/session` and discards the parts already  received, so nothing of it reaches the folder. Only the account that opened the session may cancel it, and the  folder in the path has to be the one it was opened against. The call is destructive and is not safe to repeat, because the record is gone  afterwards: a second attempt, a session already closed by  `PUT api/2.0/files/{folderId}/session/{sessionId}/finalize` and a session that expired after twelve hours of  silence all fail rather than answer as missing. Finalizing removes the session too, so there is nothing left  to abort once the file exists. The answer carries no body. An upload that is simply abandoned needs no call at  all, since the session and its buffered parts are dropped when it expires.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/).
 
@@ -170,7 +170,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **sessionId** | **string** | The session to cancel, as returned in `id` when it was created: a 32-character hexadecimal string that  identifies the session on its own. |  |
-| **folderId** | **string** | The folder the session was opened against. It is part of the route only and is not matched against the  session, which is found by its own id. |  |
+| **folderId** | **string** | The folder the session was opened against. Take it from the path the session was created on. |  |
 
 ### Return type
 
@@ -218,7 +218,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var sessionId = 9f1c7a2b4d3e4f5a8b6c0d1e2f3a4b5c;  // string | The session to cancel, as returned in `id` when it was created: a 32-character hexadecimal string that  identifies the session on its own.
-            var folderId = sbox-42;  // string | The folder the session was opened against. It is part of the route only and is not matched against the  session, which is found by its own id.
+            var folderId = sbox-42;  // string | The folder the session was opened against. Take it from the path the session was created on.
 
             try
             {
@@ -264,7 +264,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The session and the parts received so far have been discarded |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The session was opened by another account |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1252,9 +1252,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created session, wrapped in the success envelope |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, has no `fileName`, or `fileSize` is negative |  -  |
+| **400** | The request body cannot be read, has no `fileName`, `fileSize` is negative, or the name of a file in a private room is not a lowercase UUID with an optional lowercase extension |  -  |
 | **402** | The declared `fileSize` exceeds the portal limit for chunked uploads or the size allowed in a knowledge folder |  -  |
-| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format |  -  |
+| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format, or the file going into a private room is not marked `encrypted` |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
@@ -1377,9 +1377,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created session, wrapped in the success envelope |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, has no `fileName`, or `fileSize` is negative |  -  |
+| **400** | The request body cannot be read, has no `fileName`, `fileSize` is negative, or the name of a file in a private room is not a lowercase UUID with an optional lowercase extension |  -  |
 | **402** | The declared `fileSize` exceeds the portal limit for chunked uploads or the size allowed in a knowledge folder |  -  |
-| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format |  -  |
+| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format, or the file going into a private room is not marked `encrypted` |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
@@ -1500,9 +1500,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created upload session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, has no `fileName`, or `fileSize` is negative |  -  |
+| **400** | The request body cannot be read, has no `fileName`, `fileSize` is negative, or the name of a file in a private room is not a lowercase UUID with an optional lowercase extension |  -  |
 | **402** | The declared `fileSize` exceeds the portal limit for chunked uploads or the size allowed in a knowledge folder |  -  |
-| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format |  -  |
+| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format, or the file going into a private room is not marked `encrypted` |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
@@ -1625,9 +1625,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created upload session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, has no `fileName`, or `fileSize` is negative |  -  |
+| **400** | The request body cannot be read, has no `fileName`, `fileSize` is negative, or the name of a file in a private room is not a lowercase UUID with an optional lowercase extension |  -  |
 | **402** | The declared `fileSize` exceeds the portal limit for chunked uploads or the size allowed in a knowledge folder |  -  |
-| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format |  -  |
+| **403** | The caller cannot add content to the target folder, the folder is a section root, or a knowledge folder does not accept this format, or the file going into a private room is not marked `encrypted` |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
@@ -2345,7 +2345,7 @@ catch (ApiException e)
 | **200** | The assembled file and the identifiers of the closed session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The parts received so far do not add up to the size the session was opened for |  -  |
 | **402** | Storing the file would exceed a storage quota or size limit |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -2468,7 +2468,7 @@ catch (ApiException e)
 | **200** | The assembled file and the identifiers of the closed session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The parts received so far do not add up to the size the session was opened for |  -  |
 | **402** | Storing the file would exceed a storage quota or size limit |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -3664,7 +3664,7 @@ catch (ApiException e)
 | **200** | The session with its progress after the part was stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part, or `chunkNumber` is 0 or negative |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or a session below that size would exceed a storage quota or size limit when storing the file |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -3791,7 +3791,7 @@ catch (ApiException e)
 | **200** | The session with its progress after the part was stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part, or `chunkNumber` is 0 or negative |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or a session below that size would exceed a storage quota or size limit when storing the file |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -3914,7 +3914,7 @@ catch (ApiException e)
 | **200** | The progress of the session, or the stored file once the last part has arrived |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or storing the file would exceed a storage quota or size limit |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -4039,7 +4039,7 @@ catch (ApiException e)
 | **200** | The progress of the session, or the stored file once the last part has arrived |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or storing the file would exceed a storage quota or size limit |  -  |
-| **404** | No open session with the specified ID: it never existed, was finalized or aborted, or has expired |  -  |
+| **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
 | **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

@@ -1107,6 +1107,11 @@ namespace DocSpace.API.SDK.Model
         FileKeysSet = 5164,
 
         /// <summary>
+        /// Enum RoomFileKeysRevoked for value: 5165
+        /// </summary>
+        RoomFileKeysRevoked = 5165,
+
+        /// <summary>
         /// Enum FileSavedButUserQuotaExceeded for value: 5201
         /// </summary>
         FileSavedButUserQuotaExceeded = 5201,

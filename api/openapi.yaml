@@ -23888,14 +23888,16 @@ paths:
             X-RateLimit-Reset:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "400":
-          description: "The request body cannot be read, has no `fileName`, or `fileSize`\
-            \ is negative"
+          description: "The request body cannot be read, has no `fileName`, `fileSize`\
+            \ is negative, or the name of a file in a private room is not a lowercase\
+            \ UUID with an optional lowercase extension"
         "402":
           description: The declared `fileSize` exceeds the portal limit for chunked
             uploads or the size allowed in a knowledge folder
         "403":
           description: "The caller cannot add content to the target folder, the folder\
-            \ is a section root, or a knowledge folder does not accept this format"
+            \ is a section root, or a knowledge folder does not accept this format,\
+            \ or the file going into a private room is not marked `encrypted`"
         "404":
           description: No folder with the specified ID
         "415":
@@ -24023,14 +24025,16 @@ paths:
             X-RateLimit-Reset:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "400":
-          description: "The request body cannot be read, has no `fileName`, or `fileSize`\
-            \ is negative"
+          description: "The request body cannot be read, has no `fileName`, `fileSize`\
+            \ is negative, or the name of a file in a private room is not a lowercase\
+            \ UUID with an optional lowercase extension"
         "402":
           description: The declared `fileSize` exceeds the portal limit for chunked
             uploads or the size allowed in a knowledge folder
         "403":
           description: "The caller cannot add content to the target folder, the folder\
-            \ is a section root, or a knowledge folder does not accept this format"
+            \ is a section root, or a knowledge folder does not accept this format,\
+            \ or the file going into a private room is not marked `encrypted`"
         "404":
           description: No folder with the specified ID
         "415":
@@ -24104,11 +24108,10 @@ paths:
     delete:
       description: "Cancels a chunked upload opened with `POST api/2.0/files/{folderId}/session`\
         \ and discards the parts already\r\nreceived, so nothing of it reaches the\
-        \ folder. The session is found by the id in the path alone: the folder\r\n\
-        segment is not matched against it, and neither is the account that opened\
-        \ it, which makes the id the only\r\nsecret protecting the transfer. The call\
-        \ is destructive and is not safe to repeat, because the record is gone\r\n\
-        afterwards: a second attempt, a session already closed by\r\n`PUT api/2.0/files/{folderId}/session/{sessionId}/finalize`\
+        \ folder. Only the account that opened the session may cancel it, and the\r\
+        \nfolder in the path has to be the one it was opened against. The call is\
+        \ destructive and is not safe to repeat, because the record is gone\r\nafterwards:\
+        \ a second attempt, a session already closed by\r\n`PUT api/2.0/files/{folderId}/session/{sessionId}/finalize`\
         \ and a session that expired after twelve hours of\r\nsilence all fail rather\
         \ than answer as missing. Finalizing removes the session too, so there is\
         \ nothing left\r\nto abort once the file exists. The answer carries no body.\
@@ -24127,9 +24130,8 @@ paths:
           example: 9f1c7a2b4d3e4f5a8b6c0d1e2f3a4b5c
           type: string
         style: simple
-      - description: "The folder the session was opened against. It is part of the\
-          \ route only and is not matched against the\r\nsession, which is found by\
-          \ its own id."
+      - description: The folder the session was opened against. Take it from the path
+          the session was created on.
         explode: false
         in: path
         name: folderId
@@ -24152,8 +24154,9 @@ paths:
         "403":
           description: The session was opened by another account
         "404":
-          description: "No open session with the specified ID: it never existed, was\
-            \ finalized or aborted, or has expired"
+          description: "No open session with the specified ID in this folder: it never\
+            \ existed, was finalized or aborted, has expired, or belongs to another\
+            \ folder"
         "401":
           content:
             application/json:
@@ -24203,9 +24206,8 @@ paths:
         parameters:
         - name: folderId
           in: path
-          description: "The folder the session was opened against. It is part of the\
-            \ route only and is not matched against the\r\nsession, which is found\
-            \ by its own id."
+          description: The folder the session was opened against. Take it from the
+            path the session was created on.
           required: true
           schema:
             type: string
@@ -24280,8 +24282,9 @@ paths:
           description: "The part is larger than `chunkUploadSize`, or storing the\
             \ file would exceed a storage quota or size limit"
         "404":
-          description: "No open session with the specified ID: it never existed, was\
-            \ finalized or aborted, or has expired"
+          description: "No open session with the specified ID in this folder: it never\
+            \ existed, was finalized or aborted, has expired, or belongs to another\
+            \ folder"
         "500":
           description: A file that is not a PDF is stored in a form-filling room
         "401":
@@ -24429,8 +24432,9 @@ paths:
             \ that size would exceed a storage quota or size limit when storing the\
             \ file"
         "404":
-          description: "No open session with the specified ID: it never existed, was\
-            \ finalized or aborted, or has expired"
+          description: "No open session with the specified ID in this folder: it never\
+            \ existed, was finalized or aborted, has expired, or belongs to another\
+            \ folder"
         "500":
           description: A session below `chunkUploadSize` stores a file that is not
             a PDF in a form-filling room
@@ -24554,8 +24558,9 @@ paths:
         "402":
           description: Storing the file would exceed a storage quota or size limit
         "404":
-          description: "No open session with the specified ID: it never existed, was\
-            \ finalized or aborted, or has expired"
+          description: "No open session with the specified ID in this folder: it never\
+            \ existed, was finalized or aborted, has expired, or belongs to another\
+            \ folder"
         "500":
           description: A file that is not a PDF is stored in a form-filling room
         "401":
@@ -84947,6 +84952,7 @@ components:
       - 5162
       - 5163
       - 5164
+      - 5165
       - 5201
       - 5202
       - 5203
@@ -85324,6 +85330,7 @@ components:
       - PrivacyRoomKeyUpdated
       - PrivacyRoomKeyDeleted
       - FileKeysSet
+      - RoomFileKeysRevoked
       - FileSavedButUserQuotaExceeded
       - FileNotSavedDueToUserQuota
       - FileSavedButRoomQuotaExceeded
