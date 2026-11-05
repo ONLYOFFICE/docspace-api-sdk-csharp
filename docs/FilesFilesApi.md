@@ -1057,7 +1057,7 @@ catch (ApiException e)
 | **200** | The copy that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `destTitle` or `destFolderId`, or the new title is empty while the source file has no extension |  -  |
 | **402** | The copy does not fit into the storage quota of the portal, the room or the user, or the converted content exceeds the maximum upload size |  -  |
-| **403** | The caller may not read the file, the destination folder does not exist, or the caller may not create files in it |  -  |
+| **403** | The caller may not read the file, the destination folder does not exist, the caller may not create files in it, or the file or the destination lies in a private room |  -  |
 | **404** | The file or the destination folder does not exist |  -  |
 | **415** | The installation filters uploads and does not accept the format of the new title |  -  |
 | **500** | The document service fails to convert the content, `destFolderId` is a fraction or outside the 32-bit range, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
@@ -1182,7 +1182,7 @@ catch (ApiException e)
 | **200** | The copy that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `destTitle` or `destFolderId`, or the new title is empty while the source file has no extension |  -  |
 | **402** | The copy does not fit into the storage quota of the portal, the room or the user, or the converted content exceeds the maximum upload size |  -  |
-| **403** | The caller may not read the file, the destination folder does not exist, or the caller may not create files in it |  -  |
+| **403** | The caller may not read the file, the destination folder does not exist, the caller may not create files in it, or the file or the destination lies in a private room |  -  |
 | **404** | The file or the destination folder does not exist |  -  |
 | **415** | The installation filters uploads and does not accept the format of the new title |  -  |
 | **500** | The document service fails to convert the content, `destFolderId` is a fraction or outside the 32-bit range, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
@@ -8724,7 +8724,7 @@ catch (ApiException e)
 
 <a id="setencryptioninfo"></a>
 # **SetEncryptionInfo**
-> void SetEncryptionInfo (int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = null)
+> FileKeysWrittenWrapper SetEncryptionInfo (int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = null)
 
 Issues the file keys that let the named people open one file of an end-to-end encrypted private room. Each  entry of the body names the account the key is for, the public key it was encrypted with and the encrypted key  itself, so the plain key never reaches the portal: the client encrypts it once per recipient with the public  key that `GET api/2.0/files/file/{fileId}/publickeys` reports for them. The keys of the accounts named in the  request are replaced, and the keys of everybody else are left as they are, which makes the call idempotent for  a given set of recipients while remaining a mutating one; sending no entry for a person does not revoke that  person's key. The file has to lie in a private room, and every account named in the request has to have read  access to it. The caller needs read access to the file and the right to create content in that room, which its  members with editing rights and its admins have; a caller without those rights, a file outside a private room  and a file that does not exist are all refused with 403. Read the result back with  `GET api/2.0/files/{fileId}/access`.
 
@@ -8739,7 +8739,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-void (empty response body)
+[**FileKeysWrittenWrapper**](FileKeysWrittenWrapper.md)
 
 ### Authorization
 
@@ -8788,7 +8788,8 @@ namespace Example
             try
             {
                 // Set file encryption information
-                apiInstance.SetEncryptionInfo(fileId, accessRequestKeyDto);
+                FileKeysWrittenWrapper result = apiInstance.SetEncryptionInfo(fileId, accessRequestKeyDto);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -8808,7 +8809,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set file encryption information
-    apiInstance.SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+    ApiResponse<FileKeysWrittenWrapper> response = apiInstance.SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -8827,8 +8831,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The file keys were stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The file does not exist, the caller may not issue keys for it, the file is not in a private room, or a recipient has no read access to it |  -  |
+| **200** | The file keys of the recipients who can read the file were stored; the others are listed in `skippedUserIds` |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The file does not exist, the caller may not issue keys for it, or the file is not in a private room |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -8841,7 +8845,7 @@ catch (ApiException e)
 
 <a id="setencryptioninfo-thirdparty"></a>
 # **SetEncryptionInfo** (third-party storage)
-> void SetEncryptionInfo (string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = null)
+> FileKeysWrittenWrapper SetEncryptionInfo (string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -8858,7 +8862,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-void (empty response body)
+[**FileKeysWrittenWrapper**](FileKeysWrittenWrapper.md)
 
 ### Authorization
 
@@ -8907,7 +8911,8 @@ namespace Example
             try
             {
                 // Set file encryption information (third-party storage)
-                apiInstance.SetEncryptionInfo(fileId, accessRequestKeyDto);
+                FileKeysWrittenWrapper result = apiInstance.SetEncryptionInfo(fileId, accessRequestKeyDto);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -8927,7 +8932,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set file encryption information (third-party storage)
-    apiInstance.SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+    ApiResponse<FileKeysWrittenWrapper> response = apiInstance.SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -8946,8 +8954,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The file keys were stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The file does not exist, the caller may not issue keys for it, the file is not in a private room, or a recipient has no read access to it |  -  |
+| **200** | The file keys of the recipients who can read the file were stored; the others are listed in `skippedUserIds` |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The file does not exist, the caller may not issue keys for it, or the file is not in a private room |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

@@ -6,6 +6,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 |--------|--------------|-------------|
 | [**DeleteKeys**](#deletekeys) | **DELETE** /api/2.0/privacyroom/keys/{id} | Delete an encryption key |
 | [**GetRoomCandidateKeys**](#getroomcandidatekeys) | **GET** /api/2.0/privacyroom/{roomId}/access/candidates | Get public keys of room invitees |
+| [**GetRoomMissingFileKeys**](#getroommissingfilekeys) | **GET** /api/2.0/privacyroom/{roomId}/access/missing | Get missing file keys of a room |
 | [**GetUserKeys**](#getuserkeys) | **GET** /api/2.0/privacyroom/keys | Get own encryption keys |
 | [**GetUserKeysForRoom**](#getuserkeysforroom) | **GET** /api/2.0/privacyroom/{roomId}/access | Get private room access keys |
 | [**ReplaceKey**](#replacekey) | **PUT** /api/2.0/privacyroom/keys | Rotate an encryption key |
@@ -236,6 +237,127 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The public encryption keys of the listed users who can be invited |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The room is not a private room, or a user ID is malformed |  -  |
+| **403** | The caller has no read access to the room or cannot change its access |  -  |
+| **404** | The room is not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getroommissingfilekeys"></a>
+# **GetRoomMissingFileKeys**
+> RoomMissingFileKeysArrayWrapper GetRoomMissingFileKeys (int roomId, List<Guid>? userIds = null)
+
+Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **roomId** | **int** | The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`. |  |
+| **userIds** | [**List&lt;Guid&gt;?**](Guid.md) | The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. | [optional]  |
+
+### Return type
+
+[**RoomMissingFileKeysArrayWrapper**](RoomMissingFileKeysArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetRoomMissingFileKeysExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
+            var roomId = 1234;  // int | The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.
+            var userIds = new List<Guid>?(); // List<Guid>? | The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional) 
+
+            try
+            {
+                // Get missing file keys of a room
+                RoomMissingFileKeysArrayWrapper result = apiInstance.GetRoomMissingFileKeys(roomId, userIds);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PrivacyRoomApi.GetRoomMissingFileKeys: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRoomMissingFileKeysWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get missing file keys of a room
+    ApiResponse<RoomMissingFileKeysArrayWrapper> response = apiInstance.GetRoomMissingFileKeysWithHttpInfo(roomId, userIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PrivacyRoomApi.GetRoomMissingFileKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The users who miss a file key and the files concerned |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The room is not a private room, or a user ID is malformed |  -  |
 | **403** | The caller has no read access to the room or cannot change its access |  -  |
 | **404** | The room is not found |  -  |

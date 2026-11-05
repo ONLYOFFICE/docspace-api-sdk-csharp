@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ExtsWebPreviewed** | **List&lt;string&gt;** | Documents the editor can open read-only. A format that is here but not in the edited list can be viewed and  not changed. | [optional] 
 **ExtsWebEdited** | **List&lt;string&gt;** | Documents the editor can open for editing. Uploading a format outside this list and outside the convertible  list leaves a file that can only be downloaded. | [optional] 
 **ExtsWebEncrypt** | **List&lt;string&gt;** | Documents that can be edited inside a private room, where the content is encrypted on the client. | [optional] 
+**DocServiceEncryptionSupported** | **bool** | Whether the connected document server can edit end-to-end encrypted files. When false, an encrypted file cannot be  opened in the editors, whatever `extsWebEncrypt` lists. | [optional] 
 **ExtsWebReviewed** | **List&lt;string&gt;** | Documents that support the reviewing mode, so that granting review access to them is meaningful. | [optional] 
 **ExtsWebCustomFilterEditing** | **List&lt;string&gt;** | Spreadsheets that support the custom filter mode, where a filter applied by one editor does not disturb the  others. | [optional] 
 **ExtsWebRestrictedEditing** | **List&lt;string&gt;** | Documents that can only be filled in or commented on rather than edited freely, whatever access the caller  holds. | [optional] 

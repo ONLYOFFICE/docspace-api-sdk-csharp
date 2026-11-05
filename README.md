@@ -3331,6 +3331,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get public keys of room invitees</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getroommissingfilekeys"><strong>GetRoomMissingFileKeys</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access/missing</td>
+        <td>Get missing file keys of a room</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeys"><strong>GetUserKeys</strong></a></td>
         <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
         <td>Get own encryption keys</td>
@@ -4893,6 +4898,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FileEntryDtoAllOfShareSettings](docs/FileEntryDtoAllOfShareSettings.md)
  - [Model.FileEntryType](docs/FileEntryType.md)
  - [Model.FileKeysDto](docs/FileKeysDto.md)
+ - [Model.FileKeysWrittenDto](docs/FileKeysWrittenDto.md)
+ - [Model.FileKeysWrittenWrapper](docs/FileKeysWrittenWrapper.md)
  - [Model.FileLinkDto](docs/FileLinkDto.md)
  - [Model.FileLinkRequest](docs/FileLinkRequest.md)
  - [Model.FileLinkWrapper](docs/FileLinkWrapper.md)
@@ -5141,6 +5148,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.RoomInvitation](docs/RoomInvitation.md)
  - [Model.RoomInvitationRequest](docs/RoomInvitationRequest.md)
  - [Model.RoomLinkRequest](docs/RoomLinkRequest.md)
+ - [Model.RoomMissingFileKeysArrayWrapper](docs/RoomMissingFileKeysArrayWrapper.md)
+ - [Model.RoomMissingFileKeysDto](docs/RoomMissingFileKeysDto.md)
  - [Model.RoomNewItemsDto](docs/RoomNewItemsDto.md)
  - [Model.RoomPrivacyFilter](docs/RoomPrivacyFilter.md)
  - [Model.RoomSecurityDto](docs/RoomSecurityDto.md)

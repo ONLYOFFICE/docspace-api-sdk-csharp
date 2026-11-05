@@ -79,6 +79,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> GetRoomCandidateKeysWithHttpInfo(int roomId, List<Guid>? userIds = default);
         /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>RoomMissingFileKeysArrayWrapper</returns>
+        RoomMissingFileKeysArrayWrapper GetRoomMissingFileKeys(int roomId, List<Guid>? userIds = default);
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>ApiResponse of RoomMissingFileKeysArrayWrapper</returns>
+        ApiResponse<RoomMissingFileKeysArrayWrapper> GetRoomMissingFileKeysWithHttpInfo(int roomId, List<Guid>? userIds = default);
+        /// <summary>
         /// Get own encryption keys
         /// </summary>
         /// <remarks>
@@ -229,6 +254,33 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-candidate-keys/">REST API Reference for GetRoomCandidateKeys Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
         Task<ApiResponse<EncryptionKeyArrayWrapper>> GetRoomCandidateKeysWithHttpInfoAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>Task of RoomMissingFileKeysArrayWrapper</returns>
+        Task<RoomMissingFileKeysArrayWrapper> GetRoomMissingFileKeysAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>Task of ApiResponse (RoomMissingFileKeysArrayWrapper)</returns>
+        Task<ApiResponse<RoomMissingFileKeysArrayWrapper>> GetRoomMissingFileKeysWithHttpInfoAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get own encryption keys
         /// </summary>
@@ -907,6 +959,200 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetRoomCandidateKeys", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>RoomMissingFileKeysArrayWrapper</returns>
+        public RoomMissingFileKeysArrayWrapper GetRoomMissingFileKeys(int roomId, List<Guid>? userIds = default)
+        {
+            var localVarResponse = GetRoomMissingFileKeysWithHttpInfo(roomId, userIds);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>ApiResponse of RoomMissingFileKeysArrayWrapper</returns>
+        public ApiResponse<RoomMissingFileKeysArrayWrapper> GetRoomMissingFileKeysWithHttpInfo(int roomId, List<Guid>? userIds = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("roomId", ClientUtils.ParameterToString(roomId)); // path parameter
+            if (userIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "userIds", userIds));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<RoomMissingFileKeysArrayWrapper>("/api/2.0/privacyroom/{roomId}/access/missing", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomMissingFileKeys", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>Task of RoomMissingFileKeysArrayWrapper</returns>
+        public async Task<RoomMissingFileKeysArrayWrapper> GetRoomMissingFileKeysAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetRoomMissingFileKeysWithHttpInfoAsync(roomId, userIds, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get missing file keys of a room
+        /// </summary>
+        /// <remarks>
+        /// Reports which encrypted files of a private room each user cannot open yet, across all its folders, so that a  client can write exactly the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying every file.  The caller needs the right to change the room's access, which means its owner or a room manager; other members  and a DocSpace administrator who is not a member are refused, and an archived room, whose access cannot change,  is refused too. Listing `userIds` checks those people, members or not, which is what a client does before  `POST api/2.0/files/owner` answers 409 for a new owner; without it the members of the room are checked. The call  is read-only. The answer holds one entry per user who misses something and carries identifiers only, never a  key: an empty list means nothing is missing. A file stored in the clear needs no key and is never reported, and  an id that names nobody on this portal is ignored. A room that is not private, or a folder inside a room, is  rejected as invalid, as is a malformed id.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomId">The private room to check. Take it from the `id` of the room returned by `POST api/2.0/files/rooms` or listed by  `GET api/2.0/files/rooms`.</param>
+        /// <param name="userIds">The people to check, repeated once per user (`userIds=...&userIds=...`). Take each from the `id` of a user  returned by `GET api/2.0/people`. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-missing-file-keys/">REST API Reference for GetRoomMissingFileKeys Operation</seealso>
+        /// <returns>Task of ApiResponse (RoomMissingFileKeysArrayWrapper)</returns>
+        public async Task<ApiResponse<RoomMissingFileKeysArrayWrapper>> GetRoomMissingFileKeysWithHttpInfoAsync(int roomId, List<Guid>? userIds = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("roomId", ClientUtils.ParameterToString(roomId)); // path parameter
+            if (userIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "userIds", userIds));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<RoomMissingFileKeysArrayWrapper>("/api/2.0/privacyroom/{roomId}/access/missing", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomMissingFileKeys", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

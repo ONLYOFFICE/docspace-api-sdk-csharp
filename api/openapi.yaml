@@ -11089,7 +11089,8 @@ paths:
             \ size"
         "403":
           description: "The caller may not read the file, the destination folder does\
-            \ not exist, or the caller may not create files in it"
+            \ not exist, the caller may not create files in it, or the file or the\
+            \ destination lies in a private room"
         "404":
           description: The file or the destination folder does not exist
         "415":
@@ -13956,7 +13957,12 @@ paths:
           \ person's key."
       responses:
         "200":
-          description: The file keys were stored
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileKeysWrittenWrapper"
+          description: The file keys of the recipients who can read the file were
+            stored; the others are listed in `skippedUserIds`
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -13966,8 +13972,7 @@ paths:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "403":
           description: "The file does not exist, the caller may not issue keys for\
-            \ it, the file is not in a private room, or a recipient has no read access\
-            \ to it"
+            \ it, or the file is not in a private room"
         "404":
           description: The file does not exist
         "401":
@@ -28664,6 +28669,10 @@ paths:
             \ may not change the owner of a listed entry, a listed folder lies outside\
             \ the rooms and common sections, or a listed file is locked, being edited\
             \ or lies outside the common section"
+        "409":
+          description: "The new owner holds no key for some encrypted files of a listed\
+            \ private room: `GET api/2.0/privacyroom/{roomId}/access/missing` names\
+            \ them, and the call can be repeated once their keys are written"
         "500":
           description: An id is a number that is not a 32-bit integer
         "401":
@@ -29708,9 +29717,9 @@ paths:
             \ `cover` longer than 50 characters, or `logo` has no `tmpFile` or a position\
             \ or size outside 0-1280"
         "403":
-          description: "The source room is archived, the caller cannot edit it, or\
-            \ `quota` is set while the storage quota for rooms (for an AI agent, for\
-            \ agents) is turned off"
+          description: "The source room is archived or private, the caller cannot\
+            \ edit it, or `quota` is set while the storage quota for rooms (for an\
+            \ AI agent, for agents) is turned off"
         "404":
           description: No room with `roomId` exists in the Rooms section
         "401":
@@ -30380,13 +30389,14 @@ paths:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "400":
           description: "The request body cannot be read or has no `title` or `roomType`,\
-            \ `title` is blank or longer than 170 characters, `roomType` is not a\
-            \ known room type, `color` is not six hexadecimal digits, `cover` is longer\
-            \ than 50 characters or not a known cover, `share` is not empty, `lifetime`\
-            \ has an unknown `period` or a `value` outside 1-999, the `watermark`\
-            \ text is longer than 255 characters, `logo` has no `tmpFile`, a position\
-            \ outside 0-1280, a size outside 1-1280 or a position outside the uploaded\
-            \ picture, or a tag name is empty"
+            \ `private` is set together with `indexing`, an enabled `lifetime` or\
+            \ an enabled `watermark`, `title` is blank or longer than 170 characters,\
+            \ `roomType` is not a known room type, `color` is not six hexadecimal\
+            \ digits, `cover` is longer than 50 characters or not a known cover, `share`\
+            \ is not empty, `lifetime` has an unknown `period` or a `value` outside\
+            \ 1-999, the `watermark` text is longer than 255 characters, `logo` has\
+            \ no `tmpFile`, a position outside 0-1280, a size outside 1-1280 or a\
+            \ position outside the uploaded picture, or a tag name is empty"
         "402":
           description: "The portal has reached the room limit of its pricing plan\
             \ or its payment is overdue, or the logo does not fit into the portal\
@@ -31227,8 +31237,9 @@ paths:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "400":
           description: "The request body cannot be read or holds a property the room\
-            \ update does not define, `title` is longer than 170 characters, `color`\
-            \ is not six hexadecimal digits, `cover` is longer than 50 characters\
+            \ update does not define, a private room is given `indexing`, an enabled\
+            \ `lifetime` or an enabled `watermark`, `title` is longer than 170 characters,\
+            \ `color` is not six hexadecimal digits, `cover` is longer than 50 characters\
             \ or not a known cover, `lifetime` has an unknown `period` or a `value`\
             \ outside 1-999, `logo` has no `tmpFile`, a position outside 0-1280, a\
             \ size outside 1-1280 or a position outside the uploaded picture, the\
@@ -31965,10 +31976,11 @@ paths:
             \ link, in the past, or a third-party identifier refers to a storage account\
             \ that is not connected"
         "403":
-          description: "The caller may not manage the links of this room, the access\
-            \ level is not available for this kind of link in this room, the room\
-            \ already has its invitation link or the link limit is reached, or the\
-            \ admin's restriction on external links forbids the change"
+          description: "The caller may not manage the links of this room, the room\
+            \ is private, the access level is not available for this kind of link\
+            \ in this room, the room already has its invitation link or the link limit\
+            \ is reached, or the admin's restriction on external links forbids the\
+            \ change"
         "404":
           description: "The room does not exist, or the id is neither a 32-bit number\
             \ nor a third-party identifier of a known storage type"
@@ -36042,6 +36054,111 @@ paths:
         - write
       - OpenId: []
       summary: Get public keys of room invitees
+      tags:
+      - Rooms / Privacy room
+  /api/2.0/privacyroom/{roomId}/access/missing:
+    get:
+      description: "Reports which encrypted files of a private room each user cannot\
+        \ open yet, across all its folders, so that a\r\nclient can write exactly\
+        \ the missing keys with `PUT api/2.0/files/{fileId}/access` instead of trying\
+        \ every file.\r\nThe caller needs the right to change the room's access, which\
+        \ means its owner or a room manager; other members\r\nand a DocSpace administrator\
+        \ who is not a member are refused, and an archived room, whose access cannot\
+        \ change,\r\nis refused too. Listing `userIds` checks those people, members\
+        \ or not, which is what a client does before\r\n`POST api/2.0/files/owner`\
+        \ answers 409 for a new owner; without it the members of the room are checked.\
+        \ The call\r\nis read-only. The answer holds one entry per user who misses\
+        \ something and carries identifiers only, never a\r\nkey: an empty list means\
+        \ nothing is missing. A file stored in the clear needs no key and is never\
+        \ reported, and\r\nan id that names nobody on this portal is ignored. A room\
+        \ that is not private, or a folder inside a room, is\r\nrejected as invalid,\
+        \ as is a malformed id."
+      operationId: getRoomMissingFileKeys
+      parameters:
+      - description: "The private room to check. Take it from the `id` of the room\
+          \ returned by `POST api/2.0/files/rooms` or listed by\r\n`GET api/2.0/files/rooms`."
+        explode: false
+        in: path
+        name: roomId
+        required: true
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: simple
+      - description: "The people to check, repeated once per user (`userIds=...&userIds=...`).\
+          \ Take each from the `id` of a user\r\nreturned by `GET api/2.0/people`."
+        explode: true
+        in: query
+        name: userIds
+        required: false
+        schema:
+          example:
+          - 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          items:
+            format: uuid
+            type: string
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomMissingFileKeysArrayWrapper"
+          description: The users who miss a file key and the files concerned
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+            X-RateLimit-Reset:
+              $ref: "#/components/headers/X-RateLimit-Reset"
+        "400":
+          description: "The room is not a private room, or a user ID is malformed"
+        "403":
+          description: The caller has no read access to the room or cannot change
+            its access
+        "404":
+          description: The room is not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Unauthorized
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Too Many Requests.
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/Retry-After"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Internal Server Error.
+        "502":
+          description: "Bad Gateway. Returned by the reverse proxy, response body\
+            \ may be HTML and not JSON."
+        "503":
+          description: "Service Unavailable. Returned by the reverse proxy, response\
+            \ body may be HTML and not JSON."
+      security:
+      - asc_auth_key: []
+      - Bearer: []
+      - ApiKeyBearer: []
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get missing file keys of a room
       tags:
       - Rooms / Privacy room
   /api/2.0/privacyroom/keys/{id}:
@@ -80140,6 +80257,65 @@ components:
           example: 2025-01-01T00:00:00
           format: date-time
           type: string
+    FileKeysWrittenDto:
+      description: The outcome of issuing file keys.
+      properties:
+        skippedUserIds:
+          description: "The recipients whose key was not stored, because they can\
+            \ no longer read the file. Empty when every key was\r\nstored."
+          example:
+          - 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+          default: null
+      required:
+      - skippedUserIds
+    FileKeysWrittenWrapper:
+      description: The successful API response containing the FileKeysWrittenDto object.
+      example:
+        response: ""
+        count: 0
+        total: 6
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 1
+        statusCode: 5
+      properties:
+        response:
+          allOf:
+          - $ref: "#/components/schemas/FileKeysWrittenDto"
+          description: The FileKeysWrittenDto object returned by the operation.
+        count:
+          description: "How many items this response carries: the length of the page\
+            \ for a list, 1 for a single object"
+          format: int32
+          type: integer
+        total:
+          description: "How many items the whole list holds across all pages, for\
+            \ working out how many pages to request. Sent only by the operations that\
+            \ page their results, and left out of every other response"
+          format: int64
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
     FileLinkDto:
       description: "The address the content of a file is fetched from, together with\
         \ the signature that authorises the fetch, as\r\nthe document service is handed\
@@ -81227,6 +81403,12 @@ components:
           nullable: true
           type: array
           default: null
+        docServiceEncryptionSupported:
+          description: "Whether the connected document server can edit end-to-end\
+            \ encrypted files. When false, an encrypted file cannot be\r\nopened in\
+            \ the editors, whatever `extsWebEncrypt` lists."
+          example: true
+          type: boolean
         extsWebReviewed:
           description: "Documents that support the reviewing mode, so that granting\
             \ review access to them is meaningful."
@@ -84764,6 +84946,7 @@ components:
       - 5161
       - 5162
       - 5163
+      - 5164
       - 5201
       - 5202
       - 5203
@@ -85140,6 +85323,7 @@ components:
       - PrivacyRoomKeyCreated
       - PrivacyRoomKeyUpdated
       - PrivacyRoomKeyDeleted
+      - FileKeysSet
       - FileSavedButUserQuotaExceeded
       - FileNotSavedDueToUserQuota
       - FileSavedButRoomQuotaExceeded
@@ -87702,6 +87886,91 @@ components:
           example: 0
           format: int32
           type: integer
+    RoomMissingFileKeysArrayWrapper:
+      description: The successful API response containing the list of RoomMissingFileKeysDto
+        objects.
+      example:
+        response:
+        - userId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          fileIds:
+          - 1234
+          - 1235
+        - userId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          fileIds:
+          - 1234
+          - 1235
+        count: 0
+        total: 6
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 1
+        statusCode: 5
+      properties:
+        response:
+          description: The list of RoomMissingFileKeysDto objects returned by the
+            operation.
+          items:
+            $ref: "#/components/schemas/RoomMissingFileKeysDto"
+          type: array
+          default: null
+        count:
+          description: "How many items this response carries: the length of the page\
+            \ for a list, 1 for a single object"
+          format: int32
+          type: integer
+        total:
+          description: "How many items the whole list holds across all pages, for\
+            \ working out how many pages to request. Sent only by the operations that\
+            \ page their results, and left out of every other response"
+          format: int64
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    RoomMissingFileKeysDto:
+      description: One user who cannot open some encrypted files of a private room
+        yet.
+      example:
+        userId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+        fileIds:
+        - 1234
+        - 1235
+      properties:
+        userId:
+          description: The user the keys are missing for.
+          example: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          format: uuid
+          type: string
+        fileIds:
+          description: "The encrypted files that hold no key for this user, anywhere\
+            \ in the room. Never empty: a user who has every key\r\nis not listed\
+            \ at all."
+          example:
+          - 1234
+          - 1235
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+          default: null
+      required:
+      - fileIds
+      - userId
     RoomNewItemsDto:
       description: The unseen entries of one room inside a day group.
       example:

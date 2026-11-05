@@ -258,6 +258,7 @@ catch (ApiException e)
 | **200** | The rooms and files whose owner has been changed, as folder and file objects |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `userId` |  -  |
 | **403** | The new owner is not an active account allowed to manage rooms or has not set up encryption keys for a listed private room, the caller may not change the owner of a listed entry, a listed folder lies outside the rooms and common sections, or a listed file is locked, being edited or lies outside the common section |  -  |
+| **409** | The new owner holds no key for some encrypted files of a listed private room: `GET api/2.0/privacyroom/{roomId}/access/missing` names them, and the call can be repeated once their keys are written |  -  |
 | **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

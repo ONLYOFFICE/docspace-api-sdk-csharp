@@ -1102,6 +1102,11 @@ namespace DocSpace.API.SDK.Model
         PrivacyRoomKeyDeleted = 5163,
 
         /// <summary>
+        /// Enum FileKeysSet for value: 5164
+        /// </summary>
+        FileKeysSet = 5164,
+
+        /// <summary>
         /// Enum FileSavedButUserQuotaExceeded for value: 5201
         /// </summary>
         FileSavedButUserQuotaExceeded = 5201,

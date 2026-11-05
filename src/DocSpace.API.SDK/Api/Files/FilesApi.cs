@@ -1805,8 +1805,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns></returns>
-        void SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
+        /// <returns>FileKeysWrittenWrapper</returns>
+        FileKeysWrittenWrapper SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
 
         /// <summary>
         /// Set file encryption information
@@ -1818,8 +1818,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
+        /// <returns>ApiResponse of FileKeysWrittenWrapper</returns>
+        ApiResponse<FileKeysWrittenWrapper> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
         /// <summary>
         /// Set file encryption information (third-party storage)
         /// </summary>
@@ -1830,8 +1830,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns></returns>
-        void SetEncryptionInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
+        /// <returns>FileKeysWrittenWrapper</returns>
+        FileKeysWrittenWrapper SetEncryptionInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
 
         /// <summary>
         /// Set file encryption information (third-party storage)
@@ -1843,8 +1843,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetEncryptionInfoWithHttpInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
+        /// <returns>ApiResponse of FileKeysWrittenWrapper</returns>
+        ApiResponse<FileKeysWrittenWrapper> SetEncryptionInfoWithHttpInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
         /// <summary>
         /// Set a file external link
         /// </summary>
@@ -4149,8 +4149,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileKeysWrittenWrapper</returns>
+        Task<FileKeysWrittenWrapper> SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set file encryption information
@@ -4163,8 +4163,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileKeysWrittenWrapper)</returns>
+        Task<ApiResponse<FileKeysWrittenWrapper>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set file encryption information (third-party storage)
         /// </summary>
@@ -4176,8 +4176,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task SetEncryptionInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileKeysWrittenWrapper</returns>
+        Task<FileKeysWrittenWrapper> SetEncryptionInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set file encryption information (third-party storage)
@@ -4190,8 +4190,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileKeysWrittenWrapper)</returns>
+        Task<ApiResponse<FileKeysWrittenWrapper>> SetEncryptionInfoWithHttpInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set a file external link
         /// </summary>
@@ -18810,10 +18810,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns></returns>
-        public void SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        /// <returns>FileKeysWrittenWrapper</returns>
+        public FileKeysWrittenWrapper SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
         {
-            SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+            var localVarResponse = SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -18826,8 +18827,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        /// <returns>ApiResponse of FileKeysWrittenWrapper</returns>
+        public ApiResponse<FileKeysWrittenWrapper> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -18877,7 +18878,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileKeysWrittenWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -18902,10 +18903,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileKeysWrittenWrapper</returns>
+        public async Task<FileKeysWrittenWrapper> SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
         {
-            await SetEncryptionInfoWithHttpInfoAsync(fileId, accessRequestKeyDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetEncryptionInfoWithHttpInfoAsync(fileId, accessRequestKeyDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -18919,8 +18921,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileKeysWrittenWrapper)</returns>
+        public async Task<ApiResponse<FileKeysWrittenWrapper>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -18972,7 +18974,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileKeysWrittenWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -18996,10 +18998,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns></returns>
-        public void SetEncryptionInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        /// <returns>FileKeysWrittenWrapper</returns>
+        public FileKeysWrittenWrapper SetEncryptionInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
         {
-            SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+            var localVarResponse = SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -19012,8 +19015,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the keys are issued for; it has to lie in a private room.</param>
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SetEncryptionInfoWithHttpInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        /// <returns>ApiResponse of FileKeysWrittenWrapper</returns>
+        public ApiResponse<FileKeysWrittenWrapper> SetEncryptionInfoWithHttpInfo(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -19067,7 +19070,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileKeysWrittenWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -19092,10 +19095,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task SetEncryptionInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileKeysWrittenWrapper</returns>
+        public async Task<FileKeysWrittenWrapper> SetEncryptionInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
         {
-            await SetEncryptionInfoWithHttpInfoAsync(fileId, accessRequestKeyDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetEncryptionInfoWithHttpInfoAsync(fileId, accessRequestKeyDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -19109,8 +19113,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="accessRequestKeyDto">One key per account that is to open the file. The keys of the accounts named here are replaced and the keys of  everybody else are left as they are, so sending no entry for a person does not revoke that person's key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileKeysWrittenWrapper)</returns>
+        public async Task<ApiResponse<FileKeysWrittenWrapper>> SetEncryptionInfoWithHttpInfoAsync(string fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -19166,7 +19170,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileKeysWrittenWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
