@@ -897,6 +897,47 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         ApiResponse<FileEntryBaseArrayWrapper> GetNewFolderItemsWithHttpInfo(string folderId);
         /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        FolderContentWrapper GetPrivateRoomsFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default);
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        ApiResponse<FolderContentWrapper> GetPrivateRoomsFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default);
+        /// <summary>
         /// Get the Recent section
         /// </summary>
         /// <remarks>
@@ -2436,6 +2477,49 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
         Task<ApiResponse<FileEntryBaseArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(string folderId, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        Task<FolderContentWrapper> GetPrivateRoomsFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        Task<ApiResponse<FolderContentWrapper>> GetPrivateRoomsFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the Recent section
         /// </summary>
@@ -9965,6 +10049,306 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        public FolderContentWrapper GetPrivateRoomsFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default)
+        {
+            var localVarResponse = GetPrivateRoomsFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        public ApiResponse<FolderContentWrapper> GetPrivateRoomsFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
+            }
+            if (includeHiddenMetadata != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeHiddenMetadata", includeHiddenMetadata));
+            }
+            if (_fields != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FolderContentWrapper>("/api/2.0/files/@private", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetPrivateRoomsFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        public async Task<FolderContentWrapper> GetPrivateRoomsFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetPrivateRoomsFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the private rooms section
+        /// </summary>
+        /// <remarks>
+        /// Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
+        /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
+        /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/">REST API Reference for GetPrivateRoomsFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        public async Task<ApiResponse<FolderContentWrapper>> GetPrivateRoomsFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, bool? includeHiddenMetadata = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
+            }
+            if (includeHiddenMetadata != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeHiddenMetadata", includeHiddenMetadata));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentWrapper>("/api/2.0/files/@private", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetPrivateRoomsFolder", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

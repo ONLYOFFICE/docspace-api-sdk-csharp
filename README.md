@@ -560,6 +560,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Update vectorization settings</td>
       </tr>
     <tr>
+        <td colspan="3" style="text-align: center;"><strong>SkillsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISkillsApi.md#aiskillsgenerate"><strong>AiSkillsGenerate</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/skills/generate</td>
+        <td>Generate a skill</td>
+      </tr>
+    <tr>
         <td colspan="3" style="text-align: center;"><strong>ThreadsApi</strong></td>
       </tr>
       <tr>
@@ -1402,6 +1410,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesFoldersApi.md#getnewfolderitems"><strong>GetNewFolderItems</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/{folderId}/news</td>
         <td>Get new folder items</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFoldersApi.md#getprivateroomsfolder"><strong>GetPrivateRoomsFolder</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/@private</td>
+        <td>Get the private rooms section</td>
       </tr>
       <tr>
         <td><a href="docs/FilesFoldersApi.md#getrecentfolder"><strong>GetRecentFolder</strong></a></td>
@@ -4537,6 +4550,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiSettingsWrapper](docs/AiSettingsWrapper.md)
  - [Model.AiSkillDto](docs/AiSkillDto.md)
  - [Model.AiSkillsDto](docs/AiSkillsDto.md)
+ - [Model.AiSkillsGenerate200Response](docs/AiSkillsGenerate200Response.md)
+ - [Model.AiSkillsGenerateRequest](docs/AiSkillsGenerateRequest.md)
+ - [Model.AiSkillsGenerateRequestDestId](docs/AiSkillsGenerateRequestDestId.md)
  - [Model.AiSkillsRoomDto](docs/AiSkillsRoomDto.md)
  - [Model.AiSkillsWrapper](docs/AiSkillsWrapper.md)
  - [Model.AiSuccessResponse](docs/AiSuccessResponse.md)

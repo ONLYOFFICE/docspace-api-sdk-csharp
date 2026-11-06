@@ -34,6 +34,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetMyFolder**](#getmyfolder) | **GET** /api/2.0/files/@my | Get the My documents section |
 | [**GetNewFolderItems**](#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
 | [**GetNewFolderItems**](#getnewfolderitems-thirdparty) | **GET** /api/2.0/files/{folderId}/news | Get new folder items (third-party storage) |
+| [**GetPrivateRoomsFolder**](#getprivateroomsfolder) | **GET** /api/2.0/files/@private | Get the private rooms section |
 | [**GetRecentFolder**](#getrecentfolder) | **GET** /api/2.0/files/recent | Get the Recent section |
 | [**GetReportFolderHistory**](#getreportfolderhistory) | **GET** /api/2.0/files/folder/{folderId}/log/report | Get the folder history report generation status |
 | [**GetRootFolders**](#getrootfolders) | **GET** /api/2.0/files/@root | Get filtered sections |
@@ -3806,6 +3807,143 @@ catch (ApiException e)
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getprivateroomsfolder"></a>
+# **GetPrivateRoomsFolder**
+> FolderContentWrapper GetPrivateRoomsFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
+
+Returns the private rooms section: the flat list of end-to-end encrypted rooms the caller is a member of. Such  rooms are stored under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of  the active area and lists them when `searchArea` names the private rooms area instead. An administrator who is not  a member does not see a private room here either. The section is not expanded into room content, so `folders`  carries the rooms while `files` comes back empty; to read what is inside one of them, call  `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy` saves the  requested order as the default order for this account. `filterType`, `filterValue`, `userIdOrGroupId` and the  sorting parameters narrow and order the room list, `metadataTemplateId` and `metadataFilters` keep only the rooms  carrying the template and matching the conditions, `count` and `startIndex` page through it, `total` reports how  many rooms match the request in full, and `current` describes the section folder itself. Archived private rooms  stay in the archive area; narrow it with `privacyFilter` of `GET api/2.0/files/rooms`.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-private-rooms-folder/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. | [optional]  |
+| **count** | **int?** | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. | [optional]  |
+| **startIndex** | **int?** | The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. | [optional]  |
+| **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
+| **filterValue** | **string?** | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
+
+### Return type
+
+[**FolderContentWrapper**](FolderContentWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetPrivateRoomsFolderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional) 
+            var filterType = new FilterType?(); // FilterType? | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional) 
+            var count = 25;  // int? | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional) 
+            var startIndex = 0;  // int? | The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional) 
+            var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
+            var filterValue = My Document;  // string? | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
+
+            try
+            {
+                // Get the private rooms section
+                FolderContentWrapper result = apiInstance.GetPrivateRoomsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FoldersApi.GetPrivateRoomsFolder: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPrivateRoomsFolderWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get the private rooms section
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetPrivateRoomsFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FoldersApi.GetPrivateRoomsFolderWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The private rooms section with one page of the private rooms the caller is a member of |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the metadata filter names an unknown template or field |  -  |
+| **403** | The caller is not allowed to read the private rooms section |  -  |
+| **404** | The end-to-end encrypted rooms app is turned off on this portal |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

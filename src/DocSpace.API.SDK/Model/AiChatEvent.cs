@@ -83,7 +83,13 @@ namespace DocSpace.API.SDK.Model
             /// Enum ThreadTitle for value: thread-title
             /// </summary>
             [EnumMember(Value = "thread-title")]
-            ThreadTitle
+            ThreadTitle,
+
+            /// <summary>
+            /// Enum ContextCompacted for value: context-compacted
+            /// </summary>
+            [EnumMember(Value = "context-compacted")]
+            ContextCompacted
         }
 
         /// <summary>

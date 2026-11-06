@@ -70,6 +70,9 @@ tags:
 - description: "Portal-wide, vectorization and per-user AI settings."
   name: AI / Settings
   x-displayName: Settings
+- description: AI-written skills for Instructions rooms.
+  name: AI / Skills
+  x-displayName: Skills
 - description: Chat threads and their messages.
   name: AI / Threads
   x-displayName: Threads
@@ -6829,6 +6832,122 @@ paths:
       summary: Fill metadata values
       tags:
       - AI / Metadata
+  /api/2.0/ai/skills/generate:
+    post:
+      description: "Writes the text of one skill from a title and the caller's description\
+        \ of the skill they need, for an Instructions room, without saving it: the\
+        \ caller shows the text for review and saves the version the user accepts\
+        \ as `<name>.md` through `POST api/2.0/files/{folderId}/insert`, where the\
+        \ Files service validates the frontmatter. `destId` is the integer id of the\
+        \ Instructions room, checked before the model runs: the caller has to be able\
+        \ to create files in it, and any other folder answers 400. `title` becomes\
+        \ the skill's `name`: it is lower-cased and every run of characters other\
+        \ than letters and digits is folded into one hyphen, so `Sales report` becomes\
+        \ `sales-report`. `description` is a specification of the skill, passed to\
+        \ the model as data, never as an instruction. The model bound to the `Chat`\
+        \ action - the `Default` slot when that action has no profile of its own -\
+        \ runs once, without tools, and writes the description and the body; the frontmatter\
+        \ is then rebuilt here, with the description flattened to one line, stripped\
+        \ of tags and cut to 1 024 characters, so the text as returned always passes\
+        \ the Files service's skill validation. The answer carries the skill's name\
+        \ and the whole file, frontmatter included."
+      operationId: aiSkillsGenerate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AiSkillsGenerateRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aiSkillsGenerate_200_response"
+          description: "The skill's name and the whole Markdown file, frontmatter\
+            \ included; nothing is saved."
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: "`destId` is not an integer id, `title` or `description` is\
+            \ missing or too long, `title` has no letter or digit, or the folder is\
+            \ not an Instructions room."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: Missing `asc_auth_key` cookie or `Authorization` header.
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aiMetaGenerate_402_response"
+          description: The model provider refused the request for lack of credit;
+            `code` and `providerMessage` carry its own words.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: The caller cannot create files in the room.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: The room does not exist.
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: "The request body is larger than 100 KB, the JSON parser's\
+            \ limit on this route."
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aiMetaGenerate_402_response"
+          description: The model provider is rate-limiting requests; `code` and `providerMessage`
+            carry its own words.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: Unhandled failure. The reason is logged server-side and never
+            echoed back.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aiMetaGenerate_402_response"
+          description: "The model request failed or returned an empty skill; `code`\
+            \ says how. `providerMessage` carries the provider's own words only for\
+            \ the portal's spending limit; other failures, an authentication one among\
+            \ them, leave it out."
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiErrorResponse"
+          description: No profile is bound to `Chat` and the `Default` slot is empty
+            too.
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aiMetaGenerate_402_response"
+          description: The model round did not finish within the time budget.
+      security:
+      - cookieAuth: []
+      - bearerAuth: []
+      summary: Generate a skill
+      tags:
+      - AI / Skills
   /api/2.0/ai/config:
     get:
       description: "Reports the portal's AI configuration and whether AI is usable\
@@ -13917,12 +14036,13 @@ paths:
         \ and the keys of everybody else are left as they are, which makes the call\
         \ idempotent for\r\na given set of recipients while remaining a mutating one;\
         \ sending no entry for a person does not revoke that\r\nperson's key. The\
-        \ file has to lie in a private room, and every account named in the request\
-        \ has to have read\r\naccess to it. The caller needs read access to the file\
-        \ and the right to create content in that room, which its\r\nmembers with\
-        \ editing rights and its admins have; a caller without those rights, a file\
-        \ outside a private room\r\nand a file that does not exist are all refused\
-        \ with 403. Read the result back with\r\n`GET api/2.0/files/{fileId}/access`."
+        \ file has to lie in a private room. An account named in the request that\
+        \ cannot read the file is skipped,\r\nnothing is stored for it, and it comes\
+        \ back in `skippedUserIds`, while the keys of the others are stored. The caller\
+        \ needs read access to the file and the right to create content in that room,\
+        \ which its\r\nmembers with editing rights and its admins have; a caller without\
+        \ those rights, a file outside a private room\r\nand a file that does not\
+        \ exist are all refused with 403. Read the result back with\r\n`GET api/2.0/files/{fileId}/access`."
       operationId: setEncryptionInfo
       parameters:
       - description: The file the keys are issued for; it has to lie in a private
@@ -16753,7 +16873,7 @@ paths:
               \ 29 - Virtual Data Room, 30 - Room templates folder, 31 - AI Room,\
               \ 32 - Knowledge, 33 - Chat outputs, 34 - AI Agents, 35 - Default Templates,\
               \ 36 - Forms, 37 - Ai, 38 - Instructions room, 39 - Knowledge room,\
-              \ 40 - AI project room, 41 - AI rooms]"
+              \ 40 - AI project room, 41 - AI rooms, 42 - Private rooms]"
             enum:
             - 0
             - 1
@@ -16790,6 +16910,7 @@ paths:
             - 39
             - 40
             - 41
+            - 42
             example: 0
             type: integer
             x-enum-varnames:
@@ -16828,6 +16949,7 @@ paths:
             - KnowledgeRoom
             - AiProjectRoom
             - AiHub
+            - PrivateRooms
           type: array
           default: null
         style: form
@@ -19104,6 +19226,216 @@ paths:
         - write
       - OpenId: []
       summary: Get the Forms section
+      tags:
+      - Files / Folders
+  /api/2.0/files/@private:
+    get:
+      description: "Returns the private rooms section: the flat list of end-to-end\
+        \ encrypted rooms the caller is a member of. Such\r\nrooms are stored under\
+        \ the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms`\
+        \ leaves them out of\r\nthe active area and lists them when `searchArea` names\
+        \ the private rooms area instead. An administrator who is not\r\na member\
+        \ does not see a private room here either. The section is not expanded into\
+        \ room content, so `folders`\r\ncarries the rooms while `files` comes back\
+        \ empty; to read what is inside one of them, call\r\n`GET api/2.0/files/{folderId}`\
+        \ with the room identifier. Nothing is modified, though passing `sortBy` saves\
+        \ the\r\nrequested order as the default order for this account. `filterType`,\
+        \ `filterValue`, `userIdOrGroupId` and the\r\nsorting parameters narrow and\
+        \ order the room list, `metadataTemplateId` and `metadataFilters` keep only\
+        \ the rooms\r\ncarrying the template and matching the conditions, `count`\
+        \ and `startIndex` page through it, `total` reports how\r\nmany rooms match\
+        \ the request in full, and `current` describes the section folder itself.\
+        \ Archived private rooms\r\nstay in the archive area; narrow it with `privacyFilter`\
+        \ of `GET api/2.0/files/rooms`."
+      operationId: getPrivateRoomsFolder
+      parameters:
+      - description: "Restricts the listing to the entries authored by this portal\
+          \ member, or by the members of this group; the same\r\nparameter accepts\
+          \ either kind of identifier. Omit it to list everything the caller can read."
+        explode: true
+        in: query
+        name: userIdOrGroupId
+        required: false
+        schema:
+          example: 00000000-0000-0000-0000-000000000000
+          format: uuid
+          type: string
+        style: form
+      - description: "Narrows the listing to a single kind of entry, such as documents,\
+          \ images or one type of room. Omit it to list\r\nevery kind the section\
+          \ holds."
+        example: 1
+        explode: true
+        in: query
+        name: filterType
+        required: false
+        schema:
+          $ref: "#/components/schemas/FilterType"
+        style: form
+      - description: "The size of one page of section content. Pair it with `startIndex`\
+          \ to walk the listing, and compare the two\r\nwith `total` in the response\
+          \ to see when the last page has been read."
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          example: 25
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "The number of matching entries to skip before the returned page\
+          \ begins; add `count` to it to ask for the next\r\npage."
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          example: 0
+          format: int32
+          type: integer
+        style: form
+      - description: "The name of the field the entries are ordered by, matched case-insensitively\
+          \ against the file sort fields:\r\n`DateAndTime`, `AZ`, `Size`, `Author`,\
+          \ `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,\r\n\
+          `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also\
+          \ saved as the default order of the\r\naccount and reused by later listings\
+          \ that omit the parameter, while a value matching none of the fields leaves\r\
+          \nthat saved order in place."
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          example: DateAndTime
+          type: string
+        style: form
+      - description: "The direction in which the `sortBy` field is ordered. It is\
+          \ saved together with `sortBy` as the default order\r\nof the account."
+        example: 1
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          $ref: "#/components/schemas/SortOrder"
+        style: form
+      - description: "The search string the section is filtered by: it is matched\
+          \ as a substring of entry titles and, for files,\r\nagainst the indexed\
+          \ document content as well. Omit it to list the section unfiltered."
+        explode: true
+        in: query
+        name: filterValue
+        required: false
+        schema:
+          example: My Document
+          type: string
+        style: form
+      - description: "The ID of the metadata template the entries must be assigned\
+          \ to. On its own it narrows the listing to the entries\r\ncarrying the template;\
+          \ together with the metadata filters it also pins the template the filtered\
+          \ fields belong to.\r\nThe third-party entries never carry metadata and\
+          \ are left out when the filter is set."
+        explode: true
+        in: query
+        name: metadataTemplateId
+        required: false
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: form
+      - description: "The URL-encoded JSON array of the metadata filter conditions,\r\
+          \ne.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].\r\
+          \nA string field takes eq or contains; a number or a date field takes range\
+          \ with inclusive bounds, or gt, gte, lt, lte with the bound in value;\r\n\
+          a date-only bound covers the whole day. A custom field is addressed by its\
+          \ name instead of the fieldId: {name:Client,op:eq,value:ACME}."
+        explode: true
+        in: query
+        name: metadataFilters
+        required: false
+        schema:
+          example: "[{\"fieldId\":1,\"op\":\"eq\",\"value\":\"ACME\"}]"
+          type: string
+        style: form
+      - description: "Whether the text search, and the metadataMatches it reports,\
+          \ also look at the values of the hidden metadata\r\ntemplates (created with\
+          \ visible false for the metadata a service keeps for itself, which the web\
+          \ client never\r\nshows). False, the default, leaves them out, so an entry\
+          \ is not found by such a value; true takes them in.\r\nmetadataTemplateId\
+          \ and metadataFilters are not concerned: a hidden template or field named\
+          \ there is searched\r\neither way."
+        explode: true
+        in: query
+        name: includeHiddenMetadata
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderContentWrapper"
+          description: The private rooms section with one page of the private rooms
+            the caller is a member of
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+            X-RateLimit-Reset:
+              $ref: "#/components/headers/X-RateLimit-Reset"
+        "400":
+          description: "A parameter has the wrong type, the `count` is outside its\
+            \ allowed range, the `startIndex` is negative, or the metadata filter\
+            \ names an unknown template or field"
+        "403":
+          description: The caller is not allowed to read the private rooms section
+        "404":
+          description: The end-to-end encrypted rooms app is turned off on this portal
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Unauthorized
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Too Many Requests.
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/Retry-After"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Internal Server Error.
+        "502":
+          description: "Bad Gateway. Returned by the reverse proxy, response body\
+            \ may be HTML and not JSON."
+        "503":
+          description: "Service Unavailable. Returned by the reverse proxy, response\
+            \ body may be HTML and not JSON."
+      security:
+      - asc_auth_key: []
+      - Bearer: []
+      - ApiKeyBearer: []
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get the private rooms section
       tags:
       - Files / Folders
   /api/2.0/files/{folderId}/upload/check:
@@ -22511,7 +22843,7 @@ paths:
               \ 29 - Virtual Data Room, 30 - Room templates folder, 31 - AI Room,\
               \ 32 - Knowledge, 33 - Chat outputs, 34 - AI Agents, 35 - Default Templates,\
               \ 36 - Forms, 37 - Ai, 38 - Instructions room, 39 - Knowledge room,\
-              \ 40 - AI project room, 41 - AI rooms]"
+              \ 40 - AI project room, 41 - AI rooms, 42 - Private rooms]"
             enum:
             - 0
             - 1
@@ -22548,6 +22880,7 @@ paths:
             - 39
             - 40
             - 41
+            - 42
             example: 0
             type: integer
             x-enum-varnames:
@@ -22586,6 +22919,7 @@ paths:
             - KnowledgeRoom
             - AiProjectRoom
             - AiHub
+            - PrivateRooms
           type: array
           default: null
         style: form
@@ -28735,7 +29069,7 @@ paths:
         \ a room\r\nmember out of the room, while an unrelated account is refused.\
         \ A private room answers to its members alone: a\r\nportal administrator outside\
         \ it is refused, and whoever loses access to it loses the wrapped file keys\r\
-        \n(`PUT api/2.0/files/file/{fileId}/access`) along with it, except its creator.\
+        \n(`PUT api/2.0/files/{fileId}/access`) along with it, except its creator.\
         \ The answer is always `true` and\r\nidentifiers that match nothing are skipped\
         \ silently, so a successful answer is not proof that anything was\r\nrevoked\
         \ - read the rights back with `POST api/2.0/files/share`. The call is destructive\
@@ -30157,7 +30491,7 @@ paths:
         style: form
       - description: "Splits the rooms by whether they are private, that is encrypted\
           \ rooms whose content the portal cannot read.\r\nOmitting it returns both\
-          \ kinds."
+          \ kinds, except in the active rooms, which leave private rooms out."
         example: 1
         explode: true
         in: query
@@ -33535,24 +33869,25 @@ paths:
     post:
       description: "Lists one page of the rooms of a section narrowed by metadata:\
         \ the active rooms by default, or the archive, the room\r\ntemplates, the\
-        \ form templates or the Forms section, chosen with `searchArea`, while `type`\
-        \ narrows the room types.\r\nThe filter is a typed body: `metadataTemplateId`\
-        \ alone keeps the rooms the template is assigned to, every condition\r\nin\
-        \ `metadataFilters` must hold at once, and `filterValue` adds a text search\
-        \ over room titles and metadata values;\r\nthe template and field IDs come\
-        \ from `GET api/2.0/files/metadata/templates`, and a body with none of them\
-        \ lists the\r\nsection unfiltered. A caller sees only the rooms they created\
-        \ or were invited to, a DocSpace admin sees all of\r\nthem, so an empty page\
-        \ means nothing visible matched. The call changes nothing but the sort order:\
-        \ a `sortBy` value\r\nis stored as the account's default order for later listings,\
-        \ and omitting it reuses the stored one. The rooms come\r\nin `folders` while\
-        \ `files` stays empty, and `total` counts every match before `count` and `startIndex`\
-        \ page through\r\nthem. An unknown template or field, a field outside the\
-        \ named template, more than 20 conditions, an unrecognised\r\n`sortBy` or\
-        \ a `count` out of range is refused with 400, a section the caller cannot\
-        \ read with 403. For the tag,\r\nmember, owner, storage, quota and privacy\
-        \ filters use `GET api/2.0/files/rooms`, which takes the same metadata\r\n\
-        filter as a JSON string."
+        \ form templates, the Forms section or the private rooms section, chosen with\
+        \ `searchArea`, while `type` narrows the room types. Private rooms are left\
+        \ out of the active rooms unless `privacyFilter` asks for them.\r\nThe filter\
+        \ is a typed body: `metadataTemplateId` alone keeps the rooms the template\
+        \ is assigned to, every condition\r\nin `metadataFilters` must hold at once,\
+        \ and `filterValue` adds a text search over room titles and metadata values;\r\
+        \nthe template and field IDs come from `GET api/2.0/files/metadata/templates`,\
+        \ and a body with none of them lists the\r\nsection unfiltered. A caller sees\
+        \ only the rooms they created or were invited to, a DocSpace admin sees all\
+        \ of\r\nthem, so an empty page means nothing visible matched. The call changes\
+        \ nothing but the sort order: a `sortBy` value\r\nis stored as the account's\
+        \ default order for later listings, and omitting it reuses the stored one.\
+        \ The rooms come\r\nin `folders` while `files` stays empty, and `total` counts\
+        \ every match before `count` and `startIndex` page through\r\nthem. An unknown\
+        \ template or field, a field outside the named template, more than 20 conditions,\
+        \ an unrecognised\r\n`sortBy` or a `count` out of range is refused with 400,\
+        \ a section the caller cannot read with 403. For the tag,\r\nmember, owner,\
+        \ storage, quota and privacy filters use `GET api/2.0/files/rooms`, which\
+        \ takes the same metadata\r\nfilter as a JSON string."
       operationId: searchRooms
       requestBody:
         content:
@@ -35099,7 +35434,8 @@ paths:
             X-RateLimit-Reset:
               $ref: "#/components/headers/X-RateLimit-Reset"
         "400":
-          description: The `searchArea` names a section other than `Active` and `Forms`
+          description: "The `searchArea` names a section other than `Active`, `Forms`\
+            \ and `PrivateRooms`"
         "401":
           content:
             application/json:
@@ -70567,6 +70903,7 @@ components:
           - message-incomplete
           - tool-call-pending
           - thread-title
+          - context-compacted
           example: message-delta
           type: string
         message:
@@ -70819,6 +71156,7 @@ components:
         modelId: gpt-4o
         reasoning: false
         reasoningSupport: ""
+        contextWindow: 0.8008281904610115
         capabilities: 7
         canUseTool: true
         useResponsesApi: false
@@ -70881,6 +71219,14 @@ components:
             \ catalogue reported it when the profile was saved; the effort choices\
             \ in the chat follow it. When absent, the abilities are taken from the\
             \ model ID."
+        contextWindow:
+          description: "Size of the selected model's context window in tokens, as\
+            \ the provider's catalogue reported it at save time (see `Model.contextWindow`).\
+            \ The engine's history compaction measures the thread against it; when\
+            \ absent the id-based table answers, and when that has no row either,\
+            \ `CompactionOptions.defaultContextWindow`. Hosts persist it with the\
+            \ rest of the profile."
+          type: number
         capabilities:
           description: Bitmask of capabilities supported by the selected model.
           example: 7
@@ -71286,6 +71632,7 @@ components:
         modelId: gpt-4o
         reasoning: false
         reasoningSupport: ""
+        contextWindow: 0.8008281904610115
         capabilities: 7
         canUseTool: true
         useResponsesApi: false
@@ -71343,6 +71690,14 @@ components:
             \ catalogue reported it when the profile was saved; the effort choices\
             \ in the chat follow it. When absent, the abilities are taken from the\
             \ model ID."
+        contextWindow:
+          description: "Size of the selected model's context window in tokens, as\
+            \ the provider's catalogue reported it at save time (see `Model.contextWindow`).\
+            \ The engine's history compaction measures the thread against it; when\
+            \ absent the id-based table answers, and when that has no row either,\
+            \ `CompactionOptions.defaultContextWindow`. Hosts persist it with the\
+            \ rest of the profile."
+          type: number
         capabilities:
           description: Bitmask of capabilities supported by the selected model.
           example: 7
@@ -71412,7 +71767,8 @@ components:
         reasoning: false
         reasoningSupport: ""
         capabilities: 7
-        created: 0.8008281904610115
+        contextWindow: 0.8008281904610115
+        created: 6.027456183070403
       properties:
         id:
           description: "Model identifier as used by the provider API (e.g. `gpt-4o`,\
@@ -71444,6 +71800,12 @@ components:
           description: "Bitmask of model capabilities (Chat, Image, Vision, Tools,\
             \ etc.). Used to filter models per `ActionType`."
           example: 7
+          type: number
+        contextWindow:
+          description: "Size of the model's context window in tokens, when the provider's\
+            \ catalogue reports one (OpenRouter and the ONLYOFFICE route carry `context_length`).\
+            \ Copied onto the profile at save time; absent, the widget falls back\
+            \ to the id-based table in `core/providers/context-window`."
           type: number
         created:
           description: "Release date as a Unix timestamp in **seconds**, when the\
@@ -72952,6 +73314,26 @@ components:
       required:
       - id
       - kind
+    AiSkillsGenerateRequest:
+      example:
+        destId: AiSkillsGenerateRequest_destId
+        title: title
+        description: description
+      properties:
+        destId:
+          $ref: "#/components/schemas/AiSkillsGenerateRequest_destId"
+        title:
+          description: "The skill's title, at most 64 characters; its kebab-case form\
+            \ is the skill's name."
+          type: string
+        description:
+          description: "What the skill should do, at most 2000 characters; a specification\
+            \ for the model."
+          type: string
+      required:
+      - description
+      - destId
+      - title
     AiVectorizationStartTaskRequest:
       example:
         files:
@@ -83060,7 +83442,8 @@ components:
         \ done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 -\
         \ Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Chat outputs,\
         \ 34 - AI Agents, 35 - Default Templates, 36 - Forms, 37 - Ai, 38 - Instructions\
-        \ room, 39 - Knowledge room, 40 - AI project room, 41 - AI rooms]"
+        \ room, 39 - Knowledge room, 40 - AI project room, 41 - AI rooms, 42 - Private\
+        \ rooms]"
       enum:
       - 0
       - 1
@@ -83097,6 +83480,7 @@ components:
       - 39
       - 40
       - 41
+      - 42
       example: 0
       type: integer
       x-enum-varnames:
@@ -83135,6 +83519,7 @@ components:
       - KnowledgeRoom
       - AiProjectRoom
       - AiHub
+      - PrivateRooms
     FolderWrapper:
       description: The successful API response containing the FolderDto object.
       example:
@@ -88603,7 +88988,7 @@ components:
       description: "[Active - Active, Archive - Archive, Any - Any, RecentByLinks\
         \ - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage\
         \ - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form\
-        \ templates, AiHub - AiHub]"
+        \ templates, AiHub - AiHub, PrivateRooms - Private rooms]"
       enum:
       - Active
       - Archive
@@ -88616,6 +89001,7 @@ components:
       - Forms
       - FormTemplates
       - AiHub
+      - PrivateRooms
       example: Active
       type: string
     SecurityInfoRequestDto:
@@ -111174,12 +111560,13 @@ components:
         modelId: modelId
         reasoning: true
         reasoningSupport: ""
-        capabilities: 0.8008281904610115
+        contextWindow: 0.8008281904610115
+        capabilities: 6.027456183070403
         canUseTool: true
         useResponsesApi: true
         isCloudProvider: true
         useProxy: true
-        createdAt: 6.027456183070403
+        createdAt: 1.4658129805029452
       properties:
         id:
           description: Unique profile identifier (UUID).
@@ -111216,6 +111603,14 @@ components:
             \ catalogue reported it when the profile was saved; the effort choices\
             \ in the chat follow it. When absent, the abilities are taken from the\
             \ model ID."
+        contextWindow:
+          description: "Size of the selected model's context window in tokens, as\
+            \ the provider's catalogue reported it at save time (see `Model.contextWindow`).\
+            \ The engine's history compaction measures the thread against it; when\
+            \ absent the id-based table answers, and when that has no row either,\
+            \ `CompactionOptions.defaultContextWindow`. Hosts persist it with the\
+            \ rest of the profile."
+          type: number
         capabilities:
           description: Bitmask of capabilities supported by the selected model.
           type: number
@@ -111620,6 +112015,22 @@ components:
       - skipped
       - sources
       - unresolved
+    aiSkillsGenerate_200_response:
+      example:
+        name: name
+        content: content
+      properties:
+        name:
+          description: The skill's name as written in the frontmatter; the file is
+            saved as `<name>.md`.
+          type: string
+        content:
+          description: "The whole Markdown file, frontmatter included. Nothing is\
+            \ saved."
+          type: string
+      required:
+      - content
+      - name
     aiVectorizationStartTask_200_response:
       additionalProperties: {}
       example:
@@ -112473,6 +112884,11 @@ components:
       - type: string
       - type: number
       description: The entry's integer id.
+    AiSkillsGenerateRequest_destId:
+      anyOf:
+      - type: string
+      - type: number
+      description: The integer id of the Instructions room the skill is written for.
     ErrorApiResponse_error:
       description: What went wrong.
       example:
@@ -112945,6 +113361,7 @@ x-tagGroups:
   - AI / Profiles
   - AI / Prompts
   - AI / Settings
+  - AI / Skills
   - AI / Threads
   - AI / Tools
   - AI / Vectorization

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [Active - Active, Archive - Archive, Any - Any, RecentByLinks - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form templates, AiHub - AiHub]
+    /// [Active - Active, Archive - Archive, Any - Any, RecentByLinks - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form templates, AiHub - AiHub, PrivateRooms - Private rooms]
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SearchArea
@@ -101,7 +101,13 @@ namespace DocSpace.API.SDK.Model
         /// Enum AiHub for value: AiHub
         /// </summary>
         [EnumMember(Value = "AiHub")]
-        AiHub
+        AiHub,
+
+        /// <summary>
+        /// Enum PrivateRooms for value: PrivateRooms
+        /// </summary>
+        [EnumMember(Value = "PrivateRooms")]
+        PrivateRooms
     }
 
 }

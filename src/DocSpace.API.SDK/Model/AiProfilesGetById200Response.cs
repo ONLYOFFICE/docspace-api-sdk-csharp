@@ -60,13 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="modelId">Selected model ID within this provider. (required).</param>
         /// <param name="reasoning">Whether extended thinking is enabled for this profile&#39;s model..</param>
         /// <param name="reasoningSupport">What the model can do with extended thinking, as the provider&#39;s catalogue reported it when the profile was saved; the effort choices in the chat follow it. When absent, the abilities are taken from the model ID..</param>
+        /// <param name="contextWindow">Size of the selected model&#39;s context window in tokens, as the provider&#39;s catalogue reported it at save time (see &#x60;Model.contextWindow&#x60;). The engine&#39;s history compaction measures the thread against it; when absent the id-based table answers, and when that has no row either, &#x60;CompactionOptions.defaultContextWindow&#x60;. Hosts persist it with the rest of the profile..</param>
         /// <param name="capabilities">Bitmask of capabilities supported by the selected model..</param>
         /// <param name="canUseTool">Result of the live tool-capability probe performed at create time and on changes to &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60;. &#x60;undefined&#x60; means the probe has never run for this profile (legacy record)..</param>
         /// <param name="useResponsesApi">Result of the live Responses-API probe (parallel to &#x60;canUseTool&#x60;). &#x60;true&#x60; means the model speaks &#x60;/v1/responses&#x60; and the OpenAI provider must route through &#x60;client.responses.create&#x60; — required for gpt-5+ reasoning models that reject &#x60;reasoning_effort&#x60; together with &#x60;tools&#x60; on &#x60;/v1/chat/completions&#x60;. Probed at create time and whenever &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60; change. &#x60;undefined&#x60; means the probe never ran (legacy record) — readers treat that as &#x60;false&#x60;..</param>
         /// <param name="isCloudProvider">Whether this profile uses a cloud-hosted provider (e.g. ONLYOFFICE DocSpace)..</param>
         /// <param name="useProxy">Whether the chat client sends this profile&#39;s provider requests through the portal&#39;s proxy instead of directly. Has no effect when no proxy is configured..</param>
         /// <param name="createdAt">Creation timestamp (ms since epoch). Used to sort the AI models list newest-first..</param>
-        public AiProfilesGetById200Response(string id = default, string name = default, AiProviderType providerType = default, AiBuiltinProviderType? basedOn = default, string baseUrl = default, string modelId = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default, bool canUseTool = default, bool useResponsesApi = default, bool isCloudProvider = default, bool useProxy = default, decimal createdAt = default)
+        public AiProfilesGetById200Response(string id = default, string name = default, AiProviderType providerType = default, AiBuiltinProviderType? basedOn = default, string baseUrl = default, string modelId = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal contextWindow = default, decimal capabilities = default, bool canUseTool = default, bool useResponsesApi = default, bool isCloudProvider = default, bool useProxy = default, decimal createdAt = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -101,6 +102,7 @@ namespace DocSpace.API.SDK.Model
             this.BasedOn = basedOn;
             this.Reasoning = reasoning;
             this.ReasoningSupport = reasoningSupport;
+            this.ContextWindow = contextWindow;
             this.Capabilities = capabilities;
             this.CanUseTool = canUseTool;
             this.UseResponsesApi = useResponsesApi;
@@ -150,6 +152,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "reasoningSupport", EmitDefaultValue = false)]
         public AiReasoningSupport ReasoningSupport { get; set; }
+
+        /// <summary>
+        /// Size of the selected model&#39;s context window in tokens, as the provider&#39;s catalogue reported it at save time (see &#x60;Model.contextWindow&#x60;). The engine&#39;s history compaction measures the thread against it; when absent the id-based table answers, and when that has no row either, &#x60;CompactionOptions.defaultContextWindow&#x60;. Hosts persist it with the rest of the profile.
+        /// </summary>
+        [DataMember(Name = "contextWindow", EmitDefaultValue = false)]
+        public decimal ContextWindow { get; set; }
 
         /// <summary>
         /// Bitmask of capabilities supported by the selected model.
@@ -203,6 +211,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("  Reasoning: ").Append(Reasoning).Append("\n");
             sb.Append("  ReasoningSupport: ").Append(ReasoningSupport).Append("\n");
+            sb.Append("  ContextWindow: ").Append(ContextWindow).Append("\n");
             sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
             sb.Append("  CanUseTool: ").Append(CanUseTool).Append("\n");
             sb.Append("  UseResponsesApi: ").Append(UseResponsesApi).Append("\n");

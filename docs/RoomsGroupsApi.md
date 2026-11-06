@@ -597,7 +597,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room groups of the calling account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The `searchArea` names a section other than `Active` and `Forms` |  -  |
+| **400** | The `searchArea` names a section other than `Active`, `Forms` and `PrivateRooms` |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

@@ -52,8 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="reasoning">Whether this model supports extended thinking / chain-of-thought reasoning..</param>
         /// <param name="reasoningSupport">What the model can do with extended thinking, when the provider&#39;s catalogue reports it (OpenRouter and the ONLYOFFICE route do). Copied onto the profile when it is saved; when absent, the abilities are taken from the model ID..</param>
         /// <param name="capabilities">Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;..</param>
+        /// <param name="contextWindow">Size of the model&#39;s context window in tokens, when the provider&#39;s catalogue reports one (OpenRouter and the ONLYOFFICE route carry &#x60;context_length&#x60;). Copied onto the profile at save time; absent, the widget falls back to the id-based table in &#x60;core/providers/context-window&#x60;..</param>
         /// <param name="created">Release date as a Unix timestamp in **seconds**, when the provider&#39;s catalogue reports one (OpenAI-shaped &#x60;/models&#x60; responses and OpenRouter carry &#x60;created&#x60;; Anthropic carries an ISO &#x60;created_at&#x60;). The model picker sorts on it so the newest releases come first; entries without it fall back to alphabetical order..</param>
-        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default, decimal created = default)
+        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default, decimal contextWindow = default, decimal created = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -76,6 +77,7 @@ namespace DocSpace.API.SDK.Model
             this.Reasoning = reasoning;
             this.ReasoningSupport = reasoningSupport;
             this.Capabilities = capabilities;
+            this.ContextWindow = contextWindow;
             this.Created = created;
         }
 
@@ -121,6 +123,12 @@ namespace DocSpace.API.SDK.Model
         public decimal Capabilities { get; set; }
 
         /// <summary>
+        /// Size of the model&#39;s context window in tokens, when the provider&#39;s catalogue reports one (OpenRouter and the ONLYOFFICE route carry &#x60;context_length&#x60;). Copied onto the profile at save time; absent, the widget falls back to the id-based table in &#x60;core/providers/context-window&#x60;.
+        /// </summary>
+        [DataMember(Name = "contextWindow", EmitDefaultValue = false)]
+        public decimal ContextWindow { get; set; }
+
+        /// <summary>
         /// Release date as a Unix timestamp in **seconds**, when the provider&#39;s catalogue reports one (OpenAI-shaped &#x60;/models&#x60; responses and OpenRouter carry &#x60;created&#x60;; Anthropic carries an ISO &#x60;created_at&#x60;). The model picker sorts on it so the newest releases come first; entries without it fall back to alphabetical order.
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
@@ -140,6 +148,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Reasoning: ").Append(Reasoning).Append("\n");
             sb.Append("  ReasoningSupport: ").Append(ReasoningSupport).Append("\n");
             sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
+            sb.Append("  ContextWindow: ").Append(ContextWindow).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
