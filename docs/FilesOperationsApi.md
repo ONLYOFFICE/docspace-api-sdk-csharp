@@ -2345,10 +2345,11 @@ catch (ApiException e)
 | **200** | The assembled file and the identifiers of the closed session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The parts received so far do not add up to the size the session was opened for |  -  |
 | **402** | Storing the file would exceed a storage quota or size limit |  -  |
+| **403** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2468,10 +2469,11 @@ catch (ApiException e)
 | **200** | The assembled file and the identifiers of the closed session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The parts received so far do not add up to the size the session was opened for |  -  |
 | **402** | Storing the file would exceed a storage quota or size limit |  -  |
+| **403** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3664,10 +3666,11 @@ catch (ApiException e)
 | **200** | The session with its progress after the part was stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part, or `chunkNumber` is 0 or negative |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or a session below that size would exceed a storage quota or size limit when storing the file |  -  |
+| **403** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3791,10 +3794,11 @@ catch (ApiException e)
 | **200** | The session with its progress after the part was stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part, or `chunkNumber` is 0 or negative |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or a session below that size would exceed a storage quota or size limit when storing the file |  -  |
+| **403** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A session below `chunkUploadSize` stores a file that is not a PDF in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3914,10 +3918,11 @@ catch (ApiException e)
 | **200** | The progress of the session, or the stored file once the last part has arrived |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or storing the file would exceed a storage quota or size limit |  -  |
+| **403** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4039,10 +4044,11 @@ catch (ApiException e)
 | **200** | The progress of the session, or the stored file once the last part has arrived |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no `File` part |  -  |
 | **402** | The part is larger than `chunkUploadSize`, or storing the file would exceed a storage quota or size limit |  -  |
+| **403** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No open session with the specified ID in this folder: it never existed, was finalized or aborted, has expired, or belongs to another folder |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

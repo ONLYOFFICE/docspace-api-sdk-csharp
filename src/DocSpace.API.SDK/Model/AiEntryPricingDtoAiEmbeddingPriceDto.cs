@@ -48,11 +48,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The model identifier to send to the AI operations. It is the value to branch on, while &#x60;alias&#x60; is for display  only. (required).</param>
         /// <param name="alias">The model name as the vendor writes it, meant to be shown to a person rather than matched on. (required).</param>
-        /// <param name="provider">Who runs the model. Two entries can share a provider, and one provider&#39;s models can be priced quite  differently, so the price always belongs to the entry and never to the provider. (required).</param>
+        /// <param name="provider">Who runs the model: the built-in provider, or the vendor the portal&#39;s own key belongs to when &#x60;byok&#x60; is  true. Two entries can share a provider, and one provider&#39;s models can be priced quite differently, so  the price always belongs to the entry and never to the provider. (required).</param>
         /// <param name="image">The absolute URL of the provider&#39;s icon, for rendering next to the entry. (required).</param>
-        /// <param name="price">What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call. (required).</param>
-        /// <param name="link">The provider&#39;s own page for the model, for a person to read the model&#39;s terms. It is empty when the  provider publishes none. (required).</param>
-        public AiEntryPricingDtoAiEmbeddingPriceDto(string id = default, string alias = default, string provider = default, string image = default, AiEmbeddingPriceDto price = default, string link = default)
+        /// <param name="price">What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call. When &#x60;byok&#x60; is true it is the vendor&#39;s own price, which  the portal pays to the vendor directly. (required).</param>
+        /// <param name="byok">Whether this portal calls the model with its own provider key (BYOK) instead of the built-in one; when  true, &#x60;provider&#x60;, &#x60;price&#x60; and &#x60;link&#x60; describe the vendor of that key..</param>
+        /// <param name="link">The provider&#39;s own page for the model, for a person to read the model&#39;s terms; for a BYOK entry, the  vendor&#39;s pricing page. It is empty when the provider publishes none. (required).</param>
+        public AiEntryPricingDtoAiEmbeddingPriceDto(string id = default, string alias = default, string provider = default, string image = default, AiEmbeddingPriceDto price = default, bool byok = default, string link = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,6 +91,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("link is a required property for AiEntryPricingDtoAiEmbeddingPriceDto and cannot be null");
             }
             this.Link = link;
+            this.Byok = byok;
         }
 
         /// <summary>
@@ -107,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         public string Alias { get; set; }
 
         /// <summary>
-        /// Who runs the model. Two entries can share a provider, and one provider&#39;s models can be priced quite  differently, so the price always belongs to the entry and never to the provider.
+        /// Who runs the model: the built-in provider, or the vendor the portal&#39;s own key belongs to when &#x60;byok&#x60; is  true. Two entries can share a provider, and one provider&#39;s models can be priced quite differently, so  the price always belongs to the entry and never to the provider.
         /// </summary>
         /// <example>openai</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
@@ -121,13 +123,20 @@ namespace DocSpace.API.SDK.Model
         public string Image { get; set; }
 
         /// <summary>
-        /// What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call.
+        /// What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call. When &#x60;byok&#x60; is true it is the vendor&#39;s own price, which  the portal pays to the vendor directly.
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public AiEmbeddingPriceDto Price { get; set; }
 
         /// <summary>
-        /// The provider&#39;s own page for the model, for a person to read the model&#39;s terms. It is empty when the  provider publishes none.
+        /// Whether this portal calls the model with its own provider key (BYOK) instead of the built-in one; when  true, &#x60;provider&#x60;, &#x60;price&#x60; and &#x60;link&#x60; describe the vendor of that key.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "byok", EmitDefaultValue = true)]
+        public bool Byok { get; set; }
+
+        /// <summary>
+        /// The provider&#39;s own page for the model, for a person to read the model&#39;s terms; for a BYOK entry, the  vendor&#39;s pricing page. It is empty when the provider publishes none.
         /// </summary>
         /// <example>https://openai.com/pricing</example>
         [DataMember(Name = "link", IsRequired = true, EmitDefaultValue = true)]
@@ -146,6 +155,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Byok: ").Append(Byok).Append("\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

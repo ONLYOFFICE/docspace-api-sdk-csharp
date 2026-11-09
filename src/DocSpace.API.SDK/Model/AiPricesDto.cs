@@ -88,28 +88,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The chat models on offer, each priced per million prompt and completion tokens. A model listed here is one  the installation can bill for, not necessarily one this portal may use -  &#x60;GET api/2.0/portal/payment/ai-model/restrictions&#x60; says which are allowed.
         /// </summary>
-        /// <example>[{"id":"gpt-4o","alias":"GPT-4o","provider":"openai","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":5.0,"completion":15.0}}]</example>
+        /// <example>[{"id":"gpt-4o","alias":"GPT-4o","provider":"openai","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":5.0,"completion":15.0},"byok":false}]</example>
         [DataMember(Name = "chat", IsRequired = true, EmitDefaultValue = true)]
         public List<AiEntryPricingDtoAiChatPriceDto> Chat { get; set; }
 
         /// <summary>
         /// The embedding models on offer, priced per million tokens of input; an embedding model has no completion  side, so its price object carries &#x60;prompt&#x60; alone.
         /// </summary>
-        /// <example>[{"id":"text-embedding-3-large","alias":"Text Embedding 3 Large","provider":"openai","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":0.13}}]</example>
+        /// <example>[{"id":"text-embedding-3-large","alias":"Text Embedding 3 Large","provider":"openai","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":0.13},"byok":false}]</example>
         [DataMember(Name = "embedding", IsRequired = true, EmitDefaultValue = true)]
         public List<AiEntryPricingDtoAiEmbeddingPriceDto> Embedding { get; set; }
 
         /// <summary>
         /// The image models on offer, priced per million prompt and completion tokens plus a price for each image  produced.
         /// </summary>
-        /// <example>[{"id":"gpt-5.4-image-2","alias":"GPT 5.4 Image 2","provider":"OpenRouter","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":8.0,"completion":15.0,"image":30.0}}]</example>
+        /// <example>[{"id":"gpt-5.4-image-2","alias":"GPT 5.4 Image 2","provider":"OpenRouter","image":"https://cdn.example.com/providers/openai.png","price":{"prompt":8.0,"completion":15.0,"image":30.0},"byok":false}]</example>
         [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
         public List<AiEntryPricingDtoAiImagePriceDto> Image { get; set; }
 
         /// <summary>
         /// The web search providers on offer. Their &#x60;price&#x60; is a bare number - the cost of one search - rather than  an object, because there are no tokens to distinguish.
         /// </summary>
-        /// <example>[{"id":"web-search","alias":"Web Search","provider":"tavily","image":"https://cdn.example.com/providers/tavily.png","price":0.01}]</example>
+        /// <example>[{"id":"web-search","alias":"Web Search","provider":"tavily","image":"https://cdn.example.com/providers/tavily.png","price":0.01,"byok":false}]</example>
         [DataMember(Name = "webSearch", IsRequired = true, EmitDefaultValue = true)]
         public List<AiEntryPricingDtoDecimal> WebSearch { get; set; }
 

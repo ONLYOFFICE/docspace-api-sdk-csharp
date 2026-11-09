@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **OperationCount** | **int** | How many separate charges the total was added up from. The charges themselves are in  `GET api/2.0/portal/payment/customer/operations`. | [optional] 
 **Price** | **double** | What one unit of the service costs today, not what it cost during the period. It is `0` when the service  is no longer on the installation's price list. | [optional] 
 **Subscription** | **bool** | Whether the service is billed as a standing subscription rather than per unit consumed. It is derived  from today's price list, so it describes the service as it is sold now. | [optional] 
+**Byok** | **bool** | Whether the total is AI consumption paid with the portal's own provider keys rather than from the wallet. It  is `false` on a total into which that consumption was merged, which mixes the two. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

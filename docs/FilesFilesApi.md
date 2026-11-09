@@ -563,9 +563,9 @@ catch (ApiException e)
 | **200** | The versions of the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `version` |  -  |
 | **402** | Completing the current version needs more space than the room or user storage quota leaves |  -  |
-| **403** | The caller may not change the version history of the file |  -  |
+| **403** | The caller may not change the version history of the file, or the file is locked by somebody else |  -  |
 | **404** | The file id, or the requested version of it, resolves to nothing |  -  |
-| **500** | The file is locked by somebody else, or, when the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
+| **500** | When the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -687,9 +687,9 @@ catch (ApiException e)
 | **200** | The versions of the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `version` |  -  |
 | **402** | Completing the current version needs more space than the room or user storage quota leaves |  -  |
-| **403** | The caller may not change the version history of the file |  -  |
+| **403** | The caller may not change the version history of the file, or the file is locked by somebody else |  -  |
 | **404** | The file id, or the requested version of it, resolves to nothing |  -  |
-| **500** | The file is locked by somebody else, or, when the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
+| **500** | When the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -1551,7 +1551,7 @@ catch (ApiException e)
 | **200** | The file created in the folder: its id and the title the portal actually stored, whose extension may differ from the requested one; `thumbnailStatus` says whether the preview is already built |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title`, or the title is empty or longer than 165 characters |  -  |
 | **402** | The new file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, or the form gallery has no file of the title's format |  -  |
+| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, the form gallery has no file of the title's format, or the file is not a PDF and the folder lies in a form-filling room |  -  |
 | **404** | The folder id or `templateId` is a string that is not the id of an item in a known third-party storage |  -  |
 | **500** | `templateId` is a fraction, a number outside the 32-bit range or a numeric string, the form gallery does not know `formId` or cannot be reached, or the folder id is 0 and the caller is a guest without My documents |  -  |
 | **401** | Unauthorized |  -  |
@@ -1675,7 +1675,7 @@ catch (ApiException e)
 | **200** | The file created in the folder: its id and the title the portal actually stored, whose extension may differ from the requested one; `thumbnailStatus` says whether the preview is already built |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title`, or the title is empty or longer than 165 characters |  -  |
 | **402** | The new file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, or the form gallery has no file of the title's format |  -  |
+| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, the form gallery has no file of the title's format, or the file is not a PDF and the folder lies in a form-filling room |  -  |
 | **404** | The folder id or `templateId` is a string that is not the id of an item in a known third-party storage |  -  |
 | **500** | `templateId` is a fraction, a number outside the 32-bit range or a numeric string, the form gallery does not know `formId` or cannot be reached, or the folder id is 0 and the caller is a guest without My documents |  -  |
 | **401** | Unauthorized |  -  |
@@ -1809,7 +1809,7 @@ catch (ApiException e)
 # **CreateFilePrimaryExternalLink**
 > FileShareWrapper CreateFilePrimaryExternalLink (int id, FileLinkRequest fileLinkRequest)
 
-Answers with the primary external link of a file, creating it on the first call and returning the one that  already exists afterwards, so the operation is idempotent in effect: a second call with other parameters does  not reconfigure the existing link, and changing one is the business of `PUT api/2.0/files/file/{id}/links`.  The parameters therefore only shape the link at the moment it is born - `access` its rights, `expirationDate`  its lifetime, which for a file in a personal section is unlimited here rather than the default of a few days,  `internal` whether only signed-in members may follow it, `denyDownload` whether the content may only be  viewed, and `password` a secret to be asked for. A PDF form gets the rights it needs for filling out whatever  was asked for, and a form in a form-filling room is answered with the link of the room instead. The caller  needs the right to share the file and is otherwise refused with 403; a link that was deliberately revoked is  not recreated but answered with 404. Read the address from `sharedTo.shareLink`.
+Answers with the primary external link of a file, creating it on the first call and returning the one that  already exists afterwards, so the operation is idempotent in effect: a second call with other parameters does  not reconfigure the existing link, and changing one is the business of `PUT api/2.0/files/file/{id}/links`.  The parameters therefore only shape the link at the moment it is born - `access` its rights, `expirationDate`  its lifetime, which for a file in a personal section is unlimited here rather than the default of a few days,  `internal` whether only signed-in members may follow it, `denyDownload` whether the content may only be  viewed, and `password` a secret to be asked for. A PDF form gets the rights it needs for filling out whatever  was asked for, and a form in a form-filling room is answered with the link of the room instead. The caller  needs the right to share the file and is otherwise refused with 403. A primary link that was revoked is  created anew by this call, with a new identifier, while `GET api/2.0/files/file/{id}/link` keeps answering  such a link with 404. Read the address from `sharedTo.shareLink`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/).
 
@@ -1917,7 +1917,7 @@ catch (ApiException e)
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
 | **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin restricts external links to public rooms |  -  |
-| **404** | The file does not exist, or its primary link was revoked |  -  |
+| **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1932,7 +1932,7 @@ catch (ApiException e)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
-Answers with the primary external link of a file, creating it on the first call and returning the one that  already exists afterwards, so the operation is idempotent in effect: a second call with other parameters does  not reconfigure the existing link, and changing one is the business of `PUT api/2.0/files/file/{id}/links`.  The parameters therefore only shape the link at the moment it is born - `access` its rights, `expirationDate`  its lifetime, which for a file in a personal section is unlimited here rather than the default of a few days,  `internal` whether only signed-in members may follow it, `denyDownload` whether the content may only be  viewed, and `password` a secret to be asked for. A PDF form gets the rights it needs for filling out whatever  was asked for, and a form in a form-filling room is answered with the link of the room instead. The caller  needs the right to share the file and is otherwise refused with 403; a link that was deliberately revoked is  not recreated but answered with 404. Read the address from `sharedTo.shareLink`.
+Answers with the primary external link of a file, creating it on the first call and returning the one that  already exists afterwards, so the operation is idempotent in effect: a second call with other parameters does  not reconfigure the existing link, and changing one is the business of `PUT api/2.0/files/file/{id}/links`.  The parameters therefore only shape the link at the moment it is born - `access` its rights, `expirationDate`  its lifetime, which for a file in a personal section is unlimited here rather than the default of a few days,  `internal` whether only signed-in members may follow it, `denyDownload` whether the content may only be  viewed, and `password` a secret to be asked for. A PDF form gets the rights it needs for filling out whatever  was asked for, and a form in a form-filling room is answered with the link of the room instead. The caller  needs the right to share the file and is otherwise refused with 403. A primary link that was revoked is  created anew by this call, with a new identifier, while `GET api/2.0/files/file/{id}/link` keeps answering  such a link with 404. Read the address from `sharedTo.shareLink`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/).
 
@@ -2040,7 +2040,7 @@ catch (ApiException e)
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
 | **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin restricts external links to public rooms |  -  |
-| **404** | The file does not exist, or its primary link was revoked |  -  |
+| **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2161,7 +2161,7 @@ catch (ApiException e)
 | **200** | The created or updated HTML file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
 | **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **403** | The caller may not create files in this folder, the folder is a section where files cannot be created, or the folder lies in a form-filling room, which takes PDF files only |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -2285,7 +2285,7 @@ catch (ApiException e)
 | **200** | The created or updated HTML file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
 | **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **403** | The caller may not create files in this folder, the folder is a section where files cannot be created, or the folder lies in a form-filling room, which takes PDF files only |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -2527,7 +2527,7 @@ catch (ApiException e)
 | **200** | The created or updated text file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
 | **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **403** | The caller may not create files in this folder, the folder is a section where files cannot be created, or the folder lies in a form-filling room, which takes PDF files only |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -2651,7 +2651,7 @@ catch (ApiException e)
 | **200** | The created or updated text file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
 | **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
-| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **403** | The caller may not create files in this folder, the folder is a section where files cannot be created, or the folder lies in a form-filling room, which takes PDF files only |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -7724,9 +7724,9 @@ catch (ApiException e)
 | **200** | The editing revisions of the file after the restore |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The version is missing or is already the current one |  -  |
 | **402** | The restored content does not fit into the storage quota |  -  |
-| **403** | The caller may not change the version history of the file, or, with `url`, may not edit the file or the file is locked by somebody else or being edited |  -  |
+| **403** | The caller may not change the version history of the file, the file is locked by somebody else, or, with `url`, may not edit the file or the file is being edited |  -  |
 | **404** | Without `url`, the file id or the requested version resolves to nothing |  -  |
-| **500** | The file is locked by somebody else or being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
+| **500** | The file is being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -7849,9 +7849,9 @@ catch (ApiException e)
 | **200** | The editing revisions of the file after the restore |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The version is missing or is already the current one |  -  |
 | **402** | The restored content does not fit into the storage quota |  -  |
-| **403** | The caller may not change the version history of the file, or, with `url`, may not edit the file or the file is locked by somebody else or being edited |  -  |
+| **403** | The caller may not change the version history of the file, the file is locked by somebody else, or, with `url`, may not edit the file or the file is being edited |  -  |
 | **404** | Without `url`, the file id or the requested version resolves to nothing |  -  |
-| **500** | The file is locked by somebody else or being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
+| **500** | The file is being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -9687,7 +9687,7 @@ catch (ApiException e)
 | **403** | The caller cannot edit the file, the file is locked or in Trash, somebody is already editing it and the session was claimed alone, or the document service did not accept the tracking request |  -  |
 | **404** | The file id resolves to nothing |  -  |
 | **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
-| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file is locked by somebody else or lies in Trash |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -9811,7 +9811,7 @@ catch (ApiException e)
 | **403** | The caller cannot edit the file, the file is locked or in Trash, somebody is already editing it and the session was claimed alone, or the document service did not accept the tracking request |  -  |
 | **404** | The file id resolves to nothing |  -  |
 | **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
-| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file is locked by somebody else or lies in Trash |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -9823,7 +9823,7 @@ catch (ApiException e)
 # **StartFillingFile**
 > FileWrapper StartFillingFile (int fileId)
 
-Marks a PDF form in a form-filling room as open for filling out and answers with the form file. The portal  stores the filling properties on it - the room it belongs to, its title, the account that started it and the  id it keeps as the original form - so that later submissions are collected against this form. The file has to  be a PDF whose parent folder is a form-filling room; anything else is answered unchanged and nothing is  stored. Access follows room membership rather than portal role: a member holding only form-filling access on  the room may not start filling, and a caller with no access to the room at all is refused with 403 unless they  can manage it, which the room owner, a room administrator and a DocSpace administrator can. The call is  mutating and safe to repeat, since a repeat rewrites the same properties. Once a form is started, the answers  submitted for it can be collected into a spreadsheet with `POST api/2.0/files/file/{fileId}/xlsx`.
+Marks a PDF form in a form-filling room as open for filling out and answers with the form file. The portal  stores the filling properties on it - the room it belongs to, its title, the account that started it and the  id it keeps as the original form - so that later submissions are collected against this form. The file has to  be a PDF whose parent folder is a form-filling room; anything else is answered unchanged and nothing is  stored. Whatever the file, a caller who cannot read it is refused with 403. Inside a form-filling room access  follows room membership rather than portal role: a member holding only form-filling access on  the room may not start filling, and a caller with no access to the room at all is refused with 403 unless they  can manage it, which the room owner, a room administrator and a DocSpace administrator can. The call is  mutating and safe to repeat, since a repeat rewrites the same properties. Once a form is started, the answers  submitted for it can be collected into a spreadsheet with `POST api/2.0/files/file/{fileId}/xlsx`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/).
 
@@ -9927,7 +9927,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The form file, with the filling properties now stored on it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller holds only form-filling access on the room, or no access to it at all |  -  |
+| **403** | The caller cannot read the file, or holds only form-filling access on the room, or no access to it at all |  -  |
 | **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -9944,7 +9944,7 @@ catch (ApiException e)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
-Marks a PDF form in a form-filling room as open for filling out and answers with the form file. The portal  stores the filling properties on it - the room it belongs to, its title, the account that started it and the  id it keeps as the original form - so that later submissions are collected against this form. The file has to  be a PDF whose parent folder is a form-filling room; anything else is answered unchanged and nothing is  stored. Access follows room membership rather than portal role: a member holding only form-filling access on  the room may not start filling, and a caller with no access to the room at all is refused with 403 unless they  can manage it, which the room owner, a room administrator and a DocSpace administrator can. The call is  mutating and safe to repeat, since a repeat rewrites the same properties. Once a form is started, the answers  submitted for it can be collected into a spreadsheet with `POST api/2.0/files/file/{fileId}/xlsx`.
+Marks a PDF form in a form-filling room as open for filling out and answers with the form file. The portal  stores the filling properties on it - the room it belongs to, its title, the account that started it and the  id it keeps as the original form - so that later submissions are collected against this form. The file has to  be a PDF whose parent folder is a form-filling room; anything else is answered unchanged and nothing is  stored. Whatever the file, a caller who cannot read it is refused with 403. Inside a form-filling room access  follows room membership rather than portal role: a member holding only form-filling access on  the room may not start filling, and a caller with no access to the room at all is refused with 403 unless they  can manage it, which the room owner, a room administrator and a DocSpace administrator can. The call is  mutating and safe to repeat, since a repeat rewrites the same properties. Once a form is started, the answers  submitted for it can be collected into a spreadsheet with `POST api/2.0/files/file/{fileId}/xlsx`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/).
 
@@ -10048,7 +10048,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The form file, with the filling properties now stored on it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller holds only form-filling access on the room, or no access to it at all |  -  |
+| **403** | The caller cannot read the file, or holds only form-filling access on the room, or no access to it at all |  -  |
 | **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -10418,9 +10418,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The session was refreshed or closed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | An anonymous caller has no external link, or refreshes the session through a link that does not grant editing |  -  |
-| **403** | The document key does not match the revision being edited, or the caller has none of the editing rights on the file |  -  |
+| **403** | The document key does not match the revision being edited, the caller has none of the editing rights on the file, or the session is refreshed while the file is locked by somebody else |  -  |
 | **404** | The file id resolves to nothing |  -  |
-| **500** | The session is refreshed while the file is locked by somebody else or lies in Trash |  -  |
+| **500** | The session is refreshed while the file lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -10545,9 +10545,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The session was refreshed or closed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | An anonymous caller has no external link, or refreshes the session through a link that does not grant editing |  -  |
-| **403** | The document key does not match the revision being edited, or the caller has none of the editing rights on the file |  -  |
+| **403** | The document key does not match the revision being edited, the caller has none of the editing rights on the file, or the session is refreshed while the file is locked by somebody else |  -  |
 | **404** | The file id resolves to nothing |  -  |
-| **500** | The session is refreshed while the file is locked by somebody else or lies in Trash |  -  |
+| **500** | The session is refreshed while the file lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -10668,9 +10668,9 @@ catch (ApiException e)
 | **400** | The title is longer than 165 characters, or `lastVersion` is the current version |  -  |
 | **401** | An anonymous caller has no external link |  -  |
 | **402** | Restoring `lastVersion` needs more space than the room or user storage quota leaves |  -  |
-| **403** | The caller may not read or rename the file or change its version |  -  |
+| **403** | The caller may not read or rename the file or change its version, or the file is locked by somebody else |  -  |
 | **404** | The file id, or `lastVersion` of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
-| **500** | The file is locked by somebody else, a third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
+| **500** | A third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -10792,9 +10792,9 @@ catch (ApiException e)
 | **400** | The title is longer than 165 characters, or `lastVersion` is the current version |  -  |
 | **401** | An anonymous caller has no external link |  -  |
 | **402** | Restoring `lastVersion` needs more space than the room or user storage quota leaves |  -  |
-| **403** | The caller may not read or rename the file or change its version |  -  |
+| **403** | The caller may not read or rename the file or change its version, or the file is locked by somebody else |  -  |
 | **404** | The file id, or `lastVersion` of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
-| **500** | The file is locked by somebody else, a third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
+| **500** | A third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |

@@ -50,7 +50,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="operationCount">How many separate charges the total was added up from. The charges themselves are in  &#x60;GET api/2.0/portal/payment/customer/operations&#x60;..</param>
         /// <param name="price">What one unit of the service costs today, not what it cost during the period. It is &#x60;0&#x60; when the service  is no longer on the installation&#39;s price list..</param>
         /// <param name="subscription">Whether the service is billed as a standing subscription rather than per unit consumed. It is derived  from today&#39;s price list, so it describes the service as it is sold now..</param>
-        public CustomerServiceUsageDto(string service = default, string title = default, string serviceUnit = default, string currency = default, int totalQuantity = default, double totalAmount = default, int operationCount = default, double price = default, bool subscription = default)
+        /// <param name="byok">Whether the total is AI consumption paid with the portal&#39;s own provider keys rather than from the wallet. It  is &#x60;false&#x60; on a total into which that consumption was merged, which mixes the two..</param>
+        public CustomerServiceUsageDto(string service = default, string title = default, string serviceUnit = default, string currency = default, int totalQuantity = default, double totalAmount = default, int operationCount = default, double price = default, bool subscription = default, bool byok = default)
         {
             this.Service = service;
             this.Title = title;
@@ -61,6 +62,7 @@ namespace DocSpace.API.SDK.Model
             this.OperationCount = operationCount;
             this.Price = price;
             this.Subscription = subscription;
+            this.Byok = byok;
         }
 
         /// <summary>
@@ -127,6 +129,13 @@ namespace DocSpace.API.SDK.Model
         public bool Subscription { get; set; }
 
         /// <summary>
+        /// Whether the total is AI consumption paid with the portal&#39;s own provider keys rather than from the wallet. It  is &#x60;false&#x60; on a total into which that consumption was merged, which mixes the two.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "byok", EmitDefaultValue = true)]
+        public bool Byok { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,6 +152,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  OperationCount: ").Append(OperationCount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Subscription: ").Append(Subscription).Append("\n");
+            sb.Append("  Byok: ").Append(Byok).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

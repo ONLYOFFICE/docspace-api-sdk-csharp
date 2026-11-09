@@ -547,7 +547,7 @@ catch (ApiException e)
 # **CreateFolderPrimaryExternalLink**
 > FileShareWrapper CreateFolderPrimaryExternalLink (int id, FolderLinkRequest folderLinkRequest)
 
-Answers with the primary external link of a folder or a room, creating it on the first call and returning the  one that already exists afterwards, so the operation is idempotent in effect: a second call with other  parameters does not reconfigure the existing link, and changing one is the business of  `PUT api/2.0/files/folder/{id}/links`. The parameters therefore only shape the link at the moment it is born -  `access` its rights, `title` its name, `expirationDate` its lifetime, which is unlimited here unless one is  given, `internal` whether only signed-in members may follow it, `denyDownload` whether the contents may only  be viewed, and `password` a secret to be asked for. Sending `access` with the value that grants nothing  creates no link and answers with nothing. The caller needs the right to manage the links of the room the  folder belongs to, which its manager and a portal administrator acting as room manager have, and a member with  content-creator or read access is refused with 403; an unknown folder is answered with 404. Read the address  from `sharedTo.shareLink`.
+Answers with the primary external link of a folder or a room, creating it on the first call and returning the  one that already exists afterwards, so the operation is idempotent in effect: a second call with other  parameters does not reconfigure the existing link, and changing one is the business of  `PUT api/2.0/files/folder/{id}/links`. The parameters therefore only shape the link at the moment it is born -  `access` its rights, `title` its name, `expirationDate` its lifetime, which is unlimited here unless one is  given, `internal` whether only signed-in members may follow it, `denyDownload` whether the contents may only  be viewed, and `password` a secret to be asked for. Sending `access` with the value that grants nothing  creates no link and answers with nothing. The caller needs the right to manage the links of the room the  folder belongs to, which its manager and a portal administrator acting as room manager have, and a member with  content-creator or read access is refused with 403; an unknown folder is answered with 404. A primary link  that was revoked is created anew by this call, with a new identifier, while  `GET api/2.0/files/folder/{id}/link` keeps answering such a link with 404. Read the address from  `sharedTo.shareLink`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/).
 
@@ -655,7 +655,7 @@ catch (ApiException e)
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
 | **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin restricts external links to public rooms |  -  |
-| **404** | The folder does not exist, or its primary link was revoked |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -670,7 +670,7 @@ catch (ApiException e)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
-Answers with the primary external link of a folder or a room, creating it on the first call and returning the  one that already exists afterwards, so the operation is idempotent in effect: a second call with other  parameters does not reconfigure the existing link, and changing one is the business of  `PUT api/2.0/files/folder/{id}/links`. The parameters therefore only shape the link at the moment it is born -  `access` its rights, `title` its name, `expirationDate` its lifetime, which is unlimited here unless one is  given, `internal` whether only signed-in members may follow it, `denyDownload` whether the contents may only  be viewed, and `password` a secret to be asked for. Sending `access` with the value that grants nothing  creates no link and answers with nothing. The caller needs the right to manage the links of the room the  folder belongs to, which its manager and a portal administrator acting as room manager have, and a member with  content-creator or read access is refused with 403; an unknown folder is answered with 404. Read the address  from `sharedTo.shareLink`.
+Answers with the primary external link of a folder or a room, creating it on the first call and returning the  one that already exists afterwards, so the operation is idempotent in effect: a second call with other  parameters does not reconfigure the existing link, and changing one is the business of  `PUT api/2.0/files/folder/{id}/links`. The parameters therefore only shape the link at the moment it is born -  `access` its rights, `title` its name, `expirationDate` its lifetime, which is unlimited here unless one is  given, `internal` whether only signed-in members may follow it, `denyDownload` whether the contents may only  be viewed, and `password` a secret to be asked for. Sending `access` with the value that grants nothing  creates no link and answers with nothing. The caller needs the right to manage the links of the room the  folder belongs to, which its manager and a portal administrator acting as room manager have, and a member with  content-creator or read access is refused with 403; an unknown folder is answered with 404. A primary link  that was revoked is created anew by this call, with a new identifier, while  `GET api/2.0/files/folder/{id}/link` keeps answering such a link with 404. Read the address from  `sharedTo.shareLink`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/).
 
@@ -778,7 +778,7 @@ catch (ApiException e)
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
 | **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin restricts external links to public rooms |  -  |
-| **404** | The folder does not exist, or its primary link was revoked |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -4619,12 +4619,12 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The stored file with its id and the title it was actually saved under; a `version` above 1 means the content was added to a file that already carried this name instead of creating a new one |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
-| **403** | The caller cannot add content to this folder |  -  |
+| **403** | The caller cannot add content to this folder, or a file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -4766,12 +4766,12 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The stored file with its id and the title it was actually saved under; a `version` above 1 means the content was added to a file that already carried this name instead of creating a new one |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
-| **403** | The caller cannot add content to this folder |  -  |
+| **403** | The caller cannot add content to this folder, or a file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -6131,12 +6131,12 @@ catch (ApiException e)
 | **200** | The stored file, as a list with one element |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no file part |  -  |
 | **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
-| **403** | The caller cannot add content to this folder |  -  |
+| **403** | The caller cannot add content to this folder, or a file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6262,12 +6262,12 @@ catch (ApiException e)
 | **200** | The stored file, as a list with one element |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request has no file part |  -  |
 | **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
-| **403** | The caller cannot add content to this folder |  -  |
+| **403** | The caller cannot add content to this folder, or a file that is not a PDF is stored in a form-filling room |  -  |
 | **404** | No folder with the specified ID |  -  |
 | **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
-| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

@@ -56,6 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="currency">The currency &#x60;credit&#x60; and &#x60;debit&#x60; are expressed in, as a three-letter ISO 4217 code. It is the accounting  currency of the wallet, which need not be the currency the subscription is priced in..</param>
         /// <param name="credit">The amount that went into the wallet. It is &#x60;0&#x60; on a movement that only took money out, so the pair of  &#x60;credit&#x60; and &#x60;debit&#x60; is what shows which way the money went; the &#x60;credit&#x60; and &#x60;debit&#x60; filters of the  operation select the two directions by exactly this..</param>
         /// <param name="debit">The amount that was taken out of the wallet, &#x60;0&#x60; on a movement that put money in..</param>
+        /// <param name="byok">Whether the AI operation ran on the portal&#39;s own provider key..</param>
+        /// <param name="provider">The AI provider that ran the operation; &#x60;null&#x60; when it was not recorded..</param>
         /// <param name="cost">What the AI provider charged for the whole &#x60;quantity&#x60; of an AI tools or AI search charge, as the billing  service recorded it - the provider&#39;s side of the same operation &#x60;debit&#x60; bills the portal for. It is &#x60;null&#x60;  on any other movement, and on an AI charge recorded without a provider cost..</param>
         /// <param name="participantName">Who caused the movement, as the billing service records them - an internal name, which is what the  &#x60;participantName&#x60; filter matches on. Show &#x60;participantDisplayName&#x60; instead..</param>
         /// <param name="participantDisplayName">The same person as their portal display name. It falls back to &#x60;participantName&#x60; when the name belongs to  no portal account, so it is never empty while &#x60;participantName&#x60; is filled..</param>
@@ -64,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="sourceId">The identifier of that thing, to look it up in the module it belongs to. Empty under the same conditions  as &#x60;sourceType&#x60;..</param>
         /// <param name="tokenUsage">The tokens an AI operation consumed, broken down by kind - prompt, completion, cache reads and writes,  reasoning, images. It is &#x60;null&#x60; on any movement that is not an AI charge, and on an AI charge the billing  service recorded without token counts..</param>
         /// <param name="type">What kind of movement this is - a payment, a charge, a refund, a correction. It is what the &#x60;type&#x60; filter  matches on, and &#x60;Unknown&#x60; covers a movement the billing service reported under a kind this build does not  recognise..</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, double? cost = default, string participantName = default, string participantDisplayName = default, string sourceType = default, string sourceTitle = default, string sourceId = default, OperationTokenUsageDto tokenUsage = default, OperationType? type = default)
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, bool byok = default, string provider = default, double? cost = default, string participantName = default, string participantDisplayName = default, string sourceType = default, string sourceTitle = default, string sourceId = default, OperationTokenUsageDto tokenUsage = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -75,6 +77,8 @@ namespace DocSpace.API.SDK.Model
             this.Currency = currency;
             this.Credit = credit;
             this.Debit = debit;
+            this.Byok = byok;
+            this.Provider = provider;
             this.Cost = cost;
             this.ParticipantName = participantName;
             this.ParticipantDisplayName = participantDisplayName;
@@ -148,6 +152,20 @@ namespace DocSpace.API.SDK.Model
         public double Debit { get; set; }
 
         /// <summary>
+        /// Whether the AI operation ran on the portal&#39;s own provider key.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "byok", EmitDefaultValue = true)]
+        public bool Byok { get; set; }
+
+        /// <summary>
+        /// The AI provider that ran the operation; &#x60;null&#x60; when it was not recorded.
+        /// </summary>
+        /// <example>anthropic</example>
+        [DataMember(Name = "provider", EmitDefaultValue = true)]
+        public string Provider { get; set; }
+
+        /// <summary>
         /// What the AI provider charged for the whole &#x60;quantity&#x60; of an AI tools or AI search charge, as the billing  service recorded it - the provider&#39;s side of the same operation &#x60;debit&#x60; bills the portal for. It is &#x60;null&#x60;  on any other movement, and on an AI charge recorded without a provider cost.
         /// </summary>
         /// <example>0.007</example>
@@ -212,6 +230,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
             sb.Append("  Debit: ").Append(Debit).Append("\n");
+            sb.Append("  Byok: ").Append(Byok).Append("\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  ParticipantDisplayName: ").Append(ParticipantDisplayName).Append("\n");

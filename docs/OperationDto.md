@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **Currency** | **string** | The currency `credit` and `debit` are expressed in, as a three-letter ISO 4217 code. It is the accounting  currency of the wallet, which need not be the currency the subscription is priced in. | [optional] 
 **Credit** | **double** | The amount that went into the wallet. It is `0` on a movement that only took money out, so the pair of  `credit` and `debit` is what shows which way the money went; the `credit` and `debit` filters of the  operation select the two directions by exactly this. | [optional] 
 **Debit** | **double** | The amount that was taken out of the wallet, `0` on a movement that put money in. | [optional] 
+**Byok** | **bool** | Whether the AI operation ran on the portal's own provider key. | [optional] 
+**Provider** | **string** | The AI provider that ran the operation; `null` when it was not recorded. | [optional] 
 **Cost** | **double?** | What the AI provider charged for the whole `quantity` of an AI tools or AI search charge, as the billing  service recorded it - the provider's side of the same operation `debit` bills the portal for. It is `null`  on any other movement, and on an AI charge recorded without a provider cost. | [optional] 
 **ParticipantName** | **string** | Who caused the movement, as the billing service records them - an internal name, which is what the  `participantName` filter matches on. Show `participantDisplayName` instead. | [optional] 
 **ParticipantDisplayName** | **string** | The same person as their portal display name. It falls back to `participantName` when the name belongs to  no portal account, so it is never empty while `participantName` is filled. | [optional] 

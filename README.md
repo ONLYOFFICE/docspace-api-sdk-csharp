@@ -298,6 +298,29 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Save files many</td>
       </tr>
     <tr>
+        <td colspan="3" style="text-align: center;"><strong>BYOKApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIBYOKApi.md#aibyokkeysdelete"><strong>AiByokKeysDelete</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/byok/{id}</td>
+        <td>Delete a BYOK key</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIBYOKApi.md#aibyokkeyslist"><strong>AiByokKeysList</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/byok</td>
+        <td>List BYOK keys</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIBYOKApi.md#aibyokkeysset"><strong>AiByokKeysSet</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/byok/{id}</td>
+        <td>Set a BYOK key</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIBYOKApi.md#aibyokproviders"><strong>AiByokProviders</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/byok/providers</td>
+        <td>List BYOK providers</td>
+      </tr>
+    <tr>
         <td colspan="3" style="text-align: center;"><strong>ContextApi</strong></td>
       </tr>
       <tr>
@@ -4433,6 +4456,10 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiBuiltinProviderType](docs/AiBuiltinProviderType.md)
  - [Model.AiBulkAssignmentResult](docs/AiBulkAssignmentResult.md)
  - [Model.AiBulkAssignmentResultErrorsInner](docs/AiBulkAssignmentResultErrorsInner.md)
+ - [Model.AiByokKey](docs/AiByokKey.md)
+ - [Model.AiByokKeyInput](docs/AiByokKeyInput.md)
+ - [Model.AiByokModel](docs/AiByokModel.md)
+ - [Model.AiByokProvider](docs/AiByokProvider.md)
  - [Model.AiChatErrorPayload](docs/AiChatErrorPayload.md)
  - [Model.AiChatEvent](docs/AiChatEvent.md)
  - [Model.AiChatPriceDto](docs/AiChatPriceDto.md)
